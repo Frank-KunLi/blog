@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?d8c0a4185322e94013582201484f9131";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="memset0.cn/solution/luogu1979/">
+    
+    
+    <title>洛谷1979 - 华容道 | memset0&#39;s blog | 站在时代的十字路口</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="搜索">
+    <meta name="description" content="一道经典的搜索题。由于棋子没必要也不可能和非空格的棋子交换，目标棋子也只可能通过与空格交换位置达到目标位置，因此我们只需要存储空格和目标棋子的位置即可。这样爆搜即可拿到 $80$ 分。 接着考虑能否继续优化：每次目标棋子改变位置空格必须在他旁边，因此存储除了初始状态和终止状态外的空格不在目标棋子旁边的状态没有意义。因此我们可以用 BFS 处理出状态之间转移的代价，然后用 SPFA 等最短路算法跑一">
+<meta name="keywords" content="搜索">
+<meta property="og:type" content="article">
+<meta property="og:title" content="洛谷1979 - 华容道">
+<meta property="og:url" content="https://oi.memset0.cn/solution/luogu1979/index.html">
+<meta property="og:site_name" content="memset0&#39;s blog">
+<meta property="og:description" content="一道经典的搜索题。由于棋子没必要也不可能和非空格的棋子交换，目标棋子也只可能通过与空格交换位置达到目标位置，因此我们只需要存储空格和目标棋子的位置即可。这样爆搜即可拿到 $80$ 分。 接着考虑能否继续优化：每次目标棋子改变位置空格必须在他旁边，因此存储除了初始状态和终止状态外的空格不在目标棋子旁边的状态没有意义。因此我们可以用 BFS 处理出状态之间转移的代价，然后用 SPFA 等最短路算法跑一">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-10-10T12:14:53.318Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="洛谷1979 - 华容道">
+<meta name="twitter:description" content="一道经典的搜索题。由于棋子没必要也不可能和非空格的棋子交换，目标棋子也只可能通过与空格交换位置达到目标位置，因此我们只需要存储空格和目标棋子的位置即可。这样爆搜即可拿到 $80$ 分。 接着考虑能否继续优化：每次目标棋子改变位置空格必须在他旁边，因此存储除了初始状态和终止状态外的空格不在目标棋子旁边的状态没有意义。因此我们可以用 BFS 处理出状态之间转移的代价，然后用 SPFA 等最短路算法跑一">
+    
+        <link rel="alternate" type="application/atom+xml" title="memset0&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.png">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+	
+	<link rel="stylesheet" href="/modify.css">
+
+</head>
+
+
+<style>
+.fix-icon-chevron-up {
+	line-height: 0em!important;
+}
+</style>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">memset0</h5>
+          <a href="mailto:memset0@outlook.com" title="memset0@outlook.com" class="mail">memset0@outlook.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                Home
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about"  >
+                <i class="icon icon-lg icon-user"></i>
+                About
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/friends"  >
+                <i class="icon icon-lg icon-link"></i>
+                Friends
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://cloud.memset0.cn/"  >
+                <i class="icon icon-lg icon-cloud"></i>
+                Cloud
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/memset0" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">洛谷1979 - 华容道</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">洛谷1979 - 华容道</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-09-16T02:34:00.000Z" itemprop="datePublished" class="page-time">
+  2018-09-16
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Solution/">Solution</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+<article id="post-solution/luogu1979"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">洛谷1979 - 华容道</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-09-16 10:34:00" datetime="2018-09-16T02:34:00.000Z"  itemprop="datePublished">2018-09-16</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Solution/">Solution</a></li></ul>
+
+
+
+            
+<span>
+	1,138 字
+</span>
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>一道经典的搜索题。由于棋子没必要也不可能和非空格的棋子交换，目标棋子也只可能通过与空格交换位置达到目标位置，因此我们只需要存储空格和目标棋子的位置即可。这样爆搜即可拿到 $80$ 分。</p>
+<p>接着考虑能否继续优化：每次目标棋子改变位置空格必须在他旁边，因此存储除了初始状态和终止状态外的空格不在目标棋子旁边的状态没有意义。因此我们可以用 BFS 处理出状态之间转移的代价，然后用 SPFA 等最短路算法跑一遍即可。本题由于状态个数和状态之间的边不多，正常常数的 SPFA 不会被卡掉。</p>
+<p>需要注意的是：在使用 BFS 搜索空格转移代价时不能经过目标棋子。<br>算法时间复杂度：$O(n^4)$</p>
+<a id="more"></a>
+<p>代码（出于某些原因我写的比较长，其实很短的 QAQ）：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ==============================</span></span><br><span class="line"><span class="comment">//  author: memset0</span></span><br><span class="line"><span class="comment">//  website: https://memset0.cn</span></span><br><span class="line"><span class="comment">// ==============================</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">read</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> x = <span class="number">0</span>; <span class="keyword">bool</span> m = <span class="number">0</span>; <span class="keyword">char</span> c = getchar();</span><br><span class="line">    <span class="keyword">while</span> (!<span class="built_in">isdigit</span>(c) &amp;&amp; c != <span class="string">'-'</span>) c = getchar();</span><br><span class="line">    <span class="keyword">if</span> (c == <span class="string">'-'</span>) m = <span class="number">1</span>, c = getchar();</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">isdigit</span>(c)) x = x * <span class="number">10</span> + c - <span class="string">'0'</span>, c = getchar();</span><br><span class="line">    <span class="keyword">if</span> (m) <span class="keyword">return</span> -x; <span class="keyword">else</span> <span class="keyword">return</span> x;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> wyl &#123;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">32</span>;</span><br><span class="line">	<span class="keyword">const</span> <span class="keyword">int</span> mov[<span class="number">4</span>][<span class="number">2</span>] = &#123;</span><br><span class="line">		&#123;<span class="number">1</span>, <span class="number">0</span>&#125;, &#123;<span class="number">-1</span>, <span class="number">0</span>&#125;,</span><br><span class="line">		&#123;<span class="number">0</span>, <span class="number">1</span>&#125;, &#123;<span class="number">0</span>, <span class="number">-1</span>&#125;,</span><br><span class="line">	&#125;;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">int</span> n, m, p, u, v, l, r;</span><br><span class="line">	<span class="keyword">int</span> x, y, x1, x2, y1, y2;</span><br><span class="line">	<span class="keyword">int</span> s, e, sx, sy, ex, ey, tx, ty;</span><br><span class="line">	<span class="keyword">int</span> pos;</span><br><span class="line">	<span class="keyword">int</span> a[<span class="number">35</span>][<span class="number">35</span>], id[<span class="number">35</span>][<span class="number">35</span>][<span class="number">35</span>][<span class="number">35</span>], dis[<span class="number">1000000</span>];</span><br><span class="line">	<span class="keyword">int</span> q[<span class="number">10000000</span>];</span><br><span class="line">	<span class="keyword">bool</span> inq[<span class="number">1000000</span>], vis[<span class="number">35</span>][<span class="number">35</span>];</span><br><span class="line">	</span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">status</span> &#123;</span></span><br><span class="line">		<span class="keyword">int</span> x, y, stp;</span><br><span class="line">		status () &#123;&#125;</span><br><span class="line">		status (<span class="keyword">int</span> a, <span class="keyword">int</span> b, <span class="keyword">int</span> c) &#123;</span><br><span class="line">			x = a, y = b, stp = c;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125; q0[<span class="number">10000000</span>];</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">int</span> tot = <span class="number">2</span>, tmptot, hed[<span class="number">1000000</span>], tmphed[<span class="number">1000000</span>], to[<span class="number">8000000</span>], nxt[<span class="number">8000000</span>], val[<span class="number">8000000</span>];</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">add_edge</span><span class="params">(<span class="keyword">int</span> u, <span class="keyword">int</span> v, <span class="keyword">int</span> w)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">if</span> (!~w) <span class="keyword">return</span>;</span><br><span class="line">		nxt[tot] = hed[u], to[tot] = v, val[tot] = w;</span><br><span class="line">		hed[u] = tot++;</span><br><span class="line">	&#125;</span><br><span class="line">			</span><br><span class="line">	<span class="function"><span class="keyword">int</span> <span class="title">bfs</span><span class="params">(<span class="keyword">int</span> sx, <span class="keyword">int</span> sy, <span class="keyword">int</span> ex, <span class="keyword">int</span> ey, <span class="keyword">int</span> kx, <span class="keyword">int</span> ky)</span>  </span>&#123;</span><br><span class="line">		<span class="keyword">if</span> (sx == ex &amp;&amp; sy == ey) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">		status u, v;</span><br><span class="line">		<span class="built_in">memset</span>(vis, <span class="number">0</span>, <span class="keyword">sizeof</span>(vis));</span><br><span class="line">		l = r = <span class="number">1</span>;</span><br><span class="line">		q0[<span class="number">1</span>] = status(sx, sy, <span class="number">0</span>);</span><br><span class="line">		vis[sx][sy] = vis[kx][ky] = <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">while</span> (l &lt;= r) &#123;</span><br><span class="line">			u = q0[l++];</span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> t = <span class="number">0</span>; t &lt; <span class="number">4</span>; t++) &#123;</span><br><span class="line">				v.x = u.x + mov[t][<span class="number">0</span>];</span><br><span class="line">				v.y = u.y + mov[t][<span class="number">1</span>];</span><br><span class="line">				v.stp = u.stp + <span class="number">1</span>;</span><br><span class="line">				<span class="keyword">if</span> ((!a[v.x][v.y]) &amp;&amp; !vis[v.x][v.y]) &#123;</span><br><span class="line">					<span class="keyword">if</span> (v.x == ex &amp;&amp; v.y == ey) &#123;</span><br><span class="line">						<span class="keyword">return</span> v.stp;</span><br><span class="line">					&#125;</span><br><span class="line">					vis[v.x][v.y] = <span class="number">1</span>;</span><br><span class="line">					q0[++r] = v;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">int</span> <span class="title">spfa</span><span class="params">(<span class="keyword">int</span> s, <span class="keyword">int</span> e)</span> </span>&#123;</span><br><span class="line">		<span class="built_in">memset</span>(dis, <span class="number">-1</span>, <span class="keyword">sizeof</span>(dis));</span><br><span class="line">		l = r = <span class="number">1</span>, q[<span class="number">1</span>] = s, dis[s] = <span class="number">0</span>, inq[s] = <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">while</span> (l &lt;= r) &#123;</span><br><span class="line">			u = q[l++], inq[u] = <span class="number">0</span>;</span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> i = hed[u]; i; i = nxt[i]) &#123;</span><br><span class="line">				<span class="keyword">int</span> v = to[i];</span><br><span class="line">				<span class="keyword">if</span> (!~dis[v] || dis[v] &gt; dis[u] + val[i]) &#123;</span><br><span class="line">					dis[v] = dis[u] + val[i];</span><br><span class="line">					<span class="keyword">if</span> (!inq[v]) &#123;</span><br><span class="line">						q[++r] = v;</span><br><span class="line">						inq[v] = <span class="number">1</span>;</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> dis[e];</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		n = read(), m = read(), p = read();</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= m; j++)</span><br><span class="line">				a[i][j] = read() ^ <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= n + <span class="number">1</span>; i++)</span><br><span class="line">			a[i][<span class="number">0</span>] = a[i][m + <span class="number">1</span>] = <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= m + <span class="number">1</span>; i++)</span><br><span class="line">			a[<span class="number">0</span>][i] = a[n + <span class="number">1</span>][i] = <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= m; j++)</span><br><span class="line">				<span class="keyword">if</span> (!a[i][j]) &#123;</span><br><span class="line">					<span class="keyword">for</span> (<span class="keyword">int</span> t = <span class="number">0</span>; t &lt; <span class="number">4</span>; t++) &#123;</span><br><span class="line">						x = i + mov[t][<span class="number">0</span>];</span><br><span class="line">						y = j + mov[t][<span class="number">1</span>];</span><br><span class="line">						<span class="keyword">if</span> (!a[x][y]) &#123;</span><br><span class="line">							id[i][j][x][y] = ++pos;</span><br><span class="line">						&#125;</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= m; j++)</span><br><span class="line">				<span class="keyword">if</span> (!a[i][j]) &#123;</span><br><span class="line">					<span class="keyword">for</span> (<span class="keyword">int</span> t = <span class="number">0</span>; t &lt; <span class="number">4</span>; t++) &#123;</span><br><span class="line">						x = i + mov[t][<span class="number">0</span>];</span><br><span class="line">						y = j + mov[t][<span class="number">1</span>];</span><br><span class="line">						<span class="keyword">if</span> (!a[x][y])</span><br><span class="line">							add_edge(id[i][j][x][y], id[x][y][i][j], <span class="number">1</span>);</span><br><span class="line">					&#125;</span><br><span class="line">					<span class="keyword">for</span> (<span class="keyword">int</span> t1 = <span class="number">0</span>; t1 &lt; <span class="number">4</span>; t1++) &#123;</span><br><span class="line">						x1 = i + mov[t1][<span class="number">0</span>];</span><br><span class="line">						y1 = j + mov[t1][<span class="number">1</span>];</span><br><span class="line">						<span class="keyword">if</span> (!a[x1][y1])</span><br><span class="line">							<span class="keyword">for</span> (<span class="keyword">int</span> t2 = <span class="number">0</span>; t2 &lt; <span class="number">4</span>; t2++) </span><br><span class="line">								<span class="keyword">if</span> (t1 ^ t2) &#123;</span><br><span class="line">									x2 = i + mov[t2][<span class="number">0</span>];</span><br><span class="line">									y2 = j + mov[t2][<span class="number">1</span>];</span><br><span class="line">									<span class="keyword">if</span> (!a[x2][y2])</span><br><span class="line">										add_edge(id[i][j][x1][y1], id[i][j][x2][y2], bfs(x1, y1, x2, y2, i, j));</span><br><span class="line">								&#125;</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;</span><br><span class="line">		tmptot = tot;</span><br><span class="line">		<span class="built_in">memcpy</span>(tmphed, hed, <span class="keyword">sizeof</span>(hed));</span><br><span class="line">		<span class="keyword">while</span> (p--) &#123;</span><br><span class="line">			tot = tmptot;</span><br><span class="line">			<span class="built_in">memcpy</span>(hed, tmphed, <span class="keyword">sizeof</span>(hed));</span><br><span class="line">			tx = read(), ty = read(), sx = read(), sy = read(), ex = read(), ey = read();</span><br><span class="line">			s = ++pos, e = ++pos;</span><br><span class="line">			<span class="keyword">if</span> (sx == ex &amp;&amp; sy == ey) &#123;</span><br><span class="line">				<span class="built_in">puts</span>(<span class="string">"0"</span>);</span><br><span class="line">				<span class="keyword">continue</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> t = <span class="number">0</span>; t &lt; <span class="number">4</span>; t++) &#123;</span><br><span class="line">				x = sx + mov[t][<span class="number">0</span>];</span><br><span class="line">				y = sy + mov[t][<span class="number">1</span>];</span><br><span class="line">				<span class="keyword">if</span> (id[sx][sy][x][y]) &#123;</span><br><span class="line">					add_edge(s, id[sx][sy][x][y], bfs(tx, ty, x, y, sx, sy));</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> t = <span class="number">0</span>; t &lt; <span class="number">4</span>; t++) &#123;</span><br><span class="line">				x = ex + mov[t][<span class="number">0</span>];</span><br><span class="line">				y = ey + mov[t][<span class="number">1</span>];</span><br><span class="line">				<span class="keyword">if</span> (id[ex][ey][x][y]) &#123;</span><br><span class="line">					add_edge(id[ex][ey][x][y], e, <span class="number">0</span>);</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"%d\n"</span>, spfa(s, e));</span><br><span class="line">			pos -= <span class="number">2</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> wyl::main();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        </div>
+
+        <!--<blockquote class="post-copyright">
+    <div class="content">
+        
+
+        
+    </div>
+    <footer>
+        <a href="https://oi.memset0.cn">
+            <img src="/img/avatar.png" alt="memset0">
+            memset0
+        </a>
+    </footer>
+</blockquote>-->
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/搜索/">搜索</a></li></ul>
+
+
+            
+
+
+        </div>
+    </div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "rHgVqrBsv0EYGFSxzDDIDapm-9Nh9j0Va",
+            appKey: "X7Dp3hEvRWPbqHBYkOTBXzPm",
+            avatar: "mm",
+            placeholder: "留下你的脚印~",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "20"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+	
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/solution/bzoj4945/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">BZOJ4945 - [NOI2017]游戏</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/solution/luogu2783/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">洛谷2783 - 有机化学之神偶尔会做作弊</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+	<span>
+		总字数：41.7k
+	</span>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>memset0 &copy; 2017 - 2018</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">浙ICP备-备你麻痹</a><br>
+                
+                Hosted by <a href="https://pages.coding.me">Coding Pages</a> · Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up fix-icon-chevron-up"></span></a>
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: false, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

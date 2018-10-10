@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?d8c0a4185322e94013582201484f9131";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="memset0.cn/solution/luogu4168/">
+    
+    
+    <title>洛谷4168 - [Violet]蒲公英 | memset0&#39;s blog | 站在时代的十字路口</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="强制在线,分块">
+    <meta name="description" content="这道黑题为什么那么水 QAQ这道题在 BZOJ 上为什么又又又又又是权限题  本题求区间众数，强制在线。 对于每次查询，必定可以分为整块的和非整块的，我们先预处理出第 $i$ 块到第 $j$ 块的众数（ $max[i][j]$ ）和某个数 $i$ 在前 $j$ 个块内的前缀和（ $sum[i][j]$ ）。对于非整块的部分 $O(\sqrt n)$ 暴力加到桶里，加上整块中的个数判断能否更新答案">
+<meta name="keywords" content="强制在线,分块">
+<meta property="og:type" content="article">
+<meta property="og:title" content="洛谷4168 - [Violet]蒲公英">
+<meta property="og:url" content="https://oi.memset0.cn/solution/luogu4168/index.html">
+<meta property="og:site_name" content="memset0&#39;s blog">
+<meta property="og:description" content="这道黑题为什么那么水 QAQ这道题在 BZOJ 上为什么又又又又又是权限题  本题求区间众数，强制在线。 对于每次查询，必定可以分为整块的和非整块的，我们先预处理出第 $i$ 块到第 $j$ 块的众数（ $max[i][j]$ ）和某个数 $i$ 在前 $j$ 个块内的前缀和（ $sum[i][j]$ ）。对于非整块的部分 $O(\sqrt n)$ 暴力加到桶里，加上整块中的个数判断能否更新答案">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-10-10T12:14:53.320Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="洛谷4168 - [Violet]蒲公英">
+<meta name="twitter:description" content="这道黑题为什么那么水 QAQ这道题在 BZOJ 上为什么又又又又又是权限题  本题求区间众数，强制在线。 对于每次查询，必定可以分为整块的和非整块的，我们先预处理出第 $i$ 块到第 $j$ 块的众数（ $max[i][j]$ ）和某个数 $i$ 在前 $j$ 个块内的前缀和（ $sum[i][j]$ ）。对于非整块的部分 $O(\sqrt n)$ 暴力加到桶里，加上整块中的个数判断能否更新答案">
+    
+        <link rel="alternate" type="application/atom+xml" title="memset0&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.png">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+	
+	<link rel="stylesheet" href="/modify.css">
+
+</head>
+
+
+<style>
+.fix-icon-chevron-up {
+	line-height: 0em!important;
+}
+</style>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">memset0</h5>
+          <a href="mailto:memset0@outlook.com" title="memset0@outlook.com" class="mail">memset0@outlook.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                Home
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about"  >
+                <i class="icon icon-lg icon-user"></i>
+                About
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/friends"  >
+                <i class="icon icon-lg icon-link"></i>
+                Friends
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://cloud.memset0.cn/"  >
+                <i class="icon icon-lg icon-cloud"></i>
+                Cloud
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/memset0" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">洛谷4168 - [Violet]蒲公英</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">洛谷4168 - [Violet]蒲公英</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-09-21T07:56:00.000Z" itemprop="datePublished" class="page-time">
+  2018-09-21
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Solution/">Solution</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+<article id="post-solution/luogu4168"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">洛谷4168 - [Violet]蒲公英</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-09-21 15:56:00" datetime="2018-09-21T07:56:00.000Z"  itemprop="datePublished">2018-09-21</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Solution/">Solution</a></li></ul>
+
+
+
+            
+<span>
+	810 字
+</span>
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <blockquote>
+<p>这道黑题为什么那么水 QAQ<br>这道题在 BZOJ 上为什么又又又又又是权限题</p>
+</blockquote>
+<p>本题求区间众数，强制在线。</p>
+<p>对于每次查询，必定可以分为整块的和非整块的，我们先预处理出第 $i$ 块到第 $j$ 块的众数（ $max[i][j]$ ）和某个数 $i$ 在前 $j$ 个块内的前缀和（ $sum[i][j]$ ）。对于非整块的部分 $O(\sqrt n)$ 暴力加到桶里，加上整块中的个数判断能否更新答案。然后判断 $l$ 与 $r$ 之间的块的众数是否能否更新答案。</p>
+<p>预处理的话 $max$ 和 $sum$ 数组全都暴力扫一遍更新，时间复杂度 $O(n \sqrt n)$，详见代码。</p>
+<p>时间复杂度：$O(n \sqrt n + m \sqrt m)$</p>
+<a id="more"></a>
+<p>代码：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ==============================</span></span><br><span class="line"><span class="comment">//  author: memset0</span></span><br><span class="line"><span class="comment">//  website: https://memset0.cn</span></span><br><span class="line"><span class="comment">// ==============================</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rep(i,l,r) for (int i = l; i &lt;= r; i++)</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">read</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> x = <span class="number">0</span>; <span class="keyword">bool</span> m = <span class="number">0</span>; <span class="keyword">char</span> c = getchar();</span><br><span class="line">    <span class="keyword">while</span> (!<span class="built_in">isdigit</span>(c) &amp;&amp; c != <span class="string">'-'</span>) c = getchar();</span><br><span class="line">    <span class="keyword">if</span> (c == <span class="string">'-'</span>) m = <span class="number">1</span>, c = getchar();</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">isdigit</span>(c)) x = x * <span class="number">10</span> + c - <span class="string">'0'</span>, c = getchar();</span><br><span class="line">    <span class="keyword">if</span> (m) <span class="keyword">return</span> -x; <span class="keyword">else</span> <span class="keyword">return</span> x;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">40010</span>, maxm = <span class="number">210</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n, m, l, r, bl, br, tn, sqn, ans, now;</span><br><span class="line"><span class="keyword">int</span> a[maxn], b[maxn], bln[maxn], fst[maxm], tmp[maxn];</span><br><span class="line"><span class="keyword">int</span> cnt[maxn][maxm], sum[maxn][maxm], max[maxm][maxm];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">better</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y, <span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (x &gt; y) || (x == y &amp;&amp; a &lt; b);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">query</span><span class="params">(<span class="keyword">int</span> l, <span class="keyword">int</span> r)</span> </span>&#123;</span><br><span class="line">    ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span> (bln[l] == bln[r]) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = l; i &lt;= r; i++)</span><br><span class="line">            <span class="keyword">if</span> (better(++tmp[a[i]], tmp[ans], a[i], ans))</span><br><span class="line">                ans = a[i];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = l; i &lt;= r; i++)</span><br><span class="line">            --tmp[a[i]];</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        br = bln[r] - <span class="number">1</span>, bl = bln[l];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = l; i &lt; fst[bln[l] + <span class="number">1</span>]; i++)</span><br><span class="line">            <span class="keyword">if</span> (better(++tmp[a[i]] + sum[a[i]][br] - sum[a[i]][bl], tmp[ans] + sum[ans][br] - sum[ans][bl], a[i], ans))</span><br><span class="line">                ans = a[i];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = fst[bln[r]]; i &lt;= r; i++)</span><br><span class="line">            <span class="keyword">if</span> (better(++tmp[a[i]] + sum[a[i]][br] - sum[a[i]][bl], tmp[ans] + sum[ans][br] - sum[ans][bl], a[i], ans))</span><br><span class="line">                ans = a[i];</span><br><span class="line">        <span class="keyword">if</span> (better(tmp[max[bl + <span class="number">1</span>][br]] + sum[max[bl + <span class="number">1</span>][br]][br] - sum[max[bl + <span class="number">1</span>][br]][bl], tmp[ans] + sum[ans][br] - sum[ans][bl], max[bl + <span class="number">1</span>][br], ans))</span><br><span class="line">            ans = max[bl + <span class="number">1</span>][br];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = l; i &lt; fst[bln[l] + <span class="number">1</span>]; i++)</span><br><span class="line">            --tmp[a[i]];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = fst[bln[r]]; i &lt;= r; i++)</span><br><span class="line">            --tmp[a[i]];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    n = read(), m = read();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">        b[i] = a[i] = read();</span><br><span class="line">    <span class="built_in">std</span>::sort(b + <span class="number">1</span>, b + n + <span class="number">1</span>);</span><br><span class="line">    tn = <span class="built_in">std</span>::unique(b + <span class="number">1</span>, b + n + <span class="number">1</span>) - b - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">        a[i] = <span class="built_in">std</span>::lower_bound(b + <span class="number">1</span>, b + tn + <span class="number">1</span>, a[i]) - b;</span><br><span class="line">    </span><br><span class="line">    sqn = <span class="built_in">sqrt</span>(n) + <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span> (sqn * sqn &lt; n) sqn++;</span><br><span class="line">    bln[sqn + <span class="number">1</span>] = n + <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">        bln[i] = (i - <span class="number">1</span>) / sqn + <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span> (!fst[bln[i]]) fst[bln[i]] = i;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">        cnt[a[i]][bln[i]]++;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= sqn; j++) </span><br><span class="line">            sum[i][j] = sum[i][j - <span class="number">1</span>] + cnt[i][j];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= sqn; i++) &#123;</span><br><span class="line">        <span class="built_in">memset</span>(tmp, <span class="number">0</span>, <span class="keyword">sizeof</span>(tmp)), now = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = i; j &lt;= sqn; j++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> k = fst[j]; k &lt; fst[j + <span class="number">1</span>]; k++)</span><br><span class="line">                <span class="keyword">if</span> (better(++tmp[a[k]], tmp[now], a[k], now))</span><br><span class="line">                    now = a[k];</span><br><span class="line">            max[i][j] = now;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= m; i++) &#123;</span><br><span class="line">        l = (read() + ans - <span class="number">1</span>) % n + <span class="number">1</span>;</span><br><span class="line">        r = (read() + ans - <span class="number">1</span>) % n + <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span> (l &gt; r) <span class="built_in">std</span>::swap(l, r);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, ans = b[query(l, r)]);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        </div>
+
+        <!--<blockquote class="post-copyright">
+    <div class="content">
+        
+
+        
+    </div>
+    <footer>
+        <a href="https://oi.memset0.cn">
+            <img src="/img/avatar.png" alt="memset0">
+            memset0
+        </a>
+    </footer>
+</blockquote>-->
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/分块/">分块</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/强制在线/">强制在线</a></li></ul>
+
+
+            
+
+
+        </div>
+    </div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "rHgVqrBsv0EYGFSxzDDIDapm-9Nh9j0Va",
+            appKey: "X7Dp3hEvRWPbqHBYkOTBXzPm",
+            avatar: "mm",
+            placeholder: "留下你的脚印~",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "20"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+	
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/solution/cf706e/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">CF706E - Working routine</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/solution/luogu2787/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">洛谷2787 - 语文1（chin1）- 理理思维</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+	<span>
+		总字数：41.7k
+	</span>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>memset0 &copy; 2017 - 2018</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">浙ICP备-备你麻痹</a><br>
+                
+                Hosted by <a href="https://pages.coding.me">Coding Pages</a> · Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up fix-icon-chevron-up"></span></a>
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: false, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

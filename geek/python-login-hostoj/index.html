@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?d8c0a4185322e94013582201484f9131";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="memset0.cn/geek/python-login-hostoj/">
+    
+    
+    <title>Python 模拟登陆 hustoj | memset0&#39;s blog | 站在时代的十字路口</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Python">
+    <meta name="description" content="前言最近闲着无聊准备写写Python爬虫，爬一下我们学校的oj用来横向比对做题量。但由于我校OJ对没有登录的账号有浏览限制，因此想要获取数据，就必须要登录账号。以前我一直手动生成Cookie，然后到浏览器里用该Cookie登录，这样的话没过一会儿又要重来比较麻烦。于是我就学习了一下用Python来POST数据的方式实现登录功能。 说明 感谢hiuseues大佬对我的指导！ 此处以我校OJ为例 请不">
+<meta name="keywords" content="Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python 模拟登陆 hustoj">
+<meta property="og:url" content="https://oi.memset0.cn/geek/python-login-hostoj/index.html">
+<meta property="og:site_name" content="memset0&#39;s blog">
+<meta property="og:description" content="前言最近闲着无聊准备写写Python爬虫，爬一下我们学校的oj用来横向比对做题量。但由于我校OJ对没有登录的账号有浏览限制，因此想要获取数据，就必须要登录账号。以前我一直手动生成Cookie，然后到浏览器里用该Cookie登录，这样的话没过一会儿又要重来比较麻烦。于是我就学习了一下用Python来POST数据的方式实现登录功能。 说明 感谢hiuseues大佬对我的指导！ 此处以我校OJ为例 请不">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://i.loli.net/2018/05/22/5b042c8d4c0f1.png">
+<meta property="og:image" content="https://i.loli.net/2018/05/25/5b0819fc2701a.png">
+<meta property="og:updated_time" content="2018-10-10T12:14:53.315Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python 模拟登陆 hustoj">
+<meta name="twitter:description" content="前言最近闲着无聊准备写写Python爬虫，爬一下我们学校的oj用来横向比对做题量。但由于我校OJ对没有登录的账号有浏览限制，因此想要获取数据，就必须要登录账号。以前我一直手动生成Cookie，然后到浏览器里用该Cookie登录，这样的话没过一会儿又要重来比较麻烦。于是我就学习了一下用Python来POST数据的方式实现登录功能。 说明 感谢hiuseues大佬对我的指导！ 此处以我校OJ为例 请不">
+<meta name="twitter:image" content="https://i.loli.net/2018/05/22/5b042c8d4c0f1.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="memset0&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.png">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+	
+	<link rel="stylesheet" href="/modify.css">
+
+</head>
+
+
+<style>
+.fix-icon-chevron-up {
+	line-height: 0em!important;
+}
+</style>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">memset0</h5>
+          <a href="mailto:memset0@outlook.com" title="memset0@outlook.com" class="mail">memset0@outlook.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                Home
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about"  >
+                <i class="icon icon-lg icon-user"></i>
+                About
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/friends"  >
+                <i class="icon icon-lg icon-link"></i>
+                Friends
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://cloud.memset0.cn/"  >
+                <i class="icon icon-lg icon-cloud"></i>
+                Cloud
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/memset0" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Python 模拟登陆 hustoj</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Python 模拟登陆 hustoj</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-05-25T14:14:00.000Z" itemprop="datePublished" class="page-time">
+  2018-05-25
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Geek/">Geek</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#前言"><span class="post-toc-number">1.</span> <span class="post-toc-text">前言</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#说明"><span class="post-toc-number">2.</span> <span class="post-toc-text">说明</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#分析"><span class="post-toc-number">3.</span> <span class="post-toc-text">分析</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#登录页面"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">登录页面</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#分析数据"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">分析数据</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#如何post数据"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">如何post数据</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#构建opener"><span class="post-toc-number">3.3.1.</span> <span class="post-toc-text">构建opener</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#完整代码"><span class="post-toc-number">4.</span> <span class="post-toc-text">完整代码</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-geek/python-login-hostoj"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Python 模拟登陆 hustoj</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-05-25 22:14:00" datetime="2018-05-25T14:14:00.000Z"  itemprop="datePublished">2018-05-25</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Geek/">Geek</a></li></ul>
+
+
+
+            
+<span>
+	1,326 字
+</span>
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>最近闲着无聊准备写写<code>Python</code>爬虫，爬一下我们学校的oj用来横向比对做题量。但由于我校OJ对没有登录的账号有浏览限制，因此想要获取数据，就必须要登录账号。以前我一直手动生成<code>Cookie</code>，然后到浏览器里用该<code>Cookie</code>登录，这样的话没过一会儿又要重来比较麻烦。于是我就学习了一下用<code>Python</code>来<strong><code>POST</code>数据</strong>的方式实现登录功能。</p>
+<h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><ol start="0">
+<li>感谢hiuseues大佬对我的指导！</li>
+<li>此处以我校OJ为例</li>
+<li>请不要使用此测试账号（账号来自某外校团队）来浏览我校题目或交题，否则我将把密码改掉</li>
+<li>我习惯于使用<code>Python2</code>写爬虫，主要因为我校电脑和我的VPS预装的都是这个版本。可能会和hiuseues大佬产生代沟，不要在意。当然，这个脚本的核心部分在<code>Python3</code>中完全可以运行，希望这样的话代沟可以小一点。</li>
+</ol>
+<a id="more"></a>
+<h1 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h1><h2 id="登录页面"><a href="#登录页面" class="headerlink" title="登录页面"></a>登录页面</h2><p>我们进入<code>loginpage.php</code>，可以看到一个登陆的界面。</p>
+<p><img src="https://i.loli.net/2018/05/22/5b042c8d4c0f1.png" alt=""></p>
+<p>使用“审查元素”功能查看一下这个登录框的源代码。</p>
+<p><img src="https://i.loli.net/2018/05/25/5b0819fc2701a.png" alt=""></p>
+<p>其中的核心代码如下（其他内容并没有什么卵用）：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"login.php"</span> <span class="attr">method</span>=<span class="string">"post"</span> <span class="attr">role</span>=<span class="string">"form"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">name</span>=<span class="string">"user_id"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">name</span>=<span class="string">"password"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span>&gt;</span>登录<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>即使你把代码删到只剩这么点，你照样可以登录：只不过界面难看点罢了。</p>
+<h2 id="分析数据"><a href="#分析数据" class="headerlink" title="分析数据"></a>分析数据</h2><p>那么我们来讲讲这段“最简代码”讲了什么：</p>
+<ol>
+<li>最外层的<code>form</code>中定义了需要post到的页面 &lt;=&gt; <code>action=&quot;login.php&quot;</code></li>
+<li>同时也定义了数据的传输方式 &lt;=&gt; <code>method=&quot;post&quot;</code></li>
+<li>两个input提供了两个输入框，也是需要post到对应页面的数据 &lt;=&gt; <code>&lt;input name=&quot;user_id&quot;&gt;</code>、<code>&lt;input name=&quot;password&quot;&gt;</code></li>
+<li>最后你会发现还有一个button，你点一下数据就会被发送过去啦！</li>
+</ol>
+<p><small>该系统使用了明文密码传输的方式，因此比较容易分析。现在为了安全，越来越多的网站都在避免明文密码传输，但原理基本都是有互通之处的。<del>不过在中国这个网络大环境下，完全有可能上级一个领导电话过来向你要xxx用户的密码，你程序员要是不存明文密码那行啊（ε=(´ο｀*)))唉）</del></small></p>
+<p>那么你需要做的，就是给”/login.php”这个页面发送两个分别叫<code>user_id</code>和<code>password</code>的数据即可！</p>
+<h2 id="如何post数据"><a href="#如何post数据" class="headerlink" title="如何post数据"></a>如何post数据</h2><p>此处我们使用<code>urllib</code>和<code>urllib2</code>来操作，前者用于编码post的数据，后者用于发送请求。这两个库的名称和用法在python3略有改变，请参照下面的代码（下面的代码采用try的方式确保了在py2和py3中的兼容性，我以后的代码可能只会在py2中生效，但是你完全可以用同样的修改方式让它在py3中运行）。<br>当然，你也可以使用<code>requests</code>等第三方库。值得一提的是，<code>requests</code>库在处理post文件的操作时非常方便。</p>
+<p>我们用<code>urllib</code>库中的<code>urlencode()</code>方法来编码我们需要post的数据，在py2中的代码如下</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data = urllib.urlencode(&#123;<span class="string">"user_id"</span>: username, <span class="string">"password"</span>: password&#125;)</span><br></pre></td></tr></table></figure>
+<p>接着你需要使用<code>urllib2</code>库中的<code>urlopen()</code>方法来打开网页，同时post数据（<code>data</code>）</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">urllib2.urlopen(<span class="string">"http://www.h2zbmh.com:8080/html/JudgeOnline/index.php"</span>, data)</span><br></pre></td></tr></table></figure>
+<h3 id="构建opener"><a href="#构建opener" class="headerlink" title="构建opener"></a>构建opener</h3><p>也许你在想，这就没了？结果你在尝试打开下一个页面时会发现，我还是没法获取那些需要登陆的页面啊！</p>
+<p>那么你可能需要一个opener来维持你打开页面的状态。接着使用<code>opener.open(url)</code>来代替<code>urllib2.urlopen(url)</code>并保留登陆状态。</p>
+<p>在构建opener的同时，我们也会把当前自身的cookie保存到文件中，方便进一步的调试。</p>
+<h1 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># encoding=utf8</span></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    <span class="comment"># python2的引入</span></span><br><span class="line">    <span class="keyword">import</span> urllib</span><br><span class="line">    <span class="keyword">import</span> urllib2</span><br><span class="line">    <span class="keyword">import</span> cookielib</span><br><span class="line"><span class="keyword">except</span> ImportError:</span><br><span class="line">    <span class="comment"># python3的引入</span></span><br><span class="line">    <span class="keyword">import</span> urllib.parse <span class="keyword">as</span> urllib</span><br><span class="line">    <span class="keyword">import</span> urllib.request <span class="keyword">as</span> urllib2</span><br><span class="line">    <span class="keyword">import</span> http.cookiejar <span class="keyword">as</span> cookielib </span><br><span class="line"><span class="comment"># 利用try实现同时兼容py2和py3的效果</span></span><br><span class="line"></span><br><span class="line">username = <span class="string">'LJB001590'</span></span><br><span class="line">password = <span class="string">'123'</span> <span class="comment"># 测试账号，账号密码来自某团队</span></span><br><span class="line">rooturl = <span class="string">'http://www.h2zbmh.com:8080/html/JudgeOnline/'</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">geturl</span><span class="params">(url)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> rooturl + url;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">Build</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">global</span> opener  <span class="comment"># 引入全局变量</span></span><br><span class="line">    filename = <span class="string">'cookie.txt'</span> <span class="comment"># 保存cookie的文件</span></span><br><span class="line">    cookie = cookielib.MozillaCookieJar(filename) <span class="comment"># 创建一个实例</span></span><br><span class="line">    handler = urllib2.HTTPCookieProcessor(cookie) <span class="comment"># 创建urllib2的cookie处理器</span></span><br><span class="line">    opener = urllib2.build_opener(handler) <span class="comment"># 通过之前的cookie处理器构造opener</span></span><br><span class="line">    opener.open(geturl(<span class="string">'index.php'</span>)) <span class="comment"># “随机”打开一个页面来获得cookie</span></span><br><span class="line">    cookie.save(ignore_discard=<span class="keyword">True</span>, ignore_expires=<span class="keyword">True</span>) <span class="comment"># 保存cookie到文件</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">Login</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">global</span> username, password, rooturl, opener <span class="comment"># 引入全局变量</span></span><br><span class="line">    url = geturl(<span class="string">'login.php'</span>) <span class="comment"># 对应的网址</span></span><br><span class="line">    data = urllib.urlencode(&#123;<span class="string">"user_id"</span>: username, <span class="string">"password"</span>: password, &#125;) <span class="comment"># 需要post的数据</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        response = opener.open(url, data=data) <span class="comment"># post数据 即 发送登录请求</span></span><br><span class="line">    <span class="keyword">except</span> TypeError:</span><br><span class="line">        response = opener.open(url, data=data.encode(<span class="string">'utf-8'</span>)) <span class="comment"># python3中的解决方式</span></span><br><span class="line"></span><br><span class="line">Build()</span><br><span class="line">Login()</span><br><span class="line"></span><br><span class="line">open(<span class="string">"ans.html"</span>, <span class="string">"wb+"</span>).write(opener.open(geturl(<span class="string">'problemset.php'</span>)).read()) <span class="comment"># 利用构建好的opener打开网页并输出到ans.html文件中（如果不显示“请登陆后继续操作！”说明成功）</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 再次感谢hiuseues大佬</span></span><br></pre></td></tr></table></figure>
+        </div>
+
+        <!--<blockquote class="post-copyright">
+    <div class="content">
+        
+
+        
+    </div>
+    <footer>
+        <a href="https://oi.memset0.cn">
+            <img src="/img/avatar.png" alt="memset0">
+            memset0
+        </a>
+    </footer>
+</blockquote>-->
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
+
+
+            
+
+
+        </div>
+    </div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "rHgVqrBsv0EYGFSxzDDIDapm-9Nh9j0Va",
+            appKey: "X7Dp3hEvRWPbqHBYkOTBXzPm",
+            avatar: "mm",
+            placeholder: "留下你的脚印~",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "20"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+	
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/algorithm/gcd-from/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">C++ 中的 __gcd() 函数探源</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/diary/school-started/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">2018浙大校赛&amp;图森未来杯(4.7) 游记</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+	<span>
+		总字数：41.7k
+	</span>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>memset0 &copy; 2017 - 2018</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">浙ICP备-备你麻痹</a><br>
+                
+                Hosted by <a href="https://pages.coding.me">Coding Pages</a> · Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up fix-icon-chevron-up"></span></a>
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: false, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

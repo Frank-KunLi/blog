@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?d8c0a4185322e94013582201484f9131";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="memset0.cn/algorithm/splay/">
+    
+    
+    <title>Splay 非指针模板（普通平衡树） | memset0&#39;s blog | 站在时代的十字路口</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="平衡树">
+    <meta name="description" content="踏上平衡树征程的第一步… 前言Splay 是一种简单且功能丰富的平衡树结构，其算法核心 Splay 操作能维持其均摊复杂度维持在 $O(logn)$ 。 定义我们将整棵 Splay 定义在结构体中。 并定义结构体node来表示 Splay 的每一个节点。 宏定义e[0].ch[1]为根节点， $1e9 + 10$ 为INF，并在结构体尾取消定义。 1234567891011121314struct">
+<meta name="keywords" content="平衡树">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Splay 非指针模板（普通平衡树）">
+<meta property="og:url" content="https://oi.memset0.cn/algorithm/splay/index.html">
+<meta property="og:site_name" content="memset0&#39;s blog">
+<meta property="og:description" content="踏上平衡树征程的第一步… 前言Splay 是一种简单且功能丰富的平衡树结构，其算法核心 Splay 操作能维持其均摊复杂度维持在 $O(logn)$ 。 定义我们将整棵 Splay 定义在结构体中。 并定义结构体node来表示 Splay 的每一个节点。 宏定义e[0].ch[1]为根节点， $1e9 + 10$ 为INF，并在结构体尾取消定义。 1234567891011121314struct">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-10-10T12:14:53.313Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Splay 非指针模板（普通平衡树）">
+<meta name="twitter:description" content="踏上平衡树征程的第一步… 前言Splay 是一种简单且功能丰富的平衡树结构，其算法核心 Splay 操作能维持其均摊复杂度维持在 $O(logn)$ 。 定义我们将整棵 Splay 定义在结构体中。 并定义结构体node来表示 Splay 的每一个节点。 宏定义e[0].ch[1]为根节点， $1e9 + 10$ 为INF，并在结构体尾取消定义。 1234567891011121314struct">
+    
+        <link rel="alternate" type="application/atom+xml" title="memset0&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.png">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+	
+	<link rel="stylesheet" href="/modify.css">
+
+</head>
+
+
+<style>
+.fix-icon-chevron-up {
+	line-height: 0em!important;
+}
+</style>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">memset0</h5>
+          <a href="mailto:memset0@outlook.com" title="memset0@outlook.com" class="mail">memset0@outlook.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                Home
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about"  >
+                <i class="icon icon-lg icon-user"></i>
+                About
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/friends"  >
+                <i class="icon icon-lg icon-link"></i>
+                Friends
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://cloud.memset0.cn/"  >
+                <i class="icon icon-lg icon-cloud"></i>
+                Cloud
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/memset0" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Splay 非指针模板（普通平衡树）</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Splay 非指针模板（普通平衡树）</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-08-09T10:27:16.000Z" itemprop="datePublished" class="page-time">
+  2018-08-09
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Algorithm/">Algorithm</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#前言"><span class="post-toc-number">1.</span> <span class="post-toc-text">前言</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#定义"><span class="post-toc-number">2.</span> <span class="post-toc-text">定义</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#基础操作"><span class="post-toc-number">3.</span> <span class="post-toc-text">基础操作</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#旋转"><span class="post-toc-number">4.</span> <span class="post-toc-text">旋转</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Splay"><span class="post-toc-number">5.</span> <span class="post-toc-text">Splay</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#新建-擦除节点"><span class="post-toc-number">6.</span> <span class="post-toc-text">新建 / 擦除节点</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#插入"><span class="post-toc-number">7.</span> <span class="post-toc-text">插入</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#删除"><span class="post-toc-number">8.</span> <span class="post-toc-text">删除</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#排名"><span class="post-toc-number">9.</span> <span class="post-toc-text">排名</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#前驱-amp-后继"><span class="post-toc-number">10.</span> <span class="post-toc-text">前驱 &amp; 后继</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#完整代码"><span class="post-toc-number">11.</span> <span class="post-toc-text">完整代码</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#备注-amp-参考资料"><span class="post-toc-number">12.</span> <span class="post-toc-text">备注 &amp; 参考资料</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-algorithm/splay"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Splay 非指针模板（普通平衡树）</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-08-09 18:27:16" datetime="2018-08-09T10:27:16.000Z"  itemprop="datePublished">2018-08-09</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Algorithm/">Algorithm</a></li></ul>
+
+
+
+            
+<span>
+	2,357 字
+</span>
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>踏上平衡树征程的第一步…</p>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>Splay 是一种简单且功能丰富的平衡树结构，其算法核心 Splay 操作能维持其均摊复杂度维持在 $O(logn)$ 。</p>
+<h1 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h1><p>我们将整棵 Splay 定义在结构体中。</p>
+<p>并定义结构体<code>node</code>来表示 Splay 的每一个节点。</p>
+<p>宏定义<code>e[0].ch[1]</code>为根节点， $1e9 + 10$ 为INF，并在结构体尾取消定义。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Splay</span> &#123;</span></span><br><span class="line">    <span class="meta">#<span class="meta-keyword">define</span> root (e[0].ch[1])</span></span><br><span class="line">    <span class="meta">#<span class="meta-keyword">define</span> inf (1e9+10)</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">node</span> &#123;</span></span><br><span class="line">        <span class="keyword">int</span> val;	<span class="comment">// 当前节点存储的值</span></span><br><span class="line">        <span class="keyword">int</span> cnt;	<span class="comment">// 当前节点存储的值出现的次数</span></span><br><span class="line">        <span class="keyword">int</span> siz;	<span class="comment">// 当前节点包括其左右子树中包含的数的个数（不是节点数！）</span></span><br><span class="line">        <span class="keyword">int</span> father;	<span class="comment">// 当前节点的父亲节点</span></span><br><span class="line">        <span class="keyword">int</span> ch[<span class="number">2</span>];	<span class="comment">// 当前节点的孩子节点，ch[0]表示左孩子，ch[1]表示右孩子</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// your code goes here...</span></span><br><span class="line">    <span class="meta">#<span class="meta-keyword">undef</span> root</span></span><br><span class="line">    <span class="meta">#<span class="meta-keyword">undef</span> inf</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h1 id="基础操作"><a href="#基础操作" class="headerlink" title="基础操作"></a>基础操作</h1><p><code>update()</code>操作用于更新当前节点的<code>siz</code>值；</p>
+<p><code>connect()</code>操作用于连接节点；</p>
+<p><code>identify()</code>操作用于确认当前节点是其父亲的左孩子还是右孩子。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">update</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">    e[x].siz = e[e[x].ch[<span class="number">0</span>]].siz + e[e[x].ch[<span class="number">1</span>]].siz + e[x].cnt;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">connect</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> f, <span class="keyword">int</span> son)</span> </span>&#123;</span><br><span class="line">    e[x].father = f;</span><br><span class="line">    e[f].ch[son] = x;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">identify</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> x == e[e[x].father].ch[<span class="number">0</span>] ? <span class="number">0</span> : <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="旋转"><a href="#旋转" class="headerlink" title="旋转"></a>旋转</h1><p>平衡树的必备知识。</p>
+<p><code>rotate(x)</code>表示把<code>x</code>节点上旋到其父亲的位置。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">rotate</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> f = e[x].father, fson = identify(x);</span><br><span class="line">    <span class="keyword">int</span> ff = e[f].father, ffson = identify(f);</span><br><span class="line">    <span class="keyword">int</span> y = e[x].ch[fson ^ <span class="number">1</span>];</span><br><span class="line">    connect(y, f, fson);</span><br><span class="line">    connect(f, x, fson ^ <span class="number">1</span>);</span><br><span class="line">    connect(x, ff, ffson);</span><br><span class="line">    update(f);</span><br><span class="line">    update(x);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="Splay"><a href="#Splay" class="headerlink" title="Splay"></a>Splay</h1><p>Splay 是 Splay 的核心操作。用于把一个节点旋转到指定位置。</p>
+<p><strong>需要注意的是，Splay在每次完成查询操作后都要将被查询的节点 Splay 到根。</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">splay</span><span class="params">(<span class="keyword">int</span> at, <span class="keyword">int</span> to)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (!at) <span class="keyword">return</span>;</span><br><span class="line">	to = e[to].father;</span><br><span class="line">	<span class="keyword">while</span> (e[at].father != to) &#123;</span><br><span class="line">		<span class="keyword">int</span> up = e[at].father;</span><br><span class="line">		<span class="keyword">if</span> (e[up].father == to) rotate(at);</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span> (identify(at) == identify(up)) rotate(up), rotate(at);</span><br><span class="line">		<span class="keyword">else</span> rotate(at), rotate(at);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="新建-擦除节点"><a href="#新建-擦除节点" class="headerlink" title="新建 / 擦除节点"></a>新建 / 擦除节点</h1><p>为 插入 / 删除 操作提供铺垫。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">crepoint</span><span class="params">(<span class="keyword">int</span> val, <span class="keyword">int</span> father)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> x = ++pos;</span><br><span class="line">    e[x].val = val;</span><br><span class="line">    e[x].father = father;</span><br><span class="line">    e[x].cnt = e[x].siz = <span class="number">1</span>;</span><br><span class="line">    e[x].ch[<span class="number">0</span>] = e[x].ch[<span class="number">1</span>] = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">delpoint</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">    e[x].val = <span class="number">0</span>;</span><br><span class="line">    e[x].father = <span class="number">0</span>;</span><br><span class="line">    e[x].cnt = e[x].siz = <span class="number">0</span>;</span><br><span class="line">    e[x].ch[<span class="number">0</span>] = e[x].ch[<span class="number">1</span>] = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="插入"><a href="#插入" class="headerlink" title="插入"></a>插入</h1><p>如果是空节点需要特判；</p>
+<p>如果可以在树中找到一个值相同的节点那么直接使其<code>cnt++</code>；</p>
+<p>其余情况根据平衡树的性质找到一个可行位置并插入。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">insert</span><span class="params">(<span class="keyword">int</span> val)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> u = root;</span><br><span class="line">    points++;</span><br><span class="line">    <span class="keyword">if</span> (points == <span class="number">1</span>) &#123; <span class="comment">// 特判无点状态（看个人写法？）</span></span><br><span class="line">        crepoint(val, <span class="number">0</span>);</span><br><span class="line">        root = pos;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span> (u) &#123;</span><br><span class="line">        e[u].siz++;</span><br><span class="line">        <span class="keyword">if</span> (e[u].val == val) &#123;</span><br><span class="line">            e[u].cnt++;</span><br><span class="line">            splay(u, root);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> son = val &lt; e[u].val ? <span class="number">0</span> : <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span> (!e[u].ch[son]) &#123;</span><br><span class="line">            crepoint(val, u);</span><br><span class="line">            e[u].ch[son] = pos;</span><br><span class="line">            splay(pos, root);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        u =  e[u].ch[son];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h1><p>首先将要删除的节点旋转到根节点的位置。</p>
+<p>如果要被删除的节点（注意现在它在根的位置）没有左孩子，那么直接摧毁这个节点，并将它的右孩子变成根。</p>
+<p>如果自己有左孩子，那么就先把左子树中值最大的元素旋转到根的左孩子位置，然后将根节点的右孩子变成根节点的左孩子的右孩子，然后摧毁节点，并将左孩子变成根。</p>
+<p>这样子做是为了使删除节点后的树维持平衡。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">erase</span><span class="params">(<span class="keyword">int</span> val)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> u = find(val);</span><br><span class="line">    points--;</span><br><span class="line">    <span class="keyword">if</span> (e[u].cnt &gt; <span class="number">1</span>)  &#123;</span><br><span class="line">        e[u].cnt--;</span><br><span class="line">        e[u].siz--;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (!e[u].ch[<span class="number">0</span>]) &#123;</span><br><span class="line">        connect(e[u].ch[<span class="number">1</span>], <span class="number">0</span>, <span class="number">1</span>);</span><br><span class="line">        root = e[u].ch[<span class="number">1</span>];</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">int</span> lft = e[u].ch[<span class="number">0</span>], rit = e[u].ch[<span class="number">1</span>];</span><br><span class="line">        <span class="keyword">while</span> (e[lft].ch[<span class="number">1</span>]) lft = e[lft].ch[<span class="number">1</span>];</span><br><span class="line">        splay(lft, e[u].ch[<span class="number">0</span>]);</span><br><span class="line">        connect(rit, lft, <span class="number">1</span>);</span><br><span class="line">        connect(lft, <span class="number">0</span>, <span class="number">1</span>);</span><br><span class="line">        update(lft);</span><br><span class="line">    &#125;</span><br><span class="line">    delpoint(u);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="排名"><a href="#排名" class="headerlink" title="排名"></a>排名</h1><ol>
+<li><code>rank()</code>查询 x 数的排名（定义为比当前数小的数的个数 +1 )</li>
+<li><code>atrank()</code>查询排名为 x 的数</li>
+</ol>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">rank</span><span class="params">(<span class="keyword">int</span> val)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> u = root, ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (u) &#123;</span><br><span class="line">        <span class="keyword">if</span> (val == e[u].val) &#123;</span><br><span class="line">            ans += e[e[u].ch[<span class="number">0</span>]].siz + <span class="number">1</span>;</span><br><span class="line">            splay(u, root);</span><br><span class="line">            <span class="keyword">return</span> ans;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (val &lt; e[u].val) u = e[u].ch[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">else</span> ans += e[e[u].ch[<span class="number">0</span>]].siz + e[u].cnt, u = e[u].ch[<span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">atrank</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> u = root;</span><br><span class="line">	<span class="keyword">while</span> (u) &#123;</span><br><span class="line">		<span class="keyword">if</span> (x &lt;= e[e[u].ch[<span class="number">0</span>]].siz) u = e[u].ch[<span class="number">0</span>];</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span> (x &lt;= e[e[u].ch[<span class="number">0</span>]].siz + e[u].cnt) &#123;</span><br><span class="line">			splay(u, root);</span><br><span class="line">			<span class="keyword">return</span> e[u].val;</span><br><span class="line">		&#125; <span class="keyword">else</span> x -= e[e[u].ch[<span class="number">0</span>]].siz + e[u].cnt, u = e[u].ch[<span class="number">1</span>];</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="前驱-amp-后继"><a href="#前驱-amp-后继" class="headerlink" title="前驱 &amp; 后继"></a>前驱 &amp; 后继</h1><p>根据平衡树的性质即可。</p>
+<p>需要注意的是相等时仍需要继续查找，那么等号的用法就特别讲究。</p>
+<p>此份代码中将其特别突出。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">lower</span><span class="params">(<span class="keyword">int</span> val)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> u = root, result = -inf, cho = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (u) &#123;</span><br><span class="line">        <span class="keyword">if</span> (e[u].val &lt; val &amp;&amp; e[u].val &gt; result) result = e[u].val, cho = u;</span><br><span class="line">        u = e[u].ch[val &lt;= e[u].val ? <span class="number">0</span> : <span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    splay(cho, root);</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">upper</span><span class="params">(<span class="keyword">int</span> val)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> u = root, result = inf, cho = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (u) &#123;</span><br><span class="line">        <span class="keyword">if</span> (e[u].val &gt; val &amp;&amp; e[u].val &lt; result) result = e[u].val, cho = u;</span><br><span class="line">        u = e[u].ch[val &gt;= e[u].val ? <span class="number">1</span> : <span class="number">0</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    splay(cho, root);</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ==============================</span></span><br><span class="line"><span class="comment">//  author: memset0</span></span><br><span class="line"><span class="comment">//  website: https://memset0.cn</span></span><br><span class="line"><span class="comment">// ==============================</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">read</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> x = <span class="number">0</span>; <span class="keyword">bool</span> m = <span class="number">0</span>; <span class="keyword">char</span> c = getchar();</span><br><span class="line">    <span class="keyword">while</span> (!<span class="built_in">isdigit</span>(c) &amp;&amp; c != <span class="string">'-'</span>) c = getchar();</span><br><span class="line">    <span class="keyword">if</span> (c == <span class="string">'-'</span>) m = <span class="number">1</span>, c = getchar();</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">isdigit</span>(c)) x = x * <span class="number">10</span> + c - <span class="string">'0'</span>, c = getchar();</span><br><span class="line">    <span class="keyword">if</span> (m) <span class="keyword">return</span> -x; <span class="keyword">else</span> <span class="keyword">return</span> x;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">100010</span>;</span><br><span class="line"><span class="keyword">int</span> n, opt;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Splay</span> &#123;</span></span><br><span class="line">    <span class="meta">#<span class="meta-keyword">define</span> root (e[0].ch[1])</span></span><br><span class="line">    <span class="meta">#<span class="meta-keyword">define</span> inf (1e9 + 10)</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">node</span> &#123;</span></span><br><span class="line">        <span class="keyword">int</span> cnt, siz, val;</span><br><span class="line">        <span class="keyword">int</span> father, ch[<span class="number">2</span>];</span><br><span class="line">    &#125; e[maxn];</span><br><span class="line">    <span class="keyword">int</span> pos, points;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">update</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">        e[x].siz = e[e[x].ch[<span class="number">0</span>]].siz + e[e[x].ch[<span class="number">1</span>]].siz + e[x].cnt;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">connect</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> f, <span class="keyword">int</span> son)</span> </span>&#123;</span><br><span class="line">        e[x].father = f;</span><br><span class="line">        e[f].ch[son] = x;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">identify</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> x == e[e[x].father].ch[<span class="number">0</span>] ? <span class="number">0</span> : <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">rotate</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> f = e[x].father, fson = identify(x);</span><br><span class="line">        <span class="keyword">int</span> ff = e[f].father, ffson = identify(f);</span><br><span class="line">        <span class="keyword">int</span> y = e[x].ch[fson ^ <span class="number">1</span>];</span><br><span class="line">        connect(y, f, fson);</span><br><span class="line">        connect(f, x, fson ^ <span class="number">1</span>);</span><br><span class="line">        connect(x, ff, ffson);</span><br><span class="line">        update(f);</span><br><span class="line">        update(x);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">splay</span><span class="params">(<span class="keyword">int</span> at, <span class="keyword">int</span> to)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!at) <span class="keyword">return</span>;</span><br><span class="line">        to = e[to].father;</span><br><span class="line">        <span class="keyword">while</span> (e[at].father != to) &#123;</span><br><span class="line">            <span class="keyword">int</span> up = e[at].father;</span><br><span class="line">            <span class="keyword">if</span> (e[up].father == to) rotate(at);</span><br><span class="line">			<span class="keyword">else</span> <span class="keyword">if</span> (identify(at) == identify(up)) rotate(up), rotate(at);</span><br><span class="line">			<span class="keyword">else</span> rotate(at), rotate(at);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">crepoint</span><span class="params">(<span class="keyword">int</span> val, <span class="keyword">int</span> father)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> x = ++pos;</span><br><span class="line">        e[x].val = val;</span><br><span class="line">        e[x].father = father;</span><br><span class="line">        e[x].cnt = e[x].siz = <span class="number">1</span>;</span><br><span class="line">        e[x].ch[<span class="number">0</span>] = e[x].ch[<span class="number">1</span>] = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">delpoint</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">        e[x].val = <span class="number">0</span>;</span><br><span class="line">        e[x].father = <span class="number">0</span>;</span><br><span class="line">        e[x].cnt = e[x].siz = <span class="number">0</span>;</span><br><span class="line">        e[x].ch[<span class="number">0</span>] = e[x].ch[<span class="number">1</span>] = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> val)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> u = root;</span><br><span class="line">        <span class="keyword">while</span> (u) &#123;</span><br><span class="line">            <span class="keyword">if</span> (val == e[u].val) &#123;</span><br><span class="line">            	splay(u, root);</span><br><span class="line">				<span class="keyword">return</span> u;</span><br><span class="line">			&#125; </span><br><span class="line">            u = e[u].ch[val &lt; e[u].val ? <span class="number">0</span> : <span class="number">1</span>];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">insert</span><span class="params">(<span class="keyword">int</span> val)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> u = root;</span><br><span class="line">        points++;</span><br><span class="line">        <span class="keyword">if</span> (points == <span class="number">1</span>) &#123;</span><br><span class="line">            crepoint(val, <span class="number">0</span>);</span><br><span class="line">            root = pos;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span> (u) &#123;</span><br><span class="line">            e[u].siz++;</span><br><span class="line">            <span class="keyword">if</span> (e[u].val == val) &#123;</span><br><span class="line">                e[u].cnt++;</span><br><span class="line">                splay(u, root);</span><br><span class="line">                <span class="keyword">return</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">int</span> son = val &lt; e[u].val ? <span class="number">0</span> : <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">if</span> (!e[u].ch[son]) &#123;</span><br><span class="line">                crepoint(val, u);</span><br><span class="line">                e[u].ch[son] = pos;</span><br><span class="line">                splay(pos, root);</span><br><span class="line">                <span class="keyword">return</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            u =  e[u].ch[son];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">erase</span><span class="params">(<span class="keyword">int</span> val)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> u = find(val);</span><br><span class="line">        points--;</span><br><span class="line">        <span class="keyword">if</span> (e[u].cnt &gt; <span class="number">1</span>)  &#123;</span><br><span class="line">            e[u].cnt--;</span><br><span class="line">            e[u].siz--;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (!e[u].ch[<span class="number">0</span>]) &#123;</span><br><span class="line">            connect(e[u].ch[<span class="number">1</span>], <span class="number">0</span>, <span class="number">1</span>);</span><br><span class="line">            root = e[u].ch[<span class="number">1</span>];</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">int</span> lft = e[u].ch[<span class="number">0</span>], rit = e[u].ch[<span class="number">1</span>];</span><br><span class="line">            <span class="keyword">while</span> (e[lft].ch[<span class="number">1</span>]) lft = e[lft].ch[<span class="number">1</span>];</span><br><span class="line">            splay(lft, e[u].ch[<span class="number">0</span>]);</span><br><span class="line">            connect(rit, lft, <span class="number">1</span>);</span><br><span class="line">            connect(lft, <span class="number">0</span>, <span class="number">1</span>);</span><br><span class="line">            update(lft);</span><br><span class="line">        &#125;</span><br><span class="line">        delpoint(u);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">rank</span><span class="params">(<span class="keyword">int</span> val)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> u = root, ans = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (u) &#123;</span><br><span class="line">            <span class="keyword">if</span> (val == e[u].val) &#123;</span><br><span class="line">                ans += e[e[u].ch[<span class="number">0</span>]].siz + <span class="number">1</span>;</span><br><span class="line">                splay(u, root);</span><br><span class="line">                <span class="keyword">return</span> ans;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (val &lt; e[u].val) u = e[u].ch[<span class="number">0</span>];</span><br><span class="line">            <span class="keyword">else</span> ans += e[e[u].ch[<span class="number">0</span>]].siz + e[u].cnt, u = e[u].ch[<span class="number">1</span>];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">atrank</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> u = root;</span><br><span class="line">        <span class="keyword">while</span> (u) &#123;</span><br><span class="line">        	<span class="keyword">if</span> (x &lt;= e[e[u].ch[<span class="number">0</span>]].siz) u = e[u].ch[<span class="number">0</span>];</span><br><span class="line">        	<span class="keyword">else</span> <span class="keyword">if</span> (x &lt;= e[e[u].ch[<span class="number">0</span>]].siz + e[u].cnt) &#123;</span><br><span class="line">        		splay(u, root);</span><br><span class="line">				<span class="keyword">return</span> e[u].val;</span><br><span class="line">			&#125; <span class="keyword">else</span> x -= e[e[u].ch[<span class="number">0</span>]].siz + e[u].cnt, u = e[u].ch[<span class="number">1</span>];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">lower</span><span class="params">(<span class="keyword">int</span> val)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> u = root, result = -inf, cho = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (u) &#123;</span><br><span class="line">            <span class="keyword">if</span> (e[u].val &lt; val &amp;&amp; e[u].val &gt; result) result = e[u].val, cho = u;</span><br><span class="line">            u = e[u].ch[val &lt;= e[u].val ? <span class="number">0</span> : <span class="number">1</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        splay(cho, root);</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">upper</span><span class="params">(<span class="keyword">int</span> val)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> u = root, result = inf, cho = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (u) &#123;</span><br><span class="line">            <span class="keyword">if</span> (e[u].val &gt; val &amp;&amp; e[u].val &lt; result) result = e[u].val, cho = u;</span><br><span class="line">            u = e[u].ch[val &gt;= e[u].val ? <span class="number">1</span> : <span class="number">0</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        splay(cho, root);</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">#<span class="meta-keyword">undef</span> root</span></span><br><span class="line">    <span class="meta">#<span class="meta-keyword">undef</span> inf</span></span><br><span class="line">&#125; s;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    n = read();</span><br><span class="line">    <span class="keyword">while</span> (n--) &#123;</span><br><span class="line">        opt = read();</span><br><span class="line">        <span class="keyword">switch</span>(opt) &#123;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">                s.insert(read());</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">                s.erase(read());</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">3</span>:</span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, s.rank(read()));</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">4</span>:</span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, s.atrank(read()));</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">5</span>:</span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, s.lower(read()));</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">6</span>:</span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, s.upper(read()));</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="备注-amp-参考资料"><a href="#备注-amp-参考资料" class="headerlink" title="备注 &amp; 参考资料"></a>备注 &amp; 参考资料</h1><p>本文只是模板向的 Splay 教程，请在理解 Splay 后查看。</p>
+<p>题目链接：</p>
+<ul>
+<li><a href="https://www.luogu.org/problemnew/show/P3369" target="_blank" rel="noopener">3369 【模板】普通平衡树 - 洛谷</a></li>
+</ul>
+<p>参考资料：</p>
+<ul>
+<li><a href="https://www.luogu.org/blog/user19027/solution-p3369" target="_blank" rel="noopener">https://www.luogu.org/blog/user19027/solution-p3369</a>, 题解 P3369 【【模板】普通平衡树（Treap/SBT）】 </li>
+</ul>
+
+        </div>
+
+        <!--<blockquote class="post-copyright">
+    <div class="content">
+        
+
+        
+    </div>
+    <footer>
+        <a href="https://oi.memset0.cn">
+            <img src="/img/avatar.png" alt="memset0">
+            memset0
+        </a>
+    </footer>
+</blockquote>-->
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/平衡树/">平衡树</a></li></ul>
+
+
+            
+
+
+        </div>
+    </div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "rHgVqrBsv0EYGFSxzDDIDapm-9Nh9j0Va",
+            appKey: "X7Dp3hEvRWPbqHBYkOTBXzPm",
+            avatar: "mm",
+            placeholder: "留下你的脚印~",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "20"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+	
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/algorithm/fhq-treap/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">非旋 Treap 模板（普通平衡树）</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/algorithm/splay-reverse/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Splay 实现区间翻转（文艺平衡树）</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+	<span>
+		总字数：41.7k
+	</span>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>memset0 &copy; 2017 - 2018</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">浙ICP备-备你麻痹</a><br>
+                
+                Hosted by <a href="https://pages.coding.me">Coding Pages</a> · Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up fix-icon-chevron-up"></span></a>
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: false, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

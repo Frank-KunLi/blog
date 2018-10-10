@@ -1,0 +1,30 @@
+.waves-block > a {
+	font-weight: 400!important;
+}
+
+i.icon {
+	font-weight: 100!important;
+}
+
+.nav a {
+	letter-spacing: 0.1px;
+}
+
+#menu {
+	width: 200px;
+}
+
+/*.top-header, .index-header{
+	background: linear-gradient(to right,lightpink,lightblue);
+}
+.top-header .icon, .top-header .header-title, a#menu-off{
+	color: #fff!important;
+}
+
+.container .title {
+	color: #3f51b5;
+}*/
+
+/*li.active {
+	background: linear-gradient(to right,lightpink,lightblue)!important;
+}*/
