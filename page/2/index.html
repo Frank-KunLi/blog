@@ -180,6 +180,55 @@ var _hmt = _hmt || [];
     <ul class="post-list">
     
         <li class="post-list-item fade">
+            <article id="post-algorithm/可持久化并查集"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2018-09-18 18:33:00" datetime="2018-09-18T10:33:00.000Z"  itemprop="datePublished">2018-09-18</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Algorithm/">Algorithm</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/algorithm/可持久化并查集/">可持久化并查集（洛谷3402）</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p>在主席树的基础上做可持久化数组，在可持久化数组的基础上做可持久化并查集。</p>
+<p>然而路径压缩的话数组的修改次数可能会很大，但是每次修改是 $O(\log n)$ 的，可能会炸。所以我们要用一种类似启发式合并的方法，把小的往大的合并，这样总的复杂度是 $O(n \log n)$ 的。</p>
+<p>可以把并查集中的联通块看成一颗多叉树，合并时，把最深点的深度小的往大的合并，后者把树的大小小的往大的合并。笔者采用的是后者，其实原理基本是一样的。</p>
+    
+
+        <a href="/algorithm/可持久化并查集/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/可持久化并查集/">可持久化并查集</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
             <article id="post-solution/luogu4768"
   class="article-card article-type-post" itemprop="blogPost">
 
@@ -1154,60 +1203,12 @@ var _hmt = _hmt || [];
 
         </li>
     
-        <li class="post-list-item fade">
-            <article id="post-solution/luogu3701"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2018-08-20 10:19:00" datetime="2018-08-20T02:19:00.000Z"  itemprop="datePublished">2018-08-20</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Solution/">Solution</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/solution/luogu3701/">洛谷3701 -「伪模板」主席树</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p><del>去他妈的NOI难度</del></p>
-<p>从 $S$ 到 byx 的每个人连条容量为生命的边，从手气君的每个人到 $E$ 连条容量为生命的边；如果 byx 的这个人能打赢对方的某个人连一条容量为 $1$ 的边，$+1s$ 的话直接加到生命里，最后跑一遍最大流即可。</p>
-    
-
-        <a href="/solution/luogu3701/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/最大流/">最大流</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/网络流/">网络流</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
     </ul>
 
     
 <nav id="page-nav">
     <div class="inner">
-    <a class="extend prev" rel="prev" href="/">上一页</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">下一页</a>
+    <a class="extend prev" rel="prev" href="/">上一页</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">下一页</a>
     </div>
 </nav>
 
@@ -1219,7 +1220,7 @@ var _hmt = _hmt || [];
         
 <p>
 	<span>
-		总字数：41.7k
+		总字数：41.8k
 	</span>
     <span id="busuanzi_container_site_uv" style='display:none'>
         访客数：<span id="busuanzi_value_site_uv"></span>
