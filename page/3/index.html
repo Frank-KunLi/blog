@@ -180,6 +180,110 @@ var _hmt = _hmt || [];
     <ul class="post-list">
     
         <li class="post-list-item fade">
+            <article id="post-solution/luogu4514"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2018-08-20 20:12:36" datetime="2018-08-20T12:12:36.000Z"  itemprop="datePublished">2018-08-20</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Solution/">Solution</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/solution/luogu4514/">洛谷4514 - 上帝造题的七分钟</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p>丢一发友链就跑 <a href="https://www.cnblogs.com/xuanyi/p/9010816.html" target="_blank" rel="noopener">https://www.cnblogs.com/xuanyi/p/9010816.html</a> qaq。</p>
+    
+
+        <a href="/solution/luogu4514/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/树状数组/">树状数组</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-solution/uva1220"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2018-08-20 17:56:04" datetime="2018-08-20T09:56:04.000Z"  itemprop="datePublished">2018-08-20</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Solution/">Solution</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/solution/uva1220/">UVA1220 - Party at Hali-Bula</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p>用 $f[i][0]$ 表示 $i$ 不选所能取到的最大值， $f[i][1]$ 表示选 $i$ 能取到的最大值。</p>
+<p>假设当前节点为 $u$ ，孩子节点为 $v$ ，则：</p>
+<ul>
+<li>$f[u][0] = \sum max(f[v][0], f[v][1])$</li>
+<li>$f[u][1] = \sum f[v][0]$</li>
+</ul>
+<p>关于判断是否有多种情况：我们无需存种树，只要存是否即可，用数组 $d$ 表示，则：</p>
+<ul>
+<li>如果当前节点 $u$ 更新状态选中的来自 $v$ 的某个状态存在多种，那么 $u$ 的这个状态也存在多种。</li>
+<li>如果 $u$ 节点的某个孩子 $v$ 满足 $f[v][0] == f[v][1]$ ，那么 $f[u][0]$ 存在多种。</li>
+</ul>
+    
+
+        <a href="/solution/uva1220/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/树形DP/">树形DP</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
             <article id="post-solution/luogu3701"
   class="article-card article-type-post" itemprop="blogPost">
 
@@ -1118,111 +1222,6 @@ var _hmt = _hmt || [];
 
         </li>
     
-        <li class="post-list-item fade">
-            <article id="post-geek/python-login-hostoj"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2018-05-25 22:14:00" datetime="2018-05-25T14:14:00.000Z"  itemprop="datePublished">2018-05-25</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Geek/">Geek</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/geek/python-login-hostoj/">Python 模拟登陆 hustoj</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>最近闲着无聊准备写写<code>Python</code>爬虫，爬一下我们学校的oj用来横向比对做题量。但由于我校OJ对没有登录的账号有浏览限制，因此想要获取数据，就必须要登录账号。以前我一直手动生成<code>Cookie</code>，然后到浏览器里用该<code>Cookie</code>登录，这样的话没过一会儿又要重来比较麻烦。于是我就学习了一下用<code>Python</code>来<strong><code>POST</code>数据</strong>的方式实现登录功能。</p>
-<h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><ol start="0">
-<li>感谢hiuseues大佬对我的指导！</li>
-<li>此处以我校OJ为例</li>
-<li>请不要使用此测试账号（账号来自某外校团队）来浏览我校题目或交题，否则我将把密码改掉</li>
-<li>我习惯于使用<code>Python2</code>写爬虫，主要因为我校电脑和我的VPS预装的都是这个版本。可能会和hiuseues大佬产生代沟，不要在意。当然，这个脚本的核心部分在<code>Python3</code>中完全可以运行，希望这样的话代沟可以小一点。</li>
-</ol>
-    
-
-        <a href="/geek/python-login-hostoj/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-diary/school-started"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2018-04-30 16:04:00" datetime="2018-04-30T08:04:00.000Z"  itemprop="datePublished">2018-04-30</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Diary/">Diary</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/diary/school-started/">2018浙大校赛&amp;图森未来杯(4.7) 游记</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <blockquote>
-<p>这其实是一个比赛啊啊啊啊啊！</p>
-<p>反正考得超级辣鸡的！</p>
-</blockquote>
-<p>这是我第一次参加ACM类的比赛，估计也是我的第一次写游记吧。<br>这次参加浙大校赛的，不光有他们大学生，还有各路中学生；同时，我也在队伍里面发现了小学生的踪影（就差幼儿园的了）。<br>整体的氛围还是比较愉快的，可能是因为三个人一起做题的关系吧，没有OI那么压抑。</p>
-<p>这次比赛给了我们一点经验，也让我们看到了很多不足的地方（同时我现场领悟了如何数组模拟链表，thanks to fjk）<br>
-    
-
-        <a href="/diary/school-started/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/游记/">游记</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
     </ul>
 
     
@@ -1240,7 +1239,7 @@ var _hmt = _hmt || [];
         
 <p>
 	<span>
-		总字数：41.8k
+		总字数：43.1k
 	</span>
     <span id="busuanzi_container_site_uv" style='display:none'>
         访客数：<span id="busuanzi_value_site_uv"></span>
