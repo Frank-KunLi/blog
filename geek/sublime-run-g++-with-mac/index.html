@@ -17,31 +17,27 @@ var _hmt = _hmt || [];
     <meta charset="utf-8">
     
     
-    <link rel="canonical" href="memset0.cn/geek/devcpp-high-dpi/">
+    <link rel="canonical" href="memset0.cn/geek/sublime-run-g++-with-mac/">
     
     
-    <title>Dev C++ 资瓷 Hi DPI 方法 | memset0&#39;s blog | 站在时代的十字路口</title>
+    <title>Mac 下 Sublime Text 3 配置运行 G++ | memset0&#39;s blog | 站在时代的十字路口</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#3F51B5">
     
     
     <meta name="keywords" content="">
-    <meta name="description" content="前提条件，新版 Windows 10 （在有高分屏的机子上装 Win 10 不苛刻吧）。">
+    <meta name="description" content="配置编译系统新建编译系统并粘贴入以下命令，保存为 G++.sublime-build 或其他你喜欢的名称。 123456789101112131415161718192021&amp;#123;    &amp;quot;shell_cmd&amp;quot;: &amp;quot;g++ \&amp;quot;$&amp;#123;file&amp;#125;\&amp;quot; -o \&amp;quot;$&amp;#123;file_path&amp;#125;/$&amp;#12">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Dev C++ 资瓷 Hi DPI 方法">
-<meta property="og:url" content="https://oi.memset0.cn/geek/devcpp-high-dpi/index.html">
+<meta property="og:title" content="Mac 下 Sublime Text 3 配置运行 G++">
+<meta property="og:url" content="https://oi.memset0.cn/geek/sublime-run-g++-with-mac/index.html">
 <meta property="og:site_name" content="memset0&#39;s blog">
-<meta property="og:description" content="前提条件，新版 Windows 10 （在有高分屏的机子上装 Win 10 不苛刻吧）。">
+<meta property="og:description" content="配置编译系统新建编译系统并粘贴入以下命令，保存为 G++.sublime-build 或其他你喜欢的名称。 123456789101112131415161718192021&amp;#123;    &amp;quot;shell_cmd&amp;quot;: &amp;quot;g++ \&amp;quot;$&amp;#123;file&amp;#125;\&amp;quot; -o \&amp;quot;$&amp;#123;file_path&amp;#125;/$&amp;#12">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://i.loli.net/2018/10/11/5bbed3f461aa4.png">
-<meta property="og:image" content="https://i.loli.net/2018/10/11/5bbed3f459fc3.png">
-<meta property="og:image" content="https://i.loli.net/2018/10/11/5bbed3f463d1a.png">
-<meta property="og:updated_time" content="2018-10-11T04:42:54.553Z">
+<meta property="og:updated_time" content="2018-11-07T08:25:48.036Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Dev C++ 资瓷 Hi DPI 方法">
-<meta name="twitter:description" content="前提条件，新版 Windows 10 （在有高分屏的机子上装 Win 10 不苛刻吧）。">
-<meta name="twitter:image" content="https://i.loli.net/2018/10/11/5bbed3f461aa4.png">
+<meta name="twitter:title" content="Mac 下 Sublime Text 3 配置运行 G++">
+<meta name="twitter:description" content="配置编译系统新建编译系统并粘贴入以下命令，保存为 G++.sublime-build 或其他你喜欢的名称。 123456789101112131415161718192021&amp;#123;    &amp;quot;shell_cmd&amp;quot;: &amp;quot;g++ \&amp;quot;$&amp;#123;file&amp;#125;\&amp;quot; -o \&amp;quot;$&amp;#123;file_path&amp;#125;/$&amp;#12">
     
         <link rel="alternate" type="application/atom+xml" title="memset0&#39;s blog" href="/atom.xml">
     
@@ -152,7 +148,7 @@ var _hmt = _hmt || [];
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">Dev C++ 资瓷 Hi DPI 方法</div>
+        <div class="flex-col header-title ellipsis">Mac 下 Sublime Text 3 配置运行 G++</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -170,11 +166,11 @@ var _hmt = _hmt || [];
 <header class="content-header post-header">
 
     <div class="container fade-scale">
-        <h1 class="title">Dev C++ 资瓷 Hi DPI 方法</h1>
+        <h1 class="title">Mac 下 Sublime Text 3 配置运行 G++</h1>
         <h5 class="subtitle">
             
-                <time datetime="2018-10-11T04:35:39.000Z" itemprop="datePublished" class="page-time">
-  2018-10-11
+                <time datetime="2018-11-07T08:19:00.000Z" itemprop="datePublished" class="page-time">
+  2018-11-07
 </time>
 
 
@@ -192,13 +188,20 @@ var _hmt = _hmt || [];
 
 <div class="container body-wrap">
     
-<article id="post-geek/devcpp-high-dpi"
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#配置编译系统"><span class="post-toc-number">1.</span> <span class="post-toc-text">配置编译系统</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#配置编译运行快捷键"><span class="post-toc-number">2.</span> <span class="post-toc-text">配置编译运行快捷键</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#其他注意事项"><span class="post-toc-number">3.</span> <span class="post-toc-text">其他注意事项</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-geek/sublime-run-g++-with-mac"
   class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
-        <h1 class="post-card-title">Dev C++ 资瓷 Hi DPI 方法</h1>
+        <h1 class="post-card-title">Mac 下 Sublime Text 3 配置运行 G++</h1>
         <div class="post-meta">
-            <time class="post-time" title="2018-10-11 12:35:39" datetime="2018-10-11T04:35:39.000Z"  itemprop="datePublished">2018-10-11</time>
+            <time class="post-time" title="2018-11-07 16:19:00" datetime="2018-11-07T08:19:00.000Z"  itemprop="datePublished">2018-11-07</time>
 
             
 	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Geek/">Geek</a></li></ul>
@@ -207,7 +210,7 @@ var _hmt = _hmt || [];
 
             
 <span>
-	113 字
+	273 字
 </span>
 <span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
     <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
@@ -216,20 +219,17 @@ var _hmt = _hmt || [];
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <p>前提条件，新版 Windows 10 （在有高分屏的机子上装 Win 10 不苛刻吧）。</p>
-<a id="more"></a>
-<p>首先定位到你的 <code>devcpp.exe</code> 文件，一般都在默认的安装目录下，右键他点击属性。</p>
-<p><img src="https://i.loli.net/2018/10/11/5bbed3f461aa4.png" alt=""></p>
-<p>点击 <code>更改高 DPI 设置</code> </p>
-<p><img src="https://i.loli.net/2018/10/11/5bbed3f459fc3.png" alt=""></p>
-<p>点击 <code>替代高 DPI 缩放行为</code> ，并选择 <code>系统（增强）</code>。</p>
-<p><img src="https://i.loli.net/2018/10/11/5bbed3f463d1a.png" alt=""></p>
-<p>重启 Dev C++ 即可看到效果。</p>
-<p>已知问题：</p>
-<ul>
-<li>与 Mactype 不兼容。</li>
-</ul>
-<p><strong>原创文章，转载请注明原作者和地址。</strong></p>
+            <h1 id="配置编译系统"><a href="#配置编译系统" class="headerlink" title="配置编译系统"></a>配置编译系统</h1><p>新建编译系统并粘贴入以下命令，保存为 <code>G++.sublime-build</code> 或其他你喜欢的名称。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;shell_cmd&quot;: &quot;g++ \&quot;$&#123;file&#125;\&quot; -o \&quot;$&#123;file_path&#125;/$&#123;file_base_name&#125;\&quot; -Wall&quot;,</span><br><span class="line">    &quot;file_regex&quot;: &quot;^(..[^:]*):([0-9]+):?([0-9]+)?:? (.*)$&quot;,</span><br><span class="line">    &quot;working_dir&quot;: &quot;$&#123;file_path&#125;&quot;,</span><br><span class="line">    &quot;selector&quot;: &quot;source.c, source.c++&quot;,</span><br><span class="line">    &quot;variants&quot;:</span><br><span class="line">    [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;name&quot;: &quot;compile&quot;,</span><br><span class="line">            &quot;shell_cmd&quot;: &quot;g++ \&quot;$&#123;file&#125;\&quot; -o \&quot;/tmp/$&#123;file_base_name&#125;\&quot; -Wall -O2 &amp;&amp; echo &apos;Compile finished.&apos;&quot;</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;name&quot;: &quot;run&quot;,</span><br><span class="line">            &quot;shell_cmd&quot;: &quot;&apos;/tmp/$&#123;file_base_name&#125;&apos; &amp;&amp; echo &apos;=============\nRun finished.&apos;&quot;</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;name&quot;: &quot;compile &amp; run&quot;,</span><br><span class="line">            &quot;shell_cmd&quot;: &quot;g++ \&quot;$&#123;file&#125;\&quot; -o \&quot;/tmp/$&#123;file_base_name&#125;\&quot; -Wall -O2 &amp;&amp; /tmp/$&#123;file_base_name&#125; &amp;&amp; echo &apos;=============\nComplie &amp; run finished.&apos;&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="配置编译运行快捷键"><a href="#配置编译运行快捷键" class="headerlink" title="配置编译运行快捷键"></a>配置编译运行快捷键</h1><p>把以下代码粘贴到你的快捷键配置文件中，表示 <code>F9</code> 编译， <code>F10</code> 运行， <code>F11</code> 编译并运行。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	&quot;keys&quot;: [&quot;f9&quot;], &quot;command&quot;: &quot;build&quot;,</span><br><span class="line">	&quot;args&quot;: &#123;</span><br><span class="line">		&quot;variant&quot;: &quot;compile&quot;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;,</span><br><span class="line">	&#123;</span><br><span class="line">		&quot;keys&quot;: [&quot;f10&quot;], &quot;command&quot;: &quot;build&quot;,</span><br><span class="line">		&quot;args&quot;: &#123;</span><br><span class="line">			&quot;variant&quot;: &quot;run&quot;</span><br><span class="line">		&#125;</span><br><span class="line">&#125;,</span><br><span class="line">	&#123;</span><br><span class="line">		&quot;keys&quot;: [&quot;f11&quot;], &quot;command&quot;: &quot;build&quot;,</span><br><span class="line">		&quot;args&quot;: &#123;</span><br><span class="line">			&quot;variant&quot;: &quot;compile &amp; run&quot;</span><br><span class="line">		&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="其他注意事项"><a href="#其他注意事项" class="headerlink" title="其他注意事项"></a>其他注意事项</h1><p>Mac OS 下默认用 Clang 编译 G++ 代码。因此不支持使用万能头文件（<code>bits/stdc++.h</code>），解决方案：</p>
+<ol>
+<li><p>手动复制 <code>bits/stdc++.h</code> 文件到对应目录中</p>
+</li>
+<li><p>手动安装 <code>g++4.9</code> 并把上面编译命令中的 <code>g++</code> 替换为 <code>g++-4.9</code></p>
+</li>
+</ol>
 
         </div>
 
@@ -299,21 +299,14 @@ var _hmt = _hmt || [];
 
 	
     
-<nav class="post-nav flex-row flex-justify-between">
-  
-    <div class="waves-block waves-effect prev">
-      <a href="/solution/luogu3620/" id="post-prev" class="post-nav-link">
-        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">洛谷3620 [APIO/CTSC 2007] 数据备份</h4>
-      </a>
-    </div>
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
   
 
   
     <div class="waves-block waves-effect next">
-      <a href="/geek/git-add-ssh/" id="post-next" class="post-nav-link">
+      <a href="/solution/luogu4949/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">Git 生成 SSH 公钥</h4>
+        <h4 class="title">洛谷4949 最短距离</h4>
       </a>
     </div>
   
