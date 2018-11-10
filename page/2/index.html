@@ -180,6 +180,59 @@ var _hmt = _hmt || [];
     <ul class="post-list">
     
         <li class="post-list-item fade">
+            <article id="post-solution/luogu4168"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2018-09-21 15:56:00" datetime="2018-09-21T07:56:00.000Z"  itemprop="datePublished">2018-09-21</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Solution/">Solution</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/solution/luogu4168/">洛谷4168 - [Violet]蒲公英</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <blockquote>
+<p>这道黑题为什么那么水 QAQ<br>这道题在 BZOJ 上为什么又又又又又是权限题</p>
+</blockquote>
+<p>本题求区间众数，强制在线。</p>
+<p>对于每次查询，必定可以分为整块的和非整块的，我们先预处理出第 $i$ 块到第 $j$ 块的众数（ $max[i][j]$ ）和某个数 $i$ 在前 $j$ 个块内的前缀和（ $sum[i][j]$ ）。对于非整块的部分 $O(\sqrt n)$ 暴力加到桶里，加上整块中的个数判断能否更新答案。然后判断 $l$ 与 $r$ 之间的块的众数是否能否更新答案。</p>
+<p>预处理的话 $max$ 和 $sum$ 数组全都暴力扫一遍更新，时间复杂度 $O(n \sqrt n)$，详见代码。</p>
+<p>时间复杂度：$O(n \sqrt n + m \sqrt m)$</p>
+    
+
+        <a href="/solution/luogu4168/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/分块/">分块</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/强制在线/">强制在线</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
             <article id="post-solution/luogu2787"
   class="article-card article-type-post" itemprop="blogPost">
 
@@ -1143,64 +1196,6 @@ var _hmt = _hmt || [];
 
         </li>
     
-        <li class="post-list-item fade">
-            <article id="post-solution/luogu4767"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2018-08-26 22:35:55" datetime="2018-08-26T14:35:55.000Z"  itemprop="datePublished">2018-08-26</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Solution/">Solution</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/solution/luogu4767/">洛谷4767 - [IOI2000]邮局</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p>非常简单的四边形不等式优化模板题。</p>
-<h3 id="（一）"><a href="#（一）" class="headerlink" title="（一）"></a>（一）</h3><p>首先考虑 $O(n^2 \times m)$ 的做法，先将 $a$ 数组排序，假设 $f[i][j]$ 表示前 $i$ 个村庄中设立 $j$ 个邮局，可以列出转移方程：</p>
-<p>$$f[i][j] = min(f[i][j], f[k][j - 1] + dis(k + 1, i))$$</p>
-<p>其中 $dis(l, r)$ 表示在 $l$ 到 $r$ 的区间中建立一个邮局所对答案产生的贡献，<strong>利用人类智慧可知把邮局建在中间花费最少</strong>。</p>
-<h3 id="（二）"><a href="#（二）" class="headerlink" title="（二）"></a>（二）</h3><p>在进行四边形不等式优化之前，我们先考虑如何在 $O(1)$ 的时间复杂度内求出 $dis(l, r)$：</p>
-<p>在暴力做法中，我们需要枚举 $l$ 到 $r$ 之间的数，去其与中间的村庄的距离差的绝对值，代码大概如下：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = l; i &lt;= r; i++)</span><br><span class="line">    ans += <span class="built_in">abs</span>(a[i] - a[mid]);</span><br></pre></td></tr></table></figure>
-<p>由于 $a$ 数组是有序的，我们可知在 $mid$ 左面的村庄 $abs(a_i - a_{mid}) = a_{mid} - a_i$，右边的村庄 $abs(a_i - a_{mid}) = a_i - a_{mid}$ 。那么通过前缀和即可在 $O(1)$ 的时间复杂度内求出。</p>
-<h3 id="（三）"><a href="#（三）" class="headerlink" title="（三）"></a>（三）</h3><p>四边形不等式优化必须满足：</p>
-<p>$$f[a][c]+f[b][d]&lt;=f[b][c]+f[a][d]$$</p>
-<p>且决策单调。</p>
-<p>本题可以通过<del>打表</del>等方法证明成立，那么 $f[i][j]$ 的状态只能从 $f[i][j - 1]$ 到 $f[i + 1][j]$ 的决策中选择一个进行转移。</p>
-    
-
-        <a href="/solution/luogu4767/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DP/">DP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/四边形不等式优化/">四边形不等式优化</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
     </ul>
 
     
@@ -1218,7 +1213,7 @@ var _hmt = _hmt || [];
         
 <p>
 	<span>
-		总字数：44.3k
+		总字数：45.4k
 	</span>
     <span id="busuanzi_container_site_uv" style='display:none'>
         访客数：<span id="busuanzi_value_site_uv"></span>
