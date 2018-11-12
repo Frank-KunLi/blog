@@ -180,6 +180,55 @@ var _hmt = _hmt || [];
     <ul class="post-list">
     
         <li class="post-list-item fade">
+            <article id="post-solution/luogu3285"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2018-08-30 17:56:45" datetime="2018-08-30T09:56:45.000Z"  itemprop="datePublished">2018-08-30</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Solution/">Solution</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/solution/luogu3285/">洛谷3285 - [SCOI2014]方伯伯的OJ</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p>本题的 $n$ 特别大，如果直接开那么大的空间，想必会直接超时。所以我们可以先把所有“用户”合并成一个点，需要访问到哪个就进行分裂。这样的话 $m$ 次操作每次都只会分裂一次，时间复杂度就能保证在 $O(m\log m)$ ，空间也不会炸。</p>
+<p>另外本题只有提到最前面和提到最后面两种操作，使用平衡树的必要不大，用动态开点线段树就好了。</p>
+<p>p.s. 感觉 Leafy Tree 和这个好像啊 (=’w’​=)</p>
+    
+
+        <a href="/solution/luogu3285/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/动态开点线段树/">动态开点线段树</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/平衡树/">平衡树</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/线段树/">线段树</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
             <article id="post-solution/luogu4767"
   class="article-card article-type-post" itemprop="blogPost">
 
@@ -1160,68 +1209,6 @@ var _hmt = _hmt || [];
 
         </li>
     
-        <li class="post-list-item fade">
-            <article id="post-algorithm/最长上升子序列"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2018-07-18 12:06:00" datetime="2018-07-18T04:06:00.000Z"  itemprop="datePublished">2018-07-18</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Algorithm/">Algorithm</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/algorithm/最长上升子序列/">十行求解 $O(n \log n)$ 求最长上升子序列</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">int</span> n, x, f[<span class="number">100001</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">memset</span>(f, <span class="number">63</span>, <span class="keyword">sizeof</span>(f));</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;x), *<span class="built_in">std</span>::lower_bound(f + <span class="number">1</span>, f + n + <span class="number">1</span>, x) = x;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">printf</span>(<span class="string">"%d\n"</span>, <span class="built_in">std</span>::lower_bound(f + <span class="number">1</span>, f + n + <span class="number">1</span>, f[<span class="number">0</span>]) - f - <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>个人认为在保障可读性的情况下的最佳优化</p>
-<p>主要优化有：</p>
-<ol>
-<li>包bits库，省两行</li>
-<li>不用<code>using namespace std</code>，省一行</li>
-<li>输入和修改压到一行，省两行</li>
-<li>用STL，省很多行</li>
-</ol>
-<p>你还可以接着压行：</p>
-<ol>
-<li>把第四行和第五行用逗号连在一起</li>
-<li>把变量定义转移到for循环或main函数定义里</li>
-<li>把所有语句压倒一行去</li>
-</ol>
-
-    
-
-        <a href="/algorithm/最长上升子序列/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/最长上升子序列/">最长上升子序列</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
     </ul>
 
     
@@ -1239,7 +1226,7 @@ var _hmt = _hmt || [];
         
 <p>
 	<span>
-		总字数：46.2k
+		总字数：46.7k
 	</span>
     <span id="busuanzi_container_site_uv" style='display:none'>
         访客数：<span id="busuanzi_value_site_uv"></span>
