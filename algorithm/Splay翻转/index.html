@@ -17,7 +17,7 @@ var _hmt = _hmt || [];
     <meta charset="utf-8">
     
     
-    <link rel="canonical" href="memset0.cn/algorithm/splay-reverse/">
+    <link rel="canonical" href="memset0.cn/algorithm/Splay翻转/">
     
     
     <title>Splay 实现区间翻转（文艺平衡树） | memset0&#39;s blog | 站在时代的十字路口</title>
@@ -31,7 +31,7 @@ var _hmt = _hmt || [];
 <meta name="keywords" content="平衡树">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Splay 实现区间翻转（文艺平衡树）">
-<meta property="og:url" content="https://oi.memset0.cn/algorithm/splay-reverse/index.html">
+<meta property="og:url" content="https://oi.memset0.cn/algorithm/Splay翻转/index.html">
 <meta property="og:site_name" content="memset0&#39;s blog">
 <meta property="og:description" content="思路之前我们讲到了用 Splay 写普通平衡树，这次我们将用 Splay 来完成区间操作。 之前的 Splay 是按照权值排序，而这里的 Splay 则是要按照编号排序。 不难想到，整棵树的编号第 k 大点即数列中的第 k 个，整棵树的中序遍历即被维护的数列。  假设我们要翻转区间[l, r]，那么我们先把l - 1旋转到根节点，再把r + 1旋转到根节点的右孩子。那么r + 1的左子树即区间[l">
 <meta property="og:locale" content="zh-CN">
@@ -198,7 +198,7 @@ var _hmt = _hmt || [];
         </nav>
     </aside>
     
-<article id="post-algorithm/splay-reverse"
+<article id="post-algorithm/Splay翻转"
   class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
@@ -336,7 +336,7 @@ var _hmt = _hmt || [];
 <nav class="post-nav flex-row flex-justify-between">
   
     <div class="waves-block waves-effect prev">
-      <a href="/algorithm/splay/" id="post-prev" class="post-nav-link">
+      <a href="/algorithm/Splay基本操作/" id="post-prev" class="post-nav-link">
         <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
         <h4 class="title">Splay 非指针模板（普通平衡树）</h4>
       </a>
