@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://oi.memset0.cn/"/>
-  <updated>2018-11-12T11:41:35.612Z</updated>
+  <updated>2018-11-12T12:00:14.495Z</updated>
   <id>https://oi.memset0.cn/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>退役后的做题计划（一）</title>
+    <link href="https://oi.memset0.cn/plan/plan1/"/>
+    <id>https://oi.memset0.cn/plan/plan1/</id>
+    <published>2018-11-12T12:00:02.000Z</published>
+    <updated>2018-11-12T12:00:14.495Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>本计划根据 <a href="//oi.men.ci">Menci 博客</a> 题解时间顺序排列。<br>CodeVS 和 COGS 的部分题出于某些原因不打算做（主要是没有账号）。<br>部分未完成且正准备做的题目可能会给出链接（优先级：洛谷 &gt; BZOJ &gt; LOJ &gt; UOJ）。</p><a id="more"></a><table><thead><tr><th>完成情况</th><th>题目名称</th></tr></thead><tbody><tr><td>√</td><td>「NOI2002」银河英雄传说 - 并查集</td></tr><tr><td>-</td><td>「CodeVS 3269」混合背包 - 背包 DP</td></tr><tr><td>√</td><td>「HNOI2004」宠物收养所 - set</td></tr><tr><td>-</td><td>「CodeVS 3168 / 31」抄书问题 - 划分 DP / 二分答案</td></tr><tr><td> √</td><td><a href="https://www.luogu.org/problemnew/show/P2014" target="_blank" rel="noopener">「CTSC1997」选课 - 树形 DP</a></td></tr><tr><td></td><td>「NOIP2000」乘积最大 - 划分 DP</td></tr><tr><td>-</td><td>「CodeVS 2598」编辑距离问题 - 线性 DP</td></tr><tr><td></td><td>「Tyvj 3317」火车票 - 划分 DP</td></tr><tr><td> √</td><td>「NOIP2006」能量项链 - 区间 DP</td></tr><tr><td> √</td><td>「NOIP2003」数字游戏 - 划分 DP</td></tr><tr><td>-</td><td>「CodeVS 1345」饥饿的奶牛 - 线性 DP</td></tr><tr><td>-</td><td>「CodeVS 3269」混合背包 - 背包 DP + 单调队列</td></tr><tr><td></td><td>「BZOJ 2442」修剪草坪 - 线性 DP + 单调队列</td></tr><tr><td>√</td><td>「NOIP2006」金明的预算方案 - 背包 DP + 树形 DP</td></tr><tr><td></td><td>「BZOJ 1251」序列终结者 - Splay</td></tr><tr><td>√</td><td>「NOIP2012」同余方程 - 扩展欧几里得</td></tr><tr><td></td><td>「NOI2015」程序自动分析 - 离散化 + 并查集</td></tr><tr><td>√</td><td>「NOI2015」软件包管理器 - 树链剖分</td></tr><tr><td></td><td>「BZOJ 1477」青蛙的约会 - 扩展欧几里得</td></tr><tr><td>√</td><td>「NOI2004」郁闷的出纳员 - Splay</td></tr><tr><td></td><td><strong><a href="https://www.luogu.org/problemnew/show/P4513" target="_blank" rel="noopener">「BZOJ 1756」小白逛公园 - 线段树</a></strong> </td></tr><tr><td>-</td><td>「CodeVS 1563」奶牛的交通 - 网络流</td></tr><tr><td></td><td>「BZOJ 2683」简单题 - CDQ</td></tr><tr><td>√</td><td>「COGS 14」搭配飞行员 - 二分图匹配</td></tr><tr><td>√</td><td>「COGS 728」最小路径覆盖问题 - 二分图匹配</td></tr><tr><td>√</td><td>「COGS 396」魔术球问题 - 贪心</td></tr><tr><td>√</td><td>「COGS 729」圆桌聚餐 - 网络流</td></tr><tr><td> -</td><td>「COGS 731」最长递增子序列 - 线性 DP + 网络流</td></tr><tr><td>√</td><td>「COGS 727」太空飞行计划 - 最大权闭合图</td></tr><tr><td>√</td><td>「COGS 439」软件补丁 - 记忆化搜索 + 位运算</td></tr><tr><td> √</td><td>「COGS 734」方格取数 - 二分图最大独立集</td></tr><tr><td></td><td><strong><a href="https://www.luogu.org/problemnew/show/P4013" target="_blank" rel="noopener">「COGS 738」数字梯形 - 费用流</a></strong> </td></tr><tr><td>√</td><td>「COGS 746」骑士共存 - 二分图最大独立集</td></tr><tr><td> √</td><td>「NOIP2010」关押罪犯 - 二分图染色</td></tr><tr><td>√</td><td>「JSOI2008」最大数 - Splay</td></tr><tr><td>√</td><td>「COGS 739」运输问题 - 费用流</td></tr><tr><td>√</td><td>「COGS 742」深海机器人 - 费用流</td></tr><tr><td></td><td>「CTSC1999」星际转移 - 网络流</td></tr><tr><td></td><td>「COGS 740」分配问题 - 二分图最大权匹配</td></tr></tbody></table><p>截止到第 31 页</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本计划根据 &lt;a href=&quot;//oi.men.ci&quot;&gt;Menci 博客&lt;/a&gt; 题解时间顺序排列。&lt;br&gt;CodeVS 和 COGS 的部分题出于某些原因不打算做（主要是没有账号）。&lt;br&gt;部分未完成且正准备做的题目可能会给出链接（优先级：洛谷 &amp;gt; BZOJ &amp;gt; LOJ &amp;gt; UOJ）。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Plan" scheme="https://oi.memset0.cn/categories/Plan/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>BZOJ5017 - [Snoi2017]炸弹</title>
@@ -42,26 +62,6 @@
       <category term="缩点" scheme="https://oi.memset0.cn/tags/%E7%BC%A9%E7%82%B9/"/>
     
       <category term="线段树优化建边" scheme="https://oi.memset0.cn/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91%E4%BC%98%E5%8C%96%E5%BB%BA%E8%BE%B9/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>退役后的做题计划（一）</title>
-    <link href="https://oi.memset0.cn/plan/plan1/"/>
-    <id>https://oi.memset0.cn/plan/plan1/</id>
-    <published>2018-11-12T06:45:02.000Z</published>
-    <updated>2018-11-12T11:31:07.452Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>本计划根据 <a href="//oi.men.ci">Menci 博客</a> 题解时间顺序排列。<br>CodeVS 和 COGS 的部分题出于某些原因不打算做（主要是没有账号）。<br>部分未完成且正准备做的题目可能会给出链接（优先级：洛谷 &gt; BZOJ &gt; LOJ &gt; UOJ）。</p><a id="more"></a><table><thead><tr><th>完成情况</th><th>题目名称</th></tr></thead><tbody><tr><td>√</td><td>「NOI2002」银河英雄传说 - 并查集</td></tr><tr><td>-</td><td>「CodeVS 3269」混合背包 - 背包 DP</td></tr><tr><td>√</td><td>「HNOI2004」宠物收养所 - set</td></tr><tr><td>-</td><td>「CodeVS 3168 / 31」抄书问题 - 划分 DP / 二分答案</td></tr><tr><td> √</td><td><a href="https://www.luogu.org/problemnew/show/P2014" target="_blank" rel="noopener">「CTSC1997」选课 - 树形 DP</a></td></tr><tr><td></td><td>「NOIP2000」乘积最大 - 划分 DP</td></tr><tr><td>-</td><td>「CodeVS 2598」编辑距离问题 - 线性 DP</td></tr><tr><td></td><td>「Tyvj 3317」火车票 - 划分 DP</td></tr><tr><td> √</td><td>「NOIP2006」能量项链 - 区间 DP</td></tr><tr><td> √</td><td>「NOIP2003」数字游戏 - 划分 DP</td></tr><tr><td>-</td><td>「CodeVS 1345」饥饿的奶牛 - 线性 DP</td></tr><tr><td>-</td><td>「CodeVS 3269」混合背包 - 背包 DP + 单调队列</td></tr><tr><td></td><td>「BZOJ 2442」修剪草坪 - 线性 DP + 单调队列</td></tr><tr><td>√</td><td>「NOIP2006」金明的预算方案 - 背包 DP + 树形 DP</td></tr><tr><td></td><td>「BZOJ 1251」序列终结者 - Splay</td></tr><tr><td>√</td><td>「NOIP2012」同余方程 - 扩展欧几里得</td></tr><tr><td></td><td>「NOI2015」程序自动分析 - 离散化 + 并查集</td></tr><tr><td>√</td><td>「NOI2015」软件包管理器 - 树链剖分</td></tr><tr><td></td><td>「BZOJ 1477」青蛙的约会 - 扩展欧几里得</td></tr><tr><td>√</td><td>「NOI2004」郁闷的出纳员 - Splay</td></tr><tr><td></td><td><strong>「BZOJ 1756」小白逛公园 - 线段树</strong> </td></tr><tr><td>-</td><td>「CodeVS 1563」奶牛的交通 - 网络流</td></tr><tr><td></td><td>「BZOJ 2683」简单题 - CDQ</td></tr><tr><td>√</td><td>「COGS 14」搭配飞行员 - 二分图匹配</td></tr><tr><td>√</td><td>「COGS 728」最小路径覆盖问题 - 二分图匹配</td></tr><tr><td>√</td><td>「COGS 396」魔术球问题 - 贪心</td></tr><tr><td>√</td><td>「COGS 729」圆桌聚餐 - 网络流</td></tr><tr><td> -</td><td>「COGS 731」最长递增子序列 - 线性 DP + 网络流</td></tr><tr><td>√</td><td>「COGS 727」太空飞行计划 - 最大权闭合图</td></tr><tr><td>√</td><td>「COGS 439」软件补丁 - 记忆化搜索 + 位运算</td></tr><tr><td> √</td><td>「COGS 734」方格取数 - 二分图最大独立集</td></tr><tr><td></td><td><strong>「COGS 738」数字梯形 - 费用流</strong> </td></tr><tr><td>√</td><td>「COGS 746」骑士共存 - 二分图最大独立集</td></tr><tr><td> √</td><td>「NOIP2010」关押罪犯 - 二分图染色</td></tr><tr><td>√</td><td>「JSOI2008」最大数 - Splay</td></tr><tr><td>√</td><td>「COGS 739」运输问题 - 费用流</td></tr><tr><td>√</td><td>「COGS 742」深海机器人 - 费用流</td></tr><tr><td></td><td>「CTSC1999」星际转移 - 网络流</td></tr><tr><td></td><td>「COGS 740」分配问题 - 二分图最大权匹配</td></tr></tbody></table><p>截止到第 31 页</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;本计划根据 &lt;a href=&quot;//oi.men.ci&quot;&gt;Menci 博客&lt;/a&gt; 题解时间顺序排列。&lt;br&gt;CodeVS 和 COGS 的部分题出于某些原因不打算做（主要是没有账号）。&lt;br&gt;部分未完成且正准备做的题目可能会给出链接（优先级：洛谷 &amp;gt; BZOJ &amp;gt; LOJ &amp;gt; UOJ）。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Plan" scheme="https://oi.memset0.cn/categories/Plan/"/>
-    
     
   </entry>
   
