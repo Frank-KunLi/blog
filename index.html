@@ -180,6 +180,56 @@ var _hmt = _hmt || [];
     <ul class="post-list">
     
         <li class="post-list-item fade">
+            <article id="post-solution/bzoj5017"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2018-11-12 19:33:40" datetime="2018-11-12T11:33:40.000Z"  itemprop="datePublished">2018-11-12</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Solution/">Solution</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/solution/bzoj5017/">BZOJ5017 - [Snoi2017]炸弹</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p>zhouyuheng2003 学长一天打完 CF 后给我做的一道他说是简单题的题，然而炒鸡难！！！</p>
+<p>考虑暴力，每个炸弹向能引爆炸弹的连边，总数是 $n^2$ 级别的。之后跑 tarjan 缩点，并在 DAG 上统计答案。统计是，考虑合并来的点所对应的情况可能会有重点，因此需要开桶去重。这样的时空复杂度都是 $O(n^2)$ 的。</p>
+<p>考虑优化，通过观察可以发现，能引爆的炸弹一定是连续的一整段区间。那么我们可以用线段树优化建边，统计答案是不需要开桶统计，而是统计能够炸掉的最左端的点和最右端的点。时间复杂度 $O(n \log n)$ ，空间复杂度 $O(n)$。</p>
+<p>当然这并不是最优的做法，zhouyuheng2003 学长的博客中给出了一种时空复杂度均为 $O(n)$ 的做法。见 <a href="https://blog.csdn.net/zhouyuheng2003/article/details/83278984" target="_blank" rel="noopener">https://blog.csdn.net/zhouyuheng2003/article/details/83278984</a> 。</p>
+    
+
+        <a href="/solution/bzoj5017/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tarjan/">tarjan</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/线段树优化建边/">线段树优化建边</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/缩点/">缩点</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
             <article id="post-plan/plan1"
   class="article-card article-type-post" itemprop="blogPost">
 
@@ -1104,56 +1154,6 @@ var _hmt = _hmt || [];
 
         </li>
     
-        <li class="post-list-item fade">
-            <article id="post-solution/luogu4396"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2018-09-22 22:23:00" datetime="2018-09-22T14:23:00.000Z"  itemprop="datePublished">2018-09-22</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Solution/">Solution</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/solution/luogu4396/">洛谷4396 - [AHOI2013]作业</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <blockquote>
-<p>最近忽然发现 BZOJ 的权限题还是很多的（可能是因为以前搜不到就不搜了现在上 DARKBZOJ ），看来还是得众筹买个权限号了（雾</p>
-</blockquote>
-<p>这是一道傻逼数据结构题，由于数据范围小，各种奇葩算法随便过。本菜鸡就写了个普通的树状数组套莫队，各位大佬不要见笑。</p>
-    
-
-        <a href="/solution/luogu4396/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/树状数组/">树状数组</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/莫队/">莫队</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
     </ul>
 
     
@@ -1171,7 +1171,7 @@ var _hmt = _hmt || [];
         
 <p>
 	<span>
-		总字数：46.7k
+		总字数：47.8k
 	</span>
     <span id="busuanzi_container_site_uv" style='display:none'>
         访客数：<span id="busuanzi_value_site_uv"></span>
