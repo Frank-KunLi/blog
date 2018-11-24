@@ -180,6 +180,54 @@ var _hmt = _hmt || [];
     <ul class="post-list">
     
         <li class="post-list-item fade">
+            <article id="post-diary/开学啦"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2018-09-07 20:16:43" datetime="2018-09-07T12:16:43.000Z"  itemprop="datePublished">2018-09-07</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Diary/">Diary</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/diary/开学啦/">开学啦</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p>呃，好像开学了。。。</p>
+<p>不要问为什么迟了一周来写，开学考暑假作业什么的搞起来真的很累啊！！！</p>
+    
+
+        <a href="/diary/开学啦/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/日记/">日记</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
             <article id="post-solution/luogu2387"
   class="article-card article-type-post" itemprop="blogPost">
 
@@ -1158,57 +1206,6 @@ var _hmt = _hmt || [];
 
         </li>
     
-        <li class="post-list-item fade">
-            <article id="post-algorithm/splay-q-and-a"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2018-08-08 22:51:00" datetime="2018-08-08T14:51:00.000Z"  itemprop="datePublished">2018-08-08</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Algorithm/">Algorithm</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/algorithm/splay-q-and-a/">Splay Q&amp;A</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p>最近正在学习 Splay 平衡树，其中也遇到了不少问题，正是分享的时候。</p>
-<p>代码来自于我的另外两篇博文中的 Splay 板子。</p>
-<h1 id="求前驱后继时为什么要取等号？"><a href="#求前驱后继时为什么要取等号？" class="headerlink" title="求前驱后继时为什么要取等号？"></a>求前驱后继时为什么要取等号？</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">lower</span><span class="params">(<span class="keyword">int</span> val)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> u = root, result = -inf, cho = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (u) &#123;</span><br><span class="line">        <span class="keyword">if</span> (e[u].val &lt; val &amp;&amp; e[u].val &gt; result) result = e[u].val, cho = u;</span><br><span class="line">        u = e[u].ch[val &lt;= e[u].val ? <span class="number">0</span> : <span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    splay(cho, root);</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>Q: </strong>以<code>Splay::lower()</code>的代码为例，在u更新时，我们使用的是<code>e[u].val &lt;= e[u].val ? 0 : 1</code>而非<code>val &lt; e[u].val ? 0 : 1</code>，为什么？</p>
-<p><strong>A: </strong>根据平衡树的性质，小于当前节点的数在左边，而<code>e[u].val</code>的前驱显然不能是<code>e[u].val</code>本身，而是在其左子树中，所以要写等于号。</p>
-    
-
-        <a href="/algorithm/splay-q-and-a/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/平衡树/">平衡树</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
     </ul>
 
     
@@ -1226,7 +1223,7 @@ var _hmt = _hmt || [];
         
 <p>
 	<span>
-		总字数：48.1k
+		总字数：50.1k
 	</span>
     <span id="busuanzi_container_site_uv" style='display:none'>
         访客数：<span id="busuanzi_value_site_uv"></span>

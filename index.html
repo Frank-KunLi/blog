@@ -180,6 +180,83 @@ var _hmt = _hmt || [];
     <ul class="post-list">
     
         <li class="post-list-item fade">
+            <article id="post-solution/luogu5046"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2018-11-24 12:33:01" datetime="2018-11-24T04:33:01.000Z"  itemprop="datePublished">2018-11-24</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Solution/">Solution</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/solution/luogu5046/">洛谷5046 - [Ynoi2019模拟赛]Yuno loves sqrt technology I</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p>一道卡常题。考虑分块。</p>
+<p>如果查询的 $l$ 和 $r$ 不在同一个块内。 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">查询区间 =&gt;                ┌-----------------------------┐</span><br><span class="line">分好的块 =&gt; [.........][........][........][........][........][........]</span><br></pre></td></tr></table></figure>
+<p>把查询的区间分成三个部分、A（块前零散部分）、B（整块的）、C（块后零散部分）</p>
+<p>先考虑每个部分自身与自身匹配对答案的贡献。我们可以预处理出从每个点出发，到所属块的开始 / 结尾的逆序对个数，分别用 <code>lft[]</code> 和 <code>rit[]</code> 表示，预处理时间复杂度 $O(\sqrt n \times \sqrt n \times \log n)$。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">┌-----1.-----┐               1. 这一部分的逆序对个数表示为 lft[i]</span><br><span class="line">             ┌-----2.----┐   2. 这一部分的逆序对个数表示为 rit[i]</span><br><span class="line">[............i...........]</span><br></pre></td></tr></table></figure>
+<p>接下来我们考虑 A -&gt; B ， C -&gt; B 的贡献，类似于蒲公英这题，处理出 <code>cnt[i][j]</code> 数组表示前 $i$ 个块内小于等于 $j$  的数字个数，查询时枚举 A 和 C 中的每一个数，利用这个前缀和查询对答案的贡献。</p>
+<p>接下来考虑 A -&gt; C 的贡献，由于 A 和 C 是不重合的两个部分，可以采用类似归并排序的方法，把两个序列合并的同时计算出逆序对个数。</p>
+<p>如果查询的 $l$ 和 $r$ 在同一个块内。</p>
+<p>首先我们考虑，相邻的两个区间 A 和 B 。A 和 B 总共的逆序对个数，等于 A 内部的逆序对个数 + B 内部的逆序对个数 + A 对 B 贡献的逆序对个数。</p>
+<p>好，那么我们再来考虑 $l$ 和 $r$ 在同一个块内：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">┌------A+B-------┐      这一部分即之前已经处理出的 lft[r]</span><br><span class="line">┌----A----┐             这一部分即之前已经处理出的 lft[l]</span><br><span class="line">          ┌--B---┐</span><br><span class="line">[.........l......r.......]</span><br></pre></td></tr></table></figure>
+<p>现在我们要求 B 的逆序对个数，只需要把 A + B 的逆序对个数减掉 A 内部的逆序对个数，再减掉 A 对 B 的逆序对个数即可。</p>
+<p>剩下的事情似乎变得简单，只需要把上面的思路写成代码即可。$O(n \log n + n \sqrt n)$ ，时间复杂度看起来也很正常。写了一会儿，交了一发，然后—— TLE 成 0 分。</p>
+<p>好吧，这题除了需要一个正确的算法，还需要很多常数优化QWQ。</p>
+<p>其他题解提出的改变块大小的方法似乎由于写法问题，我调整了多次改变不大，我采用的方法是：</p>
+<ol>
+<li><p>开启 O3 编译选项（这里多说一句，在代码里加了 O3 就不要点那个 O2 优化选项了，否则 O3 会被忽略）</p>
+</li>
+<li><p>对于之前说的</p>
+<blockquote>
+<p>接下来我们考虑 A -&gt; B ， C -&gt; B 的贡献，类似于蒲公英这题，处理出 <code>cnt[i][j]</code> 数组表示前 $i$ 个块内小于等于 $j$  的数字个数，查询时枚举 A 和 C 中的每一个数，利用这个前缀和查询对答案的贡献。</p>
+</blockquote>
+<p>这个部分，使用预处理出结果，并做二维前缀和。</p>
+</li>
+<li><p>能前缀和预处理的地方不要 $O(\sqrt n)$ 枚举 </p>
+</li>
+<li><p>能开 int 的地方开 int ，尽量少开 long long</p>
+</li>
+</ol>
+<p>另外，多交几次，最终还是成功通过了这题</p>
+    
+
+        <a href="/solution/luogu5046/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/分块/">分块</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/树状数组/">树状数组</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
             <article id="post-plan/plan1"
   class="article-card article-type-post" itemprop="blogPost">
 
@@ -1113,47 +1190,6 @@ var _hmt = _hmt || [];
 
         </li>
     
-        <li class="post-list-item fade">
-            <article id="post-geek/C-plus-plus-函数传递二维数组"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2018-09-23 12:47:00" datetime="2018-09-23T04:47:00.000Z"  itemprop="datePublished">2018-09-23</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Geek/">Geek</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/geek/C-plus-plus-函数传递二维数组/">C++ 函数传递二维数组</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p>QAQ 写树套树的时候忽然用到。。。</p>
-    
-
-        <a href="/geek/C-plus-plus-函数传递二维数组/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-</article>
-
-        </li>
-    
     </ul>
 
     
@@ -1171,7 +1207,7 @@ var _hmt = _hmt || [];
         
 <p>
 	<span>
-		总字数：48.1k
+		总字数：50.1k
 	</span>
     <span id="busuanzi_container_site_uv" style='display:none'>
         访客数：<span id="busuanzi_value_site_uv"></span>
