@@ -14,6 +14,10 @@ i.icon {
 	width: 200px;
 }
 
+.avatar {
+	border-radius: 0px!important;
+}
+
 /*.top-header, .index-header{
 	background: linear-gradient(to right,lightpink,lightblue);
 }
