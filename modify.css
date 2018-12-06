@@ -10,13 +10,20 @@ i.icon {
 	letter-spacing: 0.1px;
 }
 
-#menu {
-	width: 200px;
-}
-
 .avatar,
 .page-about-me .avatar img {
 	border-radius: 0px!important;
+}
+
+/* #menu .brand { padding-left: 30px }
+#menu .nav li .icon { margin-left: 10px }
+#menu .nav li { padding-left: 30px } */
+
+.nickname,
+.header-title,
+#menu .mail,
+#menu .nav a {
+	font-family: Monaco, Consolas, monospace;
 }
 
 /*.top-header, .index-header{
