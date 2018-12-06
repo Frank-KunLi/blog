@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?d8c0a4185322e94013582201484f9131";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="memset0.cn/diary/2018浙大校赛游记/">
+    
+    
+    <title>2018浙大校赛&amp;图森未来杯(4.7) 游记 | memset0&#39;s blog | 站在时代的十字路口</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="游记">
+    <meta name="description" content="这其实是一个比赛啊啊啊啊啊！ 反正考得超级辣鸡的！  这是我第一次参加ACM类的比赛，估计也是我的第一次写游记吧。这次参加浙大校赛的，不光有他们大学生，还有各路中学生；同时，我也在队伍里面发现了小学生的踪影（就差幼儿园的了）。整体的氛围还是比较愉快的，可能是因为三个人一起做题的关系吧，没有OI那么压抑。 这次比赛给了我们一点经验，也让我们看到了很多不足的地方（同时我现场领悟了如何数组模拟链表，t">
+<meta name="keywords" content="游记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2018浙大校赛&amp;图森未来杯(4.7) 游记">
+<meta property="og:url" content="https://oi.memset0.cn/diary/2018浙大校赛游记/index.html">
+<meta property="og:site_name" content="memset0&#39;s blog">
+<meta property="og:description" content="这其实是一个比赛啊啊啊啊啊！ 反正考得超级辣鸡的！  这是我第一次参加ACM类的比赛，估计也是我的第一次写游记吧。这次参加浙大校赛的，不光有他们大学生，还有各路中学生；同时，我也在队伍里面发现了小学生的踪影（就差幼儿园的了）。整体的氛围还是比较愉快的，可能是因为三个人一起做题的关系吧，没有OI那么压抑。 这次比赛给了我们一点经验，也让我们看到了很多不足的地方（同时我现场领悟了如何数组模拟链表，t">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-10-10T12:14:53.314Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="2018浙大校赛&amp;图森未来杯(4.7) 游记">
+<meta name="twitter:description" content="这其实是一个比赛啊啊啊啊啊！ 反正考得超级辣鸡的！  这是我第一次参加ACM类的比赛，估计也是我的第一次写游记吧。这次参加浙大校赛的，不光有他们大学生，还有各路中学生；同时，我也在队伍里面发现了小学生的踪影（就差幼儿园的了）。整体的氛围还是比较愉快的，可能是因为三个人一起做题的关系吧，没有OI那么压抑。 这次比赛给了我们一点经验，也让我们看到了很多不足的地方（同时我现场领悟了如何数组模拟链表，t">
+    
+        <link rel="alternate" type="application/atom+xml" title="memset0&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.png">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+	
+	<link rel="stylesheet" href="/modify.css">
+
+</head>
+
+
+<style>
+.fix-icon-chevron-up {
+	line-height: 0em!important;
+}
+</style>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">memset0</h5>
+          <a href="mailto:memset0@outlook.com" title="memset0@outlook.com" class="mail">memset0@outlook.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                Home
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about"  >
+                <i class="icon icon-lg icon-user"></i>
+                About
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/friends"  >
+                <i class="icon icon-lg icon-link"></i>
+                Friends
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://cloud.memset0.cn/"  >
+                <i class="icon icon-lg icon-cloud"></i>
+                Cloud
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/memset0" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">2018浙大校赛&amp;图森未来杯(4.7) 游记</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">2018浙大校赛&amp;图森未来杯(4.7) 游记</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-04-30T08:04:00.000Z" itemprop="datePublished" class="page-time">
+  2018-04-30
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Diary/">Diary</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#上午"><span class="post-toc-number">1.</span> <span class="post-toc-text">上午</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#等待"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">等待</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#开幕式"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">开幕式</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#上机练习"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">上机练习</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#中午"><span class="post-toc-number">2.</span> <span class="post-toc-text">中午</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#吃中饭"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">吃中饭</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#买文具"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">买文具</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#下午"><span class="post-toc-number">3.</span> <span class="post-toc-text">下午</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#开考前"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">开考前</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#开考"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">开考</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#做题-瞎搞"><span class="post-toc-number">4.</span> <span class="post-toc-text">做题 瞎搞</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#J-PPAP"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">J - PPAP</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#A-Pretty-Matrix"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">A - Pretty Matrix</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#G-Traffic-Light"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">G - Traffic Light</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#C-Mergeable-Stack"><span class="post-toc-number">4.4.</span> <span class="post-toc-text">C - Mergeable Stack</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#F-Schrodinger’s-Knapsack"><span class="post-toc-number">4.5.</span> <span class="post-toc-text">F - Schrödinger’s Knapsack</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#总结"><span class="post-toc-number">5.</span> <span class="post-toc-text">总结</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-diary/2018浙大校赛游记"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">2018浙大校赛&图森未来杯(4.7) 游记</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-04-30 16:04:00" datetime="2018-04-30T08:04:00.000Z"  itemprop="datePublished">2018-04-30</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Diary/">Diary</a></li></ul>
+
+
+
+            
+<span>
+	1,573 字
+</span>
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <blockquote>
+<p>这其实是一个比赛啊啊啊啊啊！</p>
+<p>反正考得超级辣鸡的！</p>
+</blockquote>
+<p>这是我第一次参加ACM类的比赛，估计也是我的第一次写游记吧。<br>这次参加浙大校赛的，不光有他们大学生，还有各路中学生；同时，我也在队伍里面发现了小学生的踪影（就差幼儿园的了）。<br>整体的氛围还是比较愉快的，可能是因为三个人一起做题的关系吧，没有OI那么压抑。</p>
+<p>这次比赛给了我们一点经验，也让我们看到了很多不足的地方（同时我现场领悟了如何数组模拟链表，thanks to fjk）<br><a id="more"></a></p>
+<blockquote>
+<p>update 2018.4.10</p>
+<p>然后当时我们F题一直没有打出来<del>，直到今天我才发现这不就是一道简单的DP+贪心吗</del>。</p>
+</blockquote>
+<p>那么我们开始吧</p>
+<h1 id="上午"><a href="#上午" class="headerlink" title="上午"></a>上午</h1><h2 id="等待"><a href="#等待" class="headerlink" title="等待"></a>等待</h2><p>我们到的很早，当时门口几乎没有什么人。还好，我及时地找到了我的队友并一起坐在fjk的车里打pvz2.<br>话说外面还真冷啊！</p>
+<h2 id="开幕式"><a href="#开幕式" class="headerlink" title="开幕式"></a>开幕式</h2><p>开幕式就是领导讲话<del>+吹牛逼</del>，有些同学在玩游戏，但是我还是认真听的。<br>据称每一年的校赛都有个传统——开幕式时会给一点提示。<br>这次老师告诉我们说：</p>
+<blockquote>
+<p>这次换了个新人出题，新手上路嘛，难度可能掌握的不太好。于是呢我就让他给我看了一下：题目不难，但是也没有很简单的题。最好的方法是一个人从头往后看，一个人从后往前看，还有一个人从中间看。</p>
+</blockquote>
+<p>事实证明这话非常有用，嗯对，你马上就知道了。。。</p>
+<h2 id="上机练习"><a href="#上机练习" class="headerlink" title="上机练习"></a>上机练习</h2><p>只听到广播里一直响着不要碰电脑，于是我们就半个多小时没有碰电脑——直到看到绝大部分人都开始打上午的这套练习题为止。<br>A题C题好水啊，B题貌似就是一个有两个条件的SPFA（雾）？D题是什么鬼，<del>来考高中数理化啊</del>。<br>貌似因为早上的只是试机，好多人都提前走了，也没看到有人去做B题。<br><del>话说找提交代码的地方用了十多分钟，不过还好上午就发现了。</del></p>
+<h1 id="中午"><a href="#中午" class="headerlink" title="中午"></a>中午</h1><h2 id="吃中饭"><a href="#吃中饭" class="headerlink" title="吃中饭"></a>吃中饭</h2><p>浙大的校园就是大，食堂也大<del>，比我们学校的食堂不知道高端到哪里去</del>。</p>
+<h2 id="买文具"><a href="#买文具" class="headerlink" title="买文具"></a>买文具</h2><p>吃完中饭我们去旁边的超市逛逛。</p>
+<p>其实本来只是fjk和yyf想买瓶水的，结果我带头买了一堆印着浙大校徽的笔记本（坑钱）<br>我还买了两只笔。。。</p>
+<h1 id="下午"><a href="#下午" class="headerlink" title="下午"></a>下午</h1><p>终于要开始比赛了233</p>
+<h2 id="开考前"><a href="#开考前" class="headerlink" title="开考前"></a>开考前</h2><p>我们提早一刻钟到了，试卷摆在桌子上，然后我问监考老师：<br>我：试卷可以看吗<br>监考老师：我也不知道诶，我帮你去问一下<br>……<br>监考老师：他们说不可以的，现在不可以拆试卷<br>我：可是这信封本来就是打开的<br>监考老师：那是他们包装的不专业（一脸无奈）</p>
+<h2 id="开考"><a href="#开考" class="headerlink" title="开考"></a>开考</h2><p>貌似提前了三分钟？后来才知道是钟不准</p>
+<h1 id="做题-瞎搞"><a href="#做题-瞎搞" class="headerlink" title="做题 瞎搞"></a><del>做题</del> 瞎搞</h1><h2 id="J-PPAP"><a href="#J-PPAP" class="headerlink" title="J - PPAP"></a>J - PPAP</h2><p>我们按照早上说的那样，分开来看题。<br>很开，fjk就发现最后一题很简单。<br>然后我们就把他切了。</p>
+<h2 id="A-Pretty-Matrix"><a href="#A-Pretty-Matrix" class="headerlink" title="A - Pretty Matrix"></a>A - Pretty Matrix</h2><p>接着我们看别的题目去了，当时不知道是谁说了一声第一题好难啊，然后我们就都没有去看第一题。<br>直到…我们把每道题都看完了以后刷新下rank榜才发现第一题那么水。</p>
+<p>于是认真地看了看，A掉了</p>
+<h2 id="G-Traffic-Light"><a href="#G-Traffic-Light" class="headerlink" title="G - Traffic Light"></a>G - Traffic Light</h2><p>当时fjk想出了这道题的这道题的优化方法：某些点一定是走奇数才能到的，某些点一定是走偶数步才能到的。<br>于是我们就可以把原来动态的图变成静态的，我们也决定先打这一题。</p>
+<p>然而，明明想到正解的我们却去打了个DFS<br>打DFS也就算了，还是个WA的DFS。<br>后来好不容易对拍出来又是TLE，<br>然后写了个记忆化的DFS还是TLE。<br>最后fjk一发BFS就A了。</p>
+<p>考后，他们说不用那样优化也能A。<br>心里那叫一个凄凉。</p>
+<h2 id="C-Mergeable-Stack"><a href="#C-Mergeable-Stack" class="headerlink" title="C - Mergeable Stack"></a>C - Mergeable Stack</h2><p>在G题不断WA/TLE的同时，我们也开始做C题。</p>
+<p>我第一眼以为是数据结构题，觉着以我们这种垃圾的水平应该是做不出来的于是很快就放弃了。<br>后来fjk一看说这不就是道模拟题吗，数组模拟链表就好了。<br>我一看，还真是，于是就愉快地打了个代码，WA了。</p>
+<p>后来才发现，有那么个很小的情况转移时没有将被移走的栈删除，然后就呵呵了。<br>其实也没有那么难。</p>
+<h2 id="F-Schrodinger’s-Knapsack"><a href="#F-Schrodinger’s-Knapsack" class="headerlink" title="F - Schrödinger’s Knapsack"></a>F - Schrödinger’s Knapsack</h2><p>一道神奇的背包题，我们最后一个小时都押宝在这道题上了。<br>一开始我们想了个贪心，<code>O(n log n)</code>的，总是WA。</p>
+<p>后来想了想这题数据给的很明显就是让我们用<code>O(n ^ 2)</code>啊，<br>然而我却以为是n方的贪心。</p>
+<p>最后一刻钟yyf才想出来DP，十分钟敲完却样例都过不去。<br>于是只能遗憾收场。</p>
+<p>事后证明因为当时<del>考虑不周全</del>没仔细看题，当时多写了个<code>- 1</code>。<br>回来一测，去掉就A了。<br><del>而且跑的还贼快，要知道我们隔壁队都是卡时限才过了的。</del></p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>这次的成绩不怎么理想，至少F题本来应该打出来，其他题不应该错那么多次。不然排名进前30应该是没有问题的。<br>主要还是我的原因吧，全场脑子比较混乱，根本没有能力把我们队管理好，然而还是逞强想去当队长。</p>
+<p>英文题面也导致我们对题目难度的评估失误：他们<del>认为很简单</del>思考了很久的B题和E题结果是最难的两个题（浪费了他们两个近两个小时的时间吧）</p>
+<p>也只能说：<strong>下次加油吧</strong></p>
+
+        </div>
+
+        <!--<blockquote class="post-copyright">
+    <div class="content">
+        
+
+        
+    </div>
+    <footer>
+        <a href="https://oi.memset0.cn">
+            <img src="/img/avatar.png" alt="memset0">
+            memset0
+        </a>
+    </footer>
+</blockquote>-->
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/游记/">游记</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://oi.memset0.cn/diary/2018浙大校赛游记/&title=《2018浙大校赛&图森未来杯(4.7) 游记》 — memset0's blog&pic=https://oi.memset0.cn/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://oi.memset0.cn/diary/2018浙大校赛游记/&title=《2018浙大校赛&图森未来杯(4.7) 游记》 — memset0's blog&source=
+这其实是一个比赛啊啊啊啊啊！
+反正考得超级辣鸡的！
+
+这是我第一次参加ACM类的比赛，估计也是我的第一次写游记吧。这次参加浙大校赛的，不光有他们大学生，..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://oi.memset0.cn/diary/2018浙大校赛游记/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《2018浙大校赛&图森未来杯(4.7) 游记》 — memset0's blog&url=https://oi.memset0.cn/diary/2018浙大校赛游记/&via=https://oi.memset0.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://oi.memset0.cn/diary/2018浙大校赛游记/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "rHgVqrBsv0EYGFSxzDDIDapm-9Nh9j0Va",
+            appKey: "X7Dp3hEvRWPbqHBYkOTBXzPm",
+            avatar: "mm",
+            placeholder: "留下你的脚印~",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "20"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+	
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/geek/python-login-hostoj/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Python 模拟登陆 hustoj</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/algorithm/欧拉筛/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">欧拉筛求质数</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+	<span>
+		总字数：52.1k
+	</span>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>memset0 &copy; 2017 - 2018</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">浙ICP备-备你麻了个逼</a><br>
+                
+                Hosted by <a href="https://pages.coding.me">Coding Pages</a> · Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up fix-icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://oi.memset0.cn/diary/2018浙大校赛游记/&title=《2018浙大校赛&图森未来杯(4.7) 游记》 — memset0's blog&pic=https://oi.memset0.cn/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://oi.memset0.cn/diary/2018浙大校赛游记/&title=《2018浙大校赛&图森未来杯(4.7) 游记》 — memset0's blog&source=
+这其实是一个比赛啊啊啊啊啊！
+反正考得超级辣鸡的！
+
+这是我第一次参加ACM类的比赛，估计也是我的第一次写游记吧。这次参加浙大校赛的，不光有他们大学生，..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://oi.memset0.cn/diary/2018浙大校赛游记/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《2018浙大校赛&图森未来杯(4.7) 游记》 — memset0's blog&url=https://oi.memset0.cn/diary/2018浙大校赛游记/&via=https://oi.memset0.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://oi.memset0.cn/diary/2018浙大校赛游记/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://oi.memset0.cn/diary/2018浙大校赛游记/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

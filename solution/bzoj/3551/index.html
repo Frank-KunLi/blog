@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?d8c0a4185322e94013582201484f9131";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="memset0.cn/solution/bzoj/3551/">
+    
+    
+    <title>BZOJ3551 - [ONTAK2010]Peaks加强版 | memset0&#39;s blog | 站在时代的十字路口</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="主席树,强制在线,克鲁斯卡尔重构树,DFS 序,树上倍增,树链剖分">
+    <meta name="description" content="这题洛谷的数据太…水，克鲁斯卡尔重构树不连通都可水过。   3545: [ONTAK2010]Peaks 3551: [ONTAK2010]Peaks加强版  在线算法：克鲁斯卡尔重构树套主席树。 在克鲁斯卡尔重构树上维护 DFS 序（或树链剖分）再套上主席树，维护第 $k$ 大。 当然非加强版由于你是重构树（被针对了）可能要大力卡常。比如加个 fread 以及离散化一下什么的。">
+<meta name="keywords" content="主席树,强制在线,克鲁斯卡尔重构树,DFS 序,树上倍增,树链剖分">
+<meta property="og:type" content="article">
+<meta property="og:title" content="BZOJ3551 - [ONTAK2010]Peaks加强版">
+<meta property="og:url" content="https://oi.memset0.cn/solution/bzoj/3551/index.html">
+<meta property="og:site_name" content="memset0&#39;s blog">
+<meta property="og:description" content="这题洛谷的数据太…水，克鲁斯卡尔重构树不连通都可水过。   3545: [ONTAK2010]Peaks 3551: [ONTAK2010]Peaks加强版  在线算法：克鲁斯卡尔重构树套主席树。 在克鲁斯卡尔重构树上维护 DFS 序（或树链剖分）再套上主席树，维护第 $k$ 大。 当然非加强版由于你是重构树（被针对了）可能要大力卡常。比如加个 fread 以及离散化一下什么的。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-11-13T01:23:31.625Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="BZOJ3551 - [ONTAK2010]Peaks加强版">
+<meta name="twitter:description" content="这题洛谷的数据太…水，克鲁斯卡尔重构树不连通都可水过。   3545: [ONTAK2010]Peaks 3551: [ONTAK2010]Peaks加强版  在线算法：克鲁斯卡尔重构树套主席树。 在克鲁斯卡尔重构树上维护 DFS 序（或树链剖分）再套上主席树，维护第 $k$ 大。 当然非加强版由于你是重构树（被针对了）可能要大力卡常。比如加个 fread 以及离散化一下什么的。">
+    
+        <link rel="alternate" type="application/atom+xml" title="memset0&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.png">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+	
+	<link rel="stylesheet" href="/modify.css">
+
+</head>
+
+
+<style>
+.fix-icon-chevron-up {
+	line-height: 0em!important;
+}
+</style>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">memset0</h5>
+          <a href="mailto:memset0@outlook.com" title="memset0@outlook.com" class="mail">memset0@outlook.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                Home
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about"  >
+                <i class="icon icon-lg icon-user"></i>
+                About
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/friends"  >
+                <i class="icon icon-lg icon-link"></i>
+                Friends
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://cloud.memset0.cn/"  >
+                <i class="icon icon-lg icon-cloud"></i>
+                Cloud
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/memset0" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">BZOJ3551 - [ONTAK2010]Peaks加强版</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">BZOJ3551 - [ONTAK2010]Peaks加强版</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-09-28T11:53:00.000Z" itemprop="datePublished" class="page-time">
+  2018-09-28
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Solution/">Solution</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+<article id="post-solution/bzoj/3551"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">BZOJ3551 - [ONTAK2010]Peaks加强版</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-09-28 19:53:00" datetime="2018-09-28T11:53:00.000Z"  itemprop="datePublished">2018-09-28</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Solution/">Solution</a></li></ul>
+
+
+
+            
+<span>
+	1,187 字
+</span>
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <blockquote>
+<p>这题洛谷的数据太…水，克鲁斯卡尔重构树不连通都可水过。</p>
+</blockquote>
+<ul>
+<li>3545: [ONTAK2010]Peaks</li>
+<li>3551: [ONTAK2010]Peaks加强版</li>
+</ul>
+<p>在线算法：克鲁斯卡尔重构树套主席树。</p>
+<p>在克鲁斯卡尔重构树上维护 DFS 序（或树链剖分）再套上主席树，维护第 $k$ 大。</p>
+<p>当然非加强版由于你是重构树<del>（被针对了）</del>可能要大力卡常。比如加个 fread 以及离散化一下什么的。</p>
+<a id="more"></a>
+<p>代码（ Fast IO 直接用了别人的板子不要在意 qwq）：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ==============================</span></span><br><span class="line"><span class="comment">//  author: memset0</span></span><br><span class="line"><span class="comment">//  website: https://memset0.cn</span></span><br><span class="line"><span class="comment">// ==============================</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> il inline</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> re register </span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> DEBUG std::cerr &lt;&lt; std::clock() &lt;&lt; endl</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rep(i,l,r) for (int i = l; i &lt;= r; i++)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> getc(x) getchar(x)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> putc(x) putchar(x)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> FastIO  &#123;</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">size_t</span> str = <span class="number">1</span> &lt;&lt; <span class="number">20</span>;</span><br><span class="line"> </span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">Reader</span>  &#123;</span></span><br><span class="line">        <span class="keyword">char</span> buf[str], *s, *t;</span><br><span class="line">        Reader ( ) : s( ), t( ), buf() &#123;    &#125;</span><br><span class="line">        <span class="function"><span class="keyword">inline</span> <span class="keyword">char</span> <span class="title">pick</span> <span class="params">( )</span>  </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> (s == t) ? ( t = buf + fread ( s = buf, <span class="number">1</span>, str , <span class="built_in">stdin</span> ), *s++ ) : ( *s++ );</span><br><span class="line">        &#125;</span><br><span class="line"> </span><br><span class="line">        <span class="keyword">template</span> &lt; <span class="class"><span class="keyword">class</span> <span class="title">T</span> &gt;</span></span><br><span class="line"><span class="class">        <span class="title">inline</span> <span class="title">Reader</span>&amp; <span class="title">operator</span> &gt;&gt; ( <span class="title">T</span>&amp; <span class="title">x</span> )  &#123;</span></span><br><span class="line">            <span class="keyword">static</span> <span class="keyword">char</span> ch;</span><br><span class="line">            <span class="keyword">static</span> <span class="keyword">short</span> opt;</span><br><span class="line">            opt = (ch != <span class="number">45</span>);</span><br><span class="line">            <span class="keyword">while</span> ( !<span class="built_in">isdigit</span> ( ch = pick () ) &amp;&amp; (ch ^ <span class="number">-1</span>) &amp;&amp; ( ch ^ <span class="number">45</span> ) );</span><br><span class="line">            <span class="keyword">if</span> ( ch == <span class="number">-1</span> )     <span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">            <span class="keyword">if</span> ( ch == <span class="number">45</span> )     &#123;   opt = <span class="number">0</span>; ch = pick ();   &#125;</span><br><span class="line">            <span class="keyword">for</span> ( x = <span class="number">-48</span> + ch; <span class="built_in">isdigit</span> ( ch = pick () ); ( x *= <span class="number">10</span> ) += ch - <span class="number">48</span> );</span><br><span class="line">            opt ? <span class="number">1</span> : x = -x;</span><br><span class="line">            <span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">        &#125;</span><br><span class="line"> </span><br><span class="line">    &#125; <span class="built_in">cin</span>;</span><br><span class="line"> </span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">Writer</span>  &#123;</span></span><br><span class="line">        <span class="keyword">char</span> buf[str], *s, *t;</span><br><span class="line">        Writer () : s ( buf ), t( buf + str ), buf ( ) &#123;    &#125;</span><br><span class="line">        ~Writer () &#123; fwrite( buf, <span class="number">1</span>, s - buf, <span class="built_in">stdout</span> ); &#125;</span><br><span class="line"> </span><br><span class="line">        <span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">echo</span> <span class="params">( <span class="keyword">char</span> c )</span>  </span>&#123;</span><br><span class="line">            ( s == t ) ? ( fwrite ( s = buf, <span class="number">1</span>, str, <span class="built_in">stdout</span> ), *s++ = c ) : ( *s++ = c );</span><br><span class="line">        &#125;</span><br><span class="line"> </span><br><span class="line">        <span class="keyword">inline</span> Writer&amp; <span class="keyword">operator</span> &lt;&lt; ( <span class="keyword">long</span> <span class="keyword">long</span> x )  &#123;</span><br><span class="line">            <span class="keyword">if</span>( !x ) <span class="keyword">return</span> echo( <span class="number">48</span> ), *<span class="keyword">this</span>;</span><br><span class="line">            <span class="keyword">static</span> <span class="keyword">int</span> t[<span class="number">21</span>], top;</span><br><span class="line">            <span class="keyword">if</span> (x &lt; <span class="number">0</span>) x = -x, echo ( <span class="string">'-'</span> );</span><br><span class="line">            <span class="keyword">while</span> ( x ) t[++top] = x % <span class="number">10</span>, x /= <span class="number">10</span>;</span><br><span class="line">            <span class="keyword">while</span> ( top ) echo(t[top--] + <span class="number">48</span>);</span><br><span class="line">            <span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">inline</span> Writer&amp; <span class="keyword">operator</span> &lt;&lt; (<span class="keyword">const</span> <span class="keyword">char</span>* s)  &#123;</span><br><span class="line">            <span class="keyword">while</span> ( *s ) echo( *s++ ) ;</span><br><span class="line">            <span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="built_in">cout</span>;</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">char</span> *<span class="built_in">endl</span> = <span class="string">"\n"</span>;</span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> FastIO::<span class="built_in">cin</span>;</span><br><span class="line"><span class="keyword">using</span> FastIO::<span class="built_in">cout</span>;</span><br><span class="line"><span class="keyword">using</span> FastIO::<span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">200010</span>, M = <span class="number">500010</span>, E = N * <span class="number">30</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n, m, p, u, v, w, t, x, k, tn, cnt, pos, ord, lastans;</span><br><span class="line"><span class="keyword">int</span> b[N], fa[N], id[N], wid[N], val[N], siz[N];</span><br><span class="line"><span class="keyword">int</span> f[N][<span class="number">20</span>], g[N][<span class="number">20</span>];</span><br><span class="line"><span class="keyword">int</span> lc[E], rc[E], sum[E], root[N];</span><br><span class="line"><span class="keyword">bool</span> vis[N];</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">edge</span> &#123;</span></span><br><span class="line">	<span class="keyword">int</span> u, v, w;</span><br><span class="line">&#125; e[M];</span><br><span class="line"><span class="keyword">bool</span> <span class="keyword">operator</span> &lt; (<span class="keyword">const</span> edge &amp;a, <span class="keyword">const</span> edge &amp;b) &#123;</span><br><span class="line">	<span class="keyword">return</span> a.w &lt; b.w;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> tot = <span class="number">2</span>, hed[N], nxt[N &lt;&lt; <span class="number">1</span>], to[N &lt;&lt; <span class="number">1</span>];</span><br><span class="line"><span class="function">il <span class="keyword">void</span> <span class="title">add_edge</span><span class="params">(<span class="keyword">int</span> u, <span class="keyword">int</span> v)</span> </span>&#123;</span><br><span class="line">	nxt[tot] = hed[u], to[tot] = v, hed[u] = tot++;</span><br><span class="line">	nxt[tot] = hed[v], to[tot] = u, hed[v] = tot++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">il <span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> u)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (fa[u] == u) <span class="keyword">return</span> u;</span><br><span class="line">	<span class="keyword">return</span> fa[u] = find(fa[u]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> u)</span> </span>&#123;</span><br><span class="line">	siz[u] = <span class="number">1</span>, id[u] = ++pos, wid[id[u]] = u, vis[u] = <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = hed[u], v = to[i]; i; i = nxt[i], v = to[i])</span><br><span class="line">		<span class="keyword">if</span> (v ^ f[u][<span class="number">0</span>]) &#123;</span><br><span class="line">			f[v][<span class="number">0</span>] = u;</span><br><span class="line">			g[v][<span class="number">0</span>] = (u &lt;= n ? <span class="number">0</span> : val[u]);</span><br><span class="line">			dfs(v);</span><br><span class="line">			siz[u] += siz[v];</span><br><span class="line">		&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">build</span><span class="params">(<span class="keyword">int</span> &amp;u, <span class="keyword">int</span> v, <span class="keyword">int</span> l, <span class="keyword">int</span> r, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">	u = ++ord, lc[u] = lc[v], rc[u] = rc[v], sum[u] = sum[v] + <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">if</span> (l == r) <span class="keyword">return</span>;</span><br><span class="line">	<span class="keyword">int</span> mid = (l + r) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">if</span> (k &lt;= mid) build(lc[u], lc[v], l, mid, k);</span><br><span class="line">	<span class="keyword">else</span> build(rc[u], rc[v], mid + <span class="number">1</span>, r, k);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">query</span><span class="params">(<span class="keyword">int</span> u, <span class="keyword">int</span> v, <span class="keyword">int</span> l, <span class="keyword">int</span> r, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (l == r) <span class="keyword">return</span> (k &lt;= (sum[v] - sum[u]) ? b[l] : <span class="number">-1</span>);</span><br><span class="line">	<span class="keyword">if</span> (l == r) <span class="keyword">return</span> l;</span><br><span class="line">	<span class="keyword">int</span> mid = (l + r) &gt;&gt; <span class="number">1</span>, tmp;</span><br><span class="line">	tmp = sum[rc[v]] - sum[rc[u]];</span><br><span class="line">	<span class="keyword">if</span> (k &lt;= tmp)</span><br><span class="line">		<span class="keyword">return</span> query(rc[u], rc[v], mid + <span class="number">1</span>, r, k);</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">		<span class="keyword">return</span> query(lc[u], lc[v], l, mid, k - tmp);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; n &gt;&gt; m &gt;&gt; p;</span><br><span class="line">	<span class="keyword">for</span> (re <span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">		<span class="built_in">cin</span> &gt;&gt; val[i];</span><br><span class="line">	<span class="keyword">for</span> (re <span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= m; i++)</span><br><span class="line">		<span class="built_in">cin</span> &gt;&gt; e[i].u &gt;&gt; e[i].v &gt;&gt; e[i].w;</span><br><span class="line">	</span><br><span class="line">	<span class="built_in">std</span>::sort(e + <span class="number">1</span>, e + m + <span class="number">1</span>);</span><br><span class="line">	<span class="keyword">for</span> (re <span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= (n &lt;&lt; <span class="number">1</span>); i++)</span><br><span class="line">		fa[i] = i;</span><br><span class="line">	cnt = n;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">for</span> (re <span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">		b[i] = val[i];</span><br><span class="line">	<span class="built_in">std</span>::sort(b + <span class="number">1</span>, b + n + <span class="number">1</span>);</span><br><span class="line">	tn = <span class="built_in">std</span>::unique(b + <span class="number">1</span>, b + n + <span class="number">1</span>) - b - <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span> (re <span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">		val[i] = <span class="built_in">std</span>::lower_bound(b + <span class="number">1</span>, b + tn + <span class="number">1</span>, val[i]) - b;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">for</span> (re <span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= m; i++) &#123;</span><br><span class="line">		u = e[i].u, v = e[i].v, w = e[i].w;</span><br><span class="line">		<span class="keyword">if</span>  (find(u) ^ find(v)) &#123;</span><br><span class="line">			t = ++cnt;</span><br><span class="line">			u = find(u), v = find(v);</span><br><span class="line">			fa[u] = fa[v] = t;</span><br><span class="line">			add_edge(u, t);</span><br><span class="line">			add_edge(v, t);</span><br><span class="line">			val[t] = w;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	val[++cnt] = <span class="number">1e9</span>;</span><br><span class="line">	<span class="keyword">for</span> (re <span class="keyword">int</span> i = <span class="number">1</span>; i &lt; cnt; i++)</span><br><span class="line">		<span class="keyword">if</span> (find(i) != find(cnt)) &#123;</span><br><span class="line">			add_edge(find(i), cnt);</span><br><span class="line">			fa[find(i)] = find(cnt);</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">	dfs(cnt);</span><br><span class="line">	<span class="keyword">for</span> (re <span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= cnt; i++)</span><br><span class="line">		<span class="keyword">if</span> (wid[i] &lt;= n)</span><br><span class="line">			build(root[i], root[i - <span class="number">1</span>], <span class="number">1</span>, tn, val[wid[i]]);</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">			root[i] = root[i - <span class="number">1</span>];</span><br><span class="line">			</span><br><span class="line">	<span class="keyword">for</span> (re <span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">19</span>; i++)</span><br><span class="line">		<span class="keyword">for</span> (re <span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= cnt; j++) &#123;</span><br><span class="line">			f[j][i] = f[f[j][i - <span class="number">1</span>]][i - <span class="number">1</span>];</span><br><span class="line">			g[j][i] = <span class="built_in">std</span>::max(g[j][i - <span class="number">1</span>], g[f[j][i - <span class="number">1</span>]][i - <span class="number">1</span>]);</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> (re <span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= p; i++) &#123;</span><br><span class="line">		<span class="built_in">cin</span> &gt;&gt; u &gt;&gt; x &gt;&gt; k;</span><br><span class="line">		<span class="keyword">if</span> (~lastans) &#123;</span><br><span class="line">			u ^= lastans;</span><br><span class="line">			x ^= lastans;</span><br><span class="line">			k ^= lastans;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">for</span> (re <span class="keyword">int</span> i = <span class="number">19</span>; i &gt;= <span class="number">0</span>; i--)</span><br><span class="line">			<span class="keyword">if</span> (x &gt;= g[u][i] &amp;&amp; f[u][i]) &#123;</span><br><span class="line">				u = f[u][i];</span><br><span class="line">			&#125;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; (lastans = query(root[id[u] - <span class="number">1</span>], root[id[u] + siz[u] - <span class="number">1</span>], <span class="number">1</span>, tn, k)) &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        </div>
+
+        <!--<blockquote class="post-copyright">
+    <div class="content">
+        
+
+        
+    </div>
+    <footer>
+        <a href="https://oi.memset0.cn">
+            <img src="/img/avatar.png" alt="memset0">
+            memset0
+        </a>
+    </footer>
+</blockquote>-->
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DFS-序/">DFS 序</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/主席树/">主席树</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/克鲁斯卡尔重构树/">克鲁斯卡尔重构树</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/强制在线/">强制在线</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/树上倍增/">树上倍增</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/树链剖分/">树链剖分</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://oi.memset0.cn/solution/bzoj/3551/&title=《BZOJ3551 - [ONTAK2010]Peaks加强版》 — memset0's blog&pic=https://oi.memset0.cn/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://oi.memset0.cn/solution/bzoj/3551/&title=《BZOJ3551 - [ONTAK2010]Peaks加强版》 — memset0's blog&source=
+这题洛谷的数据太…水，克鲁斯卡尔重构树不连通都可水过。
+
+
+3545: [ONTAK2010]Peaks
+3551: [ONTAK2010]Peaks加..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://oi.memset0.cn/solution/bzoj/3551/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《BZOJ3551 - [ONTAK2010]Peaks加强版》 — memset0's blog&url=https://oi.memset0.cn/solution/bzoj/3551/&via=https://oi.memset0.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://oi.memset0.cn/solution/bzoj/3551/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "rHgVqrBsv0EYGFSxzDDIDapm-9Nh9j0Va",
+            appKey: "X7Dp3hEvRWPbqHBYkOTBXzPm",
+            avatar: "mm",
+            placeholder: "留下你的脚印~",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "20"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+	
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/solution/codeforces/1059e/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">CF1059E - Split the Tree</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/solution/bzoj/1002/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">BZOJ1002 - [FJOI2007]轮状病毒</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+	<span>
+		总字数：52.1k
+	</span>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>memset0 &copy; 2017 - 2018</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">浙ICP备-备你麻了个逼</a><br>
+                
+                Hosted by <a href="https://pages.coding.me">Coding Pages</a> · Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up fix-icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://oi.memset0.cn/solution/bzoj/3551/&title=《BZOJ3551 - [ONTAK2010]Peaks加强版》 — memset0's blog&pic=https://oi.memset0.cn/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://oi.memset0.cn/solution/bzoj/3551/&title=《BZOJ3551 - [ONTAK2010]Peaks加强版》 — memset0's blog&source=
+这题洛谷的数据太…水，克鲁斯卡尔重构树不连通都可水过。
+
+
+3545: [ONTAK2010]Peaks
+3551: [ONTAK2010]Peaks加..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://oi.memset0.cn/solution/bzoj/3551/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《BZOJ3551 - [ONTAK2010]Peaks加强版》 — memset0's blog&url=https://oi.memset0.cn/solution/bzoj/3551/&via=https://oi.memset0.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://oi.memset0.cn/solution/bzoj/3551/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://oi.memset0.cn/solution/bzoj/3551/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

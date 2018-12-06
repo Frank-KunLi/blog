@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?d8c0a4185322e94013582201484f9131";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="memset0.cn/solution/luogu/1251/">
+    
+    
+    <title>洛谷1251 - 餐巾计划问题 | memset0&#39;s blog | 站在时代的十字路口</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="网络流,最小费用最大流">
+    <meta name="description" content="到这题为止网络流 24 题也快刷完了呢，还剩下几道码量特大的等着以后有空去浪费时间（逃  这题一眼最小费用最大流，一开始我想了个类似于 NOI2008 志愿者招募 之类的利用满流的方法，但是一直没有调出来。后来怂了，直接连边，最后因为有个 - 1 没有删干净还是调了老半天。orz ，我还是太菜了。 把每一天分成两个节点，一个接受干净的毛巾，一个输出用过的毛巾。直接在这两个点之间连边显然不现实，我">
+<meta name="keywords" content="网络流,最小费用最大流">
+<meta property="og:type" content="article">
+<meta property="og:title" content="洛谷1251 - 餐巾计划问题">
+<meta property="og:url" content="https://oi.memset0.cn/solution/luogu/1251/index.html">
+<meta property="og:site_name" content="memset0&#39;s blog">
+<meta property="og:description" content="到这题为止网络流 24 题也快刷完了呢，还剩下几道码量特大的等着以后有空去浪费时间（逃  这题一眼最小费用最大流，一开始我想了个类似于 NOI2008 志愿者招募 之类的利用满流的方法，但是一直没有调出来。后来怂了，直接连边，最后因为有个 - 1 没有删干净还是调了老半天。orz ，我还是太菜了。 把每一天分成两个节点，一个接受干净的毛巾，一个输出用过的毛巾。直接在这两个点之间连边显然不现实，我">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-10-10T12:14:53.318Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="洛谷1251 - 餐巾计划问题">
+<meta name="twitter:description" content="到这题为止网络流 24 题也快刷完了呢，还剩下几道码量特大的等着以后有空去浪费时间（逃  这题一眼最小费用最大流，一开始我想了个类似于 NOI2008 志愿者招募 之类的利用满流的方法，但是一直没有调出来。后来怂了，直接连边，最后因为有个 - 1 没有删干净还是调了老半天。orz ，我还是太菜了。 把每一天分成两个节点，一个接受干净的毛巾，一个输出用过的毛巾。直接在这两个点之间连边显然不现实，我">
+    
+        <link rel="alternate" type="application/atom+xml" title="memset0&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.png">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+	
+	<link rel="stylesheet" href="/modify.css">
+
+</head>
+
+
+<style>
+.fix-icon-chevron-up {
+	line-height: 0em!important;
+}
+</style>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">memset0</h5>
+          <a href="mailto:memset0@outlook.com" title="memset0@outlook.com" class="mail">memset0@outlook.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                Home
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about"  >
+                <i class="icon icon-lg icon-user"></i>
+                About
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/friends"  >
+                <i class="icon icon-lg icon-link"></i>
+                Friends
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://cloud.memset0.cn/"  >
+                <i class="icon icon-lg icon-cloud"></i>
+                Cloud
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/memset0" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">洛谷1251 - 餐巾计划问题</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">洛谷1251 - 餐巾计划问题</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-09-24T14:58:00.000Z" itemprop="datePublished" class="page-time">
+  2018-09-24
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Solution/">Solution</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+<article id="post-solution/luogu/1251"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">洛谷1251 - 餐巾计划问题</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-09-24 22:58:00" datetime="2018-09-24T14:58:00.000Z"  itemprop="datePublished">2018-09-24</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Solution/">Solution</a></li></ul>
+
+
+
+            
+<span>
+	831 字
+</span>
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <blockquote>
+<p>到这题为止网络流 24 题也快刷完了呢，还剩下几道码量特大的等着以后有空去浪费时间（逃</p>
+</blockquote>
+<p>这题一眼最小费用最大流，一开始我想了个类似于 <a href="http://localhost:4000/solution/luogu3980/" target="_blank" rel="noopener">NOI2008 志愿者招募</a> 之类的利用满流的方法，但是一直没有调出来。后来怂了，直接连边，最后因为有个 <code>- 1</code> 没有删干净还是调了老半天。orz ，我还是太菜了。</p>
+<p>把每一天分成两个节点，一个接受干净的毛巾，一个输出用过的毛巾。直接在这两个点之间连边显然不现实，我们可以分别把这两个点和源点、汇点连边。然后再按照题目条件一一连上对应边。这样最大流肯定能够跑满，求最小费用的话就是这图的最小费用最大流了。</p>
+<p>这告诉我们对于不清楚的知识点不要瞎用。</p>
+<a id="more"></a>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ==============================</span></span><br><span class="line"><span class="comment">//  author: memset0</span></span><br><span class="line"><span class="comment">//  website: https://memset0.cn</span></span><br><span class="line"><span class="comment">// ==============================</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rep(i,l,r) for (int i = l; i &lt;= r; i++)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> getc(x) getchar(x)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> putc(x) putchar(x)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt; <span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">read</span><span class="params">(T &amp;x)</span> </span>&#123;</span><br><span class="line">    x = <span class="number">0</span>; <span class="keyword">register</span> <span class="keyword">char</span> ch; <span class="keyword">register</span> <span class="keyword">bool</span> fl = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (ch = getc(), ch &lt; <span class="number">48</span> || <span class="number">57</span> &lt; ch) fl ^= ch == <span class="string">'-'</span>; x = (ch &amp; <span class="number">15</span>);</span><br><span class="line">    <span class="keyword">while</span> (ch = getc(), <span class="number">47</span> &lt; ch &amp;&amp; ch &lt; <span class="number">58</span>) x = (x &lt;&lt; <span class="number">1</span>) + (x &lt;&lt; <span class="number">3</span>) + (ch &amp; <span class="number">15</span>);</span><br><span class="line">    <span class="keyword">if</span> (fl) x = -x;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt; <span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">print</span><span class="params">(T x, <span class="keyword">char</span> c = <span class="string">'\n'</span>)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">int</span> buf[<span class="number">40</span>];</span><br><span class="line">    <span class="keyword">if</span> (x == <span class="number">0</span>) &#123; putc(<span class="string">'0'</span>); <span class="keyword">return</span>; &#125;</span><br><span class="line">    <span class="keyword">if</span> (x &lt; <span class="number">0</span>) putc(<span class="string">'-'</span>), x = -x;</span><br><span class="line">    <span class="keyword">for</span> (buf[<span class="number">0</span>] = <span class="number">0</span>; x; x /= <span class="number">10</span>) buf[++buf[<span class="number">0</span>]] = x % <span class="number">10</span> + <span class="number">48</span>;</span><br><span class="line">    <span class="keyword">while</span> (buf[<span class="number">0</span>]) putc((<span class="keyword">char</span>) buf[buf[<span class="number">0</span>]--]);</span><br><span class="line">    putc(c);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">4010</span>, maxe = <span class="number">50010</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> inf = <span class="number">1000000000</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n, m, u, v, l, r, s, e, p;</span><br><span class="line"><span class="keyword">int</span> t1, t2, v1, v2, tmp, flow;</span><br><span class="line"><span class="keyword">int</span> a[maxn], pre[maxn], q[maxn], inq[maxn];</span><br><span class="line">ll ans, dis[maxn];</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> tot = <span class="number">2</span>, hed[maxn], nxt[maxe], to[maxe], val[maxe], cst[maxe];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">add_simple_edge</span><span class="params">(<span class="keyword">int</span> u, <span class="keyword">int</span> v, <span class="keyword">int</span> w, <span class="keyword">int</span> c)</span> </span>&#123;</span><br><span class="line">    nxt[tot] = hed[u], to[tot] = v;</span><br><span class="line">    val[tot] = w, cst[tot] = c;</span><br><span class="line">    hed[u] = tot++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">add_edge</span><span class="params">(<span class="keyword">int</span> u, <span class="keyword">int</span> v, <span class="keyword">int</span> w, <span class="keyword">int</span> c)</span> </span>&#123;</span><br><span class="line">    add_simple_edge(u, v, w, c);</span><br><span class="line">    add_simple_edge(v, u, <span class="number">0</span>, -c);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">spfa</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">memset</span>(dis, <span class="number">127</span>, <span class="keyword">sizeof</span>(dis));</span><br><span class="line">    <span class="built_in">memset</span>(pre, <span class="number">0</span>, <span class="keyword">sizeof</span>(pre));</span><br><span class="line">    l = r = <span class="number">1</span>, q[<span class="number">1</span>] = s, dis[s] = <span class="number">0</span>, inq[s] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (l &lt;= r) &#123;</span><br><span class="line">        u = q[(l++) % (e + <span class="number">10</span>)], inq[u] = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = hed[u], v = to[i]; i; i = nxt[i], v = to[i])</span><br><span class="line">            <span class="keyword">if</span> (val[i] &amp;&amp; dis[v] &gt; dis[u] + cst[i]) &#123;</span><br><span class="line">                dis[v] = dis[u] + cst[i];</span><br><span class="line">                pre[v] = i;</span><br><span class="line">                <span class="keyword">if</span> (!inq[v]) &#123;</span><br><span class="line">                    inq[v] = <span class="number">1</span>;</span><br><span class="line">                    q[(++r) % (e + <span class="number">10</span>)] = v;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> pre[e];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    read(n), s = (n &lt;&lt; <span class="number">1</span>) + <span class="number">1</span>, e = s + <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">        read(a[i]);</span><br><span class="line">    read(p), read(t1), read(v1), read(t2), read(v2);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">        add_edge(s, i + n, a[i], <span class="number">0</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">        add_edge(i, e, a[i], <span class="number">0</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">        add_edge(s, i, inf, p);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i + t1 &lt;= n; i++)</span><br><span class="line">        add_edge(i + n, i + t1, inf, v1);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i + t2 &lt;= n; i++)</span><br><span class="line">        add_edge(i + n, i + t2, inf, v2);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n; i++)</span><br><span class="line">        add_edge(i, i + <span class="number">1</span>, inf, <span class="number">0</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span> (spfa()) &#123;</span><br><span class="line">        flow = inf;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = pre[e]; i; i = pre[to[i ^ <span class="number">1</span>]])</span><br><span class="line">            flow = <span class="built_in">std</span>::min(flow, val[i]);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = pre[e]; i; i = pre[to[i ^ <span class="number">1</span>]])</span><br><span class="line">            val[i] -= flow, val[i ^ <span class="number">1</span>] += flow;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = pre[e]; i; i = pre[to[i ^ <span class="number">1</span>]])</span><br><span class="line">            ans += cst[i] * (ll)flow;</span><br><span class="line">    &#125;</span><br><span class="line">    print(ans);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        </div>
+
+        <!--<blockquote class="post-copyright">
+    <div class="content">
+        
+
+        
+    </div>
+    <footer>
+        <a href="https://oi.memset0.cn">
+            <img src="/img/avatar.png" alt="memset0">
+            memset0
+        </a>
+    </footer>
+</blockquote>-->
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/最小费用最大流/">最小费用最大流</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/网络流/">网络流</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://oi.memset0.cn/solution/luogu/1251/&title=《洛谷1251 - 餐巾计划问题》 — memset0's blog&pic=https://oi.memset0.cn/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://oi.memset0.cn/solution/luogu/1251/&title=《洛谷1251 - 餐巾计划问题》 — memset0's blog&source=
+到这题为止网络流 24 题也快刷完了呢，还剩下几道码量特大的等着以后有空去浪费时间（逃
+
+这题一眼最小费用最大流，一开始我想了个类似于 NOI2008 ..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://oi.memset0.cn/solution/luogu/1251/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《洛谷1251 - 餐巾计划问题》 — memset0's blog&url=https://oi.memset0.cn/solution/luogu/1251/&via=https://oi.memset0.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://oi.memset0.cn/solution/luogu/1251/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "rHgVqrBsv0EYGFSxzDDIDapm-9Nh9j0Va",
+            appKey: "X7Dp3hEvRWPbqHBYkOTBXzPm",
+            avatar: "mm",
+            placeholder: "留下你的脚印~",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "20"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+	
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/solution/bzoj/1070/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">BZOJ1070 - [SCOI2007]修车</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/solution/bzoj/1001/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">BZOJ1001 - [BeiJing2006]狼抓兔子</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+	<span>
+		总字数：52.1k
+	</span>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>memset0 &copy; 2017 - 2018</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">浙ICP备-备你麻了个逼</a><br>
+                
+                Hosted by <a href="https://pages.coding.me">Coding Pages</a> · Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up fix-icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://oi.memset0.cn/solution/luogu/1251/&title=《洛谷1251 - 餐巾计划问题》 — memset0's blog&pic=https://oi.memset0.cn/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://oi.memset0.cn/solution/luogu/1251/&title=《洛谷1251 - 餐巾计划问题》 — memset0's blog&source=
+到这题为止网络流 24 题也快刷完了呢，还剩下几道码量特大的等着以后有空去浪费时间（逃
+
+这题一眼最小费用最大流，一开始我想了个类似于 NOI2008 ..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://oi.memset0.cn/solution/luogu/1251/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《洛谷1251 - 餐巾计划问题》 — memset0's blog&url=https://oi.memset0.cn/solution/luogu/1251/&via=https://oi.memset0.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://oi.memset0.cn/solution/luogu/1251/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://oi.memset0.cn/solution/luogu/1251/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

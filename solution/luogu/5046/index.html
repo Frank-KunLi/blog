@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?d8c0a4185322e94013582201484f9131";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="memset0.cn/solution/luogu/5046/">
+    
+    
+    <title>洛谷5046 - [Ynoi2019模拟赛]Yuno loves sqrt technology I | memset0&#39;s blog | 站在时代的十字路口</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="树状数组,分块">
+    <meta name="description" content="一道卡常题。考虑分块。 如果查询的 $l$ 和 $r$ 不在同一个块内。  12查询区间 =&amp;gt;                ┌-----------------------------┐分好的块 =&amp;gt; [.........][........][........][........][........][........] 把查询的区间分成三个部分、A（块前零散部分）、B（整块的）、">
+<meta name="keywords" content="树状数组,分块">
+<meta property="og:type" content="article">
+<meta property="og:title" content="洛谷5046 - [Ynoi2019模拟赛]Yuno loves sqrt technology I">
+<meta property="og:url" content="https://oi.memset0.cn/solution/luogu/5046/index.html">
+<meta property="og:site_name" content="memset0&#39;s blog">
+<meta property="og:description" content="一道卡常题。考虑分块。 如果查询的 $l$ 和 $r$ 不在同一个块内。  12查询区间 =&amp;gt;                ┌-----------------------------┐分好的块 =&amp;gt; [.........][........][........][........][........][........] 把查询的区间分成三个部分、A（块前零散部分）、B（整块的）、">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-11-24T05:49:23.161Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="洛谷5046 - [Ynoi2019模拟赛]Yuno loves sqrt technology I">
+<meta name="twitter:description" content="一道卡常题。考虑分块。 如果查询的 $l$ 和 $r$ 不在同一个块内。  12查询区间 =&amp;gt;                ┌-----------------------------┐分好的块 =&amp;gt; [.........][........][........][........][........][........] 把查询的区间分成三个部分、A（块前零散部分）、B（整块的）、">
+    
+        <link rel="alternate" type="application/atom+xml" title="memset0&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.png">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+	
+	<link rel="stylesheet" href="/modify.css">
+
+</head>
+
+
+<style>
+.fix-icon-chevron-up {
+	line-height: 0em!important;
+}
+</style>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">memset0</h5>
+          <a href="mailto:memset0@outlook.com" title="memset0@outlook.com" class="mail">memset0@outlook.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                Home
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about"  >
+                <i class="icon icon-lg icon-user"></i>
+                About
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/friends"  >
+                <i class="icon icon-lg icon-link"></i>
+                Friends
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://cloud.memset0.cn/"  >
+                <i class="icon icon-lg icon-cloud"></i>
+                Cloud
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/memset0" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">洛谷5046 - [Ynoi2019模拟赛]Yuno loves sqrt technology I</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">洛谷5046 - [Ynoi2019模拟赛]Yuno loves sqrt technology I</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-11-24T04:33:01.000Z" itemprop="datePublished" class="page-time">
+  2018-11-24
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Solution/">Solution</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+<article id="post-solution/luogu/5046"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">洛谷5046 - [Ynoi2019模拟赛]Yuno loves sqrt technology I</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-11-24 12:33:01" datetime="2018-11-24T04:33:01.000Z"  itemprop="datePublished">2018-11-24</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Solution/">Solution</a></li></ul>
+
+
+
+            
+<span>
+	1,991 字
+</span>
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>一道卡常题。考虑分块。</p>
+<p>如果查询的 $l$ 和 $r$ 不在同一个块内。 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">查询区间 =&gt;                ┌-----------------------------┐</span><br><span class="line">分好的块 =&gt; [.........][........][........][........][........][........]</span><br></pre></td></tr></table></figure>
+<p>把查询的区间分成三个部分、A（块前零散部分）、B（整块的）、C（块后零散部分）</p>
+<p>先考虑每个部分自身与自身匹配对答案的贡献。我们可以预处理出从每个点出发，到所属块的开始 / 结尾的逆序对个数，分别用 <code>lft[]</code> 和 <code>rit[]</code> 表示，预处理时间复杂度 $O(\sqrt n \times \sqrt n \times \log n)$。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">┌-----1.-----┐               1. 这一部分的逆序对个数表示为 lft[i]</span><br><span class="line">             ┌-----2.----┐   2. 这一部分的逆序对个数表示为 rit[i]</span><br><span class="line">[............i...........]</span><br></pre></td></tr></table></figure>
+<p>接下来我们考虑 A -&gt; B ， C -&gt; B 的贡献，类似于蒲公英这题，处理出 <code>cnt[i][j]</code> 数组表示前 $i$ 个块内小于等于 $j$  的数字个数，查询时枚举 A 和 C 中的每一个数，利用这个前缀和查询对答案的贡献。</p>
+<p>接下来考虑 A -&gt; C 的贡献，由于 A 和 C 是不重合的两个部分，可以采用类似归并排序的方法，把两个序列合并的同时计算出逆序对个数。</p>
+<p>如果查询的 $l$ 和 $r$ 在同一个块内。</p>
+<p>首先我们考虑，相邻的两个区间 A 和 B 。A 和 B 总共的逆序对个数，等于 A 内部的逆序对个数 + B 内部的逆序对个数 + A 对 B 贡献的逆序对个数。</p>
+<p>好，那么我们再来考虑 $l$ 和 $r$ 在同一个块内：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">┌------A+B-------┐      这一部分即之前已经处理出的 lft[r]</span><br><span class="line">┌----A----┐             这一部分即之前已经处理出的 lft[l]</span><br><span class="line">          ┌--B---┐</span><br><span class="line">[.........l......r.......]</span><br></pre></td></tr></table></figure>
+<p>现在我们要求 B 的逆序对个数，只需要把 A + B 的逆序对个数减掉 A 内部的逆序对个数，再减掉 A 对 B 的逆序对个数即可。</p>
+<p>剩下的事情似乎变得简单，只需要把上面的思路写成代码即可。$O(n \log n + n \sqrt n)$ ，时间复杂度看起来也很正常。写了一会儿，交了一发，然后—— TLE 成 0 分。</p>
+<p>好吧，这题除了需要一个正确的算法，还需要很多常数优化QWQ。</p>
+<p>其他题解提出的改变块大小的方法似乎由于写法问题，我调整了多次改变不大，我采用的方法是：</p>
+<ol>
+<li><p>开启 O3 编译选项（这里多说一句，在代码里加了 O3 就不要点那个 O2 优化选项了，否则 O3 会被忽略）</p>
+</li>
+<li><p>对于之前说的</p>
+<blockquote>
+<p>接下来我们考虑 A -&gt; B ， C -&gt; B 的贡献，类似于蒲公英这题，处理出 <code>cnt[i][j]</code> 数组表示前 $i$ 个块内小于等于 $j$  的数字个数，查询时枚举 A 和 C 中的每一个数，利用这个前缀和查询对答案的贡献。</p>
+</blockquote>
+<p>这个部分，使用预处理出结果，并做二维前缀和。</p>
+</li>
+<li><p>能前缀和预处理的地方不要 $O(\sqrt n)$ 枚举 </p>
+</li>
+<li><p>能开 int 的地方开 int ，尽量少开 long long</p>
+</li>
+</ol>
+<p>另外，多交几次，最终还是成功通过了这题</p>
+<a id="more"></a>
+<p>代码：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> GCC diagnostic <span class="meta-keyword">error</span> <span class="meta-string">"-std=c++11"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> GCC target(<span class="meta-string">"avx"</span>)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> GCC optimize(3)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> GCC optimize(<span class="meta-string">"Ofast"</span>)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> GCC optimize(<span class="meta-string">"inline"</span>)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> GCC optimize(<span class="meta-string">"-fgcse"</span>)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> GCC optimize(<span class="meta-string">"-fgcse-lm"</span>)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> GCC optimize(<span class="meta-string">"-fipa-sra"</span>)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> GCC optimize(<span class="meta-string">"-ftree-pre"</span>)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> GCC optimize(<span class="meta-string">"-ftree-vrp"</span>)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> GCC optimize(<span class="meta-string">"-fpeephole2"</span>)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> GCC optimize(<span class="meta-string">"-ffast-math"</span>)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> GCC optimize(<span class="meta-string">"-fsched-spec"</span>)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> GCC optimize(<span class="meta-string">"unroll-loops"</span>)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> GCC optimize(<span class="meta-string">"-falign-jumps"</span>)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> GCC optimize(<span class="meta-string">"-falign-loops"</span>)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> GCC optimize(<span class="meta-string">"-falign-labels"</span>)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> GCC optimize(<span class="meta-string">"-fdevirtualize"</span>)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> GCC optimize(<span class="meta-string">"-fcaller-saves"</span>)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> GCC optimize(<span class="meta-string">"-fcrossjumping"</span>)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> GCC optimize(<span class="meta-string">"-fthread-jumps"</span>)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> GCC optimize(<span class="meta-string">"-funroll-loops"</span>)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> GCC optimize(<span class="meta-string">"-fwhole-program"</span>)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> GCC optimize(<span class="meta-string">"-freorder-blocks"</span>)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> GCC optimize(<span class="meta-string">"-fschedule-insns"</span>)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> GCC optimize(<span class="meta-string">"inline-functions"</span>)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> GCC optimize(<span class="meta-string">"-ftree-tail-merge"</span>)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> GCC optimize(<span class="meta-string">"-fschedule-insns2"</span>)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> GCC optimize(<span class="meta-string">"-fstrict-aliasing"</span>)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> GCC optimize(<span class="meta-string">"-fstrict-overflow"</span>)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> GCC optimize(<span class="meta-string">"-falign-functions"</span>)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> GCC optimize(<span class="meta-string">"-fcse-skip-blocks"</span>)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> GCC optimize(<span class="meta-string">"-fcse-follow-jumps"</span>)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> GCC optimize(<span class="meta-string">"-fsched-interblock"</span>)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> GCC optimize(<span class="meta-string">"-fpartial-inlining"</span>)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> GCC optimize(<span class="meta-string">"no-stack-protector"</span>)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> GCC optimize(<span class="meta-string">"-freorder-functions"</span>)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> GCC optimize(<span class="meta-string">"-findirect-inlining"</span>)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> GCC optimize(<span class="meta-string">"-fhoist-adjacent-loads"</span>)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> GCC optimize(<span class="meta-string">"-frerun-cse-after-loop"</span>)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> GCC optimize(<span class="meta-string">"inline-small-functions"</span>)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> GCC optimize(<span class="meta-string">"-finline-small-functions"</span>)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> GCC optimize(<span class="meta-string">"-ftree-switch-conversion"</span>)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> GCC optimize(<span class="meta-string">"-foptimize-sibling-calls"</span>)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> GCC optimize(<span class="meta-string">"-fexpensive-optimizations"</span>)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> GCC optimize(<span class="meta-string">"-funsafe-loop-optimizations"</span>)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> GCC optimize(<span class="meta-string">"inline-functions-called-once"</span>)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> GCC optimize(<span class="meta-string">"-fdelete-null-pointer-checks"</span>)</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> il inline</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rg register</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> getc getchar</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> putc putchar</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rep(i, l, r) for (int i = l; i &lt;= r; ++i)</span></span><br><span class="line"><span class="keyword">namespace</span> ringo &#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt; <span class="class"><span class="keyword">class</span> <span class="title">T</span> &gt; <span class="title">il</span> <span class="title">void</span> <span class="title">read</span>(<span class="title">T</span> &amp;<span class="title">x</span>) &#123;</span></span><br><span class="line">    x = <span class="number">0</span>; rg <span class="keyword">char</span> c = getc(); rg <span class="keyword">bool</span> f = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (!<span class="built_in">isdigit</span>(c)) f ^= c == <span class="string">'-'</span>, c = getc();</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">isdigit</span>(c)) x = x * <span class="number">10</span> + c - <span class="string">'0'</span>, c = getc();</span><br><span class="line">    <span class="keyword">if</span> (f) x = -x;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt; <span class="class"><span class="keyword">class</span> <span class="title">T</span> &gt; <span class="title">il</span> <span class="title">void</span> <span class="title">print</span>(<span class="title">T</span> <span class="title">x</span>) &#123;</span></span><br><span class="line">    <span class="keyword">if</span> (x &lt; <span class="number">0</span>) putc(<span class="string">'-'</span>), x = -x;</span><br><span class="line">    <span class="keyword">if</span> (x &gt; <span class="number">9</span>) print(x / <span class="number">10</span>);</span><br><span class="line">    putc(<span class="string">'0'</span> + x % <span class="number">10</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1e5</span> + <span class="number">5</span>, sqn = <span class="number">320</span>, M = sqn + <span class="number">5</span>, P = N / sqn + <span class="number">5</span>;</span><br><span class="line"><span class="keyword">int</span> n, m, l, r, l1, l2, r1, r2, siz;</span><br><span class="line"><span class="keyword">int</span> a[N], rnk[N], srt[N], bln[N], lft[N], rit[N], s[M], q1[M], q2[M], fst[P], cnt[P][N];</span><br><span class="line">ll ans, fur[P], sum[P][P], pre[P][N];</span><br><span class="line"><span class="keyword">bool</span> tag[M];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">modify</span><span class="params">(<span class="keyword">int</span> k)</span> </span>&#123; <span class="keyword">for</span> (; k &lt;= siz; k += k &amp; -k) ++s[k]; &#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">query</span><span class="params">(<span class="keyword">int</span> k)</span> </span>&#123; <span class="keyword">int</span> x = <span class="number">0</span>; <span class="keyword">for</span> (; k; k -= k &amp; -k) x += s[k]; <span class="keyword">return</span> x; &#125;</span><br><span class="line"><span class="function">ll <span class="title">get</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b, <span class="keyword">int</span> c, <span class="keyword">int</span> d)</span> </span>&#123; <span class="keyword">return</span> pre[b][d] - pre[b][c - <span class="number">1</span>] - pre[a - <span class="number">1</span>][d] + pre[a - <span class="number">1</span>][c - <span class="number">1</span>]; &#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">merge</span><span class="params">(<span class="keyword">int</span> ll1, <span class="keyword">int</span> rr1, <span class="keyword">int</span> ll2, <span class="keyword">int</span> rr2)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> l1 = <span class="number">1</span>, l2 = <span class="number">1</span>, r1 = <span class="number">0</span>, r2 = <span class="number">0</span>, ans = <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">memset</span>(tag, <span class="number">0</span>, <span class="keyword">sizeof</span>(tag));</span><br><span class="line">    <span class="keyword">for</span> (rg <span class="keyword">int</span> i = ll1; i &lt;= rr1; i++) tag[rnk[i]] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (rg <span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= fst[bln[l] + <span class="number">1</span>] - fst[bln[l]]; ++i)</span><br><span class="line">        <span class="keyword">if</span> (tag[i]) q1[++r1] = srt[fst[bln[l]] + i - <span class="number">1</span>];</span><br><span class="line">    <span class="built_in">memset</span>(tag, <span class="number">0</span>, <span class="keyword">sizeof</span>(tag));</span><br><span class="line">    <span class="keyword">for</span> (rg <span class="keyword">int</span> i = ll2; i &lt;= rr2; i++) tag[rnk[i]] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (rg <span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= fst[bln[r] + <span class="number">1</span>] - fst[bln[r]]; ++i)</span><br><span class="line">        <span class="keyword">if</span> (tag[i]) q2[++r2] = srt[fst[bln[r]] + i - <span class="number">1</span>];</span><br><span class="line">    <span class="keyword">while</span> (l1 &lt;= r1 &amp;&amp; l2 &lt;= r2)</span><br><span class="line">        <span class="keyword">if</span> (q1[l1] &lt; q2[l2]) ++l1;</span><br><span class="line">        <span class="keyword">else</span> ++l2, ans += r1 - l1 + <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    read(n), read(m);</span><br><span class="line">    <span class="keyword">for</span> (rg <span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i) read(a[i]), srt[i] = a[i];</span><br><span class="line">    <span class="keyword">for</span> (rg <span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i) bln[i] = (i - <span class="number">1</span>) / sqn + <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (rg <span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= bln[n]; ++i) fst[i] = sqn * (i - <span class="number">1</span>) + <span class="number">1</span>;</span><br><span class="line">    fst[bln[n] + <span class="number">1</span>] = n + <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (rg <span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) ++cnt[bln[i]][a[i]];</span><br><span class="line">    <span class="keyword">for</span> (rg <span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= bln[n]; i++) <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= n; j++)</span><br><span class="line">        cnt[i][j] += cnt[i - <span class="number">1</span>][j] + cnt[i][j - <span class="number">1</span>] - cnt[i - <span class="number">1</span>][j - <span class="number">1</span>];</span><br><span class="line">    <span class="keyword">for</span> (rg <span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= bln[n]; i++) <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= n; j++)</span><br><span class="line">        pre[i][j] = pre[i][j - <span class="number">1</span>] + cnt[i][a[j] - <span class="number">1</span>];</span><br><span class="line">    <span class="keyword">for</span> (rg <span class="keyword">int</span> r = <span class="number">1</span>; r &lt;= bln[n]; r++) <span class="keyword">for</span> (<span class="keyword">int</span> l = <span class="number">1</span>; l &lt;= r; l++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (rg <span class="keyword">int</span> j = fst[r]; j &lt; fst[r + <span class="number">1</span>]; j++)</span><br><span class="line">            sum[l][r] += fst[r] - fst[l] - cnt[r - <span class="number">1</span>][a[j] - <span class="number">1</span>] + cnt[l - <span class="number">1</span>][a[j] - <span class="number">1</span>];</span><br><span class="line">        sum[l][r] += sum[l][r - <span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (rg <span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= bln[n]; ++i) &#123;</span><br><span class="line">        siz = fst[i + <span class="number">1</span>] - fst[i], <span class="built_in">std</span>::sort(srt + fst[i], srt + fst[i + <span class="number">1</span>]);</span><br><span class="line">        <span class="keyword">for</span> (rg <span class="keyword">int</span> j = fst[i]; j &lt; fst[i + <span class="number">1</span>]; j++) rnk[j] = <span class="built_in">std</span>::lower_bound(srt + fst[i], srt + fst[i + <span class="number">1</span>], a[j]) - srt - fst[i] + <span class="number">1</span>;</span><br><span class="line">        <span class="built_in">memset</span>(s, <span class="number">0</span>, <span class="keyword">sizeof</span>(s));</span><br><span class="line">        <span class="keyword">for</span> (rg <span class="keyword">int</span> j = fst[i]; j &lt; fst[i + <span class="number">1</span>]; j++) lft[j] = (j == fst[i] ? <span class="number">0</span> : lft[j - <span class="number">1</span>]) + j - fst[i] - query(rnk[j]), modify(rnk[j]);</span><br><span class="line">        <span class="built_in">memset</span>(s, <span class="number">0</span>, <span class="keyword">sizeof</span>(s));</span><br><span class="line">        <span class="keyword">for</span> (rg <span class="keyword">int</span> j = fst[i + <span class="number">1</span>] - <span class="number">1</span>; j &gt;= fst[i]; j--) rit[j] = (j == fst[i + <span class="number">1</span>] - <span class="number">1</span> ? <span class="number">0</span> : rit[j + <span class="number">1</span>]) + query(rnk[j]), modify(rnk[j]);</span><br><span class="line">        fur[i] = fur[i - <span class="number">1</span>] + rit[fst[i]];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (rg <span class="keyword">int</span> i = <span class="number">1</span>, bl, br; i &lt;= m; ++i) &#123;</span><br><span class="line">        read(l), read(r);</span><br><span class="line">        l ^= ans, r ^= ans;</span><br><span class="line">        <span class="keyword">if</span> (l &gt; r) <span class="built_in">std</span>::swap(l, r);</span><br><span class="line">        <span class="keyword">if</span> (bln[l] == bln[r]) &#123;</span><br><span class="line">            ans = lft[r] - (l == fst[bln[l]] ? <span class="number">0</span> : lft[l - <span class="number">1</span>]);</span><br><span class="line">            ans -= merge(fst[bln[l]], l - <span class="number">1</span>, l, r);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            bl = bln[l] + <span class="number">1</span>, br = bln[r] - <span class="number">1</span>;</span><br><span class="line">            ans = rit[l] + lft[r] + sum[bl][br] - sum[bl][bl - <span class="number">1</span>] + fur[br] - fur[bl - <span class="number">1</span>];</span><br><span class="line">            ans += get(bl, br, l, fst[bl] - <span class="number">1</span>);</span><br><span class="line">            ans -= get(bl, br, fst[br + <span class="number">1</span>], r);</span><br><span class="line">            ans += (r - fst[br + <span class="number">1</span>] + <span class="number">1</span>) * (fst[br + <span class="number">1</span>] - fst[bl]);</span><br><span class="line">            ans += merge(l, fst[bl] - <span class="number">1</span>, fst[br + <span class="number">1</span>], r);</span><br><span class="line">        &#125;</span><br><span class="line">        print(ans), putc(<span class="string">'\n'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cerr</span> &lt;&lt; clock() / (<span class="keyword">double</span>)CLOCKS_PER_SEC &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125; <span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> ringo::main(), <span class="number">0</span>; &#125;</span><br></pre></td></tr></table></figure>
+<p>（最近比较喜欢压行）</p>
+<p>感谢您的阅读。</p>
+
+        </div>
+
+        <!--<blockquote class="post-copyright">
+    <div class="content">
+        
+
+        
+    </div>
+    <footer>
+        <a href="https://oi.memset0.cn">
+            <img src="/img/avatar.png" alt="memset0">
+            memset0
+        </a>
+    </footer>
+</blockquote>-->
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/分块/">分块</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/树状数组/">树状数组</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://oi.memset0.cn/solution/luogu/5046/&title=《洛谷5046 - [Ynoi2019模拟赛]Yuno loves sqrt technology I》 — memset0's blog&pic=https://oi.memset0.cn/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://oi.memset0.cn/solution/luogu/5046/&title=《洛谷5046 - [Ynoi2019模拟赛]Yuno loves sqrt technology I》 — memset0's blog&source=一道卡常题。考虑分块。
+如果查询的 $l$ 和 $r$ 不在同一个块内。 
+12查询区间 =&gt;                ┌----------..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://oi.memset0.cn/solution/luogu/5046/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《洛谷5046 - [Ynoi2019模拟赛]Yuno loves sqrt technology I》 — memset0's blog&url=https://oi.memset0.cn/solution/luogu/5046/&via=https://oi.memset0.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://oi.memset0.cn/solution/luogu/5046/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "rHgVqrBsv0EYGFSxzDDIDapm-9Nh9j0Va",
+            appKey: "X7Dp3hEvRWPbqHBYkOTBXzPm",
+            avatar: "mm",
+            placeholder: "留下你的脚印~",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "20"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+	
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/algorithm/多项式/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">多项式系列板子</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/plan/plan1/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">退役后的做题计划（一）</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+	<span>
+		总字数：52.1k
+	</span>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>memset0 &copy; 2017 - 2018</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">浙ICP备-备你麻了个逼</a><br>
+                
+                Hosted by <a href="https://pages.coding.me">Coding Pages</a> · Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up fix-icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://oi.memset0.cn/solution/luogu/5046/&title=《洛谷5046 - [Ynoi2019模拟赛]Yuno loves sqrt technology I》 — memset0's blog&pic=https://oi.memset0.cn/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://oi.memset0.cn/solution/luogu/5046/&title=《洛谷5046 - [Ynoi2019模拟赛]Yuno loves sqrt technology I》 — memset0's blog&source=一道卡常题。考虑分块。
+如果查询的 $l$ 和 $r$ 不在同一个块内。 
+12查询区间 =&gt;                ┌----------..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://oi.memset0.cn/solution/luogu/5046/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《洛谷5046 - [Ynoi2019模拟赛]Yuno loves sqrt technology I》 — memset0's blog&url=https://oi.memset0.cn/solution/luogu/5046/&via=https://oi.memset0.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://oi.memset0.cn/solution/luogu/5046/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://oi.memset0.cn/solution/luogu/5046/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

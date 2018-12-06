@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?d8c0a4185322e94013582201484f9131";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="memset0.cn/solution/bzoj/2956/">
+    
+    
+    <title>BZOJ2956 - 模积和 | memset0&#39;s blog | 站在时代的十字路口</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="数论分块">
+    <meta name="description" content="$$\sum_{i=1}^{n} \sum_{j=1}^{m} (n \% i) \times (m \% j) \ \ \ (i \not= j)$$ $$= (\sum_{i=1}^{n} n \% i) \times (\sum_{j=1}^{m} m \% j) - \sum_{i=1}^{\min(n, m)} (n \% i) \times (m \% j)$$ 可以转化成 $A \t">
+<meta name="keywords" content="数论分块">
+<meta property="og:type" content="article">
+<meta property="og:title" content="BZOJ2956 - 模积和">
+<meta property="og:url" content="https://oi.memset0.cn/solution/bzoj/2956/index.html">
+<meta property="og:site_name" content="memset0&#39;s blog">
+<meta property="og:description" content="$$\sum_{i=1}^{n} \sum_{j=1}^{m} (n \% i) \times (m \% j) \ \ \ (i \not= j)$$ $$= (\sum_{i=1}^{n} n \% i) \times (\sum_{j=1}^{m} m \% j) - \sum_{i=1}^{\min(n, m)} (n \% i) \times (m \% j)$$ 可以转化成 $A \t">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-10-10T12:14:53.316Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="BZOJ2956 - 模积和">
+<meta name="twitter:description" content="$$\sum_{i=1}^{n} \sum_{j=1}^{m} (n \% i) \times (m \% j) \ \ \ (i \not= j)$$ $$= (\sum_{i=1}^{n} n \% i) \times (\sum_{j=1}^{m} m \% j) - \sum_{i=1}^{\min(n, m)} (n \% i) \times (m \% j)$$ 可以转化成 $A \t">
+    
+        <link rel="alternate" type="application/atom+xml" title="memset0&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.png">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+	
+	<link rel="stylesheet" href="/modify.css">
+
+</head>
+
+
+<style>
+.fix-icon-chevron-up {
+	line-height: 0em!important;
+}
+</style>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">memset0</h5>
+          <a href="mailto:memset0@outlook.com" title="memset0@outlook.com" class="mail">memset0@outlook.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                Home
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about"  >
+                <i class="icon icon-lg icon-user"></i>
+                About
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/friends"  >
+                <i class="icon icon-lg icon-link"></i>
+                Friends
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://cloud.memset0.cn/"  >
+                <i class="icon icon-lg icon-cloud"></i>
+                Cloud
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/memset0" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">BZOJ2956 - 模积和</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">BZOJ2956 - 模积和</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-09-27T03:18:00.000Z" itemprop="datePublished" class="page-time">
+  2018-09-27
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Solution/">Solution</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+<article id="post-solution/bzoj/2956"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">BZOJ2956 - 模积和</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-09-27 11:18:00" datetime="2018-09-27T03:18:00.000Z"  itemprop="datePublished">2018-09-27</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Solution/">Solution</a></li></ul>
+
+
+
+            
+<span>
+	772 字
+</span>
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>$$\sum_{i=1}^{n} \sum_{j=1}^{m} (n \% i) \times (m \% j) \ \ \ (i \not= j)$$</p>
+<p>$$= (\sum_{i=1}^{n} n \% i) \times (\sum_{j=1}^{m} m \% j) - \sum_{i=1}^{\min(n, m)} (n \% i) \times (m \% j)$$</p>
+<p>可以转化成 $A \times B - C$ 的形式，分别来求。</p>
+<p>其中求 $A$ 和 $B$ 的方式是一样的，可以数论分块，也可以直接打表找规律。鉴于这部分不难，笔者写了后者，而描述起来而笔者又非常懒因此忽略求 $A$ 、 $B$ 直接讲求 $C$ 。当然你也可以通过推 $C$ 的方式自己推一下 $A$ 、 $B$ 。</p>
+<p>$$C = \sum_{i=1}^{\min(n, m)} (n \% i) \times (m \% i)$$</p>
+<p>$$= \sum_{i=1} ^ {\min(n, m)} (n - i \times \lfloor \frac {n} {i} \rfloor) \times (m - i \times \lfloor \frac {m} {i} \rfloor )$$</p>
+<p>$$= \sum_{i=1} ^ {\min(n, m)} n \times m - m \times  i \times \lfloor \frac {n} {i} \rfloor - n \times i \times \lfloor \frac {m} {i} \rfloor + i ^ 2 \times \lfloor \frac {m} {i} \rfloor \lfloor \frac {m} {i} \rfloor $$</p>
+<p>数论分块即可。</p>
+<a id="more"></a>
+<p>鉴于笔者写代码时思路非常混乱，下面仅供对拍：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ==============================</span></span><br><span class="line"><span class="comment">//  author: memset0</span></span><br><span class="line"><span class="comment">//  website: https://memset0.cn</span></span><br><span class="line"><span class="comment">// ==============================</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rep(i,l,r) for (int i = l; i &lt;= r; i++)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> getc(x) getchar(x)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> putc(x) putchar(x)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt; <span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">read</span><span class="params">(T &amp;x)</span> </span>&#123;</span><br><span class="line">	x = <span class="number">0</span>; <span class="keyword">register</span> <span class="keyword">char</span> ch; <span class="keyword">register</span> <span class="keyword">bool</span> fl = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span> (ch = getc(), ch &lt; <span class="number">48</span> || <span class="number">57</span> &lt; ch) fl ^= ch == <span class="string">'-'</span>; x = (ch &amp; <span class="number">15</span>);</span><br><span class="line">	<span class="keyword">while</span> (ch = getc(), <span class="number">47</span> &lt; ch &amp;&amp; ch &lt; <span class="number">58</span>) x = (x &lt;&lt; <span class="number">1</span>) + (x &lt;&lt; <span class="number">3</span>) + (ch &amp; <span class="number">15</span>);</span><br><span class="line">	<span class="keyword">if</span> (fl) x = -x;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt; <span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">print</span><span class="params">(T x, <span class="keyword">char</span> c = <span class="string">'\n'</span>)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">static</span> <span class="keyword">int</span> buf[<span class="number">40</span>];</span><br><span class="line">	<span class="keyword">if</span> (x == <span class="number">0</span>) &#123; putc(<span class="string">'0'</span>); putc(c); <span class="keyword">return</span>; &#125;</span><br><span class="line">	<span class="keyword">if</span> (x &lt; <span class="number">0</span>) putc(<span class="string">'-'</span>), x = -x;</span><br><span class="line">	<span class="keyword">for</span> (buf[<span class="number">0</span>] = <span class="number">0</span>; x; x /= <span class="number">10</span>) buf[++buf[<span class="number">0</span>]] = x % <span class="number">10</span> + <span class="number">48</span>;</span><br><span class="line">	<span class="keyword">while</span> (buf[<span class="number">0</span>]) putc((<span class="keyword">char</span>) buf[buf[<span class="number">0</span>]--]);</span><br><span class="line">	putc(c);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> ll p = <span class="number">19940417</span>;</span><br><span class="line"></span><br><span class="line">ll n, m;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">update</span><span class="params">(ll &amp;x)</span> </span>&#123;</span><br><span class="line">	x = (x % p + p) % p;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">ll <span class="title">sum</span><span class="params">(ll n)</span> </span>&#123;</span><br><span class="line">	ll a = n, b = n - <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">if</span> (a % <span class="number">2</span> == <span class="number">0</span>) a /= <span class="number">2</span>;</span><br><span class="line">	<span class="keyword">else</span> b /= <span class="number">2</span>;</span><br><span class="line">	a %= p, b %= p;</span><br><span class="line">	<span class="keyword">return</span> a * b % p;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">ll <span class="title">sum</span><span class="params">(ll l, ll r)</span> </span>&#123;</span><br><span class="line">	ll a = l + r, b = r - l + <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">if</span> (a % <span class="number">2</span> == <span class="number">0</span>) a /= <span class="number">2</span>;</span><br><span class="line">	<span class="keyword">else</span> b /= <span class="number">2</span>;</span><br><span class="line">	a %= p, b %= p;</span><br><span class="line">	<span class="keyword">return</span> a * b % p;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">ll <span class="title">sum2</span><span class="params">(ll n)</span> </span>&#123;</span><br><span class="line">	ll a = n, b = n + <span class="number">1</span>, c = (n &lt;&lt; <span class="number">1</span>) + <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">if</span> (a % <span class="number">2</span> == <span class="number">0</span>) a /= <span class="number">2</span>;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span> (b % <span class="number">2</span> == <span class="number">0</span>) b /= <span class="number">2</span>;</span><br><span class="line">	<span class="keyword">else</span> c /= <span class="number">2</span>;</span><br><span class="line">	<span class="keyword">if</span> (a % <span class="number">3</span> == <span class="number">0</span>) a /= <span class="number">3</span>;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span> (b % <span class="number">3</span> == <span class="number">0</span>) b /= <span class="number">3</span>;</span><br><span class="line">	<span class="keyword">else</span> c /= <span class="number">3</span>;</span><br><span class="line">	a %= p, b %= p, c %= p;</span><br><span class="line">	<span class="keyword">return</span> a * b % p * c % p;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">ll <span class="title">solve</span><span class="params">(ll n)</span> </span>&#123;</span><br><span class="line">	ll m, ans = <span class="number">0</span>, sqn = <span class="built_in">sqrt</span>(n), x, i, t;</span><br><span class="line">	<span class="keyword">for</span> (i = <span class="number">2</span>, x = n; x &gt; sqn; i++) &#123;</span><br><span class="line">		t = m = (n - (n / i)) - (n - x);</span><br><span class="line">		m %= p;</span><br><span class="line">		ans += (n % x) % p * (m % p) % p, update(ans);</span><br><span class="line">		ans += sum(m) % p * ((i - <span class="number">1</span>) % p) % p, update(ans);</span><br><span class="line">		x -= t;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span> (i = <span class="number">1</span>; i &lt;= x; i++)</span><br><span class="line">		ans += (n % i) % p, update(ans);</span><br><span class="line">	<span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">ll <span class="title">solve2</span><span class="params">(ll n, ll m)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (n &gt; m) <span class="built_in">std</span>::swap(n, m);</span><br><span class="line">	ll ans = n * n % p * m % p;</span><br><span class="line">	<span class="keyword">for</span> (ll l = <span class="number">1</span>, r; l &lt;= n; l = r + <span class="number">1</span>) &#123;</span><br><span class="line">		r = <span class="built_in">std</span>::min(n / (n / l), m / (m / l));</span><br><span class="line">		ans -= n % p * (m / l % p) % p * sum(l, r) % p, update(ans);</span><br><span class="line">		ans -= m % p * (n / l % p) % p * sum(l, r) % p, update(ans);</span><br><span class="line">		ans += (n / l % p) * (m / l % p) % p * ((sum2(r) - sum2(l - <span class="number">1</span>) + p) % p) % p, update(ans);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	read(n), read(m);</span><br><span class="line">	print((solve(n) * solve(m) % p - solve2(n, m) + p) % p);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        </div>
+
+        <!--<blockquote class="post-copyright">
+    <div class="content">
+        
+
+        
+    </div>
+    <footer>
+        <a href="https://oi.memset0.cn">
+            <img src="/img/avatar.png" alt="memset0">
+            memset0
+        </a>
+    </footer>
+</blockquote>-->
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数论分块/">数论分块</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://oi.memset0.cn/solution/bzoj/2956/&title=《BZOJ2956 - 模积和》 — memset0's blog&pic=https://oi.memset0.cn/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://oi.memset0.cn/solution/bzoj/2956/&title=《BZOJ2956 - 模积和》 — memset0's blog&source=$$\sum_{i=1}^{n} \sum_{j=1}^{m} (n \% i) \times (m \% j) \ \ \ (i \not= j)$$
+..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://oi.memset0.cn/solution/bzoj/2956/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《BZOJ2956 - 模积和》 — memset0's blog&url=https://oi.memset0.cn/solution/bzoj/2956/&via=https://oi.memset0.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://oi.memset0.cn/solution/bzoj/2956/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "rHgVqrBsv0EYGFSxzDDIDapm-9Nh9j0Va",
+            appKey: "X7Dp3hEvRWPbqHBYkOTBXzPm",
+            avatar: "mm",
+            placeholder: "留下你的脚印~",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "20"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+	
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/solution/bzoj/1002/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">BZOJ1002 - [FJOI2007]轮状病毒</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/solution/bzoj/2588/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">BZOJ2588 - Count on a tree</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+	<span>
+		总字数：52.1k
+	</span>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>memset0 &copy; 2017 - 2018</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">浙ICP备-备你麻了个逼</a><br>
+                
+                Hosted by <a href="https://pages.coding.me">Coding Pages</a> · Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up fix-icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://oi.memset0.cn/solution/bzoj/2956/&title=《BZOJ2956 - 模积和》 — memset0's blog&pic=https://oi.memset0.cn/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://oi.memset0.cn/solution/bzoj/2956/&title=《BZOJ2956 - 模积和》 — memset0's blog&source=$$\sum_{i=1}^{n} \sum_{j=1}^{m} (n \% i) \times (m \% j) \ \ \ (i \not= j)$$
+..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://oi.memset0.cn/solution/bzoj/2956/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《BZOJ2956 - 模积和》 — memset0's blog&url=https://oi.memset0.cn/solution/bzoj/2956/&via=https://oi.memset0.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://oi.memset0.cn/solution/bzoj/2956/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://oi.memset0.cn/solution/bzoj/2956/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>
