@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>memset0&#39;s blog</title>
   
-  <subtitle>站在时代的十字路口</subtitle>
+  <subtitle>落霞与孤鹜齐飞，秋水共长天一色</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://oi.memset0.cn/"/>
@@ -316,9 +316,9 @@
       <category term="Solution" scheme="https://oi.memset0.cn/categories/Solution/"/>
     
     
-      <category term="二分答案" scheme="https://oi.memset0.cn/tags/%E4%BA%8C%E5%88%86%E7%AD%94%E6%A1%88/"/>
-    
       <category term="计算几何" scheme="https://oi.memset0.cn/tags/%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95/"/>
+    
+      <category term="二分答案" scheme="https://oi.memset0.cn/tags/%E4%BA%8C%E5%88%86%E7%AD%94%E6%A1%88/"/>
     
       <category term="浮点数运算" scheme="https://oi.memset0.cn/tags/%E6%B5%AE%E7%82%B9%E6%95%B0%E8%BF%90%E7%AE%97/"/>
     
@@ -348,11 +348,11 @@
       <category term="Solution" scheme="https://oi.memset0.cn/categories/Solution/"/>
     
     
-      <category term="树上倍增" scheme="https://oi.memset0.cn/tags/%E6%A0%91%E4%B8%8A%E5%80%8D%E5%A2%9E/"/>
-    
       <category term="树形 DP" scheme="https://oi.memset0.cn/tags/%E6%A0%91%E5%BD%A2-DP/"/>
     
       <category term="贪心" scheme="https://oi.memset0.cn/tags/%E8%B4%AA%E5%BF%83/"/>
+    
+      <category term="树上倍增" scheme="https://oi.memset0.cn/tags/%E6%A0%91%E4%B8%8A%E5%80%8D%E5%A2%9E/"/>
     
   </entry>
   
@@ -385,13 +385,13 @@
     
       <category term="主席树" scheme="https://oi.memset0.cn/tags/%E4%B8%BB%E5%B8%AD%E6%A0%91/"/>
     
+      <category term="树上倍增" scheme="https://oi.memset0.cn/tags/%E6%A0%91%E4%B8%8A%E5%80%8D%E5%A2%9E/"/>
+    
       <category term="强制在线" scheme="https://oi.memset0.cn/tags/%E5%BC%BA%E5%88%B6%E5%9C%A8%E7%BA%BF/"/>
     
       <category term="克鲁斯卡尔重构树" scheme="https://oi.memset0.cn/tags/%E5%85%8B%E9%B2%81%E6%96%AF%E5%8D%A1%E5%B0%94%E9%87%8D%E6%9E%84%E6%A0%91/"/>
     
       <category term="DFS 序" scheme="https://oi.memset0.cn/tags/DFS-%E5%BA%8F/"/>
-    
-      <category term="树上倍增" scheme="https://oi.memset0.cn/tags/%E6%A0%91%E4%B8%8A%E5%80%8D%E5%A2%9E/"/>
     
       <category term="树链剖分" scheme="https://oi.memset0.cn/tags/%E6%A0%91%E9%93%BE%E5%89%96%E5%88%86/"/>
     
@@ -477,9 +477,9 @@
     
       <category term="主席树" scheme="https://oi.memset0.cn/tags/%E4%B8%BB%E5%B8%AD%E6%A0%91/"/>
     
-      <category term="树上差分" scheme="https://oi.memset0.cn/tags/%E6%A0%91%E4%B8%8A%E5%B7%AE%E5%88%86/"/>
-    
       <category term="二分答案" scheme="https://oi.memset0.cn/tags/%E4%BA%8C%E5%88%86%E7%AD%94%E6%A1%88/"/>
+    
+      <category term="树上差分" scheme="https://oi.memset0.cn/tags/%E6%A0%91%E4%B8%8A%E5%B7%AE%E5%88%86/"/>
     
   </entry>
   
