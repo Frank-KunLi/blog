@@ -26,9 +26,9 @@ var _hmt = _hmt || [];
     <meta name="theme-color" content="#3F51B5">
     
     
-    <meta name="keywords" content="树形 DP,贪心,树上倍增">
+    <meta name="keywords" content="树上倍增,树形 DP,贪心">
     <meta name="description" content="一个永远只能在考完后调出 Codeforces 的题的菜鸡厚颜无耻得跑来写题解了。。。  本题要求把树分成的链必须是垂直路径，也就是说不能同时跨越一颗子树的两个根。也就是说每次选中的路径都是到根节点的一串。 所以我们可以通过树上倍增预处理出每个节点 $u$ 如果被选中那么最多可以向上形成长度为 $dp[u]$ 的链。接着跑一遍树上 DP 即可。 预处理时间复杂度 $O(n \log n)$ ，树">
-<meta name="keywords" content="树形 DP,贪心,树上倍增">
+<meta name="keywords" content="树上倍增,树形 DP,贪心">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CF1059E - Split the Tree">
 <meta property="og:url" content="https://oi.memset0.cn/solution/codeforces/1059e/index.html">
@@ -378,7 +378,7 @@ var _hmt = _hmt || [];
         
 <p>
 	<span>
-		总字数：52.1k
+		总字数：52.8k
 	</span>
     <span id="busuanzi_container_site_uv" style='display:none'>
         访客数：<span id="busuanzi_value_site_uv"></span>
