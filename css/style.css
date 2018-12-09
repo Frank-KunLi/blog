@@ -1404,3 +1404,6 @@ h6 {
 #nprogress .spinner-icon {
   border-top-color: #c05b4d;
   border-left-color: #c05b4d; }
+
+* {
+  tab-size: 4; }
