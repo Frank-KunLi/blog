@@ -385,11 +385,11 @@
       <category term="Solution" scheme="https://memset0.cn/categories/Solution/"/>
     
     
-      <category term="树上倍增" scheme="https://memset0.cn/tags/%E6%A0%91%E4%B8%8A%E5%80%8D%E5%A2%9E/"/>
-    
       <category term="树形 DP" scheme="https://memset0.cn/tags/%E6%A0%91%E5%BD%A2-DP/"/>
     
       <category term="贪心" scheme="https://memset0.cn/tags/%E8%B4%AA%E5%BF%83/"/>
+    
+      <category term="树上倍增" scheme="https://memset0.cn/tags/%E6%A0%91%E4%B8%8A%E5%80%8D%E5%A2%9E/"/>
     
   </entry>
   
@@ -422,13 +422,13 @@
     
       <category term="主席树" scheme="https://memset0.cn/tags/%E4%B8%BB%E5%B8%AD%E6%A0%91/"/>
     
+      <category term="树上倍增" scheme="https://memset0.cn/tags/%E6%A0%91%E4%B8%8A%E5%80%8D%E5%A2%9E/"/>
+    
       <category term="强制在线" scheme="https://memset0.cn/tags/%E5%BC%BA%E5%88%B6%E5%9C%A8%E7%BA%BF/"/>
     
       <category term="克鲁斯卡尔重构树" scheme="https://memset0.cn/tags/%E5%85%8B%E9%B2%81%E6%96%AF%E5%8D%A1%E5%B0%94%E9%87%8D%E6%9E%84%E6%A0%91/"/>
     
       <category term="DFS 序" scheme="https://memset0.cn/tags/DFS-%E5%BA%8F/"/>
-    
-      <category term="树上倍增" scheme="https://memset0.cn/tags/%E6%A0%91%E4%B8%8A%E5%80%8D%E5%A2%9E/"/>
     
       <category term="树链剖分" scheme="https://memset0.cn/tags/%E6%A0%91%E9%93%BE%E5%89%96%E5%88%86/"/>
     

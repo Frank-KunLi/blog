@@ -22,7 +22,7 @@
 
 
 
-  <meta name="keywords" content="树上倍增, 树形 DP, 贪心, memset0's blog" />
+  <meta name="keywords" content="树形 DP, 贪心, 树上倍增, memset0's blog" />
 
 
 
@@ -88,32 +88,7 @@
   window.config = {"leancloud":{"app_id":null,"app_key":null},"toc":true,"fancybox":false,"pjax":true};
 </script>
 
-<!-- mathjax config similar to math.stackexchange -->
 
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-    tex2jax: {
-        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-        processEscapes: true,
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-    }
-});
-
-MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-});
-
-$(document).on({
-    'pjax:end': function () {
-        MathJax.Hub.Typeset();
-    }
-});
-</script>
-
-<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
     <title> CF1059E - Split the Tree - memset0's blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   </head>
 
@@ -283,11 +258,11 @@ $(document).on({
         
           <div class="post-tags">
             
-              <a href="/tags/树上倍增/">树上倍增</a>
-            
               <a href="/tags/树形-DP/">树形 DP</a>
             
               <a href="/tags/贪心/">贪心</a>
+            
+              <a href="/tags/树上倍增/">树上倍增</a>
             
           </div>
         
@@ -458,7 +433,32 @@ $(document).on({
   
 
 
+<!-- mathjax config similar to math.stackexchange -->
 
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+
+$(document).on({
+    'pjax:end': function () {
+        MathJax.Hub.Typeset();
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
     <script type="text/javascript" src="/js/src/even.js?v=2.10.1"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 
