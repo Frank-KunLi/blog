@@ -581,6 +581,7 @@ MathJax.Hub.Queue(function() {
 $(document).on({
     'pjax:end': function () {
         MathJax.Hub.Typeset();
+        valine = new Valine(valine_option);
     }
 });
 </script>
