@@ -412,9 +412,10 @@
         app_key: "X7Dp3hEvRWPbqHBYkOTBXzPm",
         placeholder: "留下你的脚印~",
         avatar: 'mm'
-    })
+    });
     $(document).on({
         'pjax:end': function () {
+            var valine = new Valine();
             valine.init({
                 el: '#vcomments',
                 notify: false,
@@ -423,7 +424,7 @@
                 app_key: "X7Dp3hEvRWPbqHBYkOTBXzPm",
                 placeholder: "留下你的脚印~",
                 avatar: 'mm'
-            })
+            });
         }
     });
 </script>
