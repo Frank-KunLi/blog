@@ -105,12 +105,8 @@ MathJax.Hub.Queue(function() {
 });
 
 $(document).on({
-    /*pjax请求回来页面后触发的事件*/
     'pjax:end': function () {
-        /*渲染MathJax数学公式*/
-        $.getScript('//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML',function () {
-            MathJax.Hub.Typeset();
-        });
+        MathJax.Hub.Typeset();
     }
 });
 </script>
