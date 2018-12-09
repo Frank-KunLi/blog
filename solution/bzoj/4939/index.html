@@ -232,7 +232,7 @@
       
         <p>bitset 套莫队板子题。</p>
 <p>题意是如果第一个区间里有 $ a $ 个 $ x $ ，第二个区间 $ b $ 个，第三个区间 $ c $ 个，只会对答案产生 $ \min(a, b, c) $ 的贡献；每次询问给你三个区间，问你三个区间里能产生这样的贡献的大小。</p>
-<p>考虑 bitset 套莫队。通过一个简单的 trick 似的 bitset 既能反映出每种数又能反映出每种数的个数，每个查询就用三个区间的 bitset 的按位并，取结果的 count 。</p>
+<p>考虑 bitset 套莫队。通过一个简单的 trick 使得 bitset 既能反映出每种数又能反映出每种数的个数，每个查询就用三个区间的 bitset 的按位并，取结果的 count 。</p>
 <p>然而 $ 10^5 $ 个 $ 10^5 $ 的 bitset 会 MLE 。我们把莫队分成三次，只需要三分之一的空间，可以卡进。</p>
 <p>看起来这样 $ O(n ^ 2) $ 的复杂度过不了 $ n = 10^5 $ ，但是由于使用了 bitset 的关系，常数实际上只有 1 / 32 ，实际跑的飞快。</p>
 <a id="more"></a>
@@ -268,7 +268,7 @@
     
       <a class="prev" href="/solution/luogu/2606/">
         <i class="iconfont icon-left"></i>
-        <span class="prev-text nav-default">洛谷2606 - [ZJOI2010]排列计数</span>
+        <span class="prev-text nav-default">洛谷2606 - [ZJOI2010] 排列计数</span>
         <span class="prev-text nav-mobile">上一篇</span>
       </a>
     
