@@ -497,6 +497,16 @@ MathJax.Hub.Queue(function() {
         all[i].SourceElement().parentNode.className += ' has-jax';
     }
 });
+
+$(document).on({
+    /*pjax请求回来页面后触发的事件*/
+    'pjax:end': function () {
+        /*渲染MathJax数学公式*/
+        $.getScript('//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML',function () {
+            MathJax.Hub.Typeset();
+        });
+    }
+});
 </script>
 
 <script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
