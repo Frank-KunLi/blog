@@ -458,7 +458,8 @@
 <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
 <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
 <script type="text/javascript">
-    /*new Valine({
+    var valine = new Valine();
+    valine.init({
         el: '#vcomments',
         notify: false,
         verify: false,
@@ -466,10 +467,10 @@
         app_key: "X7Dp3hEvRWPbqHBYkOTBXzPm",
         placeholder: "留下你的脚印~",
         avatar: 'mm'
-    });*/
+    })
     $(document).on({
         'pjax:end': function () {
-            new Valine({
+            valine.init({
                 el: '#vcomments',
                 notify: false,
                 verify: false,
@@ -477,7 +478,7 @@
                 app_key: "X7Dp3hEvRWPbqHBYkOTBXzPm",
                 placeholder: "留下你的脚印~",
                 avatar: 'mm'
-            });
+            })
         }
     });
 </script>
