@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://memset0.cn/"/>
-  <updated>2018-12-09T12:22:07.082Z</updated>
+  <updated>2018-12-09T09:51:16.206Z</updated>
   <id>https://memset0.cn/</id>
   
   <author>
@@ -15,29 +15,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>NOIP2018总结</title>
-    <link href="https://memset0.cn/diary/NOIP2018%E6%80%BB%E7%BB%93/"/>
-    <id>https://memset0.cn/diary/NOIP2018总结/</id>
-    <published>2018-12-09T11:59:53.000Z</published>
-    <updated>2018-12-09T12:22:07.082Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>NOIP 2018 基本落下帷幕了，现在也是时候写点总结了。</p><p>考的好吗？很明显，不好。 454 分，一个不高不低的分数，勉强凑成暴力分，距离掉出一等，再挂一题也不成问题；距离上 500 / 上 WC 线，需要 D1T3 写完正解，或者 D1T3 暴力不挂 + D2T1 写出剩下 20 分。现在也只能勉强苟个一等混日子，离 WC 这种自然也是无望了，最好的希望也只有争取 PKUWC 的初中线，才能让我剩下的赛季——好歹有个比赛打。</p><p>为什么考的这么低呢？回想考前的时候，紧张的哭也不是静也不是，连续好几个晚上根本睡不着觉。进了考场进了好久才把状态调整到写题的样子。看到题目发现不能一眼便开始慌张，D1T1 、 D1T2 、 D2T1 本来正确的算法被自己一再怀疑。想去尝试正解没有胆量，在彷徨与紧张中考试时间便不够了。最后的一个多小时完全不敢去尝试写些什么，只是一遍遍检查本就没有问题的对拍和文件，浪费了去尝试正解的宝贵时间。</p><p>说到底，菜是原罪。有人 D1T1 做过原题后秒切，我做过原题后啥都不知道，写了个 RMQ 和暴力对拍个老半天。同学开到 T1D3 一眼贪心，我想到了后却在一再检查正确性，最后 80 分的暴力也写挂，写了一半的正解也没心态和时间继续。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; cla
-      
-    
-    </summary>
-    
-      <category term="Diary" scheme="https://memset0.cn/categories/Diary/"/>
-    
-    
-  </entry>
   
   <entry>
     <title>20181208 - NOI模拟赛</title>
@@ -444,9 +421,9 @@
     
       <category term="贪心" scheme="https://memset0.cn/tags/%E8%B4%AA%E5%BF%83/"/>
     
-      <category term="树形 DP" scheme="https://memset0.cn/tags/%E6%A0%91%E5%BD%A2-DP/"/>
-    
       <category term="树上倍增" scheme="https://memset0.cn/tags/%E6%A0%91%E4%B8%8A%E5%80%8D%E5%A2%9E/"/>
+    
+      <category term="树形 DP" scheme="https://memset0.cn/tags/%E6%A0%91%E5%BD%A2-DP/"/>
     
   </entry>
   
@@ -479,13 +456,13 @@
     
       <category term="主席树" scheme="https://memset0.cn/tags/%E4%B8%BB%E5%B8%AD%E6%A0%91/"/>
     
-      <category term="树上倍增" scheme="https://memset0.cn/tags/%E6%A0%91%E4%B8%8A%E5%80%8D%E5%A2%9E/"/>
-    
       <category term="强制在线" scheme="https://memset0.cn/tags/%E5%BC%BA%E5%88%B6%E5%9C%A8%E7%BA%BF/"/>
     
       <category term="克鲁斯卡尔重构树" scheme="https://memset0.cn/tags/%E5%85%8B%E9%B2%81%E6%96%AF%E5%8D%A1%E5%B0%94%E9%87%8D%E6%9E%84%E6%A0%91/"/>
     
       <category term="DFS 序" scheme="https://memset0.cn/tags/DFS-%E5%BA%8F/"/>
+    
+      <category term="树上倍增" scheme="https://memset0.cn/tags/%E6%A0%91%E4%B8%8A%E5%80%8D%E5%A2%9E/"/>
     
       <category term="树链剖分" scheme="https://memset0.cn/tags/%E6%A0%91%E9%93%BE%E5%89%96%E5%88%86/"/>
     
@@ -574,6 +551,29 @@
       <category term="树上差分" scheme="https://memset0.cn/tags/%E6%A0%91%E4%B8%8A%E5%B7%AE%E5%88%86/"/>
     
       <category term="二分答案" scheme="https://memset0.cn/tags/%E4%BA%8C%E5%88%86%E7%AD%94%E6%A1%88/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CF776D - The Door Problem</title>
+    <link href="https://memset0.cn/solution/codeforces/776d/"/>
+    <id>https://memset0.cn/solution/codeforces/776d/</id>
+    <published>2018-09-26T00:49:00.000Z</published>
+    <updated>2018-10-10T12:14:53.317Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>由于每个门只会被两个钥匙控制，那么两个钥匙的选或不选就能建立起一种对应关系。即如果门本来是开着的，那么用了一把必须用另一把，不用一把必须不用另一把；如果们本来是开着的，那么不用一把必须用另一把，用了一把必须不用另一把。</p><p>Tarjan 跑 2-SAT 随手切，注意 $n$ 和 $m$ 不要搞反。</p><a id="more"></a><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ==============================</span></span><br><span class="line"><span class="comment">//  author: memset0</span></span><br><span class="line"><span class="comment">//  website: https://memset0.cn</span></span><br><span class="line"><span class="comment">// ==============================</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rep(i,l,r) for (int i = l; i &lt;= r; i++)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> getc(x) getchar(x)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> putc(x) putchar(x)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt; <span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">read</span><span class="params">(T &amp;x)</span> </span>&#123;</span><br><span class="line">    x = <span class="number">0</span>; <span class="keyword">register</span> <span class="keyword">char</span> ch; <span class="keyword">register</span> <span class="keyword">bool</span> fl = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (ch = getc(), ch &lt; <span class="number">48</span> || <span class="number">57</span> &lt; ch) fl ^= ch == <span class="string">'-'</span>; x = (ch &amp; <span class="number">15</span>);</span><br><span class="line">    <span class="keyword">while</span> (ch = getc(), <span class="number">47</span> &lt; ch &amp;&amp; ch &lt; <span class="number">58</span>) x = (x &lt;&lt; <span class="number">1</span>) + (x &lt;&lt; <span class="number">3</span>) + (ch &amp; <span class="number">15</span>);</span><br><span class="line">    <span class="keyword">if</span> (fl) x = -x;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt; <span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">print</span><span class="params">(T x, <span class="keyword">char</span> c = <span class="string">'\n'</span>)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">int</span> buf[<span class="number">40</span>];</span><br><span class="line">    <span class="keyword">if</span> (x == <span class="number">0</span>) &#123; putc(<span class="string">'0'</span>); putc(c); <span class="keyword">return</span>; &#125;</span><br><span class="line">    <span class="keyword">if</span> (x &lt; <span class="number">0</span>) putc(<span class="string">'-'</span>), x = -x;</span><br><span class="line">    <span class="keyword">for</span> (buf[<span class="number">0</span>] = <span class="number">0</span>; x; x /= <span class="number">10</span>) buf[++buf[<span class="number">0</span>]] = x % <span class="number">10</span> + <span class="number">48</span>;</span><br><span class="line">    <span class="keyword">while</span> (buf[<span class="number">0</span>]) putc((<span class="keyword">char</span>) buf[buf[<span class="number">0</span>]--]);</span><br><span class="line">    putc(c);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">200010</span>, maxm = <span class="number">400010</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n, m, t, x, cnt, pos, top;</span><br><span class="line"><span class="keyword">int</span> a[maxn], b[maxn][<span class="number">2</span>], low[maxn], dfn[maxn], stk[maxn], ins[maxn], col[maxn];</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> tot = <span class="number">2</span>, hed[maxn], nxt[maxm], to[maxm];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">add_edge</span><span class="params">(<span class="keyword">int</span> u, <span class="keyword">int</span> v)</span> </span>&#123;</span><br><span class="line">    nxt[tot] = hed[u], to[tot] = v;</span><br><span class="line">    hed[u] = tot++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">tarjan</span><span class="params">(<span class="keyword">int</span> u)</span> </span>&#123;</span><br><span class="line">    dfn[u] = low[u] = ++pos;</span><br><span class="line">    ins[u] = <span class="number">1</span>, stk[++top] = u;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = hed[u]; i; i = nxt[i]) &#123;</span><br><span class="line">        <span class="keyword">int</span> v = to[i];</span><br><span class="line">        <span class="keyword">if</span> (!dfn[v]) &#123;</span><br><span class="line">            tarjan(v);</span><br><span class="line">            low[u] = <span class="built_in">std</span>::min(low[u], low[v]);</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (ins[v]) &#123;</span><br><span class="line">            low[u] = <span class="built_in">std</span>::min(low[u], dfn[v]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (dfn[u] == low[u]) &#123;</span><br><span class="line">        ++cnt;</span><br><span class="line">        <span class="keyword">while</span> (top) &#123;</span><br><span class="line">            <span class="keyword">int</span> v = stk[top--];</span><br><span class="line">            col[v] = cnt;</span><br><span class="line">            ins[v] = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">if</span> (u == v) <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    read(n), read(m);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">        read(a[i]);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= m; i++) &#123;</span><br><span class="line">        read(t);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= t; j++) &#123;</span><br><span class="line">            read(x);</span><br><span class="line">            b[x][b[x][<span class="number">0</span>] ? <span class="number">1</span> : <span class="number">0</span>] = i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">        <span class="keyword">if</span> (a[i]) &#123;</span><br><span class="line">            add_edge(b[i][<span class="number">0</span>], b[i][<span class="number">1</span>]);</span><br><span class="line">            add_edge(b[i][<span class="number">1</span>], b[i][<span class="number">0</span>]);</span><br><span class="line">            add_edge(b[i][<span class="number">0</span>] + m, b[i][<span class="number">1</span>] + m);</span><br><span class="line">            add_edge(b[i][<span class="number">1</span>] + m, b[i][<span class="number">0</span>] + m);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            add_edge(b[i][<span class="number">0</span>], b[i][<span class="number">1</span>] + m);</span><br><span class="line">            add_edge(b[i][<span class="number">1</span>] + m, b[i][<span class="number">0</span>]);</span><br><span class="line">            add_edge(b[i][<span class="number">1</span>], b[i][<span class="number">0</span>] + m);</span><br><span class="line">            add_edge(b[i][<span class="number">0</span>] + m, b[i][<span class="number">1</span>]);</span><br><span class="line">        &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= (m &lt;&lt; <span class="number">1</span>); i++)</span><br><span class="line">        <span class="keyword">if</span> (!dfn[i])</span><br><span class="line">            tarjan(i);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= (m &lt;&lt; <span class="number">1</span>); i++)</span><br><span class="line">        <span class="keyword">if</span> (col[i] == col[i + m]) &#123;</span><br><span class="line">            <span class="built_in">puts</span>(<span class="string">"NO"</span>);</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="built_in">puts</span>(<span class="string">"YES"</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;由于每个门只会被两个钥匙控制，那么两个钥匙的选或不选就能建立起一种对应关系。即如果门本来是开着的，那么用了一把必须用另一把，不用一把必须不用另一把；如果们本来是开着的，那么不用一把必须用另一把，用了一把必须不用另一把。&lt;/p&gt;
+&lt;p&gt;Tarjan 跑 2-SAT 随手切，注意 $n$ 和 $m$ 不要搞反。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Solution" scheme="https://memset0.cn/categories/Solution/"/>
+    
+    
+      <category term="2-SAT" scheme="https://memset0.cn/tags/2-SAT/"/>
     
   </entry>
   
