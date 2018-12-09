@@ -1407,3 +1407,15 @@ h6 {
 
 * {
   tab-size: 4; }
+
+/* Valine Comments System */
+#vcomments .vlist .vcard .vhead .vnick {
+  color: #c05b4d; }
+
+#vcomments .power {
+  display: none; }
+
+#vcomments .vsys {
+  display: none; }
+
+/* end */
