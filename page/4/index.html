@@ -1,839 +1,88 @@
 <!DOCTYPE html>
-<html>
-<head>
+<html lang="zh-CN">
+  <head>
     
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
-    
 
-    <script>
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "https://hm.baidu.com/hm.js?d8c0a4185322e94013582201484f9131";
-  var s = document.getElementsByTagName("script")[0]; 
-  s.parentNode.insertBefore(hm, s);
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="memset0's blog">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.10.1" />
+
+
+
+<link rel="canonical" href="https://memset0.cn/page/4/"/>
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/lib/nprogress/nprogress.min.css" />
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.10.1" />
+
+
+
+  
+
+
+
+  <script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
 })();
 </script>
-    <meta charset="utf-8">
-    
-    
-    <link rel="canonical" href="memset0.cn/page/4/">
-    
-    
-    <title>memset0&#39;s blog | 落霞与孤鹜齐飞，秋水共长天一色</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    
-    <meta name="theme-color" content="#3F51B5">
-    
-    
-    <meta name="keywords" content="">
-    <meta property="og:type" content="website">
-<meta property="og:title" content="memset0&#39;s blog">
-<meta property="og:url" content="https://oi.memset0.cn/page/4/index.html">
-<meta property="og:site_name" content="memset0&#39;s blog">
-<meta property="og:locale" content="zh-CN">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="memset0&#39;s blog">
-    
-        <link rel="alternate" type="application/atom+xml" title="memset0&#39;s blog" href="/atom.xml">
-    
-    <link rel="shortcut icon" href="/img/favicon.png">
-    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
-    <script>window.lazyScripts=[]</script>
 
-    <!-- custom head -->
-    
-	
-	<link rel="stylesheet" href="/modify.css">
 
-</head>
 
 
-<style>
-.fix-icon-chevron-up {
-	line-height: 0em!important;
-}
-</style>
 
-<body>
-    <div id="loading" class="active"></div>
 
-    <aside id="menu"  >
-  <div class="inner flex-row-vertical">
-    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
-        <i class="icon icon-lg icon-close"></i>
-    </a>
-    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
-      <div class="brand">
-        <a href="/" class="avatar waves-effect waves-circle waves-light">
-          <img src="/img/avatar.png">
-        </a>
-        <hgroup class="introduce">
-          <h5 class="nickname">memset0</h5>
-          <a href="mailto:memset0@outlook.com" title="memset0@outlook.com" class="mail">memset0@outlook.com</a>
-        </hgroup>
-      </div>
-    </div>
-    <div class="scroll-wrap flex-col">
-      <ul class="nav">
-        
-            <li class="waves-block waves-effect">
-              <a href="/"  >
-                <i class="icon icon-lg icon-home"></i>
-                Home
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/about"  >
-                <i class="icon icon-lg icon-user"></i>
-                About
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/tags"  >
-                <i class="icon icon-lg icon-tags"></i>
-                Tags
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/categories"  >
-                <i class="icon icon-lg icon-th-list"></i>
-                Categories
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/archives"  >
-                <i class="icon icon-lg icon-archives"></i>
-                Archives
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/friends"  >
-                <i class="icon icon-lg icon-link"></i>
-                Friends
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="https://cloud.memset0.cn/"  >
-                <i class="icon icon-lg icon-cloud"></i>
-                Cloud
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="https://github.com/memset0" target="_blank" >
-                <i class="icon icon-lg icon-github"></i>
-                Github
-              </a>
-            </li>
-        
-      </ul>
-    </div>
-  </div>
-</aside>
 
-    <main id="main">
-        <header class="top-header" id="header">
-    <div class="flex-row">
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
-          <i class="icon icon-lg icon-navicon"></i>
-        </a>
-        <div class="flex-col header-title ellipsis">memset0&#39;s blog</div>
-        
-        <div class="search-wrap" id="search-wrap">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
-                <i class="icon icon-lg icon-chevron-left"></i>
-            </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
-                <i class="icon icon-lg icon-search"></i>
-            </a>
-        </div>
-        
-        
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
-            <i class="icon icon-lg icon-share-alt"></i>
-        </a>
-        
-    </div>
-</header>
-<header class="content-header index-header">
 
-    <div class="container fade-scale">
-        <h1 class="title">memset0&#39;s blog</h1>
-        <h5 class="subtitle">
-            
-                落霞与孤鹜齐飞，秋水共长天一色
-            
-        </h5>
-    </div>
 
-    
-
-
-</header>
-
-<div class="container body-wrap">
-
-    <ul class="post-list">
-    
-        <li class="post-list-item fade">
-            <article id="post-algorithm/Splay翻转"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2018-08-09 12:33:46" datetime="2018-08-09T04:33:46.000Z"  itemprop="datePublished">2018-08-09</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Algorithm/">Algorithm</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/algorithm/Splay翻转/">Splay 实现区间翻转（文艺平衡树）</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h1 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h1><p>之前我们讲到了用 Splay 写普通平衡树，这次我们将用 Splay 来完成区间操作。</p>
-<p>之前的 Splay 是按照权值排序，而这里的 Splay 则是要按照编号排序。</p>
-<p>不难想到，整棵树的编号第 k 大点即数列中的第 k 个，整棵树的中序遍历即被维护的数列。</p>
-<hr>
-<p>假设我们要翻转区间<code>[l, r]</code>，那么我们先把<code>l - 1</code>旋转到根节点，再把<code>r + 1</code>旋转到根节点的右孩子。那么<code>r + 1</code>的左子树即区间<code>[l, r]</code>。翻转该区间只需要把该区间内的每个节点的左右子树交换即可。</p>
-<p>参考线段树的 lazytag，我们也使用一个类似于懒标记的方法，保证复杂度为<code>O(log n)</code>。</p>
-<p><img src="https://i.loli.net/2018/08/08/5b6b07758f2d3.png" alt="1.png"></p>
-    
-
-        <a href="/algorithm/Splay翻转/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/平衡树/">平衡树</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-algorithm/splay-q-and-a"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2018-08-08 22:51:00" datetime="2018-08-08T14:51:00.000Z"  itemprop="datePublished">2018-08-08</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Algorithm/">Algorithm</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/algorithm/splay-q-and-a/">Splay Q&amp;A</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p>最近正在学习 Splay 平衡树，其中也遇到了不少问题，正是分享的时候。</p>
-<p>代码来自于我的另外两篇博文中的 Splay 板子。</p>
-<h1 id="求前驱后继时为什么要取等号？"><a href="#求前驱后继时为什么要取等号？" class="headerlink" title="求前驱后继时为什么要取等号？"></a>求前驱后继时为什么要取等号？</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">lower</span><span class="params">(<span class="keyword">int</span> val)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> u = root, result = -inf, cho = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (u) &#123;</span><br><span class="line">        <span class="keyword">if</span> (e[u].val &lt; val &amp;&amp; e[u].val &gt; result) result = e[u].val, cho = u;</span><br><span class="line">        u = e[u].ch[val &lt;= e[u].val ? <span class="number">0</span> : <span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    splay(cho, root);</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>Q: </strong>以<code>Splay::lower()</code>的代码为例，在u更新时，我们使用的是<code>e[u].val &lt;= e[u].val ? 0 : 1</code>而非<code>val &lt; e[u].val ? 0 : 1</code>，为什么？</p>
-<p><strong>A: </strong>根据平衡树的性质，小于当前节点的数在左边，而<code>e[u].val</code>的前驱显然不能是<code>e[u].val</code>本身，而是在其左子树中，所以要写等于号。</p>
-    
-
-        <a href="/algorithm/splay-q-and-a/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/平衡树/">平衡树</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-geek/dark-dev-cpp"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2018-08-08 17:27:53" datetime="2018-08-08T09:27:53.000Z"  itemprop="datePublished">2018-08-08</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Geek/">Geek</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/geek/dark-dev-cpp/">Dev C++ 更改暗色主题</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p>Dev C++ 是目前OIer使用最多的IDE，然而原始界面却<del>丑的一逼</del>。所以让我们来美化它233。</p>
-<h1 id="Before-using"><a href="#Before-using" class="headerlink" title="Before using"></a>Before using</h1><p>Dev C++ 的主题默认存储在<code>C:/Users/&lt;your name&gt;/AppData/Roaming/Dev-Cpp</code>目录下，在该目录新建<code>&lt;文件名&gt;.syntax</code>添加配色。</p>
-<p>在 Dev C++ 的菜单栏中选择<code>工具[T]</code>&gt;<code>编辑器属性</code>&gt;<code>语法</code>&gt;<code>预设</code>应用配色（可在选项中找到你之前新建的配色）；同时也可直接在 Dev C++ 中方便的调色（点击右侧自动跳转到对应内容）并保存（如果文件名与已存在的相同则默认替换）。</p>
-<p>修改完后，务必在<code>工具[T]</code>&gt;<code>编辑器属性</code>&gt;<code>基本</code>中更改<code>高亮显示当前行</code>的颜色，以符合背景。</p>
-<p><strong>另外，推荐在使用暗色主题时关闭 Dev C++ 自带的各种工具栏！</strong></p>
-    
-
-        <a href="/geek/dark-dev-cpp/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/美化/">美化</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-algorithm/最长上升子序列"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2018-07-18 12:06:00" datetime="2018-07-18T04:06:00.000Z"  itemprop="datePublished">2018-07-18</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Algorithm/">Algorithm</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/algorithm/最长上升子序列/">十行求解 $O(n \log n)$ 求最长上升子序列</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">int</span> n, x, f[<span class="number">100001</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">memset</span>(f, <span class="number">63</span>, <span class="keyword">sizeof</span>(f));</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;x), *<span class="built_in">std</span>::lower_bound(f + <span class="number">1</span>, f + n + <span class="number">1</span>, x) = x;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">printf</span>(<span class="string">"%d\n"</span>, <span class="built_in">std</span>::lower_bound(f + <span class="number">1</span>, f + n + <span class="number">1</span>, f[<span class="number">0</span>]) - f - <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>个人认为在保障可读性的情况下的最佳优化</p>
-<p>主要优化有：</p>
-<ol>
-<li>包bits库，省两行</li>
-<li>不用<code>using namespace std</code>，省一行</li>
-<li>输入和修改压到一行，省两行</li>
-<li>用STL，省很多行</li>
-</ol>
-<p>你还可以接着压行：</p>
-<ol>
-<li>把第四行和第五行用逗号连在一起</li>
-<li>把变量定义转移到for循环或main函数定义里</li>
-<li>把所有语句压倒一行去</li>
-</ol>
-
-    
-
-        <a href="/algorithm/最长上升子序列/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/最长上升子序列/">最长上升子序列</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-solution/luogu/2962"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2018-07-16 16:20:00" datetime="2018-07-16T08:20:00.000Z"  itemprop="datePublished">2018-07-16</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Solution/">Solution</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/solution/luogu/2962/">洛谷2962 - 灯</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p>一道非常神奇的题目。</p>
-<p>尽管洛谷题解给的都是高斯消元，但实际上这题“普通”的DFS就可以AC。</p>
-<p>因为直接DFS一遍的复杂度高达 $O(2 ^ n)$ ，所以我们从两边开始搜索，并把状态存在map里，复杂度降低为 $O(n \times 2 ^ {\frac{n}{2}})$ ，可以水过此题。</p>
-    
-
-        <a href="/solution/luogu/2962/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DFS/">DFS</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-solution/luogu/2921"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2018-06-29 16:35:00" datetime="2018-06-29T08:35:00.000Z"  itemprop="datePublished">2018-06-29</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Solution/">Solution</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/solution/luogu/2921/">洛谷2921 - 在农场万圣节</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h1 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h1><p>可以看做一张有n个节点的图，每个节点有且仅有一条向外连接的边（可以连自己）。那么图中只可能是环与链的组合。而且链的终点是环，进入环后就不会从环中出去，故一个链只可能接一个环，一个环只可能被一或多的链接。</p>
-<p>故我们可以把整个分隔为一个个的环，并把接到他们的链找出来。</p>
-<ul>
-<li>环内节点的答案 = 环的长度；</li>
-<li>环外节点的答案 = 环的长度 + 当前节点到环的距离。</li>
-</ul>
-<p>几趟 $O(n)$ 的搜索就可以搞定问题！</p>
-    
-
-        <a href="/solution/luogu/2921/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/图论/">图论</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-algorithm/gcd-from"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2018-05-25 22:21:00" datetime="2018-05-25T14:21:00.000Z"  itemprop="datePublished">2018-05-25</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Algorithm/">Algorithm</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/algorithm/gcd-from/">C++ 中的 __gcd() 函数探源</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p>最近在做一道需要用到 gcd 的题，正当我急于回忆 gcd 怎么写时，忽然听说有个叫<code>__gcd()</code>的内置函数。</p>
-<p><a href="https://www.zhihu.com/question/30605743" target="_blank" rel="noopener">知乎</a> 上说这是个<code>built-in</code>函数（也许可以简单地理解为内置函数）。</p>
-<p>但我对它的时间复杂度一直很担忧，想看看它到底是怎么实现的，便在C++内置库<code>bits/stl_algo.h</code>的 1512 - 1527 行找到可能的实现：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">/**</span></span><br><span class="line"><span class="comment">  *  This is a helper function for the rotate algorithm specialized on RAIs.</span></span><br><span class="line"><span class="comment">  *  It returns the greatest common divisor of two integer values.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"> <span class="keyword">template</span>&lt;<span class="keyword">typename</span> _EuclideanRingElement&gt;</span><br><span class="line">   _EuclideanRingElement</span><br><span class="line">   __gcd(_EuclideanRingElement __m, _EuclideanRingElement __n)</span><br><span class="line">   &#123;</span><br><span class="line">     <span class="keyword">while</span> (__n != <span class="number">0</span>)</span><br><span class="line">&#123;</span><br><span class="line">  _EuclideanRingElement <span class="keyword">__t</span> = __m % __n;</span><br><span class="line">  __m = __n;</span><br><span class="line">  __n = <span class="keyword">__t</span>;</span><br><span class="line">&#125;</span><br><span class="line">     <span class="keyword">return</span> __m;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-<p><code>bits/stl_algo.h</code>是C++的一个内置库，你引用<code>algorithm</code>库时就会引入这个库</p>
-
-    
-
-        <a href="/algorithm/gcd-from/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GCD/">GCD</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-geek/python-login-hostoj"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2018-05-25 22:14:00" datetime="2018-05-25T14:14:00.000Z"  itemprop="datePublished">2018-05-25</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Geek/">Geek</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/geek/python-login-hostoj/">Python 模拟登陆 hustoj</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>最近闲着无聊准备写写<code>Python</code>爬虫，爬一下我们学校的oj用来横向比对做题量。但由于我校OJ对没有登录的账号有浏览限制，因此想要获取数据，就必须要登录账号。以前我一直手动生成<code>Cookie</code>，然后到浏览器里用该<code>Cookie</code>登录，这样的话没过一会儿又要重来比较麻烦。于是我就学习了一下用<code>Python</code>来<strong><code>POST</code>数据</strong>的方式实现登录功能。</p>
-<h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><ol start="0">
-<li>感谢hiuseues大佬对我的指导！</li>
-<li>此处以我校OJ为例</li>
-<li>请不要使用此测试账号（账号来自某外校团队）来浏览我校题目或交题，否则我将把密码改掉</li>
-<li>我习惯于使用<code>Python2</code>写爬虫，主要因为我校电脑和我的VPS预装的都是这个版本。可能会和hiuseues大佬产生代沟，不要在意。当然，这个脚本的核心部分在<code>Python3</code>中完全可以运行，希望这样的话代沟可以小一点。</li>
-</ol>
-    
-
-        <a href="/geek/python-login-hostoj/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-diary/2018浙大校赛游记"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2018-04-30 16:04:00" datetime="2018-04-30T08:04:00.000Z"  itemprop="datePublished">2018-04-30</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Diary/">Diary</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/diary/2018浙大校赛游记/">2018浙大校赛&amp;图森未来杯(4.7) 游记</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <blockquote>
-<p>这其实是一个比赛啊啊啊啊啊！</p>
-<p>反正考得超级辣鸡的！</p>
-</blockquote>
-<p>这是我第一次参加ACM类的比赛，估计也是我的第一次写游记吧。<br>这次参加浙大校赛的，不光有他们大学生，还有各路中学生；同时，我也在队伍里面发现了小学生的踪影（就差幼儿园的了）。<br>整体的氛围还是比较愉快的，可能是因为三个人一起做题的关系吧，没有OI那么压抑。</p>
-<p>这次比赛给了我们一点经验，也让我们看到了很多不足的地方（同时我现场领悟了如何数组模拟链表，thanks to fjk）<br>
-    
-
-        <a href="/diary/2018浙大校赛游记/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/游记/">游记</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-algorithm/欧拉筛"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2018-02-03 22:51:00" datetime="2018-02-03T14:51:00.000Z"  itemprop="datePublished">2018-02-03</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Algorithm/">Algorithm</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/algorithm/欧拉筛/">欧拉筛求质数</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p>欧拉筛是一种优秀的筛质数方法。</p>
-    
-
-        <a href="/algorithm/欧拉筛/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数学，数论/">数学，数论</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-    </ul>
-
-    
-<nav id="page-nav">
-    <div class="inner">
-    <a class="extend prev" rel="prev" href="/page/3/">上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span>
-    </div>
-</nav>
-
-
-</div>
-
-        <footer class="footer">
-    <div class="top">
-        
-<p>
-	<span>
-		总字数：52.8k
-	</span>
-    <span id="busuanzi_container_site_uv" style='display:none'>
-        访客数：<span id="busuanzi_value_site_uv"></span>
-    </span>
-    <span id="busuanzi_container_site_pv" style='display:none'>
-        访问量：<span id="busuanzi_value_site_pv"></span>
-    </span>
-</p>
-
-
-        <p>
-            
-                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
-            
-            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
-        </p>
-    </div>
-    <div class="bottom">
-        <p><span>memset0 &copy; 2017 - 2018</span>
-            <span>
-                
-                <a href="http://www.miitbeian.gov.cn/" target="_blank">浙ICP备-备你麻了个逼</a><br>
-                
-                Hosted by <a href="https://pages.coding.me">Coding Pages</a> · Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
-            </span>
-        </p>
-    </div>
-</footer>
-
-    </main>
-    <div class="mask" id="mask"></div>
-<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up fix-icon-chevron-up"></span></a>
-
-
-
-<div class="global-share" id="globalShare">
-    <ul class="reset share-icons">
-      <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://oi.memset0.cn/page/4/&title=memset0's blog&pic=https://oi.memset0.cn/img/avatar.png" data-title="微博">
-          <i class="icon icon-weibo"></i>
-        </a>
-      </li>
-      <li>
-        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
-          <i class="icon icon-weixin"></i>
-        </a>
-      </li>
-      <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://oi.memset0.cn/page/4/&title=memset0's blog&source=" data-title=" QQ">
-          <i class="icon icon-qq"></i>
-        </a>
-      </li>
-      <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://oi.memset0.cn/page/4/" data-title=" Facebook">
-          <i class="icon icon-facebook"></i>
-        </a>
-      </li>
-      <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=memset0's blog&url=https://oi.memset0.cn/page/4/&via=https://oi.memset0.cn" data-title=" Twitter">
-          <i class="icon icon-twitter"></i>
-        </a>
-      </li>
-      <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://oi.memset0.cn/page/4/" data-title=" Google+">
-          <i class="icon icon-google-plus"></i>
-        </a>
-      </li>
-    </ul>
- </div>
-
-
-<div class="page-modal wx-share" id="wxShare">
-    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://oi.memset0.cn/page/4/" alt="微信分享二维码">
-</div>
-
-
-
-
-    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
 <script>
-var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
-
-
+  window.config = {"leancloud":{"app_id":null,"app_key":null},"toc":true,"fancybox":false,"pjax":true};
 </script>
-
-<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
-
-
-<div class="search-panel" id="search-panel">
-    <ul class="search-result" id="search-result"></ul>
-</div>
-<template id="search-tpl">
-<li class="item">
-    <a href="{path}" class="waves-block waves-effect">
-        <div class="title ellipsis" title="{title}">{title}</div>
-        <div class="flex-row flex-middle">
-            <div class="tags ellipsis">
-                {tags}
-            </div>
-            <time class="flex-col time">{date}</time>
-        </div>
-    </a>
-</li>
-</template>
-
-<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
-
-
 
 <!-- mathjax config similar to math.stackexchange -->
 
@@ -855,15 +104,527 @@ MathJax.Hub.Queue(function() {
 </script>
 
 <script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+    <title> memset0's blog </title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">memset0's blog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+      <a href="/categories/Solution">
+        <li class="mobile-menu-item">
+          
+          
+            题解
+          
+        </li>
+      </a>
+    
+      <a href="/tags">
+        <li class="mobile-menu-item">
+          
+          
+            标签
+          
+        </li>
+      </a>
+    
+      <a href="/categories">
+        <li class="mobile-menu-item">
+          
+          
+            分类
+          
+        </li>
+      </a>
+    
+      <a href="/about">
+        <li class="mobile-menu-item">
+          
+          
+            关于
+          
+        </li>
+      </a>
+    
+  </ul>
+</nav>
+
+    <div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">memset0's blog</a>
+</div>
+
+<nav class="site-navbar">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/categories/Solution">
+            
+            
+              题解
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/tags">
+            
+            
+              标签
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/categories">
+            
+            
+              分类
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/about">
+            
+            
+              关于
+            
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  
+  <section id="posts" class="posts">
+    
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/solution/bzoj/1002/">BZOJ1002 - [FJOI2007]轮状病毒</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-09-28
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/Solution/">Solution</a>
+            
+          </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>这题的规律是很好找的，难的就是需要用高精度进行计算。</p>
+<p>于是我…厚颜无耻地逃避了高精度，用 Python 打了个表：</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">locate</span><span class="params">(x)</span>:</span></span><br><span class="line">    a = [<span class="number">1</span>, <span class="number">3</span>]</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">2</span>, x):</span><br><span class="line">        a.append(a[<span class="number">-1</span>] + a[<span class="number">-2</span>])</span><br><span class="line">    <span class="comment"># print(a)</span></span><br><span class="line">    <span class="keyword">return</span> a[x - <span class="number">1</span>]</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">solve</span><span class="params">(x)</span>:</span></span><br><span class="line">    t = locate(x)</span><br><span class="line">    <span class="keyword">if</span> x % <span class="number">2</span> == <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> t ** <span class="number">2</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> t ** <span class="number">2</span> - <span class="number">4</span></span><br><span class="line"></span><br><span class="line">n = int(input())</span><br><span class="line">print(solve(n))</span><br></pre></td></tr></table></figure>
+          <div class="read-more">
+            <a href="/solution/bzoj/1002/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/solution/bzoj/2956/">BZOJ2956 - 模积和</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-09-27
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/Solution/">Solution</a>
+            
+          </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>$$\sum_{i=1}^{n} \sum_{j=1}^{m} (n \% i) \times (m \% j) \ \ \ (i \not= j)$$</p>
+<p>$$= (\sum_{i=1}^{n} n \% i) \times (\sum_{j=1}^{m} m \% j) - \sum_{i=1}^{\min(n, m)} (n \% i) \times (m \% j)$$</p>
+<p>可以转化成 $A \times B - C$ 的形式，分别来求。</p>
+<p>其中求 $A$ 和 $B$ 的方式是一样的，可以数论分块，也可以直接打表找规律。鉴于这部分不难，笔者写了后者，而描述起来而笔者又非常懒因此忽略求 $A$ 、 $B$ 直接讲求 $C$ 。当然你也可以通过推 $C$ 的方式自己推一下 $A$ 、 $B$ 。</p>
+<p>$$C = \sum_{i=1}^{\min(n, m)} (n \% i) \times (m \% i)$$</p>
+<p>$$= \sum_{i=1} ^ {\min(n, m)} (n - i \times \lfloor \frac {n} {i} \rfloor) \times (m - i \times \lfloor \frac {m} {i} \rfloor )$$</p>
+<p>$$= \sum_{i=1} ^ {\min(n, m)} n \times m - m \times  i \times \lfloor \frac {n} {i} \rfloor - n \times i \times \lfloor \frac {m} {i} \rfloor + i ^ 2 \times \lfloor \frac {m} {i} \rfloor \lfloor \frac {m} {i} \rfloor $$</p>
+<p>数论分块即可。</p>
+          <div class="read-more">
+            <a href="/solution/bzoj/2956/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/solution/bzoj/2588/">BZOJ2588 - Count on a tree</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-09-27
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/Solution/">Solution</a>
+            
+          </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>询问树上路径第 $k$ 大：二分答案 + 树上查询。查询时用主席树差分 $tree[now] = tree[u] + tree[v] - tree[lca(u,v)] - tree[father(lca(u,v))]$ 即可。</p>
+<p>时间复杂度 $O(n \log ^2 n)$</p>
+          <div class="read-more">
+            <a href="/solution/bzoj/2588/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/solution/codeforces/776d/">CF776D - The Door Problem</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-09-26
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/Solution/">Solution</a>
+            
+          </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>由于每个门只会被两个钥匙控制，那么两个钥匙的选或不选就能建立起一种对应关系。即如果门本来是开着的，那么用了一把必须用另一把，不用一把必须不用另一把；如果们本来是开着的，那么不用一把必须用另一把，用了一把必须不用另一把。</p>
+<p>Tarjan 跑 2-SAT 随手切，注意 $n$ 和 $m$ 不要搞反。</p>
+          <div class="read-more">
+            <a href="/solution/codeforces/776d/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/solution/bzoj/1070/">BZOJ1070 - [SCOI2007]修车</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-09-25
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/Solution/">Solution</a>
+            
+          </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>最小费用最大流。由于一个工人在给一个顾客服务后还能再给一个顾客服务， 所以把每个顾客和每个工人建点显然不能完成任务。</p>
+<p>那么我们考虑把第 $i$ 个工人建成 $n$ 个点，表示为 $P(i,j)  (i \in [1, m], j \in [1, n])$。把第 $i$ 个顾客表示为 $T(k)$。</p>
+<p>把 $T(k)$ 依次向 $P(i,j)$ 连边，流量为 $1$ ，费用为 $w(k,i) \times j$ 。表示第 $k$ 个顾客被第 $i$ 个工人倒数第 $j$ 个服务对答案产生的贡献（即包括在它之后的人的等待时间，而不是这个人自己的花费）。</p>
+<p>最后从源点向每个顾客连流量 $1$ ，费用 $0$ 的边，$n \times m$ 个工人向汇点连流量 $1$ ，费用为 $0$ 的边，跑最小费用最大流即可。</p>
+          <div class="read-more">
+            <a href="/solution/bzoj/1070/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+      
+      
+  <nav class="pagination">
+    
+      <a class="prev" href="/page/3/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text">上一页</span>
+      </a>
+    
+    
+      <a class="next" href="/page/5/">
+        <span class="next-text">下一页</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+
+    
+  </section>
+
+          </div>
+          
+
+        </div>
+      </main>
+
+      <footer id="footer" class="footer">
+
+  <div class="social-links">
+    
+      
+        
+          <a href="mailto:memset0@outlook.com" class="iconfont icon-email" title="email"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          <a href="https://github.com/memset0" class="iconfont icon-github" title="github"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+
+    
+      <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    
+  </div>
+
+
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://hexo.io/">Hexo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy; 
+     
+      2017 - 
+    
+    2018
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">memset0</span>
+  </span>
+</div>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    
+
+
+    
+
+
+  
+  
 
 
 
 
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  
+
+  
+
+  
+    <script type="text/javascript" src="/lib/pjax/jquery.pjax.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/nprogress/nprogress.min.js"></script>
+  
 
 
+    <script type="text/javascript" src="/js/src/even.js?v=2.10.1"></script>
 
-
-
-</body>
+  </body>
 </html>

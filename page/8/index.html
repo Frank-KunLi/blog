@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="memset0's blog">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.10.1" />
+
+
+
+<link rel="canonical" href="https://memset0.cn/page/8/"/>
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/lib/nprogress/nprogress.min.css" />
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.10.1" />
+
+
+
+  
+
+
+
+  <script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+
+
+
+
+
+
+<script>
+  window.config = {"leancloud":{"app_id":null,"app_key":null},"toc":true,"fancybox":false,"pjax":true};
+</script>
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+    <title> memset0's blog </title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">memset0's blog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+      <a href="/categories/Solution">
+        <li class="mobile-menu-item">
+          
+          
+            题解
+          
+        </li>
+      </a>
+    
+      <a href="/tags">
+        <li class="mobile-menu-item">
+          
+          
+            标签
+          
+        </li>
+      </a>
+    
+      <a href="/categories">
+        <li class="mobile-menu-item">
+          
+          
+            分类
+          
+        </li>
+      </a>
+    
+      <a href="/about">
+        <li class="mobile-menu-item">
+          
+          
+            关于
+          
+        </li>
+      </a>
+    
+  </ul>
+</nav>
+
+    <div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">memset0's blog</a>
+</div>
+
+<nav class="site-navbar">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/categories/Solution">
+            
+            
+              题解
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/tags">
+            
+            
+              标签
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/categories">
+            
+            
+              分类
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/about">
+            
+            
+              关于
+            
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  
+  <section id="posts" class="posts">
+    
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/solution/bzoj/3211/">BZOJ3211 - 花神游历各国</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-09-15
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/Solution/">Solution</a>
+            
+          </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>已知每个数最多能被开方而减小的次数是有限的，当当前的数是 $0$ 或 $1$ 时就没有必要操作。</p>
+<p>所以我们可以用线段树维护区间最大值，如果当前的最大值已经等于 $0$ 或 $1$ ，就无需操作，否则逐个修改。</p>
+<p>复杂度 $O(n \sqrt {10^9} \log n)$ ，可过。</p>
+<p>区间取模操作同理。</p>
+<p>理论上来说资瓷区间开方 / 取模和<strong>单点</strong>修改，算是优美的暴力吧。</p>
+<hr>
+<p>多倍经验（数据范围和要求略有不同）：</p>
+<ol>
+<li>BZOJ3211 - 花神游历各国</li>
+<li>洛谷4145 - 上帝造题的七分钟2 / 花神游历各国</li>
+<li>SPOJ2713 - GSS4 - Can you answer these queries IV</li>
+</ol>
+          <div class="read-more">
+            <a href="/solution/bzoj/3211/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/geek/luogu-material/">洛谷也能 Material 化？</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-09-11
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/Geek/">Geek</a>
+            
+          </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+
+        
+          <p>大佬 abc2237512422 的洛谷美化脚本推荐：</p>
+<p>使用方式：</p>
+<ol>
+<li><p>搜索安装 Stylus （或 Stylish ）的浏览器插件。</p>
+</li>
+<li><p>打开 <a href="https://userstyles.org/styles/157651/material-luogu-material" target="_blank" rel="noopener">https://userstyles.org/styles/157651/material-luogu-material</a> 并安装。</p>
+</li>
+</ol>
+<p>还可在上面的网页进行个性化设置打造自己最喜欢的洛谷样式 qwq.</p>
+
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/solution/spoj/2666/">SPOJ2666 - QTREE4 - Query on a tree IV</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-09-11
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/Solution/">Solution</a>
+            
+          </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>我在学习点分治时，一直卡在这道题，今天我一鼓作气想尽办法终于把她 AC 了。</p>
+<p>将要讲述的方法是动态点分治，有另一种链分治的方法个人感觉较为麻烦且不自然就不在此赘述。</p>
+<p>首先静态点分治一遍建立点分树，并算出初始答案，存储每个节点作为重心时到上一个节点的边。当动态修改时从底层向上逐层修改直到抵达根节点。</p>
+<p>对于每个节点，我们存储每个子树中距离最远的点（用 <code>son</code> 维护）和距离当前节点距离最远的点（用 <code>hep</code> 维护），最后再维护一个答案堆 <code>ans</code> 供查询。这个堆要资瓷添加和删除操作，可以用经典的建两个堆的方法，一个插入，一个删除即可。</p>
+<p>其他当前子树中没有白色时应该返回 $-inf$ ，否则与当前子树的根节点是白色节点时等价的 qwq。</p>
+          <div class="read-more">
+            <a href="/solution/spoj/2666/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/solution/luogu/4826/">洛谷4826 - [USACO15FEB]Superbull 超级牛</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-09-10
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/Solution/">Solution</a>
+            
+          </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>把淘汰赛问题转换为一棵生成树，每一条边相当于一个二选一淘汰的过程。</p>
+          <div class="read-more">
+            <a href="/solution/luogu/4826/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/solution/luogu/3810/">洛谷3810 - 【模板】三维偏序（陌上花开）</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-09-10
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/Solution/">Solution</a>
+            
+          </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>三维偏序，一维一维解决：第一维排序，第二维 CDQ ，第三维树状数组（或 CDQ ）。</p>
+<p>先按照 $a$ 进行排序，考虑 CDQ ，先分治左右两边，使得左右两边的节点都按 $b$ 排序，于是依次从两边取（优先 $b$ ， $b$ 相等优先 $c$），左边的取出时在树状数组中更新，右边的取出时从树状数组中查询，考虑贡献。</p>
+<p>需要注意的是，$a$ 、 $b$ 、 $c$ 的值都相同的节点有可能互相产生贡献，很难用 CDQ 解决，于是可以将这些点缩为一个，并单独计算他们内部互相产生的贡献。</p>
+          <div class="read-more">
+            <a href="/solution/luogu/3810/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+      
+      
+  <nav class="pagination">
+    
+      <a class="prev" href="/page/7/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text">上一页</span>
+      </a>
+    
+    
+      <a class="next" href="/page/9/">
+        <span class="next-text">下一页</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+
+    
+  </section>
+
+          </div>
+          
+
+        </div>
+      </main>
+
+      <footer id="footer" class="footer">
+
+  <div class="social-links">
+    
+      
+        
+          <a href="mailto:memset0@outlook.com" class="iconfont icon-email" title="email"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          <a href="https://github.com/memset0" class="iconfont icon-github" title="github"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+
+    
+      <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    
+  </div>
+
+
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://hexo.io/">Hexo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy; 
+     
+      2017 - 
+    
+    2018
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">memset0</span>
+  </span>
+</div>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    
+
+
+    
+
+
+  
+  
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  
+
+  
+
+  
+    <script type="text/javascript" src="/lib/pjax/jquery.pjax.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/nprogress/nprogress.min.js"></script>
+  
+
+
+    <script type="text/javascript" src="/js/src/even.js?v=2.10.1"></script>
+
+  </body>
+</html>

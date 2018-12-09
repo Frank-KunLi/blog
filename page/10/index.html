@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="memset0's blog">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.10.1" />
+
+
+
+<link rel="canonical" href="https://memset0.cn/page/10/"/>
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/lib/nprogress/nprogress.min.css" />
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.10.1" />
+
+
+
+  
+
+
+
+  <script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+
+
+
+
+
+
+<script>
+  window.config = {"leancloud":{"app_id":null,"app_key":null},"toc":true,"fancybox":false,"pjax":true};
+</script>
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+    <title> memset0's blog </title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">memset0's blog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+      <a href="/categories/Solution">
+        <li class="mobile-menu-item">
+          
+          
+            题解
+          
+        </li>
+      </a>
+    
+      <a href="/tags">
+        <li class="mobile-menu-item">
+          
+          
+            标签
+          
+        </li>
+      </a>
+    
+      <a href="/categories">
+        <li class="mobile-menu-item">
+          
+          
+            分类
+          
+        </li>
+      </a>
+    
+      <a href="/about">
+        <li class="mobile-menu-item">
+          
+          
+            关于
+          
+        </li>
+      </a>
+    
+  </ul>
+</nav>
+
+    <div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">memset0's blog</a>
+</div>
+
+<nav class="site-navbar">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/categories/Solution">
+            
+            
+              题解
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/tags">
+            
+            
+              标签
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/categories">
+            
+            
+              分类
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/about">
+            
+            
+              关于
+            
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  
+  <section id="posts" class="posts">
+    
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/solution/luogu/4767/">洛谷4767 - [IOI2000]邮局</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-08-26
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/Solution/">Solution</a>
+            
+          </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>非常简单的四边形不等式优化模板题。</p>
+<h3 id="（一）"><a href="#（一）" class="headerlink" title="（一）"></a>（一）</h3><p>首先考虑 $O(n^2 \times m)$ 的做法，先将 $a$ 数组排序，假设 $f[i][j]$ 表示前 $i$ 个村庄中设立 $j$ 个邮局，可以列出转移方程：</p>
+<p>$$f[i][j] = min(f[i][j], f[k][j - 1] + dis(k + 1, i))$$</p>
+<p>其中 $dis(l, r)$ 表示在 $l$ 到 $r$ 的区间中建立一个邮局所对答案产生的贡献，<strong>利用人类智慧可知把邮局建在中间花费最少</strong>。</p>
+<h3 id="（二）"><a href="#（二）" class="headerlink" title="（二）"></a>（二）</h3><p>在进行四边形不等式优化之前，我们先考虑如何在 $O(1)$ 的时间复杂度内求出 $dis(l, r)$：</p>
+<p>在暴力做法中，我们需要枚举 $l$ 到 $r$ 之间的数，去其与中间的村庄的距离差的绝对值，代码大概如下：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = l; i &lt;= r; i++)</span><br><span class="line">    ans += <span class="built_in">abs</span>(a[i] - a[mid]);</span><br></pre></td></tr></table></figure>
+<p>由于 $a$ 数组是有序的，我们可知在 $mid$ 左面的村庄 $abs(a_i - a_{mid}) = a_{mid} - a_i$，右边的村庄 $abs(a_i - a_{mid}) = a_i - a_{mid}$ 。那么通过前缀和即可在 $O(1)$ 的时间复杂度内求出。</p>
+<h3 id="（三）"><a href="#（三）" class="headerlink" title="（三）"></a>（三）</h3><p>四边形不等式优化必须满足：</p>
+<p>$$f[a][c]+f[b][d]&lt;=f[b][c]+f[a][d]$$</p>
+<p>且决策单调。</p>
+<p>本题可以通过<del>打表</del>等方法证明成立，那么 $f[i][j]$ 的状态只能从 $f[i][j - 1]$ 到 $f[i + 1][j]$ 的决策中选择一个进行转移。</p>
+          <div class="read-more">
+            <a href="/solution/luogu/4767/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/solution/luogu/2600/">洛谷2600 - [ZJOI2008]瞭望塔</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-08-21
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/Solution/">Solution</a>
+            
+          </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>三分即可。<code>calc(x, y)</code>函数求在点 $(x, y)$ 建造灯塔的最低高度。</p>
+<p>时间复杂度 $O(n ^ 2 \times \texttt{某个大常数})$ 。</p>
+          <div class="read-more">
+            <a href="/solution/luogu/2600/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/solution/codeforces/702e/">CF702E - Analysis of Pathes in Functional Graph</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-08-21
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/Solution/">Solution</a>
+            
+          </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>倍增，处理出每个点往后 $2^i$ 的点、和、最大值，然后倍增乱搞即可。复杂度 $O(n log k)$ ，可过。</p>
+<p>需要注意的是 $k$ 是 $10^{10}$ ，需要开 long long。</p>
+          <div class="read-more">
+            <a href="/solution/codeforces/702e/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/solution/luogu/4514/">洛谷4514 - 上帝造题的七分钟</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-08-20
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/Solution/">Solution</a>
+            
+          </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>丢一发友链就跑 <a href="https://www.cnblogs.com/xuanyi/p/9010816.html" target="_blank" rel="noopener">https://www.cnblogs.com/xuanyi/p/9010816.html</a> qaq。</p>
+          <div class="read-more">
+            <a href="/solution/luogu/4514/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/solution/uva/1220/">UVA1220 - Party at Hali-Bula</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-08-20
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/Solution/">Solution</a>
+            
+          </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>用 $f[i][0]$ 表示 $i$ 不选所能取到的最大值， $f[i][1]$ 表示选 $i$ 能取到的最大值。</p>
+<p>假设当前节点为 $u$ ，孩子节点为 $v$ ，则：</p>
+<ul>
+<li>$f[u][0] = \sum max(f[v][0], f[v][1])$</li>
+<li>$f[u][1] = \sum f[v][0]$</li>
+</ul>
+<p>关于判断是否有多种情况：我们无需存种树，只要存是否即可，用数组 $d$ 表示，则：</p>
+<ul>
+<li>如果当前节点 $u$ 更新状态选中的来自 $v$ 的某个状态存在多种，那么 $u$ 的这个状态也存在多种。</li>
+<li>如果 $u$ 节点的某个孩子 $v$ 满足 $f[v][0] == f[v][1]$ ，那么 $f[u][0]$ 存在多种。</li>
+</ul>
+          <div class="read-more">
+            <a href="/solution/uva/1220/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+      
+      
+  <nav class="pagination">
+    
+      <a class="prev" href="/page/9/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text">上一页</span>
+      </a>
+    
+    
+      <a class="next" href="/page/11/">
+        <span class="next-text">下一页</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+
+    
+  </section>
+
+          </div>
+          
+
+        </div>
+      </main>
+
+      <footer id="footer" class="footer">
+
+  <div class="social-links">
+    
+      
+        
+          <a href="mailto:memset0@outlook.com" class="iconfont icon-email" title="email"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          <a href="https://github.com/memset0" class="iconfont icon-github" title="github"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+
+    
+      <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    
+  </div>
+
+
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://hexo.io/">Hexo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy; 
+     
+      2017 - 
+    
+    2018
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">memset0</span>
+  </span>
+</div>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    
+
+
+    
+
+
+  
+  
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  
+
+  
+
+  
+    <script type="text/javascript" src="/lib/pjax/jquery.pjax.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/nprogress/nprogress.min.js"></script>
+  
+
+
+    <script type="text/javascript" src="/js/src/even.js?v=2.10.1"></script>
+
+  </body>
+</html>

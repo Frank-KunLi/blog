@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+
+  <meta name="description" content="Dev C++ 更改主题"/>
+
+
+
+
+  <meta name="keywords" content="美化, memset0's blog" />
+
+
+
+
+
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="memset0's blog">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.10.1" />
+
+
+
+<link rel="canonical" href="https://memset0.cn/geek/devc更改主题/"/>
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/lib/nprogress/nprogress.min.css" />
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.10.1" />
+
+
+
+  
+
+
+
+  <script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+
+
+
+
+
+
+<script>
+  window.config = {"leancloud":{"app_id":null,"app_key":null},"toc":true,"fancybox":false,"pjax":true};
+</script>
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+    <title> Dev C++ 更改主题 - memset0's blog </title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">memset0's blog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+      <a href="/categories/Solution">
+        <li class="mobile-menu-item">
+          
+          
+            题解
+          
+        </li>
+      </a>
+    
+      <a href="/tags">
+        <li class="mobile-menu-item">
+          
+          
+            标签
+          
+        </li>
+      </a>
+    
+      <a href="/categories">
+        <li class="mobile-menu-item">
+          
+          
+            分类
+          
+        </li>
+      </a>
+    
+      <a href="/about">
+        <li class="mobile-menu-item">
+          
+          
+            关于
+          
+        </li>
+      </a>
+    
+  </ul>
+</nav>
+
+    <div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">memset0's blog</a>
+</div>
+
+<nav class="site-navbar">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/categories/Solution">
+            
+            
+              题解
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/tags">
+            
+            
+              标签
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/categories">
+            
+            
+              分类
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/about">
+            
+            
+              关于
+            
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          Dev C++ 更改主题
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-08-08
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/Geek/">Geek</a>
+            
+          </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+  <div class="post-toc" id="post-toc">
+    <!--<h2 class="post-toc-title">文章目录</h2>-->
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Before-using"><span class="toc-text">Before using</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Monokai-syntax"><span class="toc-text">Monokai.syntax</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#memset0-syntax（20180916更新）"><span class="toc-text">memset0.syntax（20180916更新）</span></a></li></ol>
+    </div>
+  </div>
+
+
+
+    <div class="post-content">
+      
+        <p>Dev C++ 是目前OIer使用最多的IDE，然而原始界面却<del>丑的一逼</del>。所以让我们来美化它233。</p>
+<h1 id="Before-using"><a href="#Before-using" class="headerlink" title="Before using"></a>Before using</h1><p>Dev C++ 的主题默认存储在<code>C:/Users/&lt;your name&gt;/AppData/Roaming/Dev-Cpp</code>目录下，在该目录新建<code>&lt;文件名&gt;.syntax</code>添加配色。</p>
+<p>在 Dev C++ 的菜单栏中选择<code>工具[T]</code>&gt;<code>编辑器属性</code>&gt;<code>语法</code>&gt;<code>预设</code>应用配色（可在选项中找到你之前新建的配色）；同时也可直接在 Dev C++ 中方便的调色（点击右侧自动跳转到对应内容）并保存（如果文件名与已存在的相同则默认替换）。</p>
+<p>修改完后，务必在<code>工具[T]</code>&gt;<code>编辑器属性</code>&gt;<code>基本</code>中更改<code>高亮显示当前行</code>的颜色，以符合背景。</p>
+<p>另外，推荐在使用暗色主题时关闭 Dev C++ 自带的各种工具栏！</p>
+<a id="more"></a>
+<p>下面推荐两款暗色主题 qwq：</p>
+<h1 id="Monokai-syntax"><a href="#Monokai-syntax" class="headerlink" title="Monokai.syntax"></a>Monokai.syntax</h1><p>经典的暗色配色，来自 Github</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">[Editor.Custom]</span><br><span class="line">Assembler=$0099FFFF, clNone, 0, 0, 0</span><br><span class="line">Character=$0099FFFF, clNone, 0, 0, 0</span><br><span class="line">Comment=$00787878, clNone, 0, 1, 0</span><br><span class="line">Float=$0099FFFF, clNone, 0, 0, 0</span><br><span class="line">Hexadecimal=$0099FFFF, clNone, 0, 0, 0</span><br><span class="line">Identifier=clWhite, clNone, 0, 0, 0</span><br><span class="line">Illegal Char=clAqua, clNone, 0, 0, 0</span><br><span class="line">Number=$00FF55AA, clNone, 0, 0, 0</span><br><span class="line">Octal=$0099FFFF, clNone, 0, 0, 0</span><br><span class="line">Preprocessor=$007F2AFF, clNone, 0, 0, 0</span><br><span class="line">Reserved Word=$00FFD455, clNone, 0, 0, 0</span><br><span class="line">Space=clWindowText, $001E1E1E, 0, 0, 0</span><br><span class="line">String=$0099FFFF, clNone, 0, 0, 0</span><br><span class="line">Symbol=$007F2AFF, clNone, 0, 0, 0</span><br><span class="line">Selected text=16777215, 5921370</span><br><span class="line">Gutter=7895160, 1973790</span><br><span class="line">Break points=16777215, 13209</span><br><span class="line">Error Line=1973790, 10092543</span><br><span class="line">Active Breakpoints=16777215, 10040115</span><br></pre></td></tr></table></figure>
+<h1 id="memset0-syntax（20180916更新）"><a href="#memset0-syntax（20180916更新）" class="headerlink" title="memset0.syntax（20180916更新）"></a>memset0.syntax（20180916更新）</h1><p>我个人修改出来的配色，高亮显示当前行颜色：<code>Red: 46; Green: 52; Blue: 54;</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">[Editor.Custom]</span><br><span class="line">Assembler=clPurple, $0036342E, 0, 0, 0</span><br><span class="line">Character=$00A062FF, $001D1D1D, 0, 0, 0</span><br><span class="line">Comment=$00C8C8C8, $001D1D1D, 0, 1, 0</span><br><span class="line">Float=$00A062FF, $001D1D1D, 0, 0, 0</span><br><span class="line">Hexadecimal=$0099FFFF, clNone, 0, 0, 0</span><br><span class="line">Identifier=$00FAFAFA, $001D1D1D, 0, 0, 0</span><br><span class="line">Illegal Char=clGray, $001D1D1D, 0, 0, 0</span><br><span class="line">Number=$00A062FF, $001D1D1D, 0, 0, 0</span><br><span class="line">Octal=$0099FFFF, clNone, 0, 0, 0</span><br><span class="line">Preprocessor=$003CF03C, $001D1D1D, 0, 0, 0</span><br><span class="line">Reserved Word=$00FF8F06, $001D1D1D, 0, 0, 0</span><br><span class="line">Space=clWindowText, $001D1D1D, 0, 0, 0</span><br><span class="line">String=$00FF99FF, $001D1D1D, 0, 0, 0</span><br><span class="line">Symbol=$0000DDDD, $001D1D1D, 0, 0, 0</span><br><span class="line">Selected text=1907997, 14604246</span><br><span class="line">Gutter=16777215, 1907997</span><br><span class="line">Breakpoints=16777215, 219</span><br><span class="line">Error line=1973790, 124158</span><br><span class="line">Active breakpoints=16777215, 11877436</span><br><span class="line">Folding lines=536870911, 536870911</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+      
+      
+
+
+
+      
+      
+    
+
+    
+      <footer class="post-footer">
+        
+          <div class="post-tags">
+            
+              <a href="/tags/美化/">美化</a>
+            
+          </div>
+        
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/algorithm/splay-q-and-a/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">Splay Q&A</span>
+        <span class="prev-text nav-mobile">上一篇</span>
+      </a>
+    
+    
+      <a class="next" href="/algorithm/最长上升子序列/">
+        <span class="next-text nav-default">十行求解 $O(n \log n)$ 求最长上升子序列</span>
+        <span class="prev-text nav-mobile">下一篇</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+
+      </footer>
+    
+
+  </article>
+
+
+          </div>
+          
+  <div class="comments" id="comments">
+    
+      <div id="vcomments"></div>
+    
+  </div>
+
+
+        </div>
+      </main>
+
+      <footer id="footer" class="footer">
+
+  <div class="social-links">
+    
+      
+        
+          <a href="mailto:memset0@outlook.com" class="iconfont icon-email" title="email"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          <a href="https://github.com/memset0" class="iconfont icon-github" title="github"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+
+    
+      <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    
+  </div>
+
+
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://hexo.io/">Hexo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy; 
+     
+      2017 - 
+    
+    2018
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">memset0</span>
+  </span>
+</div>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    
+  
+    
+<!-- valine Comments -->
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/xcss/valine@v1.1.7/dist/Valine.min.js"></script>
+<script type="text/javascript">
+    new Valine({
+        el: '#vcomments',
+        notify: false,
+        verify: false,
+        app_id: "rHgVqrBsv0EYGFSxzDDIDapm-9Nh9j0Va",
+        app_key: "X7Dp3hEvRWPbqHBYkOTBXzPm",
+        placeholder: "留下你的脚印~",
+        avatar: 'mm'
+    });
+</script>
+
+  
+
+
+
+    
+
+
+  
+  
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  
+
+  
+
+  
+    <script type="text/javascript" src="/lib/pjax/jquery.pjax.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/nprogress/nprogress.min.js"></script>
+  
+
+
+    <script type="text/javascript" src="/js/src/even.js?v=2.10.1"></script>
+
+  </body>
+</html>

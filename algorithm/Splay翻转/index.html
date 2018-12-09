@@ -1,232 +1,262 @@
 <!DOCTYPE html>
-<html>
-<head>
+<html lang="zh-CN">
+  <head>
     
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
-    
 
-    <script>
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "https://hm.baidu.com/hm.js?d8c0a4185322e94013582201484f9131";
-  var s = document.getElementsByTagName("script")[0]; 
-  s.parentNode.insertBefore(hm, s);
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+
+  <meta name="description" content="Splay 实现区间翻转（文艺平衡树）"/>
+
+
+
+
+  <meta name="keywords" content="平衡树, memset0's blog" />
+
+
+
+
+
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="memset0's blog">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.10.1" />
+
+
+
+<link rel="canonical" href="https://memset0.cn/algorithm/Splay翻转/"/>
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/lib/nprogress/nprogress.min.css" />
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.10.1" />
+
+
+
+  
+
+
+
+  <script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
 })();
 </script>
-    <meta charset="utf-8">
-    
-    
-    <link rel="canonical" href="memset0.cn/algorithm/Splay翻转/">
-    
-    
-    <title>Splay 实现区间翻转（文艺平衡树） | memset0&#39;s blog | 落霞与孤鹜齐飞，秋水共长天一色</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    
-    <meta name="theme-color" content="#3F51B5">
-    
-    
-    <meta name="keywords" content="平衡树">
-    <meta name="description" content="思路之前我们讲到了用 Splay 写普通平衡树，这次我们将用 Splay 来完成区间操作。 之前的 Splay 是按照权值排序，而这里的 Splay 则是要按照编号排序。 不难想到，整棵树的编号第 k 大点即数列中的第 k 个，整棵树的中序遍历即被维护的数列。  假设我们要翻转区间[l, r]，那么我们先把l - 1旋转到根节点，再把r + 1旋转到根节点的右孩子。那么r + 1的左子树即区间[l">
-<meta name="keywords" content="平衡树">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Splay 实现区间翻转（文艺平衡树）">
-<meta property="og:url" content="https://oi.memset0.cn/algorithm/Splay翻转/index.html">
-<meta property="og:site_name" content="memset0&#39;s blog">
-<meta property="og:description" content="思路之前我们讲到了用 Splay 写普通平衡树，这次我们将用 Splay 来完成区间操作。 之前的 Splay 是按照权值排序，而这里的 Splay 则是要按照编号排序。 不难想到，整棵树的编号第 k 大点即数列中的第 k 个，整棵树的中序遍历即被维护的数列。  假设我们要翻转区间[l, r]，那么我们先把l - 1旋转到根节点，再把r + 1旋转到根节点的右孩子。那么r + 1的左子树即区间[l">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://i.loli.net/2018/08/08/5b6b07758f2d3.png">
-<meta property="og:updated_time" content="2018-10-10T12:14:53.313Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Splay 实现区间翻转（文艺平衡树）">
-<meta name="twitter:description" content="思路之前我们讲到了用 Splay 写普通平衡树，这次我们将用 Splay 来完成区间操作。 之前的 Splay 是按照权值排序，而这里的 Splay 则是要按照编号排序。 不难想到，整棵树的编号第 k 大点即数列中的第 k 个，整棵树的中序遍历即被维护的数列。  假设我们要翻转区间[l, r]，那么我们先把l - 1旋转到根节点，再把r + 1旋转到根节点的右孩子。那么r + 1的左子树即区间[l">
-<meta name="twitter:image" content="https://i.loli.net/2018/08/08/5b6b07758f2d3.png">
-    
-        <link rel="alternate" type="application/atom+xml" title="memset0&#39;s blog" href="/atom.xml">
-    
-    <link rel="shortcut icon" href="/img/favicon.png">
-    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
-    <script>window.lazyScripts=[]</script>
-
-    <!-- custom head -->
-    
-	
-	<link rel="stylesheet" href="/modify.css">
-
-</head>
 
 
-<style>
-.fix-icon-chevron-up {
-	line-height: 0em!important;
-}
-</style>
 
-<body>
-    <div id="loading" class="active"></div>
 
-    <aside id="menu"  >
-  <div class="inner flex-row-vertical">
-    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
-        <i class="icon icon-lg icon-close"></i>
-    </a>
-    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
-      <div class="brand">
-        <a href="/" class="avatar waves-effect waves-circle waves-light">
-          <img src="/img/avatar.png">
-        </a>
-        <hgroup class="introduce">
-          <h5 class="nickname">memset0</h5>
-          <a href="mailto:memset0@outlook.com" title="memset0@outlook.com" class="mail">memset0@outlook.com</a>
-        </hgroup>
+
+
+
+
+
+<script>
+  window.config = {"leancloud":{"app_id":null,"app_key":null},"toc":true,"fancybox":false,"pjax":true};
+</script>
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+    <title> Splay 实现区间翻转（文艺平衡树） - memset0's blog </title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">memset0's blog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+      <a href="/categories/Solution">
+        <li class="mobile-menu-item">
+          
+          
+            题解
+          
+        </li>
+      </a>
+    
+      <a href="/tags">
+        <li class="mobile-menu-item">
+          
+          
+            标签
+          
+        </li>
+      </a>
+    
+      <a href="/categories">
+        <li class="mobile-menu-item">
+          
+          
+            分类
+          
+        </li>
+      </a>
+    
+      <a href="/about">
+        <li class="mobile-menu-item">
+          
+          
+            关于
+          
+        </li>
+      </a>
+    
+  </ul>
+</nav>
+
+    <div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">memset0's blog</a>
+</div>
+
+<nav class="site-navbar">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/categories/Solution">
+            
+            
+              题解
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/tags">
+            
+            
+              标签
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/categories">
+            
+            
+              分类
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/about">
+            
+            
+              关于
+            
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          Splay 实现区间翻转（文艺平衡树）
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-08-09
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/Algorithm/">Algorithm</a>
+            
+          </span>
+        
+        
       </div>
-    </div>
-    <div class="scroll-wrap flex-col">
-      <ul class="nav">
-        
-            <li class="waves-block waves-effect">
-              <a href="/"  >
-                <i class="icon icon-lg icon-home"></i>
-                Home
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/about"  >
-                <i class="icon icon-lg icon-user"></i>
-                About
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/tags"  >
-                <i class="icon icon-lg icon-tags"></i>
-                Tags
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/categories"  >
-                <i class="icon icon-lg icon-th-list"></i>
-                Categories
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/archives"  >
-                <i class="icon icon-lg icon-archives"></i>
-                Archives
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/friends"  >
-                <i class="icon icon-lg icon-link"></i>
-                Friends
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="https://cloud.memset0.cn/"  >
-                <i class="icon icon-lg icon-cloud"></i>
-                Cloud
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="https://github.com/memset0" target="_blank" >
-                <i class="icon icon-lg icon-github"></i>
-                Github
-              </a>
-            </li>
-        
-      </ul>
+    </header>
+
+    
+    
+  <div class="post-toc" id="post-toc">
+    <!--<h2 class="post-toc-title">文章目录</h2>-->
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#思路"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#基本操作"><span class="toc-text">基本操作</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#懒标记下放"><span class="toc-text">懒标记下放</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#上旋-amp-Splay"><span class="toc-text">上旋 &amp; Splay</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#查找"><span class="toc-text">查找</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#建树"><span class="toc-text">建树</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#翻转"><span class="toc-text">翻转</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#初始化"><span class="toc-text">初始化</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#代码"><span class="toc-text">代码</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#备注-amp-参考资料"><span class="toc-text">备注 &amp; 参考资料</span></a></li></ol>
     </div>
   </div>
-</aside>
-
-    <main id="main">
-        <header class="top-header" id="header">
-    <div class="flex-row">
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
-          <i class="icon icon-lg icon-navicon"></i>
-        </a>
-        <div class="flex-col header-title ellipsis">Splay 实现区间翻转（文艺平衡树）</div>
-        
-        <div class="search-wrap" id="search-wrap">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
-                <i class="icon icon-lg icon-chevron-left"></i>
-            </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
-                <i class="icon icon-lg icon-search"></i>
-            </a>
-        </div>
-        
-        
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
-            <i class="icon icon-lg icon-share-alt"></i>
-        </a>
-        
-    </div>
-</header>
-<header class="content-header post-header">
-
-    <div class="container fade-scale">
-        <h1 class="title">Splay 实现区间翻转（文艺平衡树）</h1>
-        <h5 class="subtitle">
-            
-                <time datetime="2018-08-09T04:33:46.000Z" itemprop="datePublished" class="page-time">
-  2018-08-09
-</time>
-
-
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Algorithm/">Algorithm</a></li></ul>
-
-            
-        </h5>
-    </div>
-
-    
-
-
-</header>
-
-
-<div class="container body-wrap">
-    
-    <aside class="post-widget">
-        <nav class="post-toc-wrap" id="post-toc">
-            <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#思路"><span class="post-toc-number">1.</span> <span class="post-toc-text">思路</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#基本操作"><span class="post-toc-number">2.</span> <span class="post-toc-text">基本操作</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#懒标记下放"><span class="post-toc-number">3.</span> <span class="post-toc-text">懒标记下放</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#上旋-amp-Splay"><span class="post-toc-number">4.</span> <span class="post-toc-text">上旋 &amp; Splay</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#查找"><span class="post-toc-number">5.</span> <span class="post-toc-text">查找</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#建树"><span class="post-toc-number">6.</span> <span class="post-toc-text">建树</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#翻转"><span class="post-toc-number">7.</span> <span class="post-toc-text">翻转</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#初始化"><span class="post-toc-number">8.</span> <span class="post-toc-text">初始化</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#代码"><span class="post-toc-number">9.</span> <span class="post-toc-text">代码</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#备注-amp-参考资料"><span class="post-toc-number">10.</span> <span class="post-toc-text">备注 &amp; 参考资料</span></a></li></ol>
-        </nav>
-    </aside>
-    
-<article id="post-algorithm/Splay翻转"
-  class="post-article article-type-post fade" itemprop="blogPost">
-
-    <div class="post-card">
-        <h1 class="post-card-title">Splay 实现区间翻转（文艺平衡树）</h1>
-        <div class="post-meta">
-            <time class="post-time" title="2018-08-09 12:33:46" datetime="2018-08-09T04:33:46.000Z"  itemprop="datePublished">2018-08-09</time>
-
-            
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Algorithm/">Algorithm</a></li></ul>
 
 
 
-            
-<span>
-	1,511 字
-</span>
-<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
-    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
-</span>
-
-
-        </div>
-        <div class="post-content" id="post-content" itemprop="postContent">
-            <h1 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h1><p>之前我们讲到了用 Splay 写普通平衡树，这次我们将用 Splay 来完成区间操作。</p>
+    <div class="post-content">
+      
+        <h1 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h1><p>之前我们讲到了用 Splay 写普通平衡树，这次我们将用 Splay 来完成区间操作。</p>
 <p>之前的 Splay 是按照权值排序，而这里的 Splay 则是要按照编号排序。</p>
 <p>不难想到，整棵树的编号第 k 大点即数列中的第 k 个，整棵树的中序遍历即被维护的数列。</p>
 <hr>
@@ -267,297 +297,196 @@ var _hmt = _hmt || [];
 <li><a href="https://loj.ac/problem/105" target="_blank" rel="noopener">LOJ #105. 文艺平衡树</a></li>
 </ul>
 
-        </div>
-
-        <!--<blockquote class="post-copyright">
-    <div class="content">
-        
-
-        
+      
     </div>
-    <footer>
-        <a href="https://oi.memset0.cn">
-            <img src="/img/avatar.png" alt="memset0">
-            memset0
-        </a>
-    </footer>
-</blockquote>-->
-        
+
+    
+      
+      
 
 
-        <div class="post-footer">
-            
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/平衡树/">平衡树</a></li></ul>
 
-
-            
-<div class="page-share-wrap">
+      
+      
     
 
-<div class="page-share" id="pageShare">
-    <ul class="reset share-icons">
-      <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://oi.memset0.cn/algorithm/Splay翻转/&title=《Splay 实现区间翻转（文艺平衡树）》 — memset0's blog&pic=https://oi.memset0.cn/img/avatar.png" data-title="微博">
-          <i class="icon icon-weibo"></i>
-        </a>
-      </li>
-      <li>
-        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
-          <i class="icon icon-weixin"></i>
-        </a>
-      </li>
-      <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://oi.memset0.cn/algorithm/Splay翻转/&title=《Splay 实现区间翻转（文艺平衡树）》 — memset0's blog&source=思路之前我们讲到了用 Splay 写普通平衡树，这次我们将用 Splay 来完成区间操作。
-之前的 Splay 是按照权值排序，而这里的 Splay 则是..." data-title=" QQ">
-          <i class="icon icon-qq"></i>
-        </a>
-      </li>
-      <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://oi.memset0.cn/algorithm/Splay翻转/" data-title=" Facebook">
-          <i class="icon icon-facebook"></i>
-        </a>
-      </li>
-      <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Splay 实现区间翻转（文艺平衡树）》 — memset0's blog&url=https://oi.memset0.cn/algorithm/Splay翻转/&via=https://oi.memset0.cn" data-title=" Twitter">
-          <i class="icon icon-twitter"></i>
-        </a>
-      </li>
-      <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://oi.memset0.cn/algorithm/Splay翻转/" data-title=" Google+">
-          <i class="icon icon-google-plus"></i>
-        </a>
-      </li>
-    </ul>
- </div>
+    
+      <footer class="post-footer">
+        
+          <div class="post-tags">
+            
+              <a href="/tags/平衡树/">平衡树</a>
+            
+          </div>
+        
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/algorithm/Splay基本操作/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">Splay 非指针模板（普通平衡树）</span>
+        <span class="prev-text nav-mobile">上一篇</span>
+      </a>
+    
+    
+      <a class="next" href="/algorithm/splay-q-and-a/">
+        <span class="next-text nav-default">Splay Q&A</span>
+        <span class="prev-text nav-mobile">下一篇</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
 
 
+      </footer>
+    
 
-    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
-        <i class="icon icon-share-alt icon-lg"></i>
-    </a>
-</div>
+  </article>
 
+
+          </div>
+          
+  <div class="comments" id="comments">
+    
+      <div id="vcomments"></div>
+    
+  </div>
 
 
         </div>
-    </div>
+      </main>
 
+      <footer id="footer" class="footer">
+
+  <div class="social-links">
     
-
-
-
-
-
-
-
-
-
-
-
-    <!-- Valine Comments -->
-    <div class="comments vcomment" id="comments"></div>
-    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
-    <!-- Valine Comments script -->
-    <script>
-        var GUEST_INFO = ['nick','mail','link'];
-        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
-          return GUEST_INFO.indexOf(item) > -1
-        });
-        new Valine({
-            el: '#comments',
-            notify: 'false' == 'true',
-            verify: 'false' == 'true',
-            appId: "rHgVqrBsv0EYGFSxzDDIDapm-9Nh9j0Va",
-            appKey: "X7Dp3hEvRWPbqHBYkOTBXzPm",
-            avatar: "mm",
-            placeholder: "留下你的脚印~",
-            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
-            pageSize: "20"
-        })
-    </script>
-    <!-- Valine Comments end -->
-
-
-
-
-	
-    
-<nav class="post-nav flex-row flex-justify-between">
-  
-    <div class="waves-block waves-effect prev">
-      <a href="/algorithm/Splay基本操作/" id="post-prev" class="post-nav-link">
-        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">Splay 非指针模板（普通平衡树）</h4>
-      </a>
-    </div>
-  
-
-  
-    <div class="waves-block waves-effect next">
-      <a href="/algorithm/splay-q-and-a/" id="post-next" class="post-nav-link">
-        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">Splay Q&amp;A</h4>
-      </a>
-    </div>
-  
-</nav>
-
-
-
-</article>
-
-
-
-</div>
-
-        <footer class="footer">
-    <div class="top">
+      
         
-<p>
-	<span>
-		总字数：52.8k
-	</span>
-    <span id="busuanzi_container_site_uv" style='display:none'>
-        访客数：<span id="busuanzi_value_site_uv"></span>
+          <a href="mailto:memset0@outlook.com" class="iconfont icon-email" title="email"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          <a href="https://github.com/memset0" class="iconfont icon-github" title="github"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+
+    
+      <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    
+  </div>
+
+
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://hexo.io/">Hexo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy; 
+     
+      2017 - 
+    
+    2018
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
     </span>
-    <span id="busuanzi_container_site_pv" style='display:none'>
-        访问量：<span id="busuanzi_value_site_pv"></span>
-    </span>
-</p>
-
-
-        <p>
-            
-                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
-            
-            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
-        </p>
-    </div>
-    <div class="bottom">
-        <p><span>memset0 &copy; 2017 - 2018</span>
-            <span>
-                
-                <a href="http://www.miitbeian.gov.cn/" target="_blank">浙ICP备-备你麻了个逼</a><br>
-                
-                Hosted by <a href="https://pages.coding.me">Coding Pages</a> · Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
-            </span>
-        </p>
-    </div>
-</footer>
-
-    </main>
-    <div class="mask" id="mask"></div>
-<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up fix-icon-chevron-up"></span></a>
-
-
-
-<div class="global-share" id="globalShare">
-    <ul class="reset share-icons">
-      <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://oi.memset0.cn/algorithm/Splay翻转/&title=《Splay 实现区间翻转（文艺平衡树）》 — memset0's blog&pic=https://oi.memset0.cn/img/avatar.png" data-title="微博">
-          <i class="icon icon-weibo"></i>
-        </a>
-      </li>
-      <li>
-        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
-          <i class="icon icon-weixin"></i>
-        </a>
-      </li>
-      <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://oi.memset0.cn/algorithm/Splay翻转/&title=《Splay 实现区间翻转（文艺平衡树）》 — memset0's blog&source=思路之前我们讲到了用 Splay 写普通平衡树，这次我们将用 Splay 来完成区间操作。
-之前的 Splay 是按照权值排序，而这里的 Splay 则是..." data-title=" QQ">
-          <i class="icon icon-qq"></i>
-        </a>
-      </li>
-      <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://oi.memset0.cn/algorithm/Splay翻转/" data-title=" Facebook">
-          <i class="icon icon-facebook"></i>
-        </a>
-      </li>
-      <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Splay 实现区间翻转（文艺平衡树）》 — memset0's blog&url=https://oi.memset0.cn/algorithm/Splay翻转/&via=https://oi.memset0.cn" data-title=" Twitter">
-          <i class="icon icon-twitter"></i>
-        </a>
-      </li>
-      <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://oi.memset0.cn/algorithm/Splay翻转/" data-title=" Google+">
-          <i class="icon icon-google-plus"></i>
-        </a>
-      </li>
-    </ul>
- </div>
-
-
-<div class="page-modal wx-share" id="wxShare">
-    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://oi.memset0.cn/algorithm/Splay翻转/" alt="微信分享二维码">
+    <span class="author">memset0</span>
+  </span>
 </div>
 
+      </footer>
 
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
 
-
-    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
-<script>
-var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
-
-
+    
+  
+    
+<!-- valine Comments -->
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/xcss/valine@v1.1.7/dist/Valine.min.js"></script>
+<script type="text/javascript">
+    new Valine({
+        el: '#vcomments',
+        notify: false,
+        verify: false,
+        app_id: "rHgVqrBsv0EYGFSxzDDIDapm-9Nh9j0Va",
+        app_key: "X7Dp3hEvRWPbqHBYkOTBXzPm",
+        placeholder: "留下你的脚印~",
+        avatar: 'mm'
+    });
 </script>
 
-<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
-
-
-<div class="search-panel" id="search-panel">
-    <ul class="search-result" id="search-result"></ul>
-</div>
-<template id="search-tpl">
-<li class="item">
-    <a href="{path}" class="waves-block waves-effect">
-        <div class="title ellipsis" title="{title}">{title}</div>
-        <div class="flex-row flex-middle">
-            <div class="tags ellipsis">
-                {tags}
-            </div>
-            <time class="flex-col time">{date}</time>
-        </div>
-    </a>
-</li>
-</template>
-
-<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+  
 
 
 
-<!-- mathjax config similar to math.stackexchange -->
-
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-    tex2jax: {
-        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-        processEscapes: true,
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-    }
-});
-
-MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-});
-</script>
-
-<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+    
 
 
-
-
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+  
 
 
 
 
 
-</body>
+  
+    <script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  
+
+  
+
+  
+    <script type="text/javascript" src="/lib/pjax/jquery.pjax.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/nprogress/nprogress.min.js"></script>
+  
+
+
+    <script type="text/javascript" src="/js/src/even.js?v=2.10.1"></script>
+
+  </body>
 </html>

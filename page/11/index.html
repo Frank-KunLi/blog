@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="memset0's blog">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.10.1" />
+
+
+
+<link rel="canonical" href="https://memset0.cn/page/11/"/>
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/lib/nprogress/nprogress.min.css" />
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.10.1" />
+
+
+
+  
+
+
+
+  <script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+
+
+
+
+
+
+<script>
+  window.config = {"leancloud":{"app_id":null,"app_key":null},"toc":true,"fancybox":false,"pjax":true};
+</script>
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+    <title> memset0's blog </title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">memset0's blog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+      <a href="/categories/Solution">
+        <li class="mobile-menu-item">
+          
+          
+            题解
+          
+        </li>
+      </a>
+    
+      <a href="/tags">
+        <li class="mobile-menu-item">
+          
+          
+            标签
+          
+        </li>
+      </a>
+    
+      <a href="/categories">
+        <li class="mobile-menu-item">
+          
+          
+            分类
+          
+        </li>
+      </a>
+    
+      <a href="/about">
+        <li class="mobile-menu-item">
+          
+          
+            关于
+          
+        </li>
+      </a>
+    
+  </ul>
+</nav>
+
+    <div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">memset0's blog</a>
+</div>
+
+<nav class="site-navbar">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/categories/Solution">
+            
+            
+              题解
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/tags">
+            
+            
+              标签
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/categories">
+            
+            
+              分类
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/about">
+            
+            
+              关于
+            
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  
+  <section id="posts" class="posts">
+    
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/solution/luogu/3701/">洛谷3701 -「伪模板」主席树</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-08-20
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/Solution/">Solution</a>
+            
+          </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p><del>去他妈的NOI难度</del></p>
+<p>从 $S$ 到 byx 的每个人连条容量为生命的边，从手气君的每个人到 $E$ 连条容量为生命的边；如果 byx 的这个人能打赢对方的某个人连一条容量为 $1$ 的边，$+1s$ 的话直接加到生命里，最后跑一遍最大流即可。</p>
+          <div class="read-more">
+            <a href="/solution/luogu/3701/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/algorithm/树状数组/">树状数组 区间修改 & 区间查询（LOJ132）</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-08-19
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/Algorithm/">Algorithm</a>
+            
+          </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <ol>
+<li><p>单点修改 &amp; 区间查询</p>
+<p>傻逼都会。</p>
+</li>
+<li><p>区间修改 &amp; 单点查询</p>
+<p>假设 $a$ 数组为我们当前维护的数组，定义 $b_i = a_i - a_{i - 1}$ ，则 $a_i = \sum_{j = 1}^{i}b_j$ 。用单点修改 &amp; 区间查询的树状数组维护 $b$ ，修改区间 $l$ 到 $r$ 只需使 $b_{l-1} + value$ 且 $b_r - value$ ，查询 $a_i$ 只需求 $\sum_{j = 1}^{i}b_j$ 。</p>
+</li>
+<li><p>区间修改 &amp; 区间查询</p>
+<p>同 2 的假设下，求 $\sum_{i=l}^{r} a_i$ 即求 $\sum_{i=1}^{r} a_i - \sum_{i=1}^{l-1} a_i$ ，我们只需考虑如何求 $\sum_{i=1}^{k} a_i$ 。</p>
+<p>$\sum_{i=1}^{k} a_i = \sum_{i=1}^{k} \sum_{j=1}^{i} b_j = \sum_{i=1}^{k} b_i \times (i + 1 - x) = (k+1) \times \sum_{i=1}^{k} b_i + \sum_{i=1}^{k} (i \times b_i)$</p>
+<p>所以我们开两个树状数组，分别维护 $b_i$ 和 $i \times b_i$ 即可。</p>
+</li>
+</ol>
+          <div class="read-more">
+            <a href="/algorithm/树状数组/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/algorithm/割点/">Tarjan求割点（洛谷3388）</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-08-19
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/Algorithm/">Algorithm</a>
+            
+          </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>用 tarjan 遍历整个图，如果某个点是割点，当且仅当以下两种情况</p>
+<ol>
+<li>当前点是根节点，且当前节点出发独立的联通分量至少有两个</li>
+<li>当前点不是根节点，且当前节点出发的独立分量能回溯到的最早的点在当前节点之后</li>
+</ol>
+<p>转换过来就是下面两个条件</p>
+<ol>
+<li><code>u == root &amp;&amp; child &gt;= 2</code></li>
+<li><code>u != root &amp;&amp; low[v] &gt;= dfn[u]</code></li>
+</ol>
+<p>其他与 tarjan 算法无异。</p>
+          <div class="read-more">
+            <a href="/algorithm/割点/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/geek/windows-beauty/">Windown10美化计划</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-08-15
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/Geek/">Geek</a>
+            
+          </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p><strong>本文不定时持续更新！</strong></p>
+<p><strong>所有用到的资源可到 <a href="https://cloud.memset0.cn/%E5%88%86%E4%BA%AB/Windows10%20%E7%BE%8E%E5%8C%96%E8%AE%A1%E5%88%92/" target="_blank" rel="noopener">cloud.memset0.cn/分享/Windows10美化计划</a> 中下载</strong></p>
+<p><img src="https://i.loli.net/2018/08/15/5b73df69642f8.png" alt="成品效果"></p>
+<p>成品效果如上</p>
+          <div class="read-more">
+            <a href="/geek/windows-beauty/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/algorithm/线性基/">线性基（洛谷3812）</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-08-14
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/Algorithm/">Algorithm</a>
+            
+          </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>线性基是一种解决异或相关问题的算法。</p>
+<p>感谢 mwh 与我分享关于线性基的理解，让我了解线性基。</p>
+<h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><p>线性基理论上来说是一种贪心的思路。一般情况下，我们需要从（二进制）高位到低位贪心，然而这样可能会产生其他影响（例如当前数的选择与否会影响到之前已选择的数）。线性基就巧妙的解决了这个问题。</p>
+<p>假设我们已经有了一个集合 $S$ ，集合中有一数为 $P$ ，现在我们需要插入 $X$ ，则插入 $X$ 和插入 $ X xor P $ 是等价的，理性证明：</p>
+<p>假设集合 $S$ 中任意个数其中包含 $P$ 的异或和的集合为 $S1$ ，不包含 $P$ 的为 $S2$ 。则插入 $X$ 后的 $S$ 中任意数的异或和集合 $S’ = X xor S1 + X xor S2$ ；插入 $X xor P$ 后 $S$ 中任意数的异或集合 $S’’ = (X xor P) xor S1 + (X xor P) xor S2 = X xor (P xor S1) + X xor (P xor S2) = X xor S2 + X xor S1$ 。所以 $S’ = S’’$ 插入 $X$ 和插入 $X xor P$ 等价，证毕。</p>
+          <div class="read-more">
+            <a href="/algorithm/线性基/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+      
+      
+  <nav class="pagination">
+    
+      <a class="prev" href="/page/10/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text">上一页</span>
+      </a>
+    
+    
+      <a class="next" href="/page/12/">
+        <span class="next-text">下一页</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+
+    
+  </section>
+
+          </div>
+          
+
+        </div>
+      </main>
+
+      <footer id="footer" class="footer">
+
+  <div class="social-links">
+    
+      
+        
+          <a href="mailto:memset0@outlook.com" class="iconfont icon-email" title="email"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          <a href="https://github.com/memset0" class="iconfont icon-github" title="github"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+
+    
+      <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    
+  </div>
+
+
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://hexo.io/">Hexo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy; 
+     
+      2017 - 
+    
+    2018
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">memset0</span>
+  </span>
+</div>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    
+
+
+    
+
+
+  
+  
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  
+
+  
+
+  
+    <script type="text/javascript" src="/lib/pjax/jquery.pjax.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/nprogress/nprogress.min.js"></script>
+  
+
+
+    <script type="text/javascript" src="/js/src/even.js?v=2.10.1"></script>
+
+  </body>
+</html>

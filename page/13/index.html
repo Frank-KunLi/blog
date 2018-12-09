@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="memset0's blog">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.10.1" />
+
+
+
+<link rel="canonical" href="https://memset0.cn/page/13/"/>
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/lib/nprogress/nprogress.min.css" />
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.10.1" />
+
+
+
+  
+
+
+
+  <script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+
+
+
+
+
+
+<script>
+  window.config = {"leancloud":{"app_id":null,"app_key":null},"toc":true,"fancybox":false,"pjax":true};
+</script>
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+    <title> memset0's blog </title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">memset0's blog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+      <a href="/categories/Solution">
+        <li class="mobile-menu-item">
+          
+          
+            题解
+          
+        </li>
+      </a>
+    
+      <a href="/tags">
+        <li class="mobile-menu-item">
+          
+          
+            标签
+          
+        </li>
+      </a>
+    
+      <a href="/categories">
+        <li class="mobile-menu-item">
+          
+          
+            分类
+          
+        </li>
+      </a>
+    
+      <a href="/about">
+        <li class="mobile-menu-item">
+          
+          
+            关于
+          
+        </li>
+      </a>
+    
+  </ul>
+</nav>
+
+    <div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">memset0's blog</a>
+</div>
+
+<nav class="site-navbar">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/categories/Solution">
+            
+            
+              题解
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/tags">
+            
+            
+              标签
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/categories">
+            
+            
+              分类
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/about">
+            
+            
+              关于
+            
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  
+  <section id="posts" class="posts">
+    
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/algorithm/Splay基本操作/">Splay 非指针模板（普通平衡树）</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-08-09
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/Algorithm/">Algorithm</a>
+            
+          </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>踏上平衡树征程的第一步…</p>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>Splay 是一种简单且功能丰富的平衡树结构，其算法核心 Splay 操作能维持其均摊复杂度维持在 $O(logn)$ 。</p>
+<h1 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h1><p>我们将整棵 Splay 定义在结构体中。</p>
+<p>并定义结构体<code>node</code>来表示 Splay 的每一个节点。</p>
+<p>宏定义<code>e[0].ch[1]</code>为根节点， $1e9 + 10$ 为INF，并在结构体尾取消定义。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Splay</span> &#123;</span></span><br><span class="line">    <span class="meta">#<span class="meta-keyword">define</span> root (e[0].ch[1])</span></span><br><span class="line">    <span class="meta">#<span class="meta-keyword">define</span> inf (1e9+10)</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">node</span> &#123;</span></span><br><span class="line">        <span class="keyword">int</span> val;	<span class="comment">// 当前节点存储的值</span></span><br><span class="line">        <span class="keyword">int</span> cnt;	<span class="comment">// 当前节点存储的值出现的次数</span></span><br><span class="line">        <span class="keyword">int</span> siz;	<span class="comment">// 当前节点包括其左右子树中包含的数的个数（不是节点数！）</span></span><br><span class="line">        <span class="keyword">int</span> father;	<span class="comment">// 当前节点的父亲节点</span></span><br><span class="line">        <span class="keyword">int</span> ch[<span class="number">2</span>];	<span class="comment">// 当前节点的孩子节点，ch[0]表示左孩子，ch[1]表示右孩子</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// your code goes here...</span></span><br><span class="line">    <span class="meta">#<span class="meta-keyword">undef</span> root</span></span><br><span class="line">    <span class="meta">#<span class="meta-keyword">undef</span> inf</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <div class="read-more">
+            <a href="/algorithm/Splay基本操作/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/algorithm/Splay翻转/">Splay 实现区间翻转（文艺平衡树）</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-08-09
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/Algorithm/">Algorithm</a>
+            
+          </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <h1 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h1><p>之前我们讲到了用 Splay 写普通平衡树，这次我们将用 Splay 来完成区间操作。</p>
+<p>之前的 Splay 是按照权值排序，而这里的 Splay 则是要按照编号排序。</p>
+<p>不难想到，整棵树的编号第 k 大点即数列中的第 k 个，整棵树的中序遍历即被维护的数列。</p>
+<hr>
+<p>假设我们要翻转区间<code>[l, r]</code>，那么我们先把<code>l - 1</code>旋转到根节点，再把<code>r + 1</code>旋转到根节点的右孩子。那么<code>r + 1</code>的左子树即区间<code>[l, r]</code>。翻转该区间只需要把该区间内的每个节点的左右子树交换即可。</p>
+<p>参考线段树的 lazytag，我们也使用一个类似于懒标记的方法，保证复杂度为<code>O(log n)</code>。</p>
+<p><img src="https://i.loli.net/2018/08/08/5b6b07758f2d3.png" alt="1.png"></p>
+          <div class="read-more">
+            <a href="/algorithm/Splay翻转/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/algorithm/splay-q-and-a/">Splay Q&A</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-08-08
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/Algorithm/">Algorithm</a>
+            
+          </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>最近正在学习 Splay 平衡树，其中也遇到了不少问题，正是分享的时候。</p>
+<p>代码来自于我的另外两篇博文中的 Splay 板子。</p>
+<h1 id="求前驱后继时为什么要取等号？"><a href="#求前驱后继时为什么要取等号？" class="headerlink" title="求前驱后继时为什么要取等号？"></a>求前驱后继时为什么要取等号？</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">lower</span><span class="params">(<span class="keyword">int</span> val)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> u = root, result = -inf, cho = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (u) &#123;</span><br><span class="line">        <span class="keyword">if</span> (e[u].val &lt; val &amp;&amp; e[u].val &gt; result) result = e[u].val, cho = u;</span><br><span class="line">        u = e[u].ch[val &lt;= e[u].val ? <span class="number">0</span> : <span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    splay(cho, root);</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>Q: </strong>以<code>Splay::lower()</code>的代码为例，在u更新时，我们使用的是<code>e[u].val &lt;= e[u].val ? 0 : 1</code>而非<code>val &lt; e[u].val ? 0 : 1</code>，为什么？</p>
+<p><strong>A: </strong>根据平衡树的性质，小于当前节点的数在左边，而<code>e[u].val</code>的前驱显然不能是<code>e[u].val</code>本身，而是在其左子树中，所以要写等于号。</p>
+          <div class="read-more">
+            <a href="/algorithm/splay-q-and-a/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/geek/devc更改主题/">Dev C++ 更改主题</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-08-08
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/Geek/">Geek</a>
+            
+          </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>Dev C++ 是目前OIer使用最多的IDE，然而原始界面却<del>丑的一逼</del>。所以让我们来美化它233。</p>
+<h1 id="Before-using"><a href="#Before-using" class="headerlink" title="Before using"></a>Before using</h1><p>Dev C++ 的主题默认存储在<code>C:/Users/&lt;your name&gt;/AppData/Roaming/Dev-Cpp</code>目录下，在该目录新建<code>&lt;文件名&gt;.syntax</code>添加配色。</p>
+<p>在 Dev C++ 的菜单栏中选择<code>工具[T]</code>&gt;<code>编辑器属性</code>&gt;<code>语法</code>&gt;<code>预设</code>应用配色（可在选项中找到你之前新建的配色）；同时也可直接在 Dev C++ 中方便的调色（点击右侧自动跳转到对应内容）并保存（如果文件名与已存在的相同则默认替换）。</p>
+<p>修改完后，务必在<code>工具[T]</code>&gt;<code>编辑器属性</code>&gt;<code>基本</code>中更改<code>高亮显示当前行</code>的颜色，以符合背景。</p>
+<p>另外，推荐在使用暗色主题时关闭 Dev C++ 自带的各种工具栏！</p>
+          <div class="read-more">
+            <a href="/geek/devc更改主题/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/algorithm/最长上升子序列/">十行求解 $O(n \log n)$ 求最长上升子序列</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-07-18
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/Algorithm/">Algorithm</a>
+            
+          </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+
+        
+          <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">int</span> n, x, f[<span class="number">100001</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">memset</span>(f, <span class="number">63</span>, <span class="keyword">sizeof</span>(f));</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;x), *<span class="built_in">std</span>::lower_bound(f + <span class="number">1</span>, f + n + <span class="number">1</span>, x) = x;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">printf</span>(<span class="string">"%d\n"</span>, <span class="built_in">std</span>::lower_bound(f + <span class="number">1</span>, f + n + <span class="number">1</span>, f[<span class="number">0</span>]) - f - <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>个人认为在保障可读性的情况下的最佳优化</p>
+<p>主要优化有：</p>
+<ol>
+<li>包bits库，省两行</li>
+<li>不用<code>using namespace std</code>，省一行</li>
+<li>输入和修改压到一行，省两行</li>
+<li>用STL，省很多行</li>
+</ol>
+<p>你还可以接着压行：</p>
+<ol>
+<li>把第四行和第五行用逗号连在一起</li>
+<li>把变量定义转移到for循环或main函数定义里</li>
+<li>把所有语句压倒一行去</li>
+</ol>
+
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+      
+      
+  <nav class="pagination">
+    
+      <a class="prev" href="/page/12/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text">上一页</span>
+      </a>
+    
+    
+      <a class="next" href="/page/14/">
+        <span class="next-text">下一页</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+
+    
+  </section>
+
+          </div>
+          
+
+        </div>
+      </main>
+
+      <footer id="footer" class="footer">
+
+  <div class="social-links">
+    
+      
+        
+          <a href="mailto:memset0@outlook.com" class="iconfont icon-email" title="email"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          <a href="https://github.com/memset0" class="iconfont icon-github" title="github"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+
+    
+      <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    
+  </div>
+
+
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://hexo.io/">Hexo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy; 
+     
+      2017 - 
+    
+    2018
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">memset0</span>
+  </span>
+</div>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    
+
+
+    
+
+
+  
+  
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  
+
+  
+
+  
+    <script type="text/javascript" src="/lib/pjax/jquery.pjax.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/nprogress/nprogress.min.js"></script>
+  
+
+
+    <script type="text/javascript" src="/js/src/even.js?v=2.10.1"></script>
+
+  </body>
+</html>

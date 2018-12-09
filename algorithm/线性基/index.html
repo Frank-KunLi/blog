@@ -1,509 +1,92 @@
 <!DOCTYPE html>
-<html>
-<head>
+<html lang="zh-CN">
+  <head>
     
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
-    
 
-    <script>
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "https://hm.baidu.com/hm.js?d8c0a4185322e94013582201484f9131";
-  var s = document.getElementsByTagName("script")[0]; 
-  s.parentNode.insertBefore(hm, s);
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+
+  <meta name="description" content="线性基（洛谷3812）"/>
+
+
+
+
+  <meta name="keywords" content="数学，数论, memset0's blog" />
+
+
+
+
+
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="memset0's blog">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.10.1" />
+
+
+
+<link rel="canonical" href="https://memset0.cn/algorithm/线性基/"/>
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/lib/nprogress/nprogress.min.css" />
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.10.1" />
+
+
+
+  
+
+
+
+  <script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
 })();
 </script>
-    <meta charset="utf-8">
-    
-    
-    <link rel="canonical" href="memset0.cn/algorithm/线性基/">
-    
-    
-    <title>线性基（洛谷3812） | memset0&#39;s blog | 落霞与孤鹜齐飞，秋水共长天一色</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    
-    <meta name="theme-color" content="#3F51B5">
-    
-    
-    <meta name="keywords" content="数学，数论">
-    <meta name="description" content="线性基是一种解决异或相关问题的算法。 感谢 mwh 与我分享关于线性基的理解，让我了解线性基。 概念线性基理论上来说是一种贪心的思路。一般情况下，我们需要从（二进制）高位到低位贪心，然而这样可能会产生其他影响（例如当前数的选择与否会影响到之前已选择的数）。线性基就巧妙的解决了这个问题。 假设我们已经有了一个集合 $S$ ，集合中有一数为 $P$ ，现在我们需要插入 $X$ ，则插入 $X$ 和插入">
-<meta name="keywords" content="数学，数论">
-<meta property="og:type" content="article">
-<meta property="og:title" content="线性基（洛谷3812）">
-<meta property="og:url" content="https://oi.memset0.cn/algorithm/线性基/index.html">
-<meta property="og:site_name" content="memset0&#39;s blog">
-<meta property="og:description" content="线性基是一种解决异或相关问题的算法。 感谢 mwh 与我分享关于线性基的理解，让我了解线性基。 概念线性基理论上来说是一种贪心的思路。一般情况下，我们需要从（二进制）高位到低位贪心，然而这样可能会产生其他影响（例如当前数的选择与否会影响到之前已选择的数）。线性基就巧妙的解决了这个问题。 假设我们已经有了一个集合 $S$ ，集合中有一数为 $P$ ，现在我们需要插入 $X$ ，则插入 $X$ 和插入">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-10-10T12:14:53.314Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="线性基（洛谷3812）">
-<meta name="twitter:description" content="线性基是一种解决异或相关问题的算法。 感谢 mwh 与我分享关于线性基的理解，让我了解线性基。 概念线性基理论上来说是一种贪心的思路。一般情况下，我们需要从（二进制）高位到低位贪心，然而这样可能会产生其他影响（例如当前数的选择与否会影响到之前已选择的数）。线性基就巧妙的解决了这个问题。 假设我们已经有了一个集合 $S$ ，集合中有一数为 $P$ ，现在我们需要插入 $X$ ，则插入 $X$ 和插入">
-    
-        <link rel="alternate" type="application/atom+xml" title="memset0&#39;s blog" href="/atom.xml">
-    
-    <link rel="shortcut icon" href="/img/favicon.png">
-    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
-    <script>window.lazyScripts=[]</script>
 
-    <!-- custom head -->
-    
-	
-	<link rel="stylesheet" href="/modify.css">
 
-</head>
 
 
-<style>
-.fix-icon-chevron-up {
-	line-height: 0em!important;
-}
-</style>
 
-<body>
-    <div id="loading" class="active"></div>
 
-    <aside id="menu"  >
-  <div class="inner flex-row-vertical">
-    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
-        <i class="icon icon-lg icon-close"></i>
-    </a>
-    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
-      <div class="brand">
-        <a href="/" class="avatar waves-effect waves-circle waves-light">
-          <img src="/img/avatar.png">
-        </a>
-        <hgroup class="introduce">
-          <h5 class="nickname">memset0</h5>
-          <a href="mailto:memset0@outlook.com" title="memset0@outlook.com" class="mail">memset0@outlook.com</a>
-        </hgroup>
-      </div>
-    </div>
-    <div class="scroll-wrap flex-col">
-      <ul class="nav">
-        
-            <li class="waves-block waves-effect">
-              <a href="/"  >
-                <i class="icon icon-lg icon-home"></i>
-                Home
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/about"  >
-                <i class="icon icon-lg icon-user"></i>
-                About
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/tags"  >
-                <i class="icon icon-lg icon-tags"></i>
-                Tags
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/categories"  >
-                <i class="icon icon-lg icon-th-list"></i>
-                Categories
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/archives"  >
-                <i class="icon icon-lg icon-archives"></i>
-                Archives
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/friends"  >
-                <i class="icon icon-lg icon-link"></i>
-                Friends
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="https://cloud.memset0.cn/"  >
-                <i class="icon icon-lg icon-cloud"></i>
-                Cloud
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="https://github.com/memset0" target="_blank" >
-                <i class="icon icon-lg icon-github"></i>
-                Github
-              </a>
-            </li>
-        
-      </ul>
-    </div>
-  </div>
-</aside>
 
-    <main id="main">
-        <header class="top-header" id="header">
-    <div class="flex-row">
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
-          <i class="icon icon-lg icon-navicon"></i>
-        </a>
-        <div class="flex-col header-title ellipsis">线性基（洛谷3812）</div>
-        
-        <div class="search-wrap" id="search-wrap">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
-                <i class="icon icon-lg icon-chevron-left"></i>
-            </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
-                <i class="icon icon-lg icon-search"></i>
-            </a>
-        </div>
-        
-        
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
-            <i class="icon icon-lg icon-share-alt"></i>
-        </a>
-        
-    </div>
-</header>
-<header class="content-header post-header">
 
-    <div class="container fade-scale">
-        <h1 class="title">线性基（洛谷3812）</h1>
-        <h5 class="subtitle">
-            
-                <time datetime="2018-08-14T13:55:36.000Z" itemprop="datePublished" class="page-time">
-  2018-08-14
-</time>
 
-
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Algorithm/">Algorithm</a></li></ul>
-
-            
-        </h5>
-    </div>
-
-    
-
-
-</header>
-
-
-<div class="container body-wrap">
-    
-    <aside class="post-widget">
-        <nav class="post-toc-wrap" id="post-toc">
-            <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#概念"><span class="post-toc-number">1.</span> <span class="post-toc-text">概念</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#实现"><span class="post-toc-number">2.</span> <span class="post-toc-text">实现</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#代码"><span class="post-toc-number">3.</span> <span class="post-toc-text">代码</span></a></li></ol>
-        </nav>
-    </aside>
-    
-<article id="post-algorithm/线性基"
-  class="post-article article-type-post fade" itemprop="blogPost">
-
-    <div class="post-card">
-        <h1 class="post-card-title">线性基（洛谷3812）</h1>
-        <div class="post-meta">
-            <time class="post-time" title="2018-08-14 21:55:36" datetime="2018-08-14T13:55:36.000Z"  itemprop="datePublished">2018-08-14</time>
-
-            
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Algorithm/">Algorithm</a></li></ul>
-
-
-
-            
-<span>
-	661 字
-</span>
-<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
-    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
-</span>
-
-
-        </div>
-        <div class="post-content" id="post-content" itemprop="postContent">
-            <p>线性基是一种解决异或相关问题的算法。</p>
-<p>感谢 mwh 与我分享关于线性基的理解，让我了解线性基。</p>
-<h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><p>线性基理论上来说是一种贪心的思路。一般情况下，我们需要从（二进制）高位到低位贪心，然而这样可能会产生其他影响（例如当前数的选择与否会影响到之前已选择的数）。线性基就巧妙的解决了这个问题。</p>
-<p>假设我们已经有了一个集合 $S$ ，集合中有一数为 $P$ ，现在我们需要插入 $X$ ，则插入 $X$ 和插入 $ X xor P $ 是等价的，理性证明：</p>
-<p>假设集合 $S$ 中任意个数其中包含 $P$ 的异或和的集合为 $S1$ ，不包含 $P$ 的为 $S2$ 。则插入 $X$ 后的 $S$ 中任意数的异或和集合 $S’ = X xor S1 + X xor S2$ ；插入 $X xor P$ 后 $S$ 中任意数的异或集合 $S’’ = (X xor P) xor S1 + (X xor P) xor S2 = X xor (P xor S1) + X xor (P xor S2) = X xor S2 + X xor S1$ 。所以 $S’ = S’’$ 插入 $X$ 和插入 $X xor P$ 等价，证毕。</p>
-<a id="more"></a>
-<h1 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h1><p>我们考虑维护一个集合<code>S</code>，<code>S[i]</code>表示（二进制）最高位是 1 的某个数，这样的数在集合中有且仅有一个。</p>
-<p>枚举<code>a[1...n]</code>中的每一个数字：</p>
-<ol>
-<li>假设当前数字的最高位为 j</li>
-<li>如果<code>S[j]</code>为空，则<code>S[j] = a[i]</code>，退出</li>
-<li>如果<code>S[j]</code>不为空，则<code>a[i] xor= S[j]</code>，回到 1</li>
-</ol>
-<p>这样对于每个<code>a[i]</code>，只可能插入到<code>S</code>中一次，如果没有插入，则<code>a[i]</code>将会变成 0 ，异或 0 是没有意义的，可以直接省略。</p>
-<p>接下来对于 S ，我们只需要前面所说的贪心即可。</p>
-<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ==============================</span></span><br><span class="line"><span class="comment">//  author: memset0</span></span><br><span class="line"><span class="comment">//  website: https://memset0.cn</span></span><br><span class="line"><span class="comment">// ==============================</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function">ll <span class="title">read</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ll x = <span class="number">0</span>; <span class="keyword">bool</span> m = <span class="number">0</span>; <span class="keyword">char</span> c = getchar();</span><br><span class="line">    <span class="keyword">while</span> (!<span class="built_in">isdigit</span>(c) &amp;&amp; c != <span class="string">'-'</span>) c = getchar();</span><br><span class="line">    <span class="keyword">if</span> (c == <span class="string">'-'</span>) m = <span class="number">1</span>, c = getchar();</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">isdigit</span>(c)) x = x * <span class="number">10</span> + c - <span class="string">'0'</span>, c = getchar();</span><br><span class="line">    <span class="keyword">if</span> (m) <span class="keyword">return</span> -x; <span class="keyword">else</span> <span class="keyword">return</span> x;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">60</span>;</span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line">ll ans;</span><br><span class="line">ll _2[maxn], a[maxn], f[maxn];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    n = read();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">        a[i] = read();</span><br><span class="line">    _2[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">50</span>; i++)</span><br><span class="line">        _2[i] = _2[i - <span class="number">1</span>] &lt;&lt; <span class="number">1</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">50</span>; j &gt;= <span class="number">0</span>; j--)</span><br><span class="line">            <span class="keyword">if</span> (a[i] &amp; _2[j]) &#123;</span><br><span class="line">                <span class="keyword">if</span> (f[j]) a[i] xor= f[j];</span><br><span class="line">                <span class="keyword">else</span> &#123;</span><br><span class="line">                    f[j] = a[i];</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">50</span>; j &gt;= <span class="number">0</span>; j--)</span><br><span class="line">        <span class="keyword">if</span> ((ans &amp; _2[j]) == <span class="number">0</span>) &#123;</span><br><span class="line">            ans xor= f[j];</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%lld\n"</span>, ans);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-        </div>
-
-        <!--<blockquote class="post-copyright">
-    <div class="content">
-        
-
-        
-    </div>
-    <footer>
-        <a href="https://oi.memset0.cn">
-            <img src="/img/avatar.png" alt="memset0">
-            memset0
-        </a>
-    </footer>
-</blockquote>-->
-        
-
-
-        <div class="post-footer">
-            
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数学，数论/">数学，数论</a></li></ul>
-
-
-            
-<div class="page-share-wrap">
-    
-
-<div class="page-share" id="pageShare">
-    <ul class="reset share-icons">
-      <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://oi.memset0.cn/algorithm/线性基/&title=《线性基（洛谷3812）》 — memset0's blog&pic=https://oi.memset0.cn/img/avatar.png" data-title="微博">
-          <i class="icon icon-weibo"></i>
-        </a>
-      </li>
-      <li>
-        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
-          <i class="icon icon-weixin"></i>
-        </a>
-      </li>
-      <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://oi.memset0.cn/algorithm/线性基/&title=《线性基（洛谷3812）》 — memset0's blog&source=线性基是一种解决异或相关问题的算法。
-感谢 mwh 与我分享关于线性基的理解，让我了解线性基。
-概念线性基理论上来说是一种贪心的思路。一般情况下，我们需要..." data-title=" QQ">
-          <i class="icon icon-qq"></i>
-        </a>
-      </li>
-      <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://oi.memset0.cn/algorithm/线性基/" data-title=" Facebook">
-          <i class="icon icon-facebook"></i>
-        </a>
-      </li>
-      <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《线性基（洛谷3812）》 — memset0's blog&url=https://oi.memset0.cn/algorithm/线性基/&via=https://oi.memset0.cn" data-title=" Twitter">
-          <i class="icon icon-twitter"></i>
-        </a>
-      </li>
-      <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://oi.memset0.cn/algorithm/线性基/" data-title=" Google+">
-          <i class="icon icon-google-plus"></i>
-        </a>
-      </li>
-    </ul>
- </div>
-
-
-
-    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
-        <i class="icon icon-share-alt icon-lg"></i>
-    </a>
-</div>
-
-
-
-        </div>
-    </div>
-
-    
-
-
-
-
-
-
-
-
-
-
-
-    <!-- Valine Comments -->
-    <div class="comments vcomment" id="comments"></div>
-    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
-    <!-- Valine Comments script -->
-    <script>
-        var GUEST_INFO = ['nick','mail','link'];
-        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
-          return GUEST_INFO.indexOf(item) > -1
-        });
-        new Valine({
-            el: '#comments',
-            notify: 'false' == 'true',
-            verify: 'false' == 'true',
-            appId: "rHgVqrBsv0EYGFSxzDDIDapm-9Nh9j0Va",
-            appKey: "X7Dp3hEvRWPbqHBYkOTBXzPm",
-            avatar: "mm",
-            placeholder: "留下你的脚印~",
-            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
-            pageSize: "20"
-        })
-    </script>
-    <!-- Valine Comments end -->
-
-
-
-
-	
-    
-<nav class="post-nav flex-row flex-justify-between">
-  
-    <div class="waves-block waves-effect prev">
-      <a href="/geek/windows-beauty/" id="post-prev" class="post-nav-link">
-        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">Windown10美化计划</h4>
-      </a>
-    </div>
-  
-
-  
-    <div class="waves-block waves-effect next">
-      <a href="/algorithm/主席树/" id="post-next" class="post-nav-link">
-        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">主席树（洛谷P3834）</h4>
-      </a>
-    </div>
-  
-</nav>
-
-
-
-</article>
-
-
-
-</div>
-
-        <footer class="footer">
-    <div class="top">
-        
-<p>
-	<span>
-		总字数：52.8k
-	</span>
-    <span id="busuanzi_container_site_uv" style='display:none'>
-        访客数：<span id="busuanzi_value_site_uv"></span>
-    </span>
-    <span id="busuanzi_container_site_pv" style='display:none'>
-        访问量：<span id="busuanzi_value_site_pv"></span>
-    </span>
-</p>
-
-
-        <p>
-            
-                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
-            
-            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
-        </p>
-    </div>
-    <div class="bottom">
-        <p><span>memset0 &copy; 2017 - 2018</span>
-            <span>
-                
-                <a href="http://www.miitbeian.gov.cn/" target="_blank">浙ICP备-备你麻了个逼</a><br>
-                
-                Hosted by <a href="https://pages.coding.me">Coding Pages</a> · Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
-            </span>
-        </p>
-    </div>
-</footer>
-
-    </main>
-    <div class="mask" id="mask"></div>
-<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up fix-icon-chevron-up"></span></a>
-
-
-
-<div class="global-share" id="globalShare">
-    <ul class="reset share-icons">
-      <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://oi.memset0.cn/algorithm/线性基/&title=《线性基（洛谷3812）》 — memset0's blog&pic=https://oi.memset0.cn/img/avatar.png" data-title="微博">
-          <i class="icon icon-weibo"></i>
-        </a>
-      </li>
-      <li>
-        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
-          <i class="icon icon-weixin"></i>
-        </a>
-      </li>
-      <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://oi.memset0.cn/algorithm/线性基/&title=《线性基（洛谷3812）》 — memset0's blog&source=线性基是一种解决异或相关问题的算法。
-感谢 mwh 与我分享关于线性基的理解，让我了解线性基。
-概念线性基理论上来说是一种贪心的思路。一般情况下，我们需要..." data-title=" QQ">
-          <i class="icon icon-qq"></i>
-        </a>
-      </li>
-      <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://oi.memset0.cn/algorithm/线性基/" data-title=" Facebook">
-          <i class="icon icon-facebook"></i>
-        </a>
-      </li>
-      <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《线性基（洛谷3812）》 — memset0's blog&url=https://oi.memset0.cn/algorithm/线性基/&via=https://oi.memset0.cn" data-title=" Twitter">
-          <i class="icon icon-twitter"></i>
-        </a>
-      </li>
-      <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://oi.memset0.cn/algorithm/线性基/" data-title=" Google+">
-          <i class="icon icon-google-plus"></i>
-        </a>
-      </li>
-    </ul>
- </div>
-
-
-<div class="page-modal wx-share" id="wxShare">
-    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://oi.memset0.cn/algorithm/线性基/" alt="微信分享二维码">
-</div>
-
-
-
-
-    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
 <script>
-var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
-
-
+  window.config = {"leancloud":{"app_id":null,"app_key":null},"toc":true,"fancybox":false,"pjax":true};
 </script>
-
-<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
-
-
-<div class="search-panel" id="search-panel">
-    <ul class="search-result" id="search-result"></ul>
-</div>
-<template id="search-tpl">
-<li class="item">
-    <a href="{path}" class="waves-block waves-effect">
-        <div class="title ellipsis" title="{title}">{title}</div>
-        <div class="flex-row flex-middle">
-            <div class="tags ellipsis">
-                {tags}
-            </div>
-            <time class="flex-col time">{date}</time>
-        </div>
-    </a>
-</li>
-</template>
-
-<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
-
-
 
 <!-- mathjax config similar to math.stackexchange -->
 
@@ -525,15 +108,361 @@ MathJax.Hub.Queue(function() {
 </script>
 
 <script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+    <title> 线性基（洛谷3812） - memset0's blog </title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">memset0's blog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+      <a href="/categories/Solution">
+        <li class="mobile-menu-item">
+          
+          
+            题解
+          
+        </li>
+      </a>
+    
+      <a href="/tags">
+        <li class="mobile-menu-item">
+          
+          
+            标签
+          
+        </li>
+      </a>
+    
+      <a href="/categories">
+        <li class="mobile-menu-item">
+          
+          
+            分类
+          
+        </li>
+      </a>
+    
+      <a href="/about">
+        <li class="mobile-menu-item">
+          
+          
+            关于
+          
+        </li>
+      </a>
+    
+  </ul>
+</nav>
+
+    <div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">memset0's blog</a>
+</div>
+
+<nav class="site-navbar">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/categories/Solution">
+            
+            
+              题解
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/tags">
+            
+            
+              标签
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/categories">
+            
+            
+              分类
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/about">
+            
+            
+              关于
+            
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          线性基（洛谷3812）
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-08-14
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/Algorithm/">Algorithm</a>
+            
+          </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+  <div class="post-toc" id="post-toc">
+    <!--<h2 class="post-toc-title">文章目录</h2>-->
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#概念"><span class="toc-text">概念</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#实现"><span class="toc-text">实现</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#代码"><span class="toc-text">代码</span></a></li></ol>
+    </div>
+  </div>
+
+
+
+    <div class="post-content">
+      
+        <p>线性基是一种解决异或相关问题的算法。</p>
+<p>感谢 mwh 与我分享关于线性基的理解，让我了解线性基。</p>
+<h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><p>线性基理论上来说是一种贪心的思路。一般情况下，我们需要从（二进制）高位到低位贪心，然而这样可能会产生其他影响（例如当前数的选择与否会影响到之前已选择的数）。线性基就巧妙的解决了这个问题。</p>
+<p>假设我们已经有了一个集合 $S$ ，集合中有一数为 $P$ ，现在我们需要插入 $X$ ，则插入 $X$ 和插入 $ X xor P $ 是等价的，理性证明：</p>
+<p>假设集合 $S$ 中任意个数其中包含 $P$ 的异或和的集合为 $S1$ ，不包含 $P$ 的为 $S2$ 。则插入 $X$ 后的 $S$ 中任意数的异或和集合 $S’ = X xor S1 + X xor S2$ ；插入 $X xor P$ 后 $S$ 中任意数的异或集合 $S’’ = (X xor P) xor S1 + (X xor P) xor S2 = X xor (P xor S1) + X xor (P xor S2) = X xor S2 + X xor S1$ 。所以 $S’ = S’’$ 插入 $X$ 和插入 $X xor P$ 等价，证毕。</p>
+<a id="more"></a>
+<h1 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h1><p>我们考虑维护一个集合<code>S</code>，<code>S[i]</code>表示（二进制）最高位是 1 的某个数，这样的数在集合中有且仅有一个。</p>
+<p>枚举<code>a[1...n]</code>中的每一个数字：</p>
+<ol>
+<li>假设当前数字的最高位为 j</li>
+<li>如果<code>S[j]</code>为空，则<code>S[j] = a[i]</code>，退出</li>
+<li>如果<code>S[j]</code>不为空，则<code>a[i] xor= S[j]</code>，回到 1</li>
+</ol>
+<p>这样对于每个<code>a[i]</code>，只可能插入到<code>S</code>中一次，如果没有插入，则<code>a[i]</code>将会变成 0 ，异或 0 是没有意义的，可以直接省略。</p>
+<p>接下来对于 S ，我们只需要前面所说的贪心即可。</p>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ==============================</span></span><br><span class="line"><span class="comment">//  author: memset0</span></span><br><span class="line"><span class="comment">//  website: https://memset0.cn</span></span><br><span class="line"><span class="comment">// ==============================</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function">ll <span class="title">read</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ll x = <span class="number">0</span>; <span class="keyword">bool</span> m = <span class="number">0</span>; <span class="keyword">char</span> c = getchar();</span><br><span class="line">    <span class="keyword">while</span> (!<span class="built_in">isdigit</span>(c) &amp;&amp; c != <span class="string">'-'</span>) c = getchar();</span><br><span class="line">    <span class="keyword">if</span> (c == <span class="string">'-'</span>) m = <span class="number">1</span>, c = getchar();</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">isdigit</span>(c)) x = x * <span class="number">10</span> + c - <span class="string">'0'</span>, c = getchar();</span><br><span class="line">    <span class="keyword">if</span> (m) <span class="keyword">return</span> -x; <span class="keyword">else</span> <span class="keyword">return</span> x;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">60</span>;</span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line">ll ans;</span><br><span class="line">ll _2[maxn], a[maxn], f[maxn];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    n = read();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">        a[i] = read();</span><br><span class="line">    _2[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">50</span>; i++)</span><br><span class="line">        _2[i] = _2[i - <span class="number">1</span>] &lt;&lt; <span class="number">1</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">50</span>; j &gt;= <span class="number">0</span>; j--)</span><br><span class="line">            <span class="keyword">if</span> (a[i] &amp; _2[j]) &#123;</span><br><span class="line">                <span class="keyword">if</span> (f[j]) a[i] xor= f[j];</span><br><span class="line">                <span class="keyword">else</span> &#123;</span><br><span class="line">                    f[j] = a[i];</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">50</span>; j &gt;= <span class="number">0</span>; j--)</span><br><span class="line">        <span class="keyword">if</span> ((ans &amp; _2[j]) == <span class="number">0</span>) &#123;</span><br><span class="line">            ans xor= f[j];</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%lld\n"</span>, ans);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+      
+      
+
+
+
+      
+      
+    
+
+    
+      <footer class="post-footer">
+        
+          <div class="post-tags">
+            
+              <a href="/tags/数学，数论/">数学，数论</a>
+            
+          </div>
+        
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/geek/windows-beauty/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">Windown10美化计划</span>
+        <span class="prev-text nav-mobile">上一篇</span>
+      </a>
+    
+    
+      <a class="next" href="/algorithm/主席树/">
+        <span class="next-text nav-default">主席树（洛谷P3834）</span>
+        <span class="prev-text nav-mobile">下一篇</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+
+      </footer>
+    
+
+  </article>
+
+
+          </div>
+          
+  <div class="comments" id="comments">
+    
+      <div id="vcomments"></div>
+    
+  </div>
+
+
+        </div>
+      </main>
+
+      <footer id="footer" class="footer">
+
+  <div class="social-links">
+    
+      
+        
+          <a href="mailto:memset0@outlook.com" class="iconfont icon-email" title="email"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          <a href="https://github.com/memset0" class="iconfont icon-github" title="github"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+
+    
+      <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    
+  </div>
+
+
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://hexo.io/">Hexo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy; 
+     
+      2017 - 
+    
+    2018
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">memset0</span>
+  </span>
+</div>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    
+  
+    
+<!-- valine Comments -->
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/xcss/valine@v1.1.7/dist/Valine.min.js"></script>
+<script type="text/javascript">
+    new Valine({
+        el: '#vcomments',
+        notify: false,
+        verify: false,
+        app_id: "rHgVqrBsv0EYGFSxzDDIDapm-9Nh9j0Va",
+        app_key: "X7Dp3hEvRWPbqHBYkOTBXzPm",
+        placeholder: "留下你的脚印~",
+        avatar: 'mm'
+    });
+</script>
+
+  
+
+
+
+    
+
+
+  
+  
 
 
 
 
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  
+
+  
+
+  
+    <script type="text/javascript" src="/lib/pjax/jquery.pjax.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/nprogress/nprogress.min.js"></script>
+  
 
 
+    <script type="text/javascript" src="/js/src/even.js?v=2.10.1"></script>
 
-
-
-</body>
+  </body>
 </html>

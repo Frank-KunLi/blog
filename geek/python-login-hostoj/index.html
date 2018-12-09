@@ -1,233 +1,262 @@
 <!DOCTYPE html>
-<html>
-<head>
+<html lang="zh-CN">
+  <head>
     
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
-    
 
-    <script>
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "https://hm.baidu.com/hm.js?d8c0a4185322e94013582201484f9131";
-  var s = document.getElementsByTagName("script")[0]; 
-  s.parentNode.insertBefore(hm, s);
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+
+  <meta name="description" content="Python 模拟登陆 hustoj"/>
+
+
+
+
+  <meta name="keywords" content="Python, memset0's blog" />
+
+
+
+
+
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="memset0's blog">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.10.1" />
+
+
+
+<link rel="canonical" href="https://memset0.cn/geek/python-login-hostoj/"/>
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/lib/nprogress/nprogress.min.css" />
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.10.1" />
+
+
+
+  
+
+
+
+  <script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
 })();
 </script>
-    <meta charset="utf-8">
-    
-    
-    <link rel="canonical" href="memset0.cn/geek/python-login-hostoj/">
-    
-    
-    <title>Python 模拟登陆 hustoj | memset0&#39;s blog | 落霞与孤鹜齐飞，秋水共长天一色</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    
-    <meta name="theme-color" content="#3F51B5">
-    
-    
-    <meta name="keywords" content="Python">
-    <meta name="description" content="前言最近闲着无聊准备写写Python爬虫，爬一下我们学校的oj用来横向比对做题量。但由于我校OJ对没有登录的账号有浏览限制，因此想要获取数据，就必须要登录账号。以前我一直手动生成Cookie，然后到浏览器里用该Cookie登录，这样的话没过一会儿又要重来比较麻烦。于是我就学习了一下用Python来POST数据的方式实现登录功能。 说明 感谢hiuseues大佬对我的指导！ 此处以我校OJ为例 请不">
-<meta name="keywords" content="Python">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Python 模拟登陆 hustoj">
-<meta property="og:url" content="https://oi.memset0.cn/geek/python-login-hostoj/index.html">
-<meta property="og:site_name" content="memset0&#39;s blog">
-<meta property="og:description" content="前言最近闲着无聊准备写写Python爬虫，爬一下我们学校的oj用来横向比对做题量。但由于我校OJ对没有登录的账号有浏览限制，因此想要获取数据，就必须要登录账号。以前我一直手动生成Cookie，然后到浏览器里用该Cookie登录，这样的话没过一会儿又要重来比较麻烦。于是我就学习了一下用Python来POST数据的方式实现登录功能。 说明 感谢hiuseues大佬对我的指导！ 此处以我校OJ为例 请不">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://i.loli.net/2018/05/22/5b042c8d4c0f1.png">
-<meta property="og:image" content="https://i.loli.net/2018/05/25/5b0819fc2701a.png">
-<meta property="og:updated_time" content="2018-10-10T12:14:53.315Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Python 模拟登陆 hustoj">
-<meta name="twitter:description" content="前言最近闲着无聊准备写写Python爬虫，爬一下我们学校的oj用来横向比对做题量。但由于我校OJ对没有登录的账号有浏览限制，因此想要获取数据，就必须要登录账号。以前我一直手动生成Cookie，然后到浏览器里用该Cookie登录，这样的话没过一会儿又要重来比较麻烦。于是我就学习了一下用Python来POST数据的方式实现登录功能。 说明 感谢hiuseues大佬对我的指导！ 此处以我校OJ为例 请不">
-<meta name="twitter:image" content="https://i.loli.net/2018/05/22/5b042c8d4c0f1.png">
-    
-        <link rel="alternate" type="application/atom+xml" title="memset0&#39;s blog" href="/atom.xml">
-    
-    <link rel="shortcut icon" href="/img/favicon.png">
-    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
-    <script>window.lazyScripts=[]</script>
-
-    <!-- custom head -->
-    
-	
-	<link rel="stylesheet" href="/modify.css">
-
-</head>
 
 
-<style>
-.fix-icon-chevron-up {
-	line-height: 0em!important;
-}
-</style>
 
-<body>
-    <div id="loading" class="active"></div>
 
-    <aside id="menu"  >
-  <div class="inner flex-row-vertical">
-    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
-        <i class="icon icon-lg icon-close"></i>
-    </a>
-    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
-      <div class="brand">
-        <a href="/" class="avatar waves-effect waves-circle waves-light">
-          <img src="/img/avatar.png">
-        </a>
-        <hgroup class="introduce">
-          <h5 class="nickname">memset0</h5>
-          <a href="mailto:memset0@outlook.com" title="memset0@outlook.com" class="mail">memset0@outlook.com</a>
-        </hgroup>
+
+
+
+
+
+<script>
+  window.config = {"leancloud":{"app_id":null,"app_key":null},"toc":true,"fancybox":false,"pjax":true};
+</script>
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+    <title> Python 模拟登陆 hustoj - memset0's blog </title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">memset0's blog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+      <a href="/categories/Solution">
+        <li class="mobile-menu-item">
+          
+          
+            题解
+          
+        </li>
+      </a>
+    
+      <a href="/tags">
+        <li class="mobile-menu-item">
+          
+          
+            标签
+          
+        </li>
+      </a>
+    
+      <a href="/categories">
+        <li class="mobile-menu-item">
+          
+          
+            分类
+          
+        </li>
+      </a>
+    
+      <a href="/about">
+        <li class="mobile-menu-item">
+          
+          
+            关于
+          
+        </li>
+      </a>
+    
+  </ul>
+</nav>
+
+    <div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">memset0's blog</a>
+</div>
+
+<nav class="site-navbar">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/categories/Solution">
+            
+            
+              题解
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/tags">
+            
+            
+              标签
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/categories">
+            
+            
+              分类
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/about">
+            
+            
+              关于
+            
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          Python 模拟登陆 hustoj
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-05-25
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/Geek/">Geek</a>
+            
+          </span>
+        
+        
       </div>
-    </div>
-    <div class="scroll-wrap flex-col">
-      <ul class="nav">
-        
-            <li class="waves-block waves-effect">
-              <a href="/"  >
-                <i class="icon icon-lg icon-home"></i>
-                Home
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/about"  >
-                <i class="icon icon-lg icon-user"></i>
-                About
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/tags"  >
-                <i class="icon icon-lg icon-tags"></i>
-                Tags
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/categories"  >
-                <i class="icon icon-lg icon-th-list"></i>
-                Categories
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/archives"  >
-                <i class="icon icon-lg icon-archives"></i>
-                Archives
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/friends"  >
-                <i class="icon icon-lg icon-link"></i>
-                Friends
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="https://cloud.memset0.cn/"  >
-                <i class="icon icon-lg icon-cloud"></i>
-                Cloud
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="https://github.com/memset0" target="_blank" >
-                <i class="icon icon-lg icon-github"></i>
-                Github
-              </a>
-            </li>
-        
-      </ul>
+    </header>
+
+    
+    
+  <div class="post-toc" id="post-toc">
+    <!--<h2 class="post-toc-title">文章目录</h2>-->
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#说明"><span class="toc-text">说明</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#分析"><span class="toc-text">分析</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#登录页面"><span class="toc-text">登录页面</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分析数据"><span class="toc-text">分析数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如何post数据"><span class="toc-text">如何post数据</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#构建opener"><span class="toc-text">构建opener</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#完整代码"><span class="toc-text">完整代码</span></a></li></ol>
     </div>
   </div>
-</aside>
-
-    <main id="main">
-        <header class="top-header" id="header">
-    <div class="flex-row">
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
-          <i class="icon icon-lg icon-navicon"></i>
-        </a>
-        <div class="flex-col header-title ellipsis">Python 模拟登陆 hustoj</div>
-        
-        <div class="search-wrap" id="search-wrap">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
-                <i class="icon icon-lg icon-chevron-left"></i>
-            </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
-                <i class="icon icon-lg icon-search"></i>
-            </a>
-        </div>
-        
-        
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
-            <i class="icon icon-lg icon-share-alt"></i>
-        </a>
-        
-    </div>
-</header>
-<header class="content-header post-header">
-
-    <div class="container fade-scale">
-        <h1 class="title">Python 模拟登陆 hustoj</h1>
-        <h5 class="subtitle">
-            
-                <time datetime="2018-05-25T14:14:00.000Z" itemprop="datePublished" class="page-time">
-  2018-05-25
-</time>
-
-
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Geek/">Geek</a></li></ul>
-
-            
-        </h5>
-    </div>
-
-    
-
-
-</header>
-
-
-<div class="container body-wrap">
-    
-    <aside class="post-widget">
-        <nav class="post-toc-wrap" id="post-toc">
-            <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#前言"><span class="post-toc-number">1.</span> <span class="post-toc-text">前言</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#说明"><span class="post-toc-number">2.</span> <span class="post-toc-text">说明</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#分析"><span class="post-toc-number">3.</span> <span class="post-toc-text">分析</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#登录页面"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">登录页面</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#分析数据"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">分析数据</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#如何post数据"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">如何post数据</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#构建opener"><span class="post-toc-number">3.3.1.</span> <span class="post-toc-text">构建opener</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#完整代码"><span class="post-toc-number">4.</span> <span class="post-toc-text">完整代码</span></a></li></ol>
-        </nav>
-    </aside>
-    
-<article id="post-geek/python-login-hostoj"
-  class="post-article article-type-post fade" itemprop="blogPost">
-
-    <div class="post-card">
-        <h1 class="post-card-title">Python 模拟登陆 hustoj</h1>
-        <div class="post-meta">
-            <time class="post-time" title="2018-05-25 22:14:00" datetime="2018-05-25T14:14:00.000Z"  itemprop="datePublished">2018-05-25</time>
-
-            
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Geek/">Geek</a></li></ul>
 
 
 
-            
-<span>
-	1,326 字
-</span>
-<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
-    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
-</span>
-
-
-        </div>
-        <div class="post-content" id="post-content" itemprop="postContent">
-            <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>最近闲着无聊准备写写<code>Python</code>爬虫，爬一下我们学校的oj用来横向比对做题量。但由于我校OJ对没有登录的账号有浏览限制，因此想要获取数据，就必须要登录账号。以前我一直手动生成<code>Cookie</code>，然后到浏览器里用该<code>Cookie</code>登录，这样的话没过一会儿又要重来比较麻烦。于是我就学习了一下用<code>Python</code>来<strong><code>POST</code>数据</strong>的方式实现登录功能。</p>
+    <div class="post-content">
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>最近闲着无聊准备写写<code>Python</code>爬虫，爬一下我们学校的oj用来横向比对做题量。但由于我校OJ对没有登录的账号有浏览限制，因此想要获取数据，就必须要登录账号。以前我一直手动生成<code>Cookie</code>，然后到浏览器里用该<code>Cookie</code>登录，这样的话没过一会儿又要重来比较麻烦。于是我就学习了一下用<code>Python</code>来<strong><code>POST</code>数据</strong>的方式实现登录功能。</p>
 <h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><ol start="0">
 <li>感谢hiuseues大佬对我的指导！</li>
 <li>此处以我校OJ为例</li>
@@ -260,295 +289,196 @@ var _hmt = _hmt || [];
 <p>那么你可能需要一个opener来维持你打开页面的状态。接着使用<code>opener.open(url)</code>来代替<code>urllib2.urlopen(url)</code>并保留登陆状态。</p>
 <p>在构建opener的同时，我们也会把当前自身的cookie保存到文件中，方便进一步的调试。</p>
 <h1 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># encoding=utf8</span></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    <span class="comment"># python2的引入</span></span><br><span class="line">    <span class="keyword">import</span> urllib</span><br><span class="line">    <span class="keyword">import</span> urllib2</span><br><span class="line">    <span class="keyword">import</span> cookielib</span><br><span class="line"><span class="keyword">except</span> ImportError:</span><br><span class="line">    <span class="comment"># python3的引入</span></span><br><span class="line">    <span class="keyword">import</span> urllib.parse <span class="keyword">as</span> urllib</span><br><span class="line">    <span class="keyword">import</span> urllib.request <span class="keyword">as</span> urllib2</span><br><span class="line">    <span class="keyword">import</span> http.cookiejar <span class="keyword">as</span> cookielib </span><br><span class="line"><span class="comment"># 利用try实现同时兼容py2和py3的效果</span></span><br><span class="line"></span><br><span class="line">username = <span class="string">'LJB001590'</span></span><br><span class="line">password = <span class="string">'123'</span> <span class="comment"># 测试账号，账号密码来自某团队</span></span><br><span class="line">rooturl = <span class="string">'http://www.h2zbmh.com:8080/html/JudgeOnline/'</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">geturl</span><span class="params">(url)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> rooturl + url;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">Build</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">global</span> opener  <span class="comment"># 引入全局变量</span></span><br><span class="line">    filename = <span class="string">'cookie.txt'</span> <span class="comment"># 保存cookie的文件</span></span><br><span class="line">    cookie = cookielib.MozillaCookieJar(filename) <span class="comment"># 创建一个实例</span></span><br><span class="line">    handler = urllib2.HTTPCookieProcessor(cookie) <span class="comment"># 创建urllib2的cookie处理器</span></span><br><span class="line">    opener = urllib2.build_opener(handler) <span class="comment"># 通过之前的cookie处理器构造opener</span></span><br><span class="line">    opener.open(geturl(<span class="string">'index.php'</span>)) <span class="comment"># “随机”打开一个页面来获得cookie</span></span><br><span class="line">    cookie.save(ignore_discard=<span class="keyword">True</span>, ignore_expires=<span class="keyword">True</span>) <span class="comment"># 保存cookie到文件</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">Login</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">global</span> username, password, rooturl, opener <span class="comment"># 引入全局变量</span></span><br><span class="line">    url = geturl(<span class="string">'login.php'</span>) <span class="comment"># 对应的网址</span></span><br><span class="line">    data = urllib.urlencode(&#123;<span class="string">"user_id"</span>: username, <span class="string">"password"</span>: password, &#125;) <span class="comment"># 需要post的数据</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        response = opener.open(url, data=data) <span class="comment"># post数据 即 发送登录请求</span></span><br><span class="line">    <span class="keyword">except</span> TypeError:</span><br><span class="line">        response = opener.open(url, data=data.encode(<span class="string">'utf-8'</span>)) <span class="comment"># python3中的解决方式</span></span><br><span class="line"></span><br><span class="line">Build()</span><br><span class="line">Login()</span><br><span class="line"></span><br><span class="line">open(<span class="string">"ans.html"</span>, <span class="string">"wb+"</span>).write(opener.open(geturl(<span class="string">'problemset.php'</span>)).read()) <span class="comment"># 利用构建好的opener打开网页并输出到ans.html文件中（如果不显示“请登陆后继续操作！”说明成功）</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 再次感谢hiuseues大佬</span></span><br></pre></td></tr></table></figure>
-        </div>
-
-        <!--<blockquote class="post-copyright">
-    <div class="content">
-        
-
-        
+      
     </div>
-    <footer>
-        <a href="https://oi.memset0.cn">
-            <img src="/img/avatar.png" alt="memset0">
-            memset0
-        </a>
-    </footer>
-</blockquote>-->
-        
+
+    
+      
+      
 
 
-        <div class="post-footer">
-            
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
 
-
-            
-<div class="page-share-wrap">
+      
+      
     
 
-<div class="page-share" id="pageShare">
-    <ul class="reset share-icons">
-      <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://oi.memset0.cn/geek/python-login-hostoj/&title=《Python 模拟登陆 hustoj》 — memset0's blog&pic=https://oi.memset0.cn/img/avatar.png" data-title="微博">
-          <i class="icon icon-weibo"></i>
-        </a>
-      </li>
-      <li>
-        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
-          <i class="icon icon-weixin"></i>
-        </a>
-      </li>
-      <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://oi.memset0.cn/geek/python-login-hostoj/&title=《Python 模拟登陆 hustoj》 — memset0's blog&source=前言最近闲着无聊准备写写Python爬虫，爬一下我们学校的oj用来横向比对做题量。但由于我校OJ对没有登录的账号有浏览限制，因此想要获取数据，就必须要登录..." data-title=" QQ">
-          <i class="icon icon-qq"></i>
-        </a>
-      </li>
-      <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://oi.memset0.cn/geek/python-login-hostoj/" data-title=" Facebook">
-          <i class="icon icon-facebook"></i>
-        </a>
-      </li>
-      <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Python 模拟登陆 hustoj》 — memset0's blog&url=https://oi.memset0.cn/geek/python-login-hostoj/&via=https://oi.memset0.cn" data-title=" Twitter">
-          <i class="icon icon-twitter"></i>
-        </a>
-      </li>
-      <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://oi.memset0.cn/geek/python-login-hostoj/" data-title=" Google+">
-          <i class="icon icon-google-plus"></i>
-        </a>
-      </li>
-    </ul>
- </div>
+    
+      <footer class="post-footer">
+        
+          <div class="post-tags">
+            
+              <a href="/tags/Python/">Python</a>
+            
+          </div>
+        
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/algorithm/gcd-from/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">C++ 中的 __gcd() 函数探源</span>
+        <span class="prev-text nav-mobile">上一篇</span>
+      </a>
+    
+    
+      <a class="next" href="/diary/2018浙大校赛游记/">
+        <span class="next-text nav-default">2018浙大校赛&图森未来杯(4.7) 游记</span>
+        <span class="prev-text nav-mobile">下一篇</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
 
 
+      </footer>
+    
 
-    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
-        <i class="icon icon-share-alt icon-lg"></i>
-    </a>
-</div>
+  </article>
 
+
+          </div>
+          
+  <div class="comments" id="comments">
+    
+      <div id="vcomments"></div>
+    
+  </div>
 
 
         </div>
-    </div>
+      </main>
 
+      <footer id="footer" class="footer">
+
+  <div class="social-links">
     
-
-
-
-
-
-
-
-
-
-
-
-    <!-- Valine Comments -->
-    <div class="comments vcomment" id="comments"></div>
-    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
-    <!-- Valine Comments script -->
-    <script>
-        var GUEST_INFO = ['nick','mail','link'];
-        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
-          return GUEST_INFO.indexOf(item) > -1
-        });
-        new Valine({
-            el: '#comments',
-            notify: 'false' == 'true',
-            verify: 'false' == 'true',
-            appId: "rHgVqrBsv0EYGFSxzDDIDapm-9Nh9j0Va",
-            appKey: "X7Dp3hEvRWPbqHBYkOTBXzPm",
-            avatar: "mm",
-            placeholder: "留下你的脚印~",
-            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
-            pageSize: "20"
-        })
-    </script>
-    <!-- Valine Comments end -->
-
-
-
-
-	
-    
-<nav class="post-nav flex-row flex-justify-between">
-  
-    <div class="waves-block waves-effect prev">
-      <a href="/algorithm/gcd-from/" id="post-prev" class="post-nav-link">
-        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">C++ 中的 __gcd() 函数探源</h4>
-      </a>
-    </div>
-  
-
-  
-    <div class="waves-block waves-effect next">
-      <a href="/diary/2018浙大校赛游记/" id="post-next" class="post-nav-link">
-        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">2018浙大校赛&amp;图森未来杯(4.7) 游记</h4>
-      </a>
-    </div>
-  
-</nav>
-
-
-
-</article>
-
-
-
-</div>
-
-        <footer class="footer">
-    <div class="top">
+      
         
-<p>
-	<span>
-		总字数：52.8k
-	</span>
-    <span id="busuanzi_container_site_uv" style='display:none'>
-        访客数：<span id="busuanzi_value_site_uv"></span>
+          <a href="mailto:memset0@outlook.com" class="iconfont icon-email" title="email"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          <a href="https://github.com/memset0" class="iconfont icon-github" title="github"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+
+    
+      <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    
+  </div>
+
+
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://hexo.io/">Hexo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy; 
+     
+      2017 - 
+    
+    2018
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
     </span>
-    <span id="busuanzi_container_site_pv" style='display:none'>
-        访问量：<span id="busuanzi_value_site_pv"></span>
-    </span>
-</p>
-
-
-        <p>
-            
-                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
-            
-            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
-        </p>
-    </div>
-    <div class="bottom">
-        <p><span>memset0 &copy; 2017 - 2018</span>
-            <span>
-                
-                <a href="http://www.miitbeian.gov.cn/" target="_blank">浙ICP备-备你麻了个逼</a><br>
-                
-                Hosted by <a href="https://pages.coding.me">Coding Pages</a> · Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
-            </span>
-        </p>
-    </div>
-</footer>
-
-    </main>
-    <div class="mask" id="mask"></div>
-<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up fix-icon-chevron-up"></span></a>
-
-
-
-<div class="global-share" id="globalShare">
-    <ul class="reset share-icons">
-      <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://oi.memset0.cn/geek/python-login-hostoj/&title=《Python 模拟登陆 hustoj》 — memset0's blog&pic=https://oi.memset0.cn/img/avatar.png" data-title="微博">
-          <i class="icon icon-weibo"></i>
-        </a>
-      </li>
-      <li>
-        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
-          <i class="icon icon-weixin"></i>
-        </a>
-      </li>
-      <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://oi.memset0.cn/geek/python-login-hostoj/&title=《Python 模拟登陆 hustoj》 — memset0's blog&source=前言最近闲着无聊准备写写Python爬虫，爬一下我们学校的oj用来横向比对做题量。但由于我校OJ对没有登录的账号有浏览限制，因此想要获取数据，就必须要登录..." data-title=" QQ">
-          <i class="icon icon-qq"></i>
-        </a>
-      </li>
-      <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://oi.memset0.cn/geek/python-login-hostoj/" data-title=" Facebook">
-          <i class="icon icon-facebook"></i>
-        </a>
-      </li>
-      <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Python 模拟登陆 hustoj》 — memset0's blog&url=https://oi.memset0.cn/geek/python-login-hostoj/&via=https://oi.memset0.cn" data-title=" Twitter">
-          <i class="icon icon-twitter"></i>
-        </a>
-      </li>
-      <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://oi.memset0.cn/geek/python-login-hostoj/" data-title=" Google+">
-          <i class="icon icon-google-plus"></i>
-        </a>
-      </li>
-    </ul>
- </div>
-
-
-<div class="page-modal wx-share" id="wxShare">
-    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://oi.memset0.cn/geek/python-login-hostoj/" alt="微信分享二维码">
+    <span class="author">memset0</span>
+  </span>
 </div>
 
+      </footer>
 
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
 
-
-    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
-<script>
-var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
-
-
+    
+  
+    
+<!-- valine Comments -->
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/xcss/valine@v1.1.7/dist/Valine.min.js"></script>
+<script type="text/javascript">
+    new Valine({
+        el: '#vcomments',
+        notify: false,
+        verify: false,
+        app_id: "rHgVqrBsv0EYGFSxzDDIDapm-9Nh9j0Va",
+        app_key: "X7Dp3hEvRWPbqHBYkOTBXzPm",
+        placeholder: "留下你的脚印~",
+        avatar: 'mm'
+    });
 </script>
 
-<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
-
-
-<div class="search-panel" id="search-panel">
-    <ul class="search-result" id="search-result"></ul>
-</div>
-<template id="search-tpl">
-<li class="item">
-    <a href="{path}" class="waves-block waves-effect">
-        <div class="title ellipsis" title="{title}">{title}</div>
-        <div class="flex-row flex-middle">
-            <div class="tags ellipsis">
-                {tags}
-            </div>
-            <time class="flex-col time">{date}</time>
-        </div>
-    </a>
-</li>
-</template>
-
-<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+  
 
 
 
-<!-- mathjax config similar to math.stackexchange -->
-
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-    tex2jax: {
-        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-        processEscapes: true,
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-    }
-});
-
-MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-});
-</script>
-
-<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+    
 
 
-
-
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+  
 
 
 
 
 
-</body>
+  
+    <script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  
+
+  
+
+  
+    <script type="text/javascript" src="/lib/pjax/jquery.pjax.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/nprogress/nprogress.min.js"></script>
+  
+
+
+    <script type="text/javascript" src="/js/src/even.js?v=2.10.1"></script>
+
+  </body>
 </html>

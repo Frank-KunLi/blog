@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="memset0's blog">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.10.1" />
+
+
+
+<link rel="canonical" href="https://memset0.cn/page/14/"/>
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/lib/nprogress/nprogress.min.css" />
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.10.1" />
+
+
+
+  
+
+
+
+  <script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+
+
+
+
+
+
+<script>
+  window.config = {"leancloud":{"app_id":null,"app_key":null},"toc":true,"fancybox":false,"pjax":true};
+</script>
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+    <title> memset0's blog </title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">memset0's blog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+      <a href="/categories/Solution">
+        <li class="mobile-menu-item">
+          
+          
+            题解
+          
+        </li>
+      </a>
+    
+      <a href="/tags">
+        <li class="mobile-menu-item">
+          
+          
+            标签
+          
+        </li>
+      </a>
+    
+      <a href="/categories">
+        <li class="mobile-menu-item">
+          
+          
+            分类
+          
+        </li>
+      </a>
+    
+      <a href="/about">
+        <li class="mobile-menu-item">
+          
+          
+            关于
+          
+        </li>
+      </a>
+    
+  </ul>
+</nav>
+
+    <div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">memset0's blog</a>
+</div>
+
+<nav class="site-navbar">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/categories/Solution">
+            
+            
+              题解
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/tags">
+            
+            
+              标签
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/categories">
+            
+            
+              分类
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/about">
+            
+            
+              关于
+            
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  
+  <section id="posts" class="posts">
+    
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/solution/luogu/2962/">洛谷2962 - 灯</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-07-16
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/Solution/">Solution</a>
+            
+          </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>一道非常神奇的题目。</p>
+<p>尽管洛谷题解给的都是高斯消元，但实际上这题“普通”的DFS就可以AC。</p>
+<p>因为直接DFS一遍的复杂度高达 $O(2 ^ n)$ ，所以我们从两边开始搜索，并把状态存在map里，复杂度降低为 $O(n \times 2 ^ {\frac{n}{2}})$ ，可以水过此题。</p>
+          <div class="read-more">
+            <a href="/solution/luogu/2962/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/solution/luogu/2921/">洛谷2921 - 在农场万圣节</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-06-29
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/Solution/">Solution</a>
+            
+          </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <h1 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h1><p>可以看做一张有n个节点的图，每个节点有且仅有一条向外连接的边（可以连自己）。那么图中只可能是环与链的组合。而且链的终点是环，进入环后就不会从环中出去，故一个链只可能接一个环，一个环只可能被一或多的链接。</p>
+<p>故我们可以把整个分隔为一个个的环，并把接到他们的链找出来。</p>
+<ul>
+<li>环内节点的答案 = 环的长度；</li>
+<li>环外节点的答案 = 环的长度 + 当前节点到环的距离。</li>
+</ul>
+<p>几趟 $O(n)$ 的搜索就可以搞定问题！</p>
+          <div class="read-more">
+            <a href="/solution/luogu/2921/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/algorithm/gcd-from/">C++ 中的 __gcd() 函数探源</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-05-25
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/Algorithm/">Algorithm</a>
+            
+          </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+
+        
+          <p>最近在做一道需要用到 gcd 的题，正当我急于回忆 gcd 怎么写时，忽然听说有个叫<code>__gcd()</code>的内置函数。</p>
+<p><a href="https://www.zhihu.com/question/30605743" target="_blank" rel="noopener">知乎</a> 上说这是个<code>built-in</code>函数（也许可以简单地理解为内置函数）。</p>
+<p>但我对它的时间复杂度一直很担忧，想看看它到底是怎么实现的，便在C++内置库<code>bits/stl_algo.h</code>的 1512 - 1527 行找到可能的实现：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">/**</span></span><br><span class="line"><span class="comment">  *  This is a helper function for the rotate algorithm specialized on RAIs.</span></span><br><span class="line"><span class="comment">  *  It returns the greatest common divisor of two integer values.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"> <span class="keyword">template</span>&lt;<span class="keyword">typename</span> _EuclideanRingElement&gt;</span><br><span class="line">   _EuclideanRingElement</span><br><span class="line">   __gcd(_EuclideanRingElement __m, _EuclideanRingElement __n)</span><br><span class="line">   &#123;</span><br><span class="line">     <span class="keyword">while</span> (__n != <span class="number">0</span>)</span><br><span class="line">&#123;</span><br><span class="line">  _EuclideanRingElement <span class="keyword">__t</span> = __m % __n;</span><br><span class="line">  __m = __n;</span><br><span class="line">  __n = <span class="keyword">__t</span>;</span><br><span class="line">&#125;</span><br><span class="line">     <span class="keyword">return</span> __m;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<p><code>bits/stl_algo.h</code>是C++的一个内置库，你引用<code>algorithm</code>库时就会引入这个库</p>
+
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/geek/python-login-hostoj/">Python 模拟登陆 hustoj</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-05-25
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/Geek/">Geek</a>
+            
+          </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>最近闲着无聊准备写写<code>Python</code>爬虫，爬一下我们学校的oj用来横向比对做题量。但由于我校OJ对没有登录的账号有浏览限制，因此想要获取数据，就必须要登录账号。以前我一直手动生成<code>Cookie</code>，然后到浏览器里用该<code>Cookie</code>登录，这样的话没过一会儿又要重来比较麻烦。于是我就学习了一下用<code>Python</code>来<strong><code>POST</code>数据</strong>的方式实现登录功能。</p>
+<h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><ol start="0">
+<li>感谢hiuseues大佬对我的指导！</li>
+<li>此处以我校OJ为例</li>
+<li>请不要使用此测试账号（账号来自某外校团队）来浏览我校题目或交题，否则我将把密码改掉</li>
+<li>我习惯于使用<code>Python2</code>写爬虫，主要因为我校电脑和我的VPS预装的都是这个版本。可能会和hiuseues大佬产生代沟，不要在意。当然，这个脚本的核心部分在<code>Python3</code>中完全可以运行，希望这样的话代沟可以小一点。</li>
+</ol>
+          <div class="read-more">
+            <a href="/geek/python-login-hostoj/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/diary/2018浙大校赛游记/">2018浙大校赛&图森未来杯(4.7) 游记</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-04-30
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/Diary/">Diary</a>
+            
+          </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <blockquote>
+<p>这其实是一个比赛啊啊啊啊啊！</p>
+<p>反正考得超级辣鸡的！</p>
+</blockquote>
+<p>这是我第一次参加ACM类的比赛，估计也是我的第一次写游记吧。<br>这次参加浙大校赛的，不光有他们大学生，还有各路中学生；同时，我也在队伍里面发现了小学生的踪影（就差幼儿园的了）。<br>整体的氛围还是比较愉快的，可能是因为三个人一起做题的关系吧，没有OI那么压抑。</p>
+<p>这次比赛给了我们一点经验，也让我们看到了很多不足的地方（同时我现场领悟了如何数组模拟链表，thanks to fjk）<br>
+          <div class="read-more">
+            <a href="/diary/2018浙大校赛游记/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+      
+      
+  <nav class="pagination">
+    
+      <a class="prev" href="/page/13/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text">上一页</span>
+      </a>
+    
+    
+      <a class="next" href="/page/15/">
+        <span class="next-text">下一页</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+
+    
+  </section>
+
+          </div>
+          
+
+        </div>
+      </main>
+
+      <footer id="footer" class="footer">
+
+  <div class="social-links">
+    
+      
+        
+          <a href="mailto:memset0@outlook.com" class="iconfont icon-email" title="email"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          <a href="https://github.com/memset0" class="iconfont icon-github" title="github"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+
+    
+      <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    
+  </div>
+
+
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://hexo.io/">Hexo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy; 
+     
+      2017 - 
+    
+    2018
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">memset0</span>
+  </span>
+</div>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    
+
+
+    
+
+
+  
+  
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  
+
+  
+
+  
+    <script type="text/javascript" src="/lib/pjax/jquery.pjax.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/nprogress/nprogress.min.js"></script>
+  
+
+
+    <script type="text/javascript" src="/js/src/even.js?v=2.10.1"></script>
+
+  </body>
+</html>

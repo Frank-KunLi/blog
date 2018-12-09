@@ -1,1371 +1,88 @@
 <!DOCTYPE html>
-<html>
-<head>
+<html lang="zh-CN">
+  <head>
     
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
-    
 
-    <script>
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "https://hm.baidu.com/hm.js?d8c0a4185322e94013582201484f9131";
-  var s = document.getElementsByTagName("script")[0]; 
-  s.parentNode.insertBefore(hm, s);
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="memset0's blog">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.10.1" />
+
+
+
+<link rel="canonical" href="https://memset0.cn/"/>
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/lib/nprogress/nprogress.min.css" />
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.10.1" />
+
+
+
+  
+
+
+
+  <script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
 })();
 </script>
-    <meta charset="utf-8">
-    
-    
-    <link rel="canonical" href="memset0.cn/">
-    
-    
-    <title>memset0&#39;s blog | 落霞与孤鹜齐飞，秋水共长天一色</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    
-    <meta name="theme-color" content="#3F51B5">
-    
-    
-    <meta name="keywords" content="">
-    <meta property="og:type" content="website">
-<meta property="og:title" content="memset0&#39;s blog">
-<meta property="og:url" content="https://oi.memset0.cn/index.html">
-<meta property="og:site_name" content="memset0&#39;s blog">
-<meta property="og:locale" content="zh-CN">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="memset0&#39;s blog">
-    
-        <link rel="alternate" type="application/atom+xml" title="memset0&#39;s blog" href="/atom.xml">
-    
-    <link rel="shortcut icon" href="/img/favicon.png">
-    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
-    <script>window.lazyScripts=[]</script>
 
-    <!-- custom head -->
-    
-	
-	<link rel="stylesheet" href="/modify.css">
 
-</head>
 
 
-<style>
-.fix-icon-chevron-up {
-	line-height: 0em!important;
-}
-</style>
 
-<body>
-    <div id="loading" class="active"></div>
 
-    <aside id="menu"  >
-  <div class="inner flex-row-vertical">
-    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
-        <i class="icon icon-lg icon-close"></i>
-    </a>
-    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
-      <div class="brand">
-        <a href="/" class="avatar waves-effect waves-circle waves-light">
-          <img src="/img/avatar.png">
-        </a>
-        <hgroup class="introduce">
-          <h5 class="nickname">memset0</h5>
-          <a href="mailto:memset0@outlook.com" title="memset0@outlook.com" class="mail">memset0@outlook.com</a>
-        </hgroup>
-      </div>
-    </div>
-    <div class="scroll-wrap flex-col">
-      <ul class="nav">
-        
-            <li class="waves-block waves-effect active">
-              <a href="/"  >
-                <i class="icon icon-lg icon-home"></i>
-                Home
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/about"  >
-                <i class="icon icon-lg icon-user"></i>
-                About
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/tags"  >
-                <i class="icon icon-lg icon-tags"></i>
-                Tags
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/categories"  >
-                <i class="icon icon-lg icon-th-list"></i>
-                Categories
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/archives"  >
-                <i class="icon icon-lg icon-archives"></i>
-                Archives
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/friends"  >
-                <i class="icon icon-lg icon-link"></i>
-                Friends
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="https://cloud.memset0.cn/"  >
-                <i class="icon icon-lg icon-cloud"></i>
-                Cloud
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="https://github.com/memset0" target="_blank" >
-                <i class="icon icon-lg icon-github"></i>
-                Github
-              </a>
-            </li>
-        
-      </ul>
-    </div>
-  </div>
-</aside>
 
-    <main id="main">
-        <header class="top-header" id="header">
-    <div class="flex-row">
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
-          <i class="icon icon-lg icon-navicon"></i>
-        </a>
-        <div class="flex-col header-title ellipsis">memset0&#39;s blog</div>
-        
-        <div class="search-wrap" id="search-wrap">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
-                <i class="icon icon-lg icon-chevron-left"></i>
-            </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
-                <i class="icon icon-lg icon-search"></i>
-            </a>
-        </div>
-        
-        
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
-            <i class="icon icon-lg icon-share-alt"></i>
-        </a>
-        
-    </div>
-</header>
-<header class="content-header index-header">
 
-    <div class="container fade-scale">
-        <h1 class="title">memset0&#39;s blog</h1>
-        <h5 class="subtitle">
-            
-                落霞与孤鹜齐飞，秋水共长天一色
-            
-        </h5>
-    </div>
 
-    
-
-
-</header>
-
-<div class="container body-wrap">
-
-    <ul class="post-list">
-    
-        <li class="post-list-item fade">
-            <article id="post-solution/bzoj/4939"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2018-12-08 18:15:32" datetime="2018-12-08T10:15:32.000Z"  itemprop="datePublished">2018-12-08</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Solution/">Solution</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/solution/bzoj/4939/">BZOJ4939 - [YNOI2016] 掉进兔子洞</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p>bitset 套莫队板子题。</p>
-<p>题意是如果第一个区间里有 $ a $ 个 $ x $ ，第二个区间 $ b $ 个，第三个区间 $ c $ 个，只会对答案产生 $ \min(a, b, c) $ 的贡献；每次询问给你三个区间，问你三个区间里能产生这样的贡献的大小。</p>
-<p>考虑 bitset 套莫队。通过一个简单的 trick 似的 bitset 既能反映出每种数又能反映出每种数的个数，每个查询就用三个区间的 bitset 的按位并，取结果的 count 。</p>
-<p>然而 $ 10^5 $ 个 $ 10^5 $ 的 bitset 会 MLE 。我们把莫队分成三次，只需要三分之一的空间，可以卡进。</p>
-<p>看起来这样 $ O(n ^ 2) $ 的复杂度过不了 $ n = 10^5 $ ，但是由于使用了 bitset 的关系，常数实际上只有 1 / 32 ，实际跑的飞快。</p>
-    
-
-        <a href="/solution/bzoj/4939/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/bitset/">bitset</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/莫队/">莫队</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-algorithm/多项式"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2018-12-02 11:47:49" datetime="2018-12-02T03:47:49.000Z"  itemprop="datePublished">2018-12-02</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Algorithm/">Algorithm</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/algorithm/多项式/">多项式系列板子</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <ul>
-<li>快速傅里叶变换 FFT</li>
-<li>数论傅里叶变换 NTT</li>
-<li>任意模数 NTT</li>
-<li>多项式求逆</li>
-<li>未完待续……</li>
-</ul>
-    
-
-        <a href="/algorithm/多项式/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CRT/">CRT</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/FFT/">FFT</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NTT/">NTT</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-solution/luogu/5046"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2018-11-24 12:33:01" datetime="2018-11-24T04:33:01.000Z"  itemprop="datePublished">2018-11-24</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Solution/">Solution</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/solution/luogu/5046/">洛谷5046 - [Ynoi2019模拟赛]Yuno loves sqrt technology I</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p>一道卡常题。考虑分块。</p>
-<p>如果查询的 $l$ 和 $r$ 不在同一个块内。 </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">查询区间 =&gt;                ┌-----------------------------┐</span><br><span class="line">分好的块 =&gt; [.........][........][........][........][........][........]</span><br></pre></td></tr></table></figure>
-<p>把查询的区间分成三个部分、A（块前零散部分）、B（整块的）、C（块后零散部分）</p>
-<p>先考虑每个部分自身与自身匹配对答案的贡献。我们可以预处理出从每个点出发，到所属块的开始 / 结尾的逆序对个数，分别用 <code>lft[]</code> 和 <code>rit[]</code> 表示，预处理时间复杂度 $O(\sqrt n \times \sqrt n \times \log n)$。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">┌-----1.-----┐               1. 这一部分的逆序对个数表示为 lft[i]</span><br><span class="line">             ┌-----2.----┐   2. 这一部分的逆序对个数表示为 rit[i]</span><br><span class="line">[............i...........]</span><br></pre></td></tr></table></figure>
-<p>接下来我们考虑 A -&gt; B ， C -&gt; B 的贡献，类似于蒲公英这题，处理出 <code>cnt[i][j]</code> 数组表示前 $i$ 个块内小于等于 $j$  的数字个数，查询时枚举 A 和 C 中的每一个数，利用这个前缀和查询对答案的贡献。</p>
-<p>接下来考虑 A -&gt; C 的贡献，由于 A 和 C 是不重合的两个部分，可以采用类似归并排序的方法，把两个序列合并的同时计算出逆序对个数。</p>
-<p>如果查询的 $l$ 和 $r$ 在同一个块内。</p>
-<p>首先我们考虑，相邻的两个区间 A 和 B 。A 和 B 总共的逆序对个数，等于 A 内部的逆序对个数 + B 内部的逆序对个数 + A 对 B 贡献的逆序对个数。</p>
-<p>好，那么我们再来考虑 $l$ 和 $r$ 在同一个块内：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">┌------A+B-------┐      这一部分即之前已经处理出的 lft[r]</span><br><span class="line">┌----A----┐             这一部分即之前已经处理出的 lft[l]</span><br><span class="line">          ┌--B---┐</span><br><span class="line">[.........l......r.......]</span><br></pre></td></tr></table></figure>
-<p>现在我们要求 B 的逆序对个数，只需要把 A + B 的逆序对个数减掉 A 内部的逆序对个数，再减掉 A 对 B 的逆序对个数即可。</p>
-<p>剩下的事情似乎变得简单，只需要把上面的思路写成代码即可。$O(n \log n + n \sqrt n)$ ，时间复杂度看起来也很正常。写了一会儿，交了一发，然后—— TLE 成 0 分。</p>
-<p>好吧，这题除了需要一个正确的算法，还需要很多常数优化QWQ。</p>
-<p>其他题解提出的改变块大小的方法似乎由于写法问题，我调整了多次改变不大，我采用的方法是：</p>
-<ol>
-<li><p>开启 O3 编译选项（这里多说一句，在代码里加了 O3 就不要点那个 O2 优化选项了，否则 O3 会被忽略）</p>
-</li>
-<li><p>对于之前说的</p>
-<blockquote>
-<p>接下来我们考虑 A -&gt; B ， C -&gt; B 的贡献，类似于蒲公英这题，处理出 <code>cnt[i][j]</code> 数组表示前 $i$ 个块内小于等于 $j$  的数字个数，查询时枚举 A 和 C 中的每一个数，利用这个前缀和查询对答案的贡献。</p>
-</blockquote>
-<p>这个部分，使用预处理出结果，并做二维前缀和。</p>
-</li>
-<li><p>能前缀和预处理的地方不要 $O(\sqrt n)$ 枚举 </p>
-</li>
-<li><p>能开 int 的地方开 int ，尽量少开 long long</p>
-</li>
-</ol>
-<p>另外，多交几次，最终还是成功通过了这题</p>
-    
-
-        <a href="/solution/luogu/5046/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/分块/">分块</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/树状数组/">树状数组</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-plan/plan1"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2018-11-12 20:00:02" datetime="2018-11-12T12:00:02.000Z"  itemprop="datePublished">2018-11-12</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Plan/">Plan</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/plan/plan1/">退役后的做题计划（一）</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p>本计划根据 <a href="//oi.men.ci">Menci 博客</a> 题解时间顺序排列。<br>CodeVS 和 COGS 的部分题出于某些原因不打算做（主要是没有账号）。<br>部分未完成且正准备做的题目可能会给出链接（优先级：洛谷 &gt; BZOJ &gt; LOJ &gt; UOJ）。</p>
-    
-
-        <a href="/plan/plan1/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-solution/bzoj/5017"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2018-11-12 19:33:40" datetime="2018-11-12T11:33:40.000Z"  itemprop="datePublished">2018-11-12</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Solution/">Solution</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/solution/bzoj/5017/">BZOJ5017 - [Snoi2017]炸弹</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p>zhouyuheng2003 学长一天打完 CF 后给我做的一道他说是简单题的题，然而炒鸡难！！！</p>
-<p>考虑暴力，每个炸弹向能引爆炸弹的连边，总数是 $n^2$ 级别的。之后跑 tarjan 缩点，并在 DAG 上统计答案。统计是，考虑合并来的点所对应的情况可能会有重点，因此需要开桶去重。这样的时空复杂度都是 $O(n^2)$ 的。</p>
-<p>考虑优化，通过观察可以发现，能引爆的炸弹一定是连续的一整段区间。那么我们可以用线段树优化建边，统计答案时不需要开桶统计，而是统计能够炸掉的最左端的点和最右端的点。时间复杂度 $O(n \log n)$ ，空间复杂度 $O(n)$。</p>
-<p>当然这并不是最优的，zhouyuheng2003 学长的博客中给出了一种时空复杂度均为 $O(n)$ 的做法。见 <a href="https://blog.csdn.net/zhouyuheng2003/article/details/83278984" target="_blank" rel="noopener">https://blog.csdn.net/zhouyuheng2003/article/details/83278984</a> 。</p>
-    
-
-        <a href="/solution/bzoj/5017/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tarjan/">tarjan</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/线段树优化建边/">线段树优化建边</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/缩点/">缩点</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-diary/NOIP2018游记"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2018-11-10 20:51:19" datetime="2018-11-10T12:51:19.000Z"  itemprop="datePublished">2018-11-10</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Diary/">Diary</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/diary/NOIP2018游记/">NOIP2018 爆零记</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h1 id="Day-1"><a href="#Day-1" class="headerlink" title="Day -1"></a>Day -1</h1><blockquote>
-<p>注意这是 -1 天</p>
-</blockquote>
-<p>上午照常模拟赛，考 NOIP 信心赛。</p>
-<p>虽然是信心赛，但是题目好难。T1 洛谷原题，黑题难度 QAQ 。后两题稍微简单一点，但是如果开始刚了 T1 估计就来不及了。</p>
-<p>我先开了 T2 ，推出了容斥，期望 $O(t \log n)$ 的 70 分。然后去开 T3 ，写了个 $O(n \times m \log n)$ 加卡常，期望 80 。最后开 T1 ，一遍写对了一个动态开点线段树，特判特殊情况拿到 50 分部分分。</p>
-<p>考试成绩出来，诶 T3 怎么 A 了 QAQ 。T2 没有输出 <code>STO yyb ORZ</code> （无解情况）少了 15 分， T1 还是预测得分 50 分。算是涨了不少信心吧。</p>
-<p>下午继续写板子，任务列表也清的差不多了。还有一些很难的算法感觉也不会用到懒得写了。</p>
-<p>晚上老师讲竞赛时间安排和一些注意事项，同是说明天是 “ Open Day ” ，我们可以光明正大的地颓废放松 233 . </p>
-<p>讲完之后感觉压力突然加大，本来以为很遥远的 NOIP 真的近在眼前了。真的，真的，好紧张。找学长哭诉。 lyc 哥哥特别好，特别温暖，给了我许多安慰 qwq。</p>
-<h1 id="Day-0"><a href="#Day-0" class="headerlink" title="Day 0"></a>Day 0</h1><p>上午开始机房集体颓废，打 <code>jokebird.com</code> 爆踩全服。之后开始打球球大作战。也有人 5 人组队 LOL （第一局被对面五杀，第二局吊打对面 233）</p>
-<p>下午继续颓废，看了点数论。</p>
-<p>在赛百味吃完饭的时候遇见了 zx2003 学长，他给我们讲了一些他的故事，也给了我很大的鼓励。</p>
-<p>晚上颓了一会会儿，然后手推 EXGCD 和 EXCRT ，虽说感觉不会考，主要还是熟悉一下推式子的感觉 QAQ 。</p>
-<p>接着去楼上机房蹭 RP ，好紧张，又哭了 QAQ 。但是学长的安慰真的很有用（不然可能窝晚上心态就蹦了）。</p>
-<p>睡觉的时候还是有点紧张，半夜睡不着。</p>
-<h1 id="Day-1-1"><a href="#Day-1-1" class="headerlink" title="Day 1"></a>Day 1</h1><p>但是早上起来精神状态还是很好的。一路赶去学军紫金港路也很顺畅。</p>
-<p>早点到校门口集合领准考证，我们有同学的准考证在校园里还没领但是要有准考证才能进场 233 。还好老师送出来了。我们初中几个还拍了合影。</p>
-<p>进考场前最后膜拜了一次大佬。坐我左边的是一个超好的（不认识的）高三学长。当时我特别紧张，他安慰了我也给了我鼓励，也让我平静了一下心态。</p>
-<p>开题，解压密码 <code>Fei2Xue@Lian$Tian!</code> 。学军体育馆可真冷。</p>
-<p>T1 上手一个 $O(n ^ 2)$ 贪心过了大样例，然后用 ST 表优化成 $O(n \log n)$ 开始拍。</p>
-<p>T2 一开始以为是 exgcd ，但又感觉不可能那么难。看了眼 T3 没思路，滚回来手玩了一下样例想到了个背包。一发过了大样例感觉很稳。</p>
-<p>T3 先写了部分分，和状压暴力对拍。差不多写满 55 分部分分，正解的思路也有了。此时我可以写二叉树的部分分到 80 ，也可以直接写正解。经过了一番焦灼，还是写了部分分，毕竟写正解也有可能调不出来。</p>
-<p>考完和同学 yy T3 ，发现了一个思维漏洞，不过很容易拍出来，而且我也立马想到了补救措施。不过如果这是考场就不一定了。所以感觉当初自己稳一点写了部分分也是挺正确的。</p>
-<p>估分 $280 = 100 + 100 + 80$ ，考完听说 Sooke 、mocania 、 LJC00118 、 Isonan 都 AK 了。唉，毕竟技不如人，甘拜下风。</p>
-<p>下午继续颓废，帮学长安 Flash Player 但是失败了，同时跟同学继续嘴巴 T3 。</p>
-<p>晚上颓废 + 写游记，也不是很紧张了。</p>
-<p>明天加油：尽人事，听天命。</p>
-<h1 id="Day-2"><a href="#Day-2" class="headerlink" title="Day 2"></a>Day 2</h1><p>无论如何预感今天的题目会很难。跟同学开玩笑说今天写满暴力就好了，结果还真 tmd 暴力滚粗了。</p>
-<p>解压密码和昨天连起来：“飞雪连天射白鹿，笑书神侠倚碧鸳。” CCF 的解压密码倒是一年比一年有创意了233。就是能不能不要出原题QAQ。</p>
-<p>开 T1 ，一开始以为是一张图，没想到是一个树和基环树。等等，这一题当两题的画风，让我想到了栗栗的书架啊。先随手写了个树的情况，过了大样例，开始看 T2 。</p>
-<p>T2 一眼以为是状压，一脸懵逼。还成功出现了“关于 T2 的题目解释请看 T1 的情况”（那放洛谷上怎么办 233）。本想枚举个数然后直接判断，结果第二个样例输出 <code>144</code> 瞬间懵逼。写了发状压枚举路径判断过了两个小样例。开始跑 $5 \times 5$ 的但始终过不去（为什么别人的状压可以跑 $7 \times 7$ QAQ）。发现了每次 $\times 3$ 的规律。</p>
-<p>没办法，开 T3 ，44 分的 $O(n m)$ 暴力很好写，一遍过了大样例。开始想正解却没思路。目前已经有 $60 + 50 + 44 = 154$ 分了，还有两个小时多，先上个厕所冷静一下。</p>
-<p>回来想继续优化 T2 ，但脑子里一直把枚举矩阵的 $O(2^{nm})$  复杂度搞成了 $O(2^{n+m})$ 。结果当然是就算苦苦优化还是过不去大样例，白白浪费了半个小时。</p>
-<p>接下去去看 T1 $n = m$ 的情况，由于 $m = n - 1$ 的情况可以 $O(n)$ 完成，我把 $n = 5000$ 的数据范围当成了 $n = 100000$ 最后强行想出来了一个 $O(n)$ 解法但已经又过了半个小时。还有一个小时感觉写不完这个及其麻烦的做法，赶紧苟了个成环的部分分。</p>
-<p>只能看 T3 部分分。一条链上的情况考场里一脸懵逼毫无思路，考完出来却豁然开朗（mmp）。其实把 dp 的转移变成一个个矩阵放到线段树上区间查询即可。然而考场上我脑子里一片空白，什么也想不到。</p>
-<p>回去检查 T2 ， T2 的大样例好毒啊，不仅给的数据范围小，而且都是 $n = m$ 的，感觉有坑。检查了老半天暴力还有不到半个小时。发现 $n = 1$ 的情况不是每次乘以 $3$ 而是 $2$ 。赶快改过来（差点就没分了），捡回一条狗命。</p>
-<p>最后时间照常检查文件，交卷。考完出来要了隔壁同学的 QQ 号，也算是一种缘分吧。</p>
-<p>Sooke ， Isonan 照样稳的一比 ， $200+$ 。感觉考场 debuff 太严重了，真的脑子里一片空白。平时模拟赛可以拖一段时间交卷，大胆地去尝试正解，然而考试的时候不仅没拖延的可能，还要单独花时间检查文件等等，一下就丧失了去尝试正解的勇气。</p>
-<p>最后期望得分 $189 = 80 + 65 + 44$</p>
-<h1 id="Day-3"><a href="#Day-3" class="headerlink" title="Day 3"></a>Day 3</h1><p>出选手代码了，去洛谷上交了一发竟然 $ 474 = 100 + 100 + 80 + 80 + 70 + 44 $ ，激动的要死。</p>
-<p>当然也有同学 D2T1 的 $O(n log n)$ 做法挂了，但还是比我高。</p>
-<h1 id="Day"><a href="#Day" class="headerlink" title="Day ?"></a>Day ?</h1><p>CCF 官方成绩出了，只有 $ 454 = 100 + 100 + 65 + 80 + 65 + 44 $ ，原来 D1T3 的分支不超过三按照我的那种方法有可能在根节点三叉。</p>
-<p>看来 WC 无望了，只能希望可以上 PKUWC 的初中线吧。</p>
-
-    
-
-        <a href="/diary/NOIP2018游记/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-geek/sublime-run-g++-with-mac"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2018-11-07 16:19:00" datetime="2018-11-07T08:19:00.000Z"  itemprop="datePublished">2018-11-07</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Geek/">Geek</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/geek/sublime-run-g++-with-mac/">Mac 下 Sublime Text 3 配置运行 G++</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h1 id="配置编译系统"><a href="#配置编译系统" class="headerlink" title="配置编译系统"></a>配置编译系统</h1><p>新建编译系统并粘贴入以下命令，保存为 <code>G++.sublime-build</code> 或其他你喜欢的名称。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;shell_cmd&quot;: &quot;g++ \&quot;$&#123;file&#125;\&quot; -o \&quot;$&#123;file_path&#125;/$&#123;file_base_name&#125;\&quot; -Wall&quot;,</span><br><span class="line">    &quot;file_regex&quot;: &quot;^(..[^:]*):([0-9]+):?([0-9]+)?:? (.*)$&quot;,</span><br><span class="line">    &quot;working_dir&quot;: &quot;$&#123;file_path&#125;&quot;,</span><br><span class="line">    &quot;selector&quot;: &quot;source.c, source.c++&quot;,</span><br><span class="line">    &quot;variants&quot;:</span><br><span class="line">    [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;name&quot;: &quot;compile&quot;,</span><br><span class="line">            &quot;shell_cmd&quot;: &quot;g++ \&quot;$&#123;file&#125;\&quot; -o \&quot;/tmp/$&#123;file_base_name&#125;\&quot; -Wall -O2 &amp;&amp; echo &apos;Compile finished.&apos;&quot;</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;name&quot;: &quot;run&quot;,</span><br><span class="line">            &quot;shell_cmd&quot;: &quot;&apos;/tmp/$&#123;file_base_name&#125;&apos; &amp;&amp; echo &apos;=============\nRun finished.&apos;&quot;</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;name&quot;: &quot;compile &amp; run&quot;,</span><br><span class="line">            &quot;shell_cmd&quot;: &quot;g++ \&quot;$&#123;file&#125;\&quot; -o \&quot;/tmp/$&#123;file_base_name&#125;\&quot; -Wall -O2 &amp;&amp; /tmp/$&#123;file_base_name&#125; &amp;&amp; echo &apos;=============\nComplie &amp; run finished.&apos;&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="配置编译运行快捷键"><a href="#配置编译运行快捷键" class="headerlink" title="配置编译运行快捷键"></a>配置编译运行快捷键</h1><p>把以下代码粘贴到你的快捷键配置文件中，表示 <code>F9</code> 编译， <code>F10</code> 运行， <code>F11</code> 编译并运行。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	&quot;keys&quot;: [&quot;f9&quot;], &quot;command&quot;: &quot;build&quot;,</span><br><span class="line">	&quot;args&quot;: &#123;</span><br><span class="line">		&quot;variant&quot;: &quot;compile&quot;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;,</span><br><span class="line">	&#123;</span><br><span class="line">		&quot;keys&quot;: [&quot;f10&quot;], &quot;command&quot;: &quot;build&quot;,</span><br><span class="line">		&quot;args&quot;: &#123;</span><br><span class="line">			&quot;variant&quot;: &quot;run&quot;</span><br><span class="line">		&#125;</span><br><span class="line">&#125;,</span><br><span class="line">	&#123;</span><br><span class="line">		&quot;keys&quot;: [&quot;f11&quot;], &quot;command&quot;: &quot;build&quot;,</span><br><span class="line">		&quot;args&quot;: &#123;</span><br><span class="line">			&quot;variant&quot;: &quot;compile &amp; run&quot;</span><br><span class="line">		&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="其他注意事项"><a href="#其他注意事项" class="headerlink" title="其他注意事项"></a>其他注意事项</h1><p>Mac OS 下默认用 Clang 编译 G++ 代码。因此不支持使用万能头文件（<code>bits/stdc++.h</code>），解决方案：</p>
-<ol>
-<li><p>手动复制 <code>bits/stdc++.h</code> 文件到对应目录中</p>
-</li>
-<li><p>手动安装 <code>g++4.9</code> 并把上面编译命令中的 <code>g++</code> 替换为 <code>g++-4.9</code></p>
-</li>
-</ol>
-
-    
-
-        <a href="/geek/sublime-run-g++-with-mac/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-solution/luogu/4949"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2018-10-26 16:00:00" datetime="2018-10-26T08:00:00.000Z"  itemprop="datePublished">2018-10-26</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Solution/">Solution</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/solution/luogu/4949/">洛谷4949 最短距离</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p>本题大概是一个基环树上带修改边权的最短距离。可以把他看做一棵树，把多的那条边拎出来，树剖维护距离，分类讨论即可。大概是你谷蓝题难度吧。</p>
-<p>由于树剖只需要查询 dfs 序上区间最小值，可以考虑树状数组维护常熟较小。目前不卡常的情况下你谷效率 rk1 。（如果我被超了私信窝一下 qwq…）</p>
-    
-
-        <a href="/solution/luogu/4949/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/基环树/">基环树</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/树链剖分/">树链剖分</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-solution/luogu/3620"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2018-10-17 20:52:00" datetime="2018-10-17T12:52:00.000Z"  itemprop="datePublished">2018-10-17</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Solution/">Solution</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/solution/luogu/3620/">洛谷3620 [APIO/CTSC 2007] 数据备份</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p>首先我们把原来的距离数组 $p$ 差分为数组 $a$。原题可以等同为在 $a$ 数组中选择 $k$ 个不相邻的数使得总和最小。</p>
-<p>假设我们已经选择了 $a_i$ ，那么 $a_{i-1}$ 和 $a_{i+1}$ 要么同时选择，要么同时没有被选择。同时，如果我们同时选择，需要的花费即 $V_{a_{i+1}} + V_{a_{i-1}} - V_{a_i}$ 。我们维护一个堆和双向链表，每次从小根堆选择堆顶，把 $a_i$、 $a_{i-1}$ 和 $a_{i+1}$ 同时删除，再新建一个价值为 $V_{a_{i+1}} + V_{a_{i-1}} - V_{a_i}$ 的节点，扔到堆里，重复 $k$ 次就能得到答案。 </p>
-    
-
-        <a href="/solution/luogu/3620/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/二叉堆/">二叉堆</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/巧妙的思路/">巧妙的思路</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-geek/devcpp-high-dpi"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2018-10-11 12:35:39" datetime="2018-10-11T04:35:39.000Z"  itemprop="datePublished">2018-10-11</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Geek/">Geek</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/geek/devcpp-high-dpi/">Dev C++ 资瓷 Hi DPI 方法</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p>前提条件，新版 Windows 10 （在有高分屏的机子上装 Win 10 不苛刻吧）。</p>
-    
-
-        <a href="/geek/devcpp-high-dpi/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-geek/git-add-ssh"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2018-10-10 20:20:32" datetime="2018-10-10T12:20:32.000Z"  itemprop="datePublished">2018-10-10</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Geek/">Geek</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/geek/git-add-ssh/">Git 生成 SSH 公钥</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <blockquote>
-<p>由于最近经常折腾虚拟机和新电脑， git 也经常要重新安装 / 配置，因此记录一下 git 添加 SSH 公钥的方式。</p>
-</blockquote>
-    
-
-        <a href="/geek/git-add-ssh/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-solution/codeforces/1059d"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2018-10-07 12:19:20" datetime="2018-10-07T04:19:20.000Z"  itemprop="datePublished">2018-10-07</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Solution/">Solution</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/solution/codeforces/1059d/">CF1059D Nature Reserve</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <blockquote>
-<p>该死的精度问题让我调了一个小时还没有调出来（事实说明我还是太菜了。）</p>
-</blockquote>
-<p>大概意思就是说平面上给了你一些点然后你要构造一个与 x 轴相切的圆把这些圆都包裹进去。</p>
-<p>考虑二分圆的半径，这样就知道了圆心的 y 坐标，根据点在圆内的充要条件——点到圆心的距离小于等于半径计算出圆心的 x 坐标的范围。如果存在两个范围不相交，说明无法构造出一个符合条件的圆心。</p>
-<p>需要注意浮点数运算的精度问题，比如计算 x 坐标的范围时这么写：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dis = r * r - (r - y) * (r - y);</span><br></pre></td></tr></table></figure>
-<p>就容易被卡，而：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dis = <span class="number">2</span> * r * y - y * y;</span><br></pre></td></tr></table></figure>
-<p>就不容易。</p>
-    
-
-        <a href="/solution/codeforces/1059d/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/二分答案/">二分答案</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/浮点数运算/">浮点数运算</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/计算几何/">计算几何</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-solution/codeforces/1059e"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2018-10-07 11:57:20" datetime="2018-10-07T03:57:20.000Z"  itemprop="datePublished">2018-10-07</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Solution/">Solution</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/solution/codeforces/1059e/">CF1059E - Split the Tree</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <blockquote>
-<p>一个永远只能在考完后调出 Codeforces 的题的菜鸡厚颜无耻得跑来写题解了。。。</p>
-</blockquote>
-<p>本题要求把树分成的链必须是垂直路径，也就是说不能同时跨越一颗子树的两个根。也就是说每次选中的路径都是到根节点的一串。</p>
-<p>所以我们可以通过树上倍增预处理出每个节点 $u$ 如果被选中那么最多可以向上形成长度为 $dp[u]$ 的链。接着跑一遍树上 DP 即可。</p>
-<p>预处理时间复杂度 $O(n \log n)$ ，树上 DP 时间复杂度 $O(n)$ 。</p>
-<p>貌似因为 D 题比较难调试，做这题的人比较少？反正我这种菜鸡就算考场有时间写了估计也调不出来吧。</p>
-    
-
-        <a href="/solution/codeforces/1059e/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/树上倍增/">树上倍增</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/树形-DP/">树形 DP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/贪心/">贪心</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-solution/bzoj/3551"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2018-09-28 19:53:00" datetime="2018-09-28T11:53:00.000Z"  itemprop="datePublished">2018-09-28</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Solution/">Solution</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/solution/bzoj/3551/">BZOJ3551 - [ONTAK2010]Peaks加强版</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <blockquote>
-<p>这题洛谷的数据太…水，克鲁斯卡尔重构树不连通都可水过。</p>
-</blockquote>
-<ul>
-<li>3545: [ONTAK2010]Peaks</li>
-<li>3551: [ONTAK2010]Peaks加强版</li>
-</ul>
-<p>在线算法：克鲁斯卡尔重构树套主席树。</p>
-<p>在克鲁斯卡尔重构树上维护 DFS 序（或树链剖分）再套上主席树，维护第 $k$ 大。</p>
-<p>当然非加强版由于你是重构树<del>（被针对了）</del>可能要大力卡常。比如加个 fread 以及离散化一下什么的。</p>
-    
-
-        <a href="/solution/bzoj/3551/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DFS-序/">DFS 序</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/主席树/">主席树</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/克鲁斯卡尔重构树/">克鲁斯卡尔重构树</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/强制在线/">强制在线</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/树上倍增/">树上倍增</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/树链剖分/">树链剖分</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-solution/bzoj/1002"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2018-09-28 19:36:00" datetime="2018-09-28T11:36:00.000Z"  itemprop="datePublished">2018-09-28</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Solution/">Solution</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/solution/bzoj/1002/">BZOJ1002 - [FJOI2007]轮状病毒</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p>这题的规律是很好找的，难的就是需要用高精度进行计算。</p>
-<p>于是我…厚颜无耻地逃避了高精度，用 Python 打了个表：</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">locate</span><span class="params">(x)</span>:</span></span><br><span class="line">    a = [<span class="number">1</span>, <span class="number">3</span>]</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">2</span>, x):</span><br><span class="line">        a.append(a[<span class="number">-1</span>] + a[<span class="number">-2</span>])</span><br><span class="line">    <span class="comment"># print(a)</span></span><br><span class="line">    <span class="keyword">return</span> a[x - <span class="number">1</span>]</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">solve</span><span class="params">(x)</span>:</span></span><br><span class="line">    t = locate(x)</span><br><span class="line">    <span class="keyword">if</span> x % <span class="number">2</span> == <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> t ** <span class="number">2</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> t ** <span class="number">2</span> - <span class="number">4</span></span><br><span class="line"></span><br><span class="line">n = int(input())</span><br><span class="line">print(solve(n))</span><br></pre></td></tr></table></figure>
-    
-
-        <a href="/solution/bzoj/1002/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/打表/">打表</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数学，数论/">数学，数论</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/结论题/">结论题</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/高精度/">高精度</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-solution/bzoj/2956"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2018-09-27 11:18:00" datetime="2018-09-27T03:18:00.000Z"  itemprop="datePublished">2018-09-27</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Solution/">Solution</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/solution/bzoj/2956/">BZOJ2956 - 模积和</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p>$$\sum_{i=1}^{n} \sum_{j=1}^{m} (n \% i) \times (m \% j) \ \ \ (i \not= j)$$</p>
-<p>$$= (\sum_{i=1}^{n} n \% i) \times (\sum_{j=1}^{m} m \% j) - \sum_{i=1}^{\min(n, m)} (n \% i) \times (m \% j)$$</p>
-<p>可以转化成 $A \times B - C$ 的形式，分别来求。</p>
-<p>其中求 $A$ 和 $B$ 的方式是一样的，可以数论分块，也可以直接打表找规律。鉴于这部分不难，笔者写了后者，而描述起来而笔者又非常懒因此忽略求 $A$ 、 $B$ 直接讲求 $C$ 。当然你也可以通过推 $C$ 的方式自己推一下 $A$ 、 $B$ 。</p>
-<p>$$C = \sum_{i=1}^{\min(n, m)} (n \% i) \times (m \% i)$$</p>
-<p>$$= \sum_{i=1} ^ {\min(n, m)} (n - i \times \lfloor \frac {n} {i} \rfloor) \times (m - i \times \lfloor \frac {m} {i} \rfloor )$$</p>
-<p>$$= \sum_{i=1} ^ {\min(n, m)} n \times m - m \times  i \times \lfloor \frac {n} {i} \rfloor - n \times i \times \lfloor \frac {m} {i} \rfloor + i ^ 2 \times \lfloor \frac {m} {i} \rfloor \lfloor \frac {m} {i} \rfloor $$</p>
-<p>数论分块即可。</p>
-    
-
-        <a href="/solution/bzoj/2956/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数论分块/">数论分块</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-solution/bzoj/2588"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2018-09-27 11:14:00" datetime="2018-09-27T03:14:00.000Z"  itemprop="datePublished">2018-09-27</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Solution/">Solution</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/solution/bzoj/2588/">BZOJ2588 - Count on a tree</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p>询问树上路径第 $k$ 大：二分答案 + 树上查询。查询时用主席树差分 $tree[now] = tree[u] + tree[v] - tree[lca(u,v)] - tree[father(lca(u,v))]$ 即可。</p>
-<p>时间复杂度 $O(n \log ^2 n)$</p>
-    
-
-        <a href="/solution/bzoj/2588/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/主席树/">主席树</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/二分答案/">二分答案</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/树上差分/">树上差分</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-solution/codeforces/776d"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2018-09-26 08:49:00" datetime="2018-09-26T00:49:00.000Z"  itemprop="datePublished">2018-09-26</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Solution/">Solution</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/solution/codeforces/776d/">CF776D - The Door Problem</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p>由于每个门只会被两个钥匙控制，那么两个钥匙的选或不选就能建立起一种对应关系。即如果门本来是开着的，那么用了一把必须用另一把，不用一把必须不用另一把；如果们本来是开着的，那么不用一把必须用另一把，用了一把必须不用另一把。</p>
-<p>Tarjan 跑 2-SAT 随手切，注意 $n$ 和 $m$ 不要搞反。</p>
-    
-
-        <a href="/solution/codeforces/776d/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/2-SAT/">2-SAT</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-solution/bzoj/1070"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2018-09-25 10:13:00" datetime="2018-09-25T02:13:00.000Z"  itemprop="datePublished">2018-09-25</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Solution/">Solution</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/solution/bzoj/1070/">BZOJ1070 - [SCOI2007]修车</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p>最小费用最大流。由于一个工人在给一个顾客服务后还能再给一个顾客服务， 所以把每个顾客和每个工人建点显然不能完成任务。</p>
-<p>那么我们考虑把第 $i$ 个工人建成 $n$ 个点，表示为 $P(i,j)  (i \in [1, m], j \in [1, n])$。把第 $i$ 个顾客表示为 $T(k)$。</p>
-<p>把 $T(k)$ 依次向 $P(i,j)$ 连边，流量为 $1$ ，费用为 $w(k,i) \times j$ 。表示第 $k$ 个顾客被第 $i$ 个工人倒数第 $j$ 个服务对答案产生的贡献（即包括在它之后的人的等待时间，而不是这个人自己的花费）。</p>
-<p>最后从源点向每个顾客连流量 $1$ ，费用 $0$ 的边，$n \times m$ 个工人向汇点连流量 $1$ ，费用为 $0$ 的边，跑最小费用最大流即可。</p>
-    
-
-        <a href="/solution/bzoj/1070/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/最小费用最大流/">最小费用最大流</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/网络流/">网络流</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-solution/luogu/1251"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2018-09-24 22:58:00" datetime="2018-09-24T14:58:00.000Z"  itemprop="datePublished">2018-09-24</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Solution/">Solution</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/solution/luogu/1251/">洛谷1251 - 餐巾计划问题</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <blockquote>
-<p>到这题为止网络流 24 题也快刷完了呢，还剩下几道码量特大的等着以后有空去浪费时间（逃</p>
-</blockquote>
-<p>这题一眼最小费用最大流，一开始我想了个类似于 <a href="http://localhost:4000/solution/luogu3980/" target="_blank" rel="noopener">NOI2008 志愿者招募</a> 之类的利用满流的方法，但是一直没有调出来。后来怂了，直接连边，最后因为有个 <code>- 1</code> 没有删干净还是调了老半天。orz ，我还是太菜了。</p>
-<p>把每一天分成两个节点，一个接受干净的毛巾，一个输出用过的毛巾。直接在这两个点之间连边显然不现实，我们可以分别把这两个点和源点、汇点连边。然后再按照题目条件一一连上对应边。这样最大流肯定能够跑满，求最小费用的话就是这图的最小费用最大流了。</p>
-<p>这告诉我们对于不清楚的知识点不要瞎用。</p>
-    
-
-        <a href="/solution/luogu/1251/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/最小费用最大流/">最小费用最大流</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/网络流/">网络流</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-    </ul>
-
-    
-<nav id="page-nav">
-    <div class="inner">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">下一页</a>
-    </div>
-</nav>
-
-
-</div>
-
-        <footer class="footer">
-    <div class="top">
-        
-<p>
-	<span>
-		总字数：52.8k
-	</span>
-    <span id="busuanzi_container_site_uv" style='display:none'>
-        访客数：<span id="busuanzi_value_site_uv"></span>
-    </span>
-    <span id="busuanzi_container_site_pv" style='display:none'>
-        访问量：<span id="busuanzi_value_site_pv"></span>
-    </span>
-</p>
-
-
-        <p>
-            
-                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
-            
-            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
-        </p>
-    </div>
-    <div class="bottom">
-        <p><span>memset0 &copy; 2017 - 2018</span>
-            <span>
-                
-                <a href="http://www.miitbeian.gov.cn/" target="_blank">浙ICP备-备你麻了个逼</a><br>
-                
-                Hosted by <a href="https://pages.coding.me">Coding Pages</a> · Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
-            </span>
-        </p>
-    </div>
-</footer>
-
-    </main>
-    <div class="mask" id="mask"></div>
-<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up fix-icon-chevron-up"></span></a>
-
-
-
-<div class="global-share" id="globalShare">
-    <ul class="reset share-icons">
-      <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://oi.memset0.cn/&title=memset0's blog&pic=https://oi.memset0.cn/img/avatar.png" data-title="微博">
-          <i class="icon icon-weibo"></i>
-        </a>
-      </li>
-      <li>
-        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
-          <i class="icon icon-weixin"></i>
-        </a>
-      </li>
-      <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://oi.memset0.cn/&title=memset0's blog&source=" data-title=" QQ">
-          <i class="icon icon-qq"></i>
-        </a>
-      </li>
-      <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://oi.memset0.cn/" data-title=" Facebook">
-          <i class="icon icon-facebook"></i>
-        </a>
-      </li>
-      <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=memset0's blog&url=https://oi.memset0.cn/&via=https://oi.memset0.cn" data-title=" Twitter">
-          <i class="icon icon-twitter"></i>
-        </a>
-      </li>
-      <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://oi.memset0.cn/" data-title=" Google+">
-          <i class="icon icon-google-plus"></i>
-        </a>
-      </li>
-    </ul>
- </div>
-
-
-<div class="page-modal wx-share" id="wxShare">
-    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://oi.memset0.cn/" alt="微信分享二维码">
-</div>
-
-
-
-
-    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
 <script>
-var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
-
-
+  window.config = {"leancloud":{"app_id":null,"app_key":null},"toc":true,"fancybox":false,"pjax":true};
 </script>
-
-<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
-
-
-<div class="search-panel" id="search-panel">
-    <ul class="search-result" id="search-result"></ul>
-</div>
-<template id="search-tpl">
-<li class="item">
-    <a href="{path}" class="waves-block waves-effect">
-        <div class="title ellipsis" title="{title}">{title}</div>
-        <div class="flex-row flex-middle">
-            <div class="tags ellipsis">
-                {tags}
-            </div>
-            <time class="flex-col time">{date}</time>
-        </div>
-    </a>
-</li>
-</template>
-
-<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
-
-
 
 <!-- mathjax config similar to math.stackexchange -->
 
@@ -1387,15 +104,534 @@ MathJax.Hub.Queue(function() {
 </script>
 
 <script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+    <title> memset0's blog </title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">memset0's blog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+      <a href="/categories/Solution">
+        <li class="mobile-menu-item">
+          
+          
+            题解
+          
+        </li>
+      </a>
+    
+      <a href="/tags">
+        <li class="mobile-menu-item">
+          
+          
+            标签
+          
+        </li>
+      </a>
+    
+      <a href="/categories">
+        <li class="mobile-menu-item">
+          
+          
+            分类
+          
+        </li>
+      </a>
+    
+      <a href="/about">
+        <li class="mobile-menu-item">
+          
+          
+            关于
+          
+        </li>
+      </a>
+    
+  </ul>
+</nav>
+
+    <div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">memset0's blog</a>
+</div>
+
+<nav class="site-navbar">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/categories/Solution">
+            
+            
+              题解
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/tags">
+            
+            
+              标签
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/categories">
+            
+            
+              分类
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/about">
+            
+            
+              关于
+            
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  
+  <section id="posts" class="posts">
+    
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/solution/luogu/2606/">洛谷2606 - [ZJOI2010]排列计数</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-12-09
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/Solution/">Solution</a>
+            
+          </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>原问题等价于询问节点个数为 $ n $ 的完全二叉树形态的二叉堆的个数。</p>
+<p>考虑递推，用 $ f(i) $ 表示 $ i $ 个节点时的答案。考虑除去此时的根节点外，根的左右子树大小分别为 $ l $ 和 $ r $ （可由完全二叉树这一性质计算得出）。此时根节点的编号肯定为 $ 1 $ ，而 $ f(l) $ 和 $ f(r) $ 分别是子树中的根节点编号为 $ 1 $ 的情况，若把编号分配，相当于求两个有序数列并成一个的方案数，即 $ C _ { l + r} ^ l $。得出：</p>
+<p>$$ f(i) = f(l) \times f(r) \times C _ { l + r } ^ l $$</p>
+<p>预处理阶乘递推即可。若 $ n &gt; q $ 则需要卢卡斯定理简单处理。</p>
+          <div class="read-more">
+            <a href="/solution/luogu/2606/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/solution/bzoj/4939/">BZOJ4939 - [YNOI2016] 掉进兔子洞</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-12-08
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/Solution/">Solution</a>
+            
+          </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>bitset 套莫队板子题。</p>
+<p>题意是如果第一个区间里有 $ a $ 个 $ x $ ，第二个区间 $ b $ 个，第三个区间 $ c $ 个，只会对答案产生 $ \min(a, b, c) $ 的贡献；每次询问给你三个区间，问你三个区间里能产生这样的贡献的大小。</p>
+<p>考虑 bitset 套莫队。通过一个简单的 trick 似的 bitset 既能反映出每种数又能反映出每种数的个数，每个查询就用三个区间的 bitset 的按位并，取结果的 count 。</p>
+<p>然而 $ 10^5 $ 个 $ 10^5 $ 的 bitset 会 MLE 。我们把莫队分成三次，只需要三分之一的空间，可以卡进。</p>
+<p>看起来这样 $ O(n ^ 2) $ 的复杂度过不了 $ n = 10^5 $ ，但是由于使用了 bitset 的关系，常数实际上只有 1 / 32 ，实际跑的飞快。</p>
+          <div class="read-more">
+            <a href="/solution/bzoj/4939/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/algorithm/多项式/">多项式系列板子</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-12-02
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/Algorithm/">Algorithm</a>
+            
+          </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <ul>
+<li>快速傅里叶变换 FFT</li>
+<li>数论傅里叶变换 NTT</li>
+<li>任意模数 NTT</li>
+<li>多项式求逆</li>
+<li>未完待续……</li>
+</ul>
+          <div class="read-more">
+            <a href="/algorithm/多项式/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/solution/luogu/5046/">洛谷5046 - [YNOI2019] Yuno loves sqrt technology I</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-11-24
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/Solution/">Solution</a>
+            
+          </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>一道卡常题。考虑分块。</p>
+<p>如果查询的 $l$ 和 $r$ 不在同一个块内。 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">查询区间 =&gt;                ┌-----------------------------┐</span><br><span class="line">分好的块 =&gt; [.........][........][........][........][........][........]</span><br></pre></td></tr></table></figure>
+<p>把查询的区间分成三个部分、A（块前零散部分）、B（整块的）、C（块后零散部分）</p>
+<p>先考虑每个部分自身与自身匹配对答案的贡献。我们可以预处理出从每个点出发，到所属块的开始 / 结尾的逆序对个数，分别用 <code>lft[]</code> 和 <code>rit[]</code> 表示，预处理时间复杂度 $O(\sqrt n \times \sqrt n \times \log n)$。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">┌-----1.-----┐               1. 这一部分的逆序对个数表示为 lft[i]</span><br><span class="line">             ┌-----2.----┐   2. 这一部分的逆序对个数表示为 rit[i]</span><br><span class="line">[............i...........]</span><br></pre></td></tr></table></figure>
+<p>接下来我们考虑 A -&gt; B ， C -&gt; B 的贡献，类似于蒲公英这题，处理出 <code>cnt[i][j]</code> 数组表示前 $i$ 个块内小于等于 $j$  的数字个数，查询时枚举 A 和 C 中的每一个数，利用这个前缀和查询对答案的贡献。这个部分也可以不在查询的时候做，而是预处理出结果，做二维前缀和，直接查询。</p>
+<p>接下来考虑 A -&gt; C 的贡献，由于 A 和 C 是不重合的两个部分，可以采用类似归并排序的方法，把两个序列合并的同时计算出逆序对个数。</p>
+<p>如果查询的 $l$ 和 $r$ 在同一个块内。</p>
+<p>首先我们考虑，相邻的两个区间 A 和 B 。A 和 B 总共的逆序对个数，等于 A 内部的逆序对个数 + B 内部的逆序对个数 + A 对 B 贡献的逆序对个数。</p>
+<p>好，那么我们再来考虑 $l$ 和 $r$ 在同一个块内：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">┌------A+B-------┐      这一部分即之前已经处理出的 lft[r]</span><br><span class="line">┌----A----┐             这一部分即之前已经处理出的 lft[l]</span><br><span class="line">          ┌--B---┐</span><br><span class="line">[.........l......r.......]</span><br></pre></td></tr></table></figure>
+<p>现在我们要求 B 的逆序对个数，只需要把 A + B 的逆序对个数减掉 A 内部的逆序对个数，再减掉 A 对 B 的逆序对个数即可。</p>
+<p>剩下你只需要时间来卡常。</p>
+          <div class="read-more">
+            <a href="/solution/luogu/5046/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/plan/plan1/">退役后的做题计划（一）</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-11-12
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/Plan/">Plan</a>
+            
+          </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>本计划根据 <a href="//oi.men.ci">Menci 博客</a> 题解时间顺序排列。<br>CodeVS 和 COGS 的部分题出于某些原因不打算做（主要是没有账号）。<br>部分未完成且正准备做的题目可能会给出链接（优先级：洛谷 &gt; BZOJ &gt; LOJ &gt; UOJ）。</p>
+          <div class="read-more">
+            <a href="/plan/plan1/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+      
+      
+  <nav class="pagination">
+    
+    
+      <a class="next" href="/page/2/">
+        <span class="next-text">下一页</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+
+    
+  </section>
+
+          </div>
+          
+
+        </div>
+      </main>
+
+      <footer id="footer" class="footer">
+
+  <div class="social-links">
+    
+      
+        
+          <a href="mailto:memset0@outlook.com" class="iconfont icon-email" title="email"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          <a href="https://github.com/memset0" class="iconfont icon-github" title="github"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+
+    
+      <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    
+  </div>
+
+
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://hexo.io/">Hexo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy; 
+     
+      2017 - 
+    
+    2018
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">memset0</span>
+  </span>
+</div>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    
+
+
+    
+
+
+  
+  
 
 
 
 
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  
+
+  
+
+  
+    <script type="text/javascript" src="/lib/pjax/jquery.pjax.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/nprogress/nprogress.min.js"></script>
+  
 
 
+    <script type="text/javascript" src="/js/src/even.js?v=2.10.1"></script>
 
-
-
-</body>
+  </body>
 </html>
