@@ -129,6 +129,15 @@
         </li>
       </a>
     
+      <a href="/friends">
+        <li class="mobile-menu-item">
+          
+          
+            友链
+          
+        </li>
+      </a>
+    
       <a href="/about">
         <li class="mobile-menu-item">
           
@@ -178,6 +187,15 @@
         </li>
       
         <li class="menu-item">
+          <a class="menu-item-link" href="/friends">
+            
+            
+              友链
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
           <a class="menu-item-link" href="/about">
             
             
@@ -199,6 +217,59 @@
   
   <section id="posts" class="posts">
     
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/solution/luogu/3285/">洛谷3285 - [SCOI2014]方伯伯的OJ</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-08-30
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/Solution/">Solution</a>
+            
+          </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>本题的 $n$ 特别大，如果直接开那么大的空间，想必会直接超时。所以我们可以先把所有“用户”合并成一个点，需要访问到哪个就进行分裂。这样的话 $m$ 次操作每次都只会分裂一次，时间复杂度就能保证在 $O(m\log m)$ ，空间也不会炸。</p>
+<p>另外本题只有提到最前面和提到最后面两种操作，使用平衡树的必要不大，用动态开点线段树就好了。</p>
+<p>p.s. 感觉 Leafy Tree 和这个好像啊 (=’w’​=)</p>
+          <div class="read-more">
+            <a href="/solution/luogu/3285/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
       
         
   <article class="post">
@@ -417,67 +488,6 @@
   </article>
 
       
-        
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/solution/uva/1220/">UVA1220 - Party at Hali-Bula</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-08-20
-        </span>
-        
-          <span class="post-category">
-            
-              <a href="/categories/Solution/">Solution</a>
-            
-          </span>
-        
-        
-      </div>
-    </header>
-
-    
-    
-
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <p>用 $f[i][0]$ 表示 $i$ 不选所能取到的最大值， $f[i][1]$ 表示选 $i$ 能取到的最大值。</p>
-<p>假设当前节点为 $u$ ，孩子节点为 $v$ ，则：</p>
-<ul>
-<li>$f[u][0] = \sum max(f[v][0], f[v][1])$</li>
-<li>$f[u][1] = \sum f[v][0]$</li>
-</ul>
-<p>关于判断是否有多种情况：我们无需存种树，只要存是否即可，用数组 $d$ 表示，则：</p>
-<ul>
-<li>如果当前节点 $u$ 更新状态选中的来自 $v$ 的某个状态存在多种，那么 $u$ 的这个状态也存在多种。</li>
-<li>如果 $u$ 节点的某个孩子 $v$ 满足 $f[v][0] == f[v][1]$ ，那么 $f[u][0]$ 存在多种。</li>
-</ul>
-          <div class="read-more">
-            <a href="/solution/uva/1220/" class="read-more-link">阅读更多</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-      
       
   <nav class="pagination">
     
@@ -551,13 +561,20 @@
 
 
 <div class="copyright">
-  <span class="power-by">
-    由 <a class="hexo-link" href="https://hexo.io/">Hexo</a> 强力驱动
-  </span>
-  <span class="division">|</span>
+
+
   <span class="theme-info">
-    主题 - 
+    Powered By
+    <a class="hexo-link" href="https://hexo.io/">Hexo</a>
+    &
     <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+  
+  <span class="copyright-year">
+    <span>
+      54.7k Words
+    </span>
+    <!-- <span class="division">|</span> -->
   </span>
 
   <span class="copyright-year">

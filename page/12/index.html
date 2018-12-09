@@ -129,6 +129,15 @@
         </li>
       </a>
     
+      <a href="/friends">
+        <li class="mobile-menu-item">
+          
+          
+            友链
+          
+        </li>
+      </a>
+    
       <a href="/about">
         <li class="mobile-menu-item">
           
@@ -178,6 +187,15 @@
         </li>
       
         <li class="menu-item">
+          <a class="menu-item-link" href="/friends">
+            
+            
+              友链
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
           <a class="menu-item-link" href="/about">
             
             
@@ -199,6 +217,61 @@
   
   <section id="posts" class="posts">
     
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/algorithm/线性基/">线性基（洛谷3812）</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-08-14
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/Algorithm/">Algorithm</a>
+            
+          </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>线性基是一种解决异或相关问题的算法。</p>
+<p>感谢 mwh 与我分享关于线性基的理解，让我了解线性基。</p>
+<h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><p>线性基理论上来说是一种贪心的思路。一般情况下，我们需要从（二进制）高位到低位贪心，然而这样可能会产生其他影响（例如当前数的选择与否会影响到之前已选择的数）。线性基就巧妙的解决了这个问题。</p>
+<p>假设我们已经有了一个集合 $S$ ，集合中有一数为 $P$ ，现在我们需要插入 $X$ ，则插入 $X$ 和插入 $ X xor P $ 是等价的，理性证明：</p>
+<p>假设集合 $S$ 中任意个数其中包含 $P$ 的异或和的集合为 $S1$ ，不包含 $P$ 的为 $S2$ 。则插入 $X$ 后的 $S$ 中任意数的异或和集合 $S’ = X xor S1 + X xor S2$ ；插入 $X xor P$ 后 $S$ 中任意数的异或集合 $S’’ = (X xor P) xor S1 + (X xor P) xor S2 = X xor (P xor S1) + X xor (P xor S2) = X xor S2 + X xor S1$ 。所以 $S’ = S’’$ 插入 $X$ 和插入 $X xor P$ 等价，证毕。</p>
+          <div class="read-more">
+            <a href="/algorithm/线性基/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
       
         
   <article class="post">
@@ -413,60 +486,6 @@
   </article>
 
       
-        
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/algorithm/fhq-treap/">非旋 Treap 模板（普通平衡树）</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-08-09
-        </span>
-        
-          <span class="post-category">
-            
-              <a href="/categories/Algorithm/">Algorithm</a>
-            
-          </span>
-        
-        
-      </div>
-    </header>
-
-    
-    
-
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>和 Splay 一样，非旋 Treap （又名 fhq-treap）也是平衡树的一种。由于其不需要进行旋转操作，故可利用其进行可持久化。</p>
-<p>写一颗非旋 Treap，我们只需要合并、分离操作，其他的只要有颗脑子就会了啦！</p>
-<h1 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h1><p>我们定义类<code>FhqTreap</code>为非旋 Treap 主体，结构体<code>node</code>为其节点。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">FhqTheap</span> &#123;</span></span><br><span class="line">    </span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    </span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">node</span> &#123;</span></span><br><span class="line">        <span class="keyword">int</span> val, rnd;      <span class="comment">// val =&gt; 该点存储的值，rnd =&gt; 该点键值，随机产生</span></span><br><span class="line">        <span class="keyword">int</span> siz, ch[<span class="number">2</span>];    <span class="comment">// siz =&gt; 该点包括其子树的节点大小，ch[2] =&gt; 指向左/右儿子</span></span><br><span class="line">    &#125; e[maxn];</span><br><span class="line">    <span class="keyword">int</span> tot, root;         <span class="comment">// tot =&gt; 节点总数，root =&gt; 根节点</span></span><br><span class="line">    <span class="keyword">int</span> x, y, z;           <span class="comment">// 操作过程中的临时变量</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">// Your Code Goes Here...</span></span><br><span class="line">    </span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// Your Code Goes Here...</span></span><br><span class="line">    </span><br><span class="line">&#125; s;</span><br></pre></td></tr></table></figure>
-          <div class="read-more">
-            <a href="/algorithm/fhq-treap/" class="read-more-link">阅读更多</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-      
       
   <nav class="pagination">
     
@@ -540,13 +559,20 @@
 
 
 <div class="copyright">
-  <span class="power-by">
-    由 <a class="hexo-link" href="https://hexo.io/">Hexo</a> 强力驱动
-  </span>
-  <span class="division">|</span>
+
+
   <span class="theme-info">
-    主题 - 
+    Powered By
+    <a class="hexo-link" href="https://hexo.io/">Hexo</a>
+    &
     <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+  
+  <span class="copyright-year">
+    <span>
+      54.7k Words
+    </span>
+    <!-- <span class="division">|</span> -->
   </span>
 
   <span class="copyright-year">

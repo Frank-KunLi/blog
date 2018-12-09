@@ -129,6 +129,15 @@
         </li>
       </a>
     
+      <a href="/friends">
+        <li class="mobile-menu-item">
+          
+          
+            友链
+          
+        </li>
+      </a>
+    
       <a href="/about">
         <li class="mobile-menu-item">
           
@@ -178,6 +187,15 @@
         </li>
       
         <li class="menu-item">
+          <a class="menu-item-link" href="/friends">
+            
+            
+              友链
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
           <a class="menu-item-link" href="/about">
             
             
@@ -199,6 +217,59 @@
   
   <section id="posts" class="posts">
     
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/solution/luogu/3810/">洛谷3810 - 【模板】三维偏序（陌上花开）</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-09-10
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/Solution/">Solution</a>
+            
+          </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>三维偏序，一维一维解决：第一维排序，第二维 CDQ ，第三维树状数组（或 CDQ ）。</p>
+<p>先按照 $a$ 进行排序，考虑 CDQ ，先分治左右两边，使得左右两边的节点都按 $b$ 排序，于是依次从两边取（优先 $b$ ， $b$ 相等优先 $c$），左边的取出时在树状数组中更新，右边的取出时从树状数组中查询，考虑贡献。</p>
+<p>需要注意的是，$a$ 、 $b$ 、 $c$ 的值都相同的节点有可能互相产生贡献，很难用 CDQ 解决，于是可以将这些点缩为一个，并单独计算他们内部互相产生的贡献。</p>
+          <div class="read-more">
+            <a href="/solution/luogu/3810/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
       
         
   <article class="post">
@@ -418,59 +489,6 @@
   </article>
 
       
-        
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/solution/luogu/3285/">洛谷3285 - [SCOI2014]方伯伯的OJ</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-08-30
-        </span>
-        
-          <span class="post-category">
-            
-              <a href="/categories/Solution/">Solution</a>
-            
-          </span>
-        
-        
-      </div>
-    </header>
-
-    
-    
-
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <p>本题的 $n$ 特别大，如果直接开那么大的空间，想必会直接超时。所以我们可以先把所有“用户”合并成一个点，需要访问到哪个就进行分裂。这样的话 $m$ 次操作每次都只会分裂一次，时间复杂度就能保证在 $O(m\log m)$ ，空间也不会炸。</p>
-<p>另外本题只有提到最前面和提到最后面两种操作，使用平衡树的必要不大，用动态开点线段树就好了。</p>
-<p>p.s. 感觉 Leafy Tree 和这个好像啊 (=’w’​=)</p>
-          <div class="read-more">
-            <a href="/solution/luogu/3285/" class="read-more-link">阅读更多</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-      
       
   <nav class="pagination">
     
@@ -544,13 +562,20 @@
 
 
 <div class="copyright">
-  <span class="power-by">
-    由 <a class="hexo-link" href="https://hexo.io/">Hexo</a> 强力驱动
-  </span>
-  <span class="division">|</span>
+
+
   <span class="theme-info">
-    主题 - 
+    Powered By
+    <a class="hexo-link" href="https://hexo.io/">Hexo</a>
+    &
     <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+  
+  <span class="copyright-year">
+    <span>
+      54.7k Words
+    </span>
+    <!-- <span class="division">|</span> -->
   </span>
 
   <span class="copyright-year">

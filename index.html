@@ -129,6 +129,15 @@
         </li>
       </a>
     
+      <a href="/friends">
+        <li class="mobile-menu-item">
+          
+          
+            友链
+          
+        </li>
+      </a>
+    
       <a href="/about">
         <li class="mobile-menu-item">
           
@@ -178,6 +187,15 @@
         </li>
       
         <li class="menu-item">
+          <a class="menu-item-link" href="/friends">
+            
+            
+              友链
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
           <a class="menu-item-link" href="/about">
             
             
@@ -199,6 +217,63 @@
   
   <section id="posts" class="posts">
     
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/contest/20181208/">20181208 - NOI模拟赛</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-12-09
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/Contest/">Contest</a>
+            
+          </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>最近准备学科营，平时考的模拟赛准备总结记录一下。这些题解会被分类到 Contest 目录下，可能只会讲笔者会的部分或笔者觉得有用的部分，思路可能会讲完整也可能不会，代码可能会放也可能不会，但题面和题意肯定是不会有的。大概就是这样（</p>
+<h1 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h1><h2 id="Forest"><a href="#Forest" class="headerlink" title="Forest"></a>Forest</h2><p>考虑到每个节点出去只有一个父亲，所以要把修改都集中到自己和自己的父亲上去（而不是遍历自己的孩子）。为了方便维护，我们把原来的 $C_i$ 拆成</p>
+<p>$$C_i = E_{a_i} + (B_i - D_i \times E_i + E_i + \sum E_{ P_j } [ j 是 i 的孩子])$$</p>
+<p>通过简单的 trick 把括号内的东西（假设叫 $F_i$ ）放到 $i$ 节点上维护，可以使得 1 、 2 操作的复杂度变为 $O(1)$ ，但 3 操作需要遍历所有节点，复杂度是 $O(n)$ 。考虑优化，把每个节点都开个 multiset （或可删堆），用来存自己的每个孩子的 $F_i$ ，当自己的 $E_i$ 改变时利用自己的 multiset 去更新答案，同时当自己的 $F_i$  改变时更新父亲的 multiset ，并利用父亲的 multiset 更新答案</p>
+<h2 id="Bear"><a href="#Bear" class="headerlink" title="Bear"></a>Bear</h2><p>20 分简单爆枚，40 分简单状压。100 分以对角线进行插头 dp ，还没写过。</p>
+<h2 id="Juice"><a href="#Juice" class="headerlink" title="Juice"></a>Juice</h2><p>考场上用一个乱搞做法 AC 了这题（也依赖与 IOI 赛制）。先枚举答案，对于每个答案进行 check ，方法如下。</p>
+<p>先根据答案计算出分出的每个桶的大小 $S$，把给定的每个 $a_i$ 丢进 multiset 里。每次取出一个最小的 $A$，如果 $A &gt; S$ ，那么就把 $A - S$ 丢回去；如果 $A &lt; S$ ，那么就在 set.lower_bound(A) 到 –set.end() 的范围内随机一个迭代器配对。利用合适的随机种子和合适的调参，成功 Accepted。</p>
+          <div class="read-more">
+            <a href="/contest/20181208/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
       
         
   <article class="post">
@@ -430,57 +505,6 @@
   </article>
 
       
-        
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/plan/plan1/">退役后的做题计划（一）</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-11-12
-        </span>
-        
-          <span class="post-category">
-            
-              <a href="/categories/Plan/">Plan</a>
-            
-          </span>
-        
-        
-      </div>
-    </header>
-
-    
-    
-
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <p>本计划根据 <a href="//oi.men.ci">Menci 博客</a> 题解时间顺序排列。<br>CodeVS 和 COGS 的部分题出于某些原因不打算做（主要是没有账号）。<br>部分未完成且正准备做的题目可能会给出链接（优先级：洛谷 &gt; BZOJ &gt; LOJ &gt; UOJ）。</p>
-          <div class="read-more">
-            <a href="/plan/plan1/" class="read-more-link">阅读更多</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-      
       
   <nav class="pagination">
     
@@ -549,13 +573,20 @@
 
 
 <div class="copyright">
-  <span class="power-by">
-    由 <a class="hexo-link" href="https://hexo.io/">Hexo</a> 强力驱动
-  </span>
-  <span class="division">|</span>
+
+
   <span class="theme-info">
-    主题 - 
+    Powered By
+    <a class="hexo-link" href="https://hexo.io/">Hexo</a>
+    &
     <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+  
+  <span class="copyright-year">
+    <span>
+      54.7k Words
+    </span>
+    <!-- <span class="division">|</span> -->
   </span>
 
   <span class="copyright-year">
