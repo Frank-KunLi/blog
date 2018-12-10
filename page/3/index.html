@@ -223,58 +223,6 @@
     <header class="post-header">
       <h1 class="post-title">
         
-          <a class="post-link" href="/solution/luogu/4949/">洛谷4949 - 最短距离</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-10-26
-        </span>
-        
-          <span class="post-category">
-            
-              <a href="/categories/Solution/">Solution</a>
-            
-          </span>
-        
-        
-      </div>
-    </header>
-
-    
-    
-
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <p>本题大概是一个基环树上带修改边权的最短距离。可以把他看做一棵树，把多的那条边拎出来，树剖维护距离，分类讨论即可。大概是你谷蓝题难度吧。</p>
-<p>由于树剖只需要查询 dfs 序上区间最小值，可以考虑树状数组维护常熟较小。目前不卡常的情况下你谷效率 rk1 。</p>
-          <div class="read-more">
-            <a href="/solution/luogu/4949/" class="read-more-link">阅读更多</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-      
-        
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
           <a class="post-link" href="/solution/luogu/3620/">洛谷3620 - [APIO/CTSC 2007] 数据备份</a>
         
       </h1>
@@ -486,6 +434,63 @@
   </article>
 
       
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/solution/codeforces/1059e/">CF1059E - Split the Tree</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-10-07
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/Solution/">Solution</a>
+            
+          </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <blockquote>
+<p>一个永远只能在考完后调出 Codeforces 的题的菜鸡厚颜无耻得跑来写题解了。。。</p>
+</blockquote>
+<p>本题要求把树分成的链必须是垂直路径，也就是说不能同时跨越一颗子树的两个根。也就是说每次选中的路径都是到根节点的一串。</p>
+<p>所以我们可以通过树上倍增预处理出每个节点 $u$ 如果被选中那么最多可以向上形成长度为 $dp[u]$ 的链。接着跑一遍树上 DP 即可。</p>
+<p>预处理时间复杂度 $O(n \log n)$ ，树上 DP 时间复杂度 $O(n)$ 。</p>
+<p>貌似因为 D 题比较难调试，做这题的人比较少？反正我这种菜鸡就算考场有时间写了估计也调不出来吧。</p>
+          <div class="read-more">
+            <a href="/solution/codeforces/1059e/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+      
       
   <nav class="pagination">
     
@@ -570,7 +575,7 @@
   
   <span class="copyright-year">
     <span>
-      54.5k Words
+      53.6k Words
     </span>
     <!-- <span class="division">|</span> -->
   </span>
