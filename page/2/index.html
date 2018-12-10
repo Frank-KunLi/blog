@@ -223,6 +223,70 @@
     <header class="post-header">
       <h1 class="post-title">
         
+          <a class="post-link" href="/solution/luogu/5046/">洛谷5046 - [YNOI2019] Yuno loves sqrt technology I</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-11-24
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/Solution/">Solution</a>
+            
+          </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>一道卡常题。考虑分块。</p>
+<p>如果查询的 $l$ 和 $r$ 不在同一个块内。 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">查询区间 =&gt;                ┌-----------------------------┐</span><br><span class="line">分好的块 =&gt; [.........][........][........][........][........][........]</span><br></pre></td></tr></table></figure>
+<p>把查询的区间分成三个部分、A（块前零散部分）、B（整块的）、C（块后零散部分）</p>
+<p>先考虑每个部分自身与自身匹配对答案的贡献。我们可以预处理出从每个点出发，到所属块的开始 / 结尾的逆序对个数，分别用 <code>lft[]</code> 和 <code>rit[]</code> 表示，预处理时间复杂度 $O(\sqrt n \times \sqrt n \times \log n)$。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">┌-----1.-----┐               1. 这一部分的逆序对个数表示为 lft[i]</span><br><span class="line">             ┌-----2.----┐   2. 这一部分的逆序对个数表示为 rit[i]</span><br><span class="line">[............i...........]</span><br></pre></td></tr></table></figure>
+<p>接下来我们考虑 A -&gt; B ， C -&gt; B 的贡献，类似于蒲公英这题，处理出 <code>cnt[i][j]</code> 数组表示前 $i$ 个块内小于等于 $j$  的数字个数，查询时枚举 A 和 C 中的每一个数，利用这个前缀和查询对答案的贡献。这个部分也可以不在查询的时候做，而是预处理出结果，做二维前缀和，直接查询。</p>
+<p>接下来考虑 A -&gt; C 的贡献，由于 A 和 C 是不重合的两个部分，可以采用类似归并排序的方法，把两个序列合并的同时计算出逆序对个数。</p>
+<p>如果查询的 $l$ 和 $r$ 在同一个块内。</p>
+<p>首先我们考虑，相邻的两个区间 A 和 B 。A 和 B 总共的逆序对个数，等于 A 内部的逆序对个数 + B 内部的逆序对个数 + A 对 B 贡献的逆序对个数。</p>
+<p>好，那么我们再来考虑 $l$ 和 $r$ 在同一个块内：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">┌------A+B-------┐      这一部分即之前已经处理出的 lft[r]</span><br><span class="line">┌----A----┐             这一部分即之前已经处理出的 lft[l]</span><br><span class="line">          ┌--B---┐</span><br><span class="line">[.........l......r.......]</span><br></pre></td></tr></table></figure>
+<p>现在我们要求 B 的逆序对个数，只需要把 A + B 的逆序对个数减掉 A 内部的逆序对个数，再减掉 A 对 B 的逆序对个数即可。</p>
+<p>剩下你只需要时间来卡常。</p>
+          <div class="read-more">
+            <a href="/solution/luogu/5046/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
           <a class="post-link" href="/plan/plan1/">退役后的做题计划（一）</a>
         
       </h1>
@@ -471,58 +535,6 @@
   </article>
 
       
-        
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/solution/luogu/4949/">洛谷4949 - 最短距离</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-10-26
-        </span>
-        
-          <span class="post-category">
-            
-              <a href="/categories/Solution/">Solution</a>
-            
-          </span>
-        
-        
-      </div>
-    </header>
-
-    
-    
-
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <p>本题大概是一个基环树上带修改边权的最短距离。可以把他看做一棵树，把多的那条边拎出来，树剖维护距离，分类讨论即可。大概是你谷蓝题难度吧。</p>
-<p>由于树剖只需要查询 dfs 序上区间最小值，可以考虑树状数组维护常熟较小。目前不卡常的情况下你谷效率 rk1 。</p>
-          <div class="read-more">
-            <a href="/solution/luogu/4949/" class="read-more-link">阅读更多</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-      
       
   <nav class="pagination">
     
@@ -607,7 +619,7 @@
   
   <span class="copyright-year">
     <span>
-      53.6k Words
+      54.7k Words
     </span>
     <!-- <span class="division">|</span> -->
   </span>
