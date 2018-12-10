@@ -223,6 +223,59 @@
     <header class="post-header">
       <h1 class="post-title">
         
+          <a class="post-link" href="/solution/luogu/1979/">洛谷1979 - 华容道</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-09-16
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/Solution/">Solution</a>
+            
+          </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>一道经典的搜索题。由于棋子没必要也不可能和非空格的棋子交换，目标棋子也只可能通过与空格交换位置达到目标位置，因此我们只需要存储空格和目标棋子的位置即可。这样爆搜即可拿到 $80$ 分。</p>
+<p>接着考虑能否继续优化：每次目标棋子改变位置空格必须在他旁边，因此存储除了初始状态和终止状态外的空格不在目标棋子旁边的状态没有意义。因此我们可以用 BFS 处理出状态之间转移的代价，然后用 SPFA 等最短路算法跑一遍即可。本题由于状态个数和状态之间的边不多，正常常数的 SPFA 不会被卡掉。</p>
+<p>需要注意的是：在使用 BFS 搜索空格转移代价时不能经过目标棋子。<br>算法时间复杂度：$O(n^4)$</p>
+          <div class="read-more">
+            <a href="/solution/luogu/1979/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
           <a class="post-link" href="/solution/luogu/2783/">洛谷2783 - 有机化学之神偶尔会做作弊</a>
         
       </h1>
@@ -441,57 +494,6 @@
   </article>
 
       
-        
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/solution/luogu/4826/">洛谷4826 - [USACO15FEB]Superbull 超级牛</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-09-10
-        </span>
-        
-          <span class="post-category">
-            
-              <a href="/categories/Solution/">Solution</a>
-            
-          </span>
-        
-        
-      </div>
-    </header>
-
-    
-    
-
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <p>把淘汰赛问题转换为一棵生成树，每一条边相当于一个二选一淘汰的过程。</p>
-          <div class="read-more">
-            <a href="/solution/luogu/4826/" class="read-more-link">阅读更多</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-      
       
   <nav class="pagination">
     
@@ -576,7 +578,7 @@
   
   <span class="copyright-year">
     <span>
-      54.7k Words
+      54.5k Words
     </span>
     <!-- <span class="division">|</span> -->
   </span>
@@ -666,7 +668,7 @@ MathJax.Hub.Queue(function() {
 $(document).on({
     'pjax:end': function () {
         MathJax.Hub.Typeset();
-        valine = new Valine(valine_option);
+        // valine = new Valine(valine_option);
     }
 });
 </script>
