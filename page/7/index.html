@@ -45,6 +45,8 @@
 
 
 
+  <link rel="stylesheet" type="text/css" href="/lib/nprogress/nprogress.min.css" />
+
 
 
 <link rel="stylesheet" type="text/css" href="/css/style.css?v=2.10.1" />
@@ -79,7 +81,7 @@
 
 
 <script>
-  window.config = {"leancloud":{"app_id":null,"app_key":null},"toc":true,"fancybox":false,"pjax":false};
+  window.config = {"leancloud":{"app_id":null,"app_key":null},"toc":true,"fancybox":false,"pjax":true};
 </script>
 
 
@@ -215,6 +217,58 @@
   
   <section id="posts" class="posts">
     
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/solution/luogu/2051/">洛谷2051 - [AHOI2009]中国象棋</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-09-20
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/Solution/">Solution</a>
+            
+          </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>逐行 DP ，一行一行扫下去，显然之前选择的是那几列不重要，重要的是有多少列已经放了一个棋子，多少列已经放了两个棋子。</p>
+<p>用 $f[k][i][j]$ 表示到第 $k$ 行为止，有 $i$ 行放了一个棋子， $j$ 行放了两个棋子的方案数，没放棋子的行数可以由此推出。</p>
+          <div class="read-more">
+            <a href="/solution/luogu/2051/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
       
         
   <article class="post">
@@ -431,67 +485,6 @@
   </article>
 
       
-        
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/solution/bzoj/4945/">BZOJ4945 - [NOI2017] 游戏</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-09-18
-        </span>
-        
-          <span class="post-category">
-            
-              <a href="/categories/Solution/">Solution</a>
-            
-          </span>
-        
-        
-      </div>
-    </header>
-
-    
-    
-
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <blockquote>
-<p>洛谷 SPJ 坏了，一个月了没修好。怎么回事啊？</p>
-<p>UPD: QQ 群里 @ 了一下 chen_zhe 竟然很快修好了</p>
-</blockquote>
-<p>回到正题：本题是 2-SAT 裸题，做之前可以参考一下洛谷的模板题，下面假装你已经看过并 AC 了那道题。</p>
-<p>对于 $a$ 、 $b$ 、 $c$ 三种地图，都是不允许一辆车，而允许另外两辆。对于 $x$ 地图，显然不能交给 2-SAT 算法解决，暴力枚举他是 $a$ 地图还是 $b$ 地图（如果 $a$ 和 $b$ 都不行那么 $c$ 也不行）。</p>
-<p>关于连边，用 $u$ 表示第 $i$ 场游戏使用赛车 $h_i$ 所对应的点，$v$ 表示 第 $j$ 场游戏赛车 $h_j$ 所对应的点，$u’$ 和 $v’$ 则表示对应地图可以使用的另一辆赛车所对应的点。</p>
-<p>如果 $h_i$ 不符合第 $i$ 张地图的限制条件，那么这种约束肯定不会遇到，跳过即可。</p>
-<p>如果 $h_j$ 不符合第 $j$ 张地图的限制条件，那么说明 $i$ 的这种情况肯定不能取到，就从 $u$ 向 $u’$ 连一条边。</p>
-<p>否则说明如果取了 $h_i$ 就一定要取 $h_j$ ，连接边 $u$ 到 $v$ 和 $u’$ 到 $v’$ 即可。</p>
-<p>另外，由于 2-SAT 要跑很多遍，所以请注意清空数组（我不会告诉你我没有清空 dfn 拿到了 $90$ 分的好成绩）。</p>
-          <div class="read-more">
-            <a href="/solution/bzoj/4945/" class="read-more-link">阅读更多</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-      
       
   <nav class="pagination">
     
@@ -609,6 +602,9 @@
     
 
 
+  
+  
+
 
 
 
@@ -624,7 +620,11 @@
   
 
   
+    <script type="text/javascript" src="/lib/pjax/jquery.pjax.min.js"></script>
+  
 
+  
+    <script type="text/javascript" src="/lib/nprogress/nprogress.min.js"></script>
   
 
 

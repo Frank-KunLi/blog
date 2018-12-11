@@ -45,6 +45,8 @@
 
 
 
+  <link rel="stylesheet" type="text/css" href="/lib/nprogress/nprogress.min.css" />
+
 
 
 <link rel="stylesheet" type="text/css" href="/css/style.css?v=2.10.1" />
@@ -79,7 +81,7 @@
 
 
 <script>
-  window.config = {"leancloud":{"app_id":null,"app_key":null},"toc":true,"fancybox":false,"pjax":false};
+  window.config = {"leancloud":{"app_id":null,"app_key":null},"toc":true,"fancybox":false,"pjax":true};
 </script>
 
 
@@ -215,6 +217,56 @@
   
   <section id="posts" class="posts">
     
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/contest/20181210/">20181210 - NOI模拟赛</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-12-11
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/Contest/">Contest</a>
+            
+          </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+
+        
+          <p>T3 难度并不大，但是由于时间分配问题 + 出题人数据有锅必须输出行末空格否则 WA 导致本来会做的 T3 没有 AC 。</p>
+<h2 id="迷路"><a href="#迷路" class="headerlink" title="迷路"></a>迷路</h2><p>对于每一个点，建出最短路树，对于每一条非树边，如果他的两个节点在根节点的不同子树内，那么可以对答案产生贡献。</p>
+<h2 id="宝藏"><a href="#宝藏" class="headerlink" title="宝藏"></a>宝藏</h2><p>类欧优化的数学题，不会。</p>
+<h2 id="蛋糕"><a href="#蛋糕" class="headerlink" title="蛋糕"></a>蛋糕</h2><p>THUPC 原题的强化版，由 $4$ 维变成 $n$ 维。每一维变成一个多项式分治 NTT 即可。</p>
+
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
       
         
   <article class="post">
@@ -431,63 +483,6 @@
   </article>
 
       
-        
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/algorithm/多项式/">多项式系列板子</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-12-02
-        </span>
-        
-          <span class="post-category">
-            
-              <a href="/categories/Algorithm/">Algorithm</a>
-            
-          </span>
-        
-        
-      </div>
-    </header>
-
-    
-    
-
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <ul>
-<li>快速傅里叶变换 FFT</li>
-<li>数论傅里叶变换 NTT</li>
-<li>任意模数 NTT</li>
-<li>多项式求逆</li>
-<li>未完待续……</li>
-</ul>
-          <div class="read-more">
-            <a href="/algorithm/多项式/" class="read-more-link">阅读更多</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-      
       
   <nav class="pagination">
     
@@ -600,6 +595,9 @@
     
 
 
+  
+  
+
 
 
 
@@ -615,7 +613,11 @@
   
 
   
+    <script type="text/javascript" src="/lib/pjax/jquery.pjax.min.js"></script>
+  
 
+  
+    <script type="text/javascript" src="/lib/nprogress/nprogress.min.js"></script>
   
 
 
