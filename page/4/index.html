@@ -223,6 +223,59 @@
     <header class="post-header">
       <h1 class="post-title">
         
+          <a class="post-link" href="/geek/git-add-ssh/">Git 生成 SSH 公钥</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-10-10
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/Geek/">Geek</a>
+            
+          </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <blockquote>
+<p>由于最近经常折腾虚拟机和新电脑， git 也经常要重新安装 / 配置，因此记录一下 git 添加 SSH 公钥的方式。</p>
+</blockquote>
+          <div class="read-more">
+            <a href="/geek/git-add-ssh/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
           <a class="post-link" href="/solution/codeforces/1059d/">CF1059D - Nature Reserve</a>
         
       </h1>
@@ -448,64 +501,6 @@
   </article>
 
       
-        
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/solution/bzoj/2956/">BZOJ2956 - 模积和</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-09-27
-        </span>
-        
-          <span class="post-category">
-            
-              <a href="/categories/Solution/">Solution</a>
-            
-          </span>
-        
-        
-      </div>
-    </header>
-
-    
-    
-
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <p>$$\sum_{i=1}^{n} \sum_{j=1}^{m} (n \% i) \times (m \% j) \ \ \ (i \not= j)$$</p>
-<p>$$= (\sum_{i=1}^{n} n \% i) \times (\sum_{j=1}^{m} m \% j) - \sum_{i=1}^{\min(n, m)} (n \% i) \times (m \% j)$$</p>
-<p>可以转化成 $A \times B - C$ 的形式，分别来求。</p>
-<p>其中求 $A$ 和 $B$ 的方式是一样的，可以数论分块，也可以直接打表找规律。鉴于这部分不难，笔者写了后者，而描述起来而笔者又非常懒因此忽略求 $A$ 、 $B$ 直接讲求 $C$ 。当然你也可以通过推 $C$ 的方式自己推一下 $A$ 、 $B$ 。</p>
-<p>$$C = \sum_{i=1}^{\min(n, m)} (n \% i) \times (m \% i)$$</p>
-<p>$$= \sum_{i=1} ^ {\min(n, m)} (n - i \times \lfloor \frac {n} {i} \rfloor) \times (m - i \times \lfloor \frac {m} {i} \rfloor )$$</p>
-<p>$$= \sum_{i=1} ^ {\min(n, m)} n \times m - m \times  i \times \lfloor \frac {n} {i} \rfloor - n \times i \times \lfloor \frac {m} {i} \rfloor + i ^ 2 \times \lfloor \frac {m} {i} \rfloor \lfloor \frac {m} {i} \rfloor $$</p>
-<p>数论分块即可。</p>
-          <div class="read-more">
-            <a href="/solution/bzoj/2956/" class="read-more-link">阅读更多</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-      
       
   <nav class="pagination">
     
@@ -590,7 +585,7 @@
   
   <span class="copyright-year">
     <span>
-      54.7k Words
+      55.1k Words
     </span>
     <!-- <span class="division">|</span> -->
   </span>

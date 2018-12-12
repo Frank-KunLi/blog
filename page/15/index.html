@@ -223,6 +223,63 @@
     <header class="post-header">
       <h1 class="post-title">
         
+          <a class="post-link" href="/solution/luogu/2921/">洛谷2921 - 在农场万圣节</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-06-29
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/Solution/">Solution</a>
+            
+          </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <h1 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h1><p>可以看做一张有n个节点的图，每个节点有且仅有一条向外连接的边（可以连自己）。那么图中只可能是环与链的组合。而且链的终点是环，进入环后就不会从环中出去，故一个链只可能接一个环，一个环只可能被一或多的链接。</p>
+<p>故我们可以把整个分隔为一个个的环，并把接到他们的链找出来。</p>
+<ul>
+<li>环内节点的答案 = 环的长度；</li>
+<li>环外节点的答案 = 环的长度 + 当前节点到环的距离。</li>
+</ul>
+<p>几趟 $O(n)$ 的搜索就可以搞定问题！</p>
+          <div class="read-more">
+            <a href="/solution/luogu/2921/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
           <a class="post-link" href="/algorithm/gcd-from/">C++ 中的 __gcd() 函数探源</a>
         
       </h1>
@@ -512,7 +569,7 @@
   
   <span class="copyright-year">
     <span>
-      54.7k Words
+      55.1k Words
     </span>
     <!-- <span class="division">|</span> -->
   </span>

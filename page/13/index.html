@@ -223,6 +223,58 @@
     <header class="post-header">
       <h1 class="post-title">
         
+          <a class="post-link" href="/algorithm/gauss/">高斯消元（洛谷3389）</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-08-11
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/Algorithm/">Algorithm</a>
+            
+          </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>最近的模拟赛出现了一道坑爹的数学题，正解是上一篇博文所讲的数学插值。然而高斯消元还是可以拿到 65 分的成绩，没办法，凭借着我对其原理的依稀记忆我只能考场上手推高斯消元。</p>
+<h1 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h1><p>高斯消元其实是个很简单的东西，无非就小学奥数的难度罢了。按照小学奥数的加减消元和代入消元即可完成。模板题给了你 n 个的 n 元一次多项式求解。我们可以通过加减消元合并为 n - 1 个 n - 1 元的一次多项式（合并相邻两个）；于是，经过 n - 1 次合并我们就可以得到一个一元一次方程，可以很方便的得到解。我们再将解回代，即可解出方程。</p>
+          <div class="read-more">
+            <a href="/algorithm/gauss/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
           <a class="post-link" href="/diary/关于最近的集训/">关于最近的集训的一些事情</a>
         
       </h1>
@@ -432,63 +484,6 @@
   </article>
 
       
-        
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/algorithm/Splay翻转/">Splay 实现区间翻转（文艺平衡树）</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-08-09
-        </span>
-        
-          <span class="post-category">
-            
-              <a href="/categories/Algorithm/">Algorithm</a>
-            
-          </span>
-        
-        
-      </div>
-    </header>
-
-    
-    
-
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <h1 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h1><p>之前我们讲到了用 Splay 写普通平衡树，这次我们将用 Splay 来完成区间操作。</p>
-<p>之前的 Splay 是按照权值排序，而这里的 Splay 则是要按照编号排序。</p>
-<p>不难想到，整棵树的编号第 k 大点即数列中的第 k 个，整棵树的中序遍历即被维护的数列。</p>
-<hr>
-<p>假设我们要翻转区间<code>[l, r]</code>，那么我们先把<code>l - 1</code>旋转到根节点，再把<code>r + 1</code>旋转到根节点的右孩子。那么<code>r + 1</code>的左子树即区间<code>[l, r]</code>。翻转该区间只需要把该区间内的每个节点的左右子树交换即可。</p>
-<p>参考线段树的 lazytag，我们也使用一个类似于懒标记的方法，保证复杂度为<code>O(log n)</code>。</p>
-<p><img src="https://i.loli.net/2018/08/08/5b6b07758f2d3.png" alt="1.png"></p>
-          <div class="read-more">
-            <a href="/algorithm/Splay翻转/" class="read-more-link">阅读更多</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-      
       
   <nav class="pagination">
     
@@ -573,7 +568,7 @@
   
   <span class="copyright-year">
     <span>
-      54.7k Words
+      55.1k Words
     </span>
     <!-- <span class="division">|</span> -->
   </span>

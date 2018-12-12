@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://memset0.cn/"/>
-  <updated>2018-12-11T09:45:48.009Z</updated>
+  <updated>2018-12-12T02:27:37.186Z</updated>
   <id>https://memset0.cn/</id>
   
   <author>
@@ -15,6 +15,45 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>20181211 - NOI模拟赛</title>
+    <link href="https://memset0.cn/contest/20181211/"/>
+    <id>https://memset0.cn/contest/20181211/</id>
+    <published>2018-12-12T02:10:56.000Z</published>
+    <updated>2018-12-12T02:27:37.186Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>T1、T3 的思路基本都成型但是由于自己傻逼最后一个都没调出来。</p><h2 id="LCM"><a href="#LCM" class="headerlink" title="LCM"></a>LCM</h2><p>考虑一个数最多被分解为一个大于 $\sqrt {\max a_i}$ 的质数和一些小于 $\sqrt {\max a_i} $ 的质数的乘积。考虑小于的部分，最多有 4320 种状态，我们可以用一种简单背包的方法统计出每一种值的个数。对于大于的部分，相当于我们给上一步统计的个数的时候给个数加上一个权值。通过一些简单的处理避免超过 $\sqrt { \max a_i }$ 的质数被重复计算。理论复杂度 $O(n \times 4320 \times (\log n + \log 4320))$ 。</p><h2 id="Xor"><a href="#Xor" class="headerlink" title="Xor"></a>Xor</h2><p>不知道为什么出题人要把题意搞的这么迷。我们直接把边权异或到两个端点上，计算割的价值就是一边的点的权值的异或和。考虑贪心，把点按照权值从大到小排序，利用线性基维护会不会产生 $0$ ，不会就加上价值，否则减掉即可。</p><h2 id="Lis"><a href="#Lis" class="headerlink" title="Lis"></a>Lis</h2><p>考虑把从左到右的最长上升子序列转变为从右到左的最长下降子序列，这样每次操作最多影响十棵树。树套树（树状数组套权值线段树）维护一个后缀高度大于指定值的 dp 值的最大值，每次暴力重算那十棵树即可。复杂度 $O(n \log^2 n \times 10)$ 。需要注意的是需要动态开的节点个数可能会很多，一定要开够。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; cla
+      
+    
+    </summary>
+    
+      <category term="Contest" scheme="https://memset0.cn/categories/Contest/"/>
+    
+    
+      <category term="数学，数论" scheme="https://memset0.cn/tags/%E6%95%B0%E5%AD%A6%EF%BC%8C%E6%95%B0%E8%AE%BA/"/>
+    
+      <category term="主席树" scheme="https://memset0.cn/tags/%E4%B8%BB%E5%B8%AD%E6%A0%91/"/>
+    
+      <category term="树状数组" scheme="https://memset0.cn/tags/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/"/>
+    
+      <category term="巧妙的思路" scheme="https://memset0.cn/tags/%E5%B7%A7%E5%A6%99%E7%9A%84%E6%80%9D%E8%B7%AF/"/>
+    
+      <category term="背包" scheme="https://memset0.cn/tags/%E8%83%8C%E5%8C%85/"/>
+    
+      <category term="割" scheme="https://memset0.cn/tags/%E5%89%B2/"/>
+    
+      <category term="异或" scheme="https://memset0.cn/tags/%E5%BC%82%E6%88%96/"/>
+    
+      <category term="树套树" scheme="https://memset0.cn/tags/%E6%A0%91%E5%A5%97%E6%A0%91/"/>
+    
+  </entry>
   
   <entry>
     <title>20181210 - NOI模拟赛</title>
@@ -37,11 +76,11 @@
       <category term="Contest" scheme="https://memset0.cn/categories/Contest/"/>
     
     
-      <category term="NTT" scheme="https://memset0.cn/tags/NTT/"/>
-    
       <category term="Dijkstra" scheme="https://memset0.cn/tags/Dijkstra/"/>
     
       <category term="最短路树" scheme="https://memset0.cn/tags/%E6%9C%80%E7%9F%AD%E8%B7%AF%E6%A0%91/"/>
+    
+      <category term="NTT" scheme="https://memset0.cn/tags/NTT/"/>
     
       <category term="多项式" scheme="https://memset0.cn/tags/%E5%A4%9A%E9%A1%B9%E5%BC%8F/"/>
     
@@ -96,13 +135,13 @@
       <category term="Contest" scheme="https://memset0.cn/categories/Contest/"/>
     
     
+      <category term="巧妙的思路" scheme="https://memset0.cn/tags/%E5%B7%A7%E5%A6%99%E7%9A%84%E6%80%9D%E8%B7%AF/"/>
+    
       <category term="STL" scheme="https://memset0.cn/tags/STL/"/>
     
       <category term="贪心" scheme="https://memset0.cn/tags/%E8%B4%AA%E5%BF%83/"/>
     
       <category term="乱搞" scheme="https://memset0.cn/tags/%E4%B9%B1%E6%90%9E/"/>
-    
-      <category term="巧妙的思路" scheme="https://memset0.cn/tags/%E5%B7%A7%E5%A6%99%E7%9A%84%E6%80%9D%E8%B7%AF/"/>
     
   </entry>
   
@@ -183,9 +222,9 @@
       <category term="Algorithm" scheme="https://memset0.cn/categories/Algorithm/"/>
     
     
-      <category term="FFT" scheme="https://memset0.cn/tags/FFT/"/>
-    
       <category term="NTT" scheme="https://memset0.cn/tags/NTT/"/>
+    
+      <category term="FFT" scheme="https://memset0.cn/tags/FFT/"/>
     
       <category term="CRT" scheme="https://memset0.cn/tags/CRT/"/>
     
@@ -551,35 +590,6 @@
       <category term="结论题" scheme="https://memset0.cn/tags/%E7%BB%93%E8%AE%BA%E9%A2%98/"/>
     
       <category term="高精度" scheme="https://memset0.cn/tags/%E9%AB%98%E7%B2%BE%E5%BA%A6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>BZOJ2956 - 模积和</title>
-    <link href="https://memset0.cn/solution/bzoj/2956/"/>
-    <id>https://memset0.cn/solution/bzoj/2956/</id>
-    <published>2018-09-27T03:18:00.000Z</published>
-    <updated>2018-12-09T02:04:54.798Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>$$\sum_{i=1}^{n} \sum_{j=1}^{m} (n \% i) \times (m \% j) \ \ \ (i \not= j)$$</p><p>$$= (\sum_{i=1}^{n} n \% i) \times (\sum_{j=1}^{m} m \% j) - \sum_{i=1}^{\min(n, m)} (n \% i) \times (m \% j)$$</p><p>可以转化成 $A \times B - C$ 的形式，分别来求。</p><p>其中求 $A$ 和 $B$ 的方式是一样的，可以数论分块，也可以直接打表找规律。鉴于这部分不难，笔者写了后者，而描述起来而笔者又非常懒因此忽略求 $A$ 、 $B$ 直接讲求 $C$ 。当然你也可以通过推 $C$ 的方式自己推一下 $A$ 、 $B$ 。</p><p>$$C = \sum_{i=1}^{\min(n, m)} (n \% i) \times (m \% i)$$</p><p>$$= \sum_{i=1} ^ {\min(n, m)} (n - i \times \lfloor \frac {n} {i} \rfloor) \times (m - i \times \lfloor \frac {m} {i} \rfloor )$$</p><p>$$= \sum_{i=1} ^ {\min(n, m)} n \times m - m \times  i \times \lfloor \frac {n} {i} \rfloor - n \times i \times \lfloor \frac {m} {i} \rfloor + i ^ 2 \times \lfloor \frac {m} {i} \rfloor \lfloor \frac {m} {i} \rfloor $$</p><p>数论分块即可。</p><a id="more"></a><p>鉴于笔者写代码时思路非常混乱，下面仅供对拍：</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ==============================</span></span><br><span class="line"><span class="comment">//  author: memset0</span></span><br><span class="line"><span class="comment">//  website: https://memset0.cn</span></span><br><span class="line"><span class="comment">// ==============================</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rep(i,l,r) for (int i = l; i &lt;= r; i++)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> getc(x) getchar(x)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> putc(x) putchar(x)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt; <span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">read</span><span class="params">(T &amp;x)</span> </span>&#123;</span><br><span class="line">x = <span class="number">0</span>; <span class="keyword">register</span> <span class="keyword">char</span> ch; <span class="keyword">register</span> <span class="keyword">bool</span> fl = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">while</span> (ch = getc(), ch &lt; <span class="number">48</span> || <span class="number">57</span> &lt; ch) fl ^= ch == <span class="string">'-'</span>; x = (ch &amp; <span class="number">15</span>);</span><br><span class="line"><span class="keyword">while</span> (ch = getc(), <span class="number">47</span> &lt; ch &amp;&amp; ch &lt; <span class="number">58</span>) x = (x &lt;&lt; <span class="number">1</span>) + (x &lt;&lt; <span class="number">3</span>) + (ch &amp; <span class="number">15</span>);</span><br><span class="line"><span class="keyword">if</span> (fl) x = -x;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt; <span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">print</span><span class="params">(T x, <span class="keyword">char</span> c = <span class="string">'\n'</span>)</span> </span>&#123;</span><br><span class="line"><span class="keyword">static</span> <span class="keyword">int</span> buf[<span class="number">40</span>];</span><br><span class="line"><span class="keyword">if</span> (x == <span class="number">0</span>) &#123; putc(<span class="string">'0'</span>); putc(c); <span class="keyword">return</span>; &#125;</span><br><span class="line"><span class="keyword">if</span> (x &lt; <span class="number">0</span>) putc(<span class="string">'-'</span>), x = -x;</span><br><span class="line"><span class="keyword">for</span> (buf[<span class="number">0</span>] = <span class="number">0</span>; x; x /= <span class="number">10</span>) buf[++buf[<span class="number">0</span>]] = x % <span class="number">10</span> + <span class="number">48</span>;</span><br><span class="line"><span class="keyword">while</span> (buf[<span class="number">0</span>]) putc((<span class="keyword">char</span>) buf[buf[<span class="number">0</span>]--]);</span><br><span class="line">putc(c);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> ll p = <span class="number">19940417</span>;</span><br><span class="line"></span><br><span class="line">ll n, m;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">update</span><span class="params">(ll &amp;x)</span> </span>&#123;</span><br><span class="line">x = (x % p + p) % p;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">ll <span class="title">sum</span><span class="params">(ll n)</span> </span>&#123;</span><br><span class="line">ll a = n, b = n - <span class="number">1</span>;</span><br><span class="line"><span class="keyword">if</span> (a % <span class="number">2</span> == <span class="number">0</span>) a /= <span class="number">2</span>;</span><br><span class="line"><span class="keyword">else</span> b /= <span class="number">2</span>;</span><br><span class="line">a %= p, b %= p;</span><br><span class="line"><span class="keyword">return</span> a * b % p;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">ll <span class="title">sum</span><span class="params">(ll l, ll r)</span> </span>&#123;</span><br><span class="line">ll a = l + r, b = r - l + <span class="number">1</span>;</span><br><span class="line"><span class="keyword">if</span> (a % <span class="number">2</span> == <span class="number">0</span>) a /= <span class="number">2</span>;</span><br><span class="line"><span class="keyword">else</span> b /= <span class="number">2</span>;</span><br><span class="line">a %= p, b %= p;</span><br><span class="line"><span class="keyword">return</span> a * b % p;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">ll <span class="title">sum2</span><span class="params">(ll n)</span> </span>&#123;</span><br><span class="line">ll a = n, b = n + <span class="number">1</span>, c = (n &lt;&lt; <span class="number">1</span>) + <span class="number">1</span>;</span><br><span class="line"><span class="keyword">if</span> (a % <span class="number">2</span> == <span class="number">0</span>) a /= <span class="number">2</span>;</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span> (b % <span class="number">2</span> == <span class="number">0</span>) b /= <span class="number">2</span>;</span><br><span class="line"><span class="keyword">else</span> c /= <span class="number">2</span>;</span><br><span class="line"><span class="keyword">if</span> (a % <span class="number">3</span> == <span class="number">0</span>) a /= <span class="number">3</span>;</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span> (b % <span class="number">3</span> == <span class="number">0</span>) b /= <span class="number">3</span>;</span><br><span class="line"><span class="keyword">else</span> c /= <span class="number">3</span>;</span><br><span class="line">a %= p, b %= p, c %= p;</span><br><span class="line"><span class="keyword">return</span> a * b % p * c % p;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">ll <span class="title">solve</span><span class="params">(ll n)</span> </span>&#123;</span><br><span class="line">ll m, ans = <span class="number">0</span>, sqn = <span class="built_in">sqrt</span>(n), x, i, t;</span><br><span class="line"><span class="keyword">for</span> (i = <span class="number">2</span>, x = n; x &gt; sqn; i++) &#123;</span><br><span class="line">t = m = (n - (n / i)) - (n - x);</span><br><span class="line">m %= p;</span><br><span class="line">ans += (n % x) % p * (m % p) % p, update(ans);</span><br><span class="line">ans += sum(m) % p * ((i - <span class="number">1</span>) % p) % p, update(ans);</span><br><span class="line">x -= t;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span> (i = <span class="number">1</span>; i &lt;= x; i++)</span><br><span class="line">ans += (n % i) % p, update(ans);</span><br><span class="line"><span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">ll <span class="title">solve2</span><span class="params">(ll n, ll m)</span> </span>&#123;</span><br><span class="line"><span class="keyword">if</span> (n &gt; m) <span class="built_in">std</span>::swap(n, m);</span><br><span class="line">ll ans = n * n % p * m % p;</span><br><span class="line"><span class="keyword">for</span> (ll l = <span class="number">1</span>, r; l &lt;= n; l = r + <span class="number">1</span>) &#123;</span><br><span class="line">r = <span class="built_in">std</span>::min(n / (n / l), m / (m / l));</span><br><span class="line">ans -= n % p * (m / l % p) % p * sum(l, r) % p, update(ans);</span><br><span class="line">ans -= m % p * (n / l % p) % p * sum(l, r) % p, update(ans);</span><br><span class="line">ans += (n / l % p) * (m / l % p) % p * ((sum2(r) - sum2(l - <span class="number">1</span>) + p) % p) % p, update(ans);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">read(n), read(m);</span><br><span class="line">print((solve(n) * solve(m) % p - solve2(n, m) + p) % p);</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;$$\sum_{i=1}^{n} \sum_{j=1}^{m} (n \% i) \times (m \% j) \ \ \ (i \not= j)$$&lt;/p&gt;
-&lt;p&gt;$$= (\sum_{i=1}^{n} n \% i) \times (\sum_{j=1}^{m} m \% j) - \sum_{i=1}^{\min(n, m)} (n \% i) \times (m \% j)$$&lt;/p&gt;
-&lt;p&gt;可以转化成 $A \times B - C$ 的形式，分别来求。&lt;/p&gt;
-&lt;p&gt;其中求 $A$ 和 $B$ 的方式是一样的，可以数论分块，也可以直接打表找规律。鉴于这部分不难，笔者写了后者，而描述起来而笔者又非常懒因此忽略求 $A$ 、 $B$ 直接讲求 $C$ 。当然你也可以通过推 $C$ 的方式自己推一下 $A$ 、 $B$ 。&lt;/p&gt;
-&lt;p&gt;$$C = \sum_{i=1}^{\min(n, m)} (n \% i) \times (m \% i)$$&lt;/p&gt;
-&lt;p&gt;$$= \sum_{i=1} ^ {\min(n, m)} (n - i \times \lfloor \frac {n} {i} \rfloor) \times (m - i \times \lfloor \frac {m} {i} \rfloor )$$&lt;/p&gt;
-&lt;p&gt;$$= \sum_{i=1} ^ {\min(n, m)} n \times m - m \times  i \times \lfloor \frac {n} {i} \rfloor - n \times i \times \lfloor \frac {m} {i} \rfloor + i ^ 2 \times \lfloor \frac {m} {i} \rfloor \lfloor \frac {m} {i} \rfloor $$&lt;/p&gt;
-&lt;p&gt;数论分块即可。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Solution" scheme="https://memset0.cn/categories/Solution/"/>
-    
-    
-      <category term="数论分块" scheme="https://memset0.cn/tags/%E6%95%B0%E8%AE%BA%E5%88%86%E5%9D%97/"/>
     
   </entry>
   

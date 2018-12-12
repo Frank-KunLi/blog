@@ -223,6 +223,64 @@
     <header class="post-header">
       <h1 class="post-title">
         
+          <a class="post-link" href="/solution/bzoj/2956/">BZOJ2956 - 模积和</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-09-27
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/Solution/">Solution</a>
+            
+          </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>$$\sum_{i=1}^{n} \sum_{j=1}^{m} (n \% i) \times (m \% j) \ \ \ (i \not= j)$$</p>
+<p>$$= (\sum_{i=1}^{n} n \% i) \times (\sum_{j=1}^{m} m \% j) - \sum_{i=1}^{\min(n, m)} (n \% i) \times (m \% j)$$</p>
+<p>可以转化成 $A \times B - C$ 的形式，分别来求。</p>
+<p>其中求 $A$ 和 $B$ 的方式是一样的，可以数论分块，也可以直接打表找规律。鉴于这部分不难，笔者写了后者，而描述起来而笔者又非常懒因此忽略求 $A$ 、 $B$ 直接讲求 $C$ 。当然你也可以通过推 $C$ 的方式自己推一下 $A$ 、 $B$ 。</p>
+<p>$$C = \sum_{i=1}^{\min(n, m)} (n \% i) \times (m \% i)$$</p>
+<p>$$= \sum_{i=1} ^ {\min(n, m)} (n - i \times \lfloor \frac {n} {i} \rfloor) \times (m - i \times \lfloor \frac {m} {i} \rfloor )$$</p>
+<p>$$= \sum_{i=1} ^ {\min(n, m)} n \times m - m \times  i \times \lfloor \frac {n} {i} \rfloor - n \times i \times \lfloor \frac {m} {i} \rfloor + i ^ 2 \times \lfloor \frac {m} {i} \rfloor \lfloor \frac {m} {i} \rfloor $$</p>
+<p>数论分块即可。</p>
+          <div class="read-more">
+            <a href="/solution/bzoj/2956/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
           <a class="post-link" href="/solution/bzoj/2588/">BZOJ2588 - Count on a tree</a>
         
       </h1>
@@ -432,71 +490,6 @@
   </article>
 
       
-        
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/solution/bzoj/1001/">BZOJ1001 - [BJOI2006]狼抓兔子</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-09-24
-        </span>
-        
-          <span class="post-category">
-            
-              <a href="/categories/Solution/">Solution</a>
-            
-          </span>
-        
-        
-      </div>
-    </header>
-
-    
-    
-
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <p>最大流最小割模板题。</p>
-<blockquote>
-<p>想当年第一次打开 BZOJ 做完 A + B 之后看得一脸懵逼的就是这道题，没想到现如今看起来这么简单</p>
-<p>不过还是没有秒切，双向边没看到调了好久 QAQ</p>
-</blockquote>
-<p>好了，关于那个连边。这是本人单向边网络流连边：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">add_edge</span><span class="params">(<span class="keyword">int</span> u, <span class="keyword">int</span> v, <span class="keyword">int</span> w)</span> </span>&#123;</span><br><span class="line">	nxt[tot] = hed[u], to[tot] = v, val[tot] = w, hed[u] = tot++;</span><br><span class="line">	nxt[tot] = hed[v], to[tot] = u, val[tot] = <span class="number">0</span>, hed[v] = tot++;</span><br><span class="line">	<span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这是本人的双向网络流连边（连两遍也是一样的）：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">add_edge</span><span class="params">(<span class="keyword">int</span> u, <span class="keyword">int</span> v, <span class="keyword">int</span> w)</span> </span>&#123;</span><br><span class="line">	nxt[tot] = hed[u], to[tot] = v, val[tot] = w, hed[u] = tot++;</span><br><span class="line">	nxt[tot] = hed[v], to[tot] = u, val[tot] = w, hed[v] = tot++;</span><br><span class="line">	<span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>另外 $最大流 = 最小割$ 不必多说了吧，贴个直观的证明（来自：<a href="https://jecvay.com/2014/11/what-is-min-cut.html" target="_blank" rel="noopener">https://jecvay.com/2014/11/what-is-min-cut.html</a>）：</p>
-<blockquote>
-<p>1.最大流不可能大于最小割, 因为最大流所有的水流都一定经过最小割那些割边, 流过的水流怎么可能比水管容量还大呢? </p>
-<p>2.最大流不可能小于最小割, 如果小, 那么说明水管容量没有物尽其用, 可以继续加大水流.</p>
-</blockquote>
-<p>那么 SAP + 当前弧优化 + 断层优化 + 反向 BFS 一遍轻松跑过。</p>
-          <div class="read-more">
-            <a href="/solution/bzoj/1001/" class="read-more-link">阅读更多</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-      
       
   <nav class="pagination">
     
@@ -581,7 +574,7 @@
   
   <span class="copyright-year">
     <span>
-      54.7k Words
+      55.1k Words
     </span>
     <!-- <span class="division">|</span> -->
   </span>

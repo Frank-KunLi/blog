@@ -223,6 +223,58 @@
     <header class="post-header">
       <h1 class="post-title">
         
+          <a class="post-link" href="/solution/luogu/2600/">洛谷2600 - [ZJOI2008]瞭望塔</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-08-21
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/Solution/">Solution</a>
+            
+          </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>三分即可。<code>calc(x, y)</code>函数求在点 $(x, y)$ 建造灯塔的最低高度。</p>
+<p>时间复杂度 $O(n ^ 2 \times \texttt{某个大常数})$ 。</p>
+          <div class="read-more">
+            <a href="/solution/luogu/2600/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
           <a class="post-link" href="/solution/codeforces/702e/">CF702E - Analysis of Pathes in Functional Graph</a>
         
       </h1>
@@ -434,69 +486,6 @@
   </article>
 
       
-        
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/algorithm/树状数组/">树状数组 区间修改 & 区间查询（LOJ132）</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-08-19
-        </span>
-        
-          <span class="post-category">
-            
-              <a href="/categories/Algorithm/">Algorithm</a>
-            
-          </span>
-        
-        
-      </div>
-    </header>
-
-    
-    
-
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <ol>
-<li><p>单点修改 &amp; 区间查询</p>
-<p>傻逼都会。</p>
-</li>
-<li><p>区间修改 &amp; 单点查询</p>
-<p>假设 $a$ 数组为我们当前维护的数组，定义 $b_i = a_i - a_{i - 1}$ ，则 $a_i = \sum_{j = 1}^{i}b_j$ 。用单点修改 &amp; 区间查询的树状数组维护 $b$ ，修改区间 $l$ 到 $r$ 只需使 $b_{l-1} + value$ 且 $b_r - value$ ，查询 $a_i$ 只需求 $\sum_{j = 1}^{i}b_j$ 。</p>
-</li>
-<li><p>区间修改 &amp; 区间查询</p>
-<p>同 2 的假设下，求 $\sum_{i=l}^{r} a_i$ 即求 $\sum_{i=1}^{r} a_i - \sum_{i=1}^{l-1} a_i$ ，我们只需考虑如何求 $\sum_{i=1}^{k} a_i$ 。</p>
-<p>$\sum_{i=1}^{k} a_i = \sum_{i=1}^{k} \sum_{j=1}^{i} b_j = \sum_{i=1}^{k} b_i \times (i + 1 - x) = (k+1) \times \sum_{i=1}^{k} b_i + \sum_{i=1}^{k} (i \times b_i)$</p>
-<p>所以我们开两个树状数组，分别维护 $b_i$ 和 $i \times b_i$ 即可。</p>
-</li>
-</ol>
-          <div class="read-more">
-            <a href="/algorithm/树状数组/" class="read-more-link">阅读更多</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-      
       
   <nav class="pagination">
     
@@ -581,7 +570,7 @@
   
   <span class="copyright-year">
     <span>
-      54.7k Words
+      55.1k Words
     </span>
     <!-- <span class="division">|</span> -->
   </span>
