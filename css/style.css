@@ -1408,6 +1408,9 @@ h6 {
 * {
   tab-size: 4; }
 
+.my-colored {
+  color: #c05b4d; }
+
 /* Valine Comments System */
 #vcomments .vlist .vcard .vhead .vnick {
   color: #c05b4d; }
