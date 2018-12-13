@@ -223,6 +223,61 @@
     <header class="post-header">
       <h1 class="post-title">
         
+          <a class="post-link" href="/solution/bzoj/5017/">BZOJ5017 - [SNOI2017] 炸弹</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-11-12
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/Solution/">Solution</a>
+            
+          </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>zhouyuheng2003 学长一天打完 CF 后给我做的一道他说是简单题的题，然而炒鸡难！！！</p>
+<p>考虑暴力，每个炸弹向能引爆炸弹的连边，总数是 $n^2$ 级别的。之后跑 tarjan 缩点，并在 DAG 上统计答案。统计是，考虑合并来的点所对应的情况可能会有重点，因此需要开桶去重。这样的时空复杂度都是 $O(n^2)$ 的。</p>
+<p>考虑优化，通过观察可以发现，能引爆的炸弹一定是连续的一整段区间。可以用线段树优化建边，统计答案时不需要开桶统计，而是统计能够炸掉的最左端的点和最右端的点。时间复杂度 $O(n \log n)$ ，空间复杂度 $O(n \log n)$。</p>
+<p>同时</p>
+<p>当然这并不是最优的，zhouyuheng2003 学长的博客中给出了一种时空复杂度均为 $O(n)$ 的做法。见 <a href="https://blog.csdn.net/zhouyuheng2003/article/details/83278984" target="_blank" rel="noopener">https://blog.csdn.net/zhouyuheng2003/article/details/83278984</a> 。</p>
+          <div class="read-more">
+            <a href="/solution/bzoj/5017/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
           <a class="post-link" href="/diary/NOIP2018游记/">NOIP2018 爆零记</a>
         
       </h1>
@@ -469,57 +524,6 @@
   </article>
 
       
-        
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/geek/devc高分屏/">Dev C++ 资瓷 Hi DPI 方法</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-10-11
-        </span>
-        
-          <span class="post-category">
-            
-              <a href="/categories/Geek/">Geek</a>
-            
-          </span>
-        
-        
-      </div>
-    </header>
-
-    
-    
-
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <p>前提条件，新版 Windows 10 （在有高分屏的机子上装 Win 10 不苛刻吧）。</p>
-          <div class="read-more">
-            <a href="/geek/devc高分屏/" class="read-more-link">阅读更多</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-      
       
   <nav class="pagination">
     
@@ -604,7 +608,7 @@
   
   <span class="copyright-year">
     <span>
-      55.1k Words
+      56.0k Words
     </span>
     <!-- <span class="division">|</span> -->
   </span>

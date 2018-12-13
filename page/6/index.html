@@ -223,6 +223,62 @@
     <header class="post-header">
       <h1 class="post-title">
         
+          <a class="post-link" href="/solution/luogu/1251/">洛谷1251 - 餐巾计划问题</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-09-24
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/Solution/">Solution</a>
+            
+          </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <blockquote>
+<p>到这题为止网络流 24 题也快刷完了呢，还剩下几道码量特大的等着以后有空去浪费时间（逃</p>
+</blockquote>
+<p>这题一眼最小费用最大流，一开始我想了个类似于 <a href="http://localhost:4000/solution/luogu3980/" target="_blank" rel="noopener">NOI2008 志愿者招募</a> 之类的利用满流的方法，但是一直没有调出来。后来怂了，直接连边，最后因为有个 <code>- 1</code> 没有删干净还是调了老半天。orz ，我还是太菜了。</p>
+<p>把每一天分成两个节点，一个接受干净的毛巾，一个输出用过的毛巾。直接在这两个点之间连边显然不现实，我们可以分别把这两个点和源点、汇点连边。然后再按照题目条件一一连上对应边。这样最大流肯定能够跑满，求最小费用的话就是这图的最小费用最大流了。</p>
+<p>这告诉我们对于不清楚的知识点不要瞎用。</p>
+          <div class="read-more">
+            <a href="/solution/luogu/1251/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
           <a class="post-link" href="/solution/bzoj/1001/">BZOJ1001 - [BJOI2006]狼抓兔子</a>
         
       </h1>
@@ -444,63 +500,6 @@
   </article>
 
       
-        
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/solution/luogu/4168/">洛谷4168 - [Violet]蒲公英</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-09-21
-        </span>
-        
-          <span class="post-category">
-            
-              <a href="/categories/Solution/">Solution</a>
-            
-          </span>
-        
-        
-      </div>
-    </header>
-
-    
-    
-
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <blockquote>
-<p>这道黑题为什么那么水 QAQ<br>这道题在 BZOJ 上为什么又又又又又是权限题</p>
-</blockquote>
-<p>本题求区间众数，强制在线。</p>
-<p>对于每次查询，必定可以分为整块的和非整块的，我们先预处理出第 $i$ 块到第 $j$ 块的众数（ $max[i][j]$ ）和某个数 $i$ 在前 $j$ 个块内的前缀和（ $sum[i][j]$ ）。对于非整块的部分 $O(\sqrt n)$ 暴力加到桶里，加上整块中的个数判断能否更新答案。然后判断 $l$ 与 $r$ 之间的块的众数是否能否更新答案。</p>
-<p>预处理的话 $max$ 和 $sum$ 数组全都暴力扫一遍更新，时间复杂度 $O(n \sqrt n)$，详见代码。</p>
-<p>时间复杂度：$O(n \sqrt n + m \sqrt m)$</p>
-          <div class="read-more">
-            <a href="/solution/luogu/4168/" class="read-more-link">阅读更多</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-      
       
   <nav class="pagination">
     
@@ -585,7 +584,7 @@
   
   <span class="copyright-year">
     <span>
-      55.1k Words
+      56.0k Words
     </span>
     <!-- <span class="division">|</span> -->
   </span>

@@ -223,6 +223,63 @@
     <header class="post-header">
       <h1 class="post-title">
         
+          <a class="post-link" href="/solution/luogu/4168/">洛谷4168 - [Violet]蒲公英</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-09-21
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/Solution/">Solution</a>
+            
+          </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <blockquote>
+<p>这道黑题为什么那么水 QAQ<br>这道题在 BZOJ 上为什么又又又又又是权限题</p>
+</blockquote>
+<p>本题求区间众数，强制在线。</p>
+<p>对于每次查询，必定可以分为整块的和非整块的，我们先预处理出第 $i$ 块到第 $j$ 块的众数（ $max[i][j]$ ）和某个数 $i$ 在前 $j$ 个块内的前缀和（ $sum[i][j]$ ）。对于非整块的部分 $O(\sqrt n)$ 暴力加到桶里，加上整块中的个数判断能否更新答案。然后判断 $l$ 与 $r$ 之间的块的众数是否能否更新答案。</p>
+<p>预处理的话 $max$ 和 $sum$ 数组全都暴力扫一遍更新，时间复杂度 $O(n \sqrt n)$，详见代码。</p>
+<p>时间复杂度：$O(n \sqrt n + m \sqrt m)$</p>
+          <div class="read-more">
+            <a href="/solution/luogu/4168/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
           <a class="post-link" href="/solution/luogu/2787/">洛谷2787 - 语文1（chin1）- 理理思维</a>
         
       </h1>
@@ -432,59 +489,6 @@
   </article>
 
       
-        
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/algorithm/可持久化并查集/">可持久化并查集（洛谷3402）</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-09-18
-        </span>
-        
-          <span class="post-category">
-            
-              <a href="/categories/Algorithm/">Algorithm</a>
-            
-          </span>
-        
-        
-      </div>
-    </header>
-
-    
-    
-
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <p>在主席树的基础上做可持久化数组，在可持久化数组的基础上做可持久化并查集。</p>
-<p>然而路径压缩的话数组的修改次数可能会很大，但是每次修改是 $O(\log n)$ 的，可能会炸。所以我们要用一种类似启发式合并的方法，把小的往大的合并，这样总的复杂度是 $O(n \log n)$ 的。</p>
-<p>可以把并查集中的联通块看成一颗多叉树，合并时，把最深点的深度小的往大的合并，后者把树的大小小的往大的合并。笔者采用的是后者，其实原理基本是一样的。</p>
-          <div class="read-more">
-            <a href="/algorithm/可持久化并查集/" class="read-more-link">阅读更多</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-      
       
   <nav class="pagination">
     
@@ -569,7 +573,7 @@
   
   <span class="copyright-year">
     <span>
-      55.1k Words
+      56.0k Words
     </span>
     <!-- <span class="division">|</span> -->
   </span>

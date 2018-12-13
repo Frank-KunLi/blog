@@ -223,6 +223,68 @@
     <header class="post-header">
       <h1 class="post-title">
         
+          <a class="post-link" href="/algorithm/圆方树/">圆方树学习笔记</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-12-13
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/Algorithm/">Algorithm</a>
+            
+          </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>圆方树可以解决仙人掌或一类无向图问题。</p>
+<h1 id="建树"><a href="#建树" class="headerlink" title="建树"></a>建树</h1><p>通过 tarjan 缩点双为方点，原来的点为圆点。每个圆点连边到自己所属的点双方点，跨点双的圆点连边转换为圆方点之间的连边。</p>
+<p>参考代码：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">edge</span> &#123;</span></span><br><span class="line">    <span class="keyword">int</span> tot, flag, hed[N], nxt[M], to[M];</span><br><span class="line">    edge () &#123; tot = <span class="number">2</span>; &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">link</span><span class="params">(<span class="keyword">int</span> u, <span class="keyword">int</span> v)</span> </span>&#123;</span><br><span class="line">        nxt[tot] = hed[u], to[tot] = v, hed[u] = tot++;</span><br><span class="line">        nxt[tot] = hed[v], to[tot] = u, hed[v] = tot++;</span><br><span class="line">    &#125;</span><br><span class="line">&#125; G1, G2;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">tarjan</span><span class="params">(<span class="keyword">int</span> u, <span class="keyword">int</span> father)</span> </span>&#123;</span><br><span class="line">    ++base, dfn[u] = low[u] = ++tim, ins[u] = <span class="number">1</span>, stk[++top] = u;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = G1.hed[u], v = G1.to[i]; i; i = G1.nxt[i], v = G1.to[i])</span><br><span class="line">        <span class="keyword">if</span> (v != father) &#123;</span><br><span class="line">            <span class="keyword">if</span> (!dfn[v]) &#123;</span><br><span class="line">                tarjan(v, u), low[u] = <span class="built_in">std</span>::min(low[u], low[v]);</span><br><span class="line">                <span class="keyword">if</span> (low[v] &gt;= dfn[u]) &#123;</span><br><span class="line">                    G2.link(u, ++tot), ++val[tot]; <span class="keyword">int</span> x;</span><br><span class="line">                    <span class="keyword">do</span> &#123;</span><br><span class="line">                        x = stk[top--], ins[x] = <span class="number">0</span>;</span><br><span class="line">                        G2.link(x, tot), ++val[tot];</span><br><span class="line">                    &#125; <span class="keyword">while</span> (x != v);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (ins[v]) low[u] = <span class="built_in">std</span>::min(low[u], dfn[v]);</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>需要注意的是，根节点所在的点双的方点并不会创建，在大多数情况下，这并不会有影响，可根据题目的需要取舍。</li>
+</ul>
+<h1 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h1><p>由此我们可以发现一些有趣的性质：</p>
+<ul>
+<li>现在总点数与原来的点数同阶，现在的总边数与原来的总边数同阶</li>
+<li>所有边都是圆点和方点之间的连边，即不存在圆圆边或方方边</li>
+</ul>
+          <div class="read-more">
+            <a href="/algorithm/圆方树/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
           <a class="post-link" href="/contest/20181211/">20181211 - NOI模拟赛</a>
         
       </h1>
@@ -424,60 +486,6 @@
   </article>
 
       
-        
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/solution/luogu/2606/">洛谷2606 - [ZJOI2010] 排列计数</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-12-09
-        </span>
-        
-          <span class="post-category">
-            
-              <a href="/categories/Solution/">Solution</a>
-            
-          </span>
-        
-        
-      </div>
-    </header>
-
-    
-    
-
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <p>原问题等价于询问节点个数为 $ n $ 的完全二叉树形态的二叉堆的个数。</p>
-<p>考虑递推，用 $ f(i) $ 表示 $ i $ 个节点时的答案。考虑除去此时的根节点外，根的左右子树大小分别为 $ l $ 和 $ r $ （可由完全二叉树这一性质计算得出）。此时根节点的编号肯定为 $ 1 $ ，而 $ f(l) $ 和 $ f(r) $ 分别是子树中的根节点编号为 $ 1 $ 的情况，若把编号分配，相当于求两个有序数列并成一个的方案数，即 $ C _ { l + r} ^ l $。得出：</p>
-<p>$$ f(i) = f(l) \times f(r) \times C _ { l + r } ^ l $$</p>
-<p>预处理阶乘递推即可。若 $ n &gt; q $ 则需要卢卡斯定理简单处理。</p>
-          <div class="read-more">
-            <a href="/solution/luogu/2606/" class="read-more-link">阅读更多</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-      
       
   <nav class="pagination">
     
@@ -557,7 +565,7 @@
   
   <span class="copyright-year">
     <span>
-      55.1k Words
+      56.0k Words
     </span>
     <!-- <span class="division">|</span> -->
   </span>

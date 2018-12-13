@@ -223,6 +223,63 @@
     <header class="post-header">
       <h1 class="post-title">
         
+          <a class="post-link" href="/algorithm/主席树/">主席树（洛谷P3834）</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-08-13
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/Algorithm/">Algorithm</a>
+            
+          </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>在 mwh 大佬的指引下，我最近学习了主席树。</p>
+<h1 id="思想"><a href="#思想" class="headerlink" title="思想"></a>思想</h1><p>主席树是一种特殊的线段树，能够存储线段树的历史版本，我们称这种性质叫做可持久化。</p>
+<p>主席树的可持久化通过这样来实现：我们每次修改单个节点，必然只会经过 $log_2n​$ 条“线段”，对于这些线段，我们都新开节点来存储。显然对于每一次修改操作，根节点都会被新建。那么我们只要存储下来每一次修改说对应的根节点即可。空间占用 $O(n log n)​$</p>
+<p>具体思路可参考<a href="https://www.luogu.org/blog/LonecharmRiver/zhu-xi-shu" target="_blank" rel="noopener">https://www.luogu.org/blog/LonecharmRiver/zhu-xi-shu</a>中的图片。</p>
+<h1 id="关于模板题"><a href="#关于模板题" class="headerlink" title="关于模板题"></a>关于模板题</h1><p>我们要维护静态区间第 k 小。可以先把数组离散化，比如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">离散化前 4 1 1 2 8 9 4 4 3</span><br><span class="line">离散化后 4 1 1 2 5 6 4 4 3</span><br><span class="line">离散数组 1 2 3 4 8 9</span><br></pre></td></tr></table></figure>
+<p>我们根据离散数组作为所维护的区间。第 i 棵树存储<code>[1, i]</code>内各数值出现的次数。</p>
+          <div class="read-more">
+            <a href="/algorithm/主席树/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
           <a class="post-link" href="/algorithm/gauss/">高斯消元（洛谷3389）</a>
         
       </h1>
@@ -428,62 +485,6 @@
   </article>
 
       
-        
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/algorithm/Splay基本操作/">Splay 非指针模板（普通平衡树）</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-08-09
-        </span>
-        
-          <span class="post-category">
-            
-              <a href="/categories/Algorithm/">Algorithm</a>
-            
-          </span>
-        
-        
-      </div>
-    </header>
-
-    
-    
-
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <p>踏上平衡树征程的第一步…</p>
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>Splay 是一种简单且功能丰富的平衡树结构，其算法核心 Splay 操作能维持其均摊复杂度维持在 $O(logn)$ 。</p>
-<h1 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h1><p>我们将整棵 Splay 定义在结构体中。</p>
-<p>并定义结构体<code>node</code>来表示 Splay 的每一个节点。</p>
-<p>宏定义<code>e[0].ch[1]</code>为根节点， $1e9 + 10$ 为INF，并在结构体尾取消定义。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Splay</span> &#123;</span></span><br><span class="line">    <span class="meta">#<span class="meta-keyword">define</span> root (e[0].ch[1])</span></span><br><span class="line">    <span class="meta">#<span class="meta-keyword">define</span> inf (1e9+10)</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">node</span> &#123;</span></span><br><span class="line">        <span class="keyword">int</span> val;	<span class="comment">// 当前节点存储的值</span></span><br><span class="line">        <span class="keyword">int</span> cnt;	<span class="comment">// 当前节点存储的值出现的次数</span></span><br><span class="line">        <span class="keyword">int</span> siz;	<span class="comment">// 当前节点包括其左右子树中包含的数的个数（不是节点数！）</span></span><br><span class="line">        <span class="keyword">int</span> father;	<span class="comment">// 当前节点的父亲节点</span></span><br><span class="line">        <span class="keyword">int</span> ch[<span class="number">2</span>];	<span class="comment">// 当前节点的孩子节点，ch[0]表示左孩子，ch[1]表示右孩子</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// your code goes here...</span></span><br><span class="line">    <span class="meta">#<span class="meta-keyword">undef</span> root</span></span><br><span class="line">    <span class="meta">#<span class="meta-keyword">undef</span> inf</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          <div class="read-more">
-            <a href="/algorithm/Splay基本操作/" class="read-more-link">阅读更多</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-      
       
   <nav class="pagination">
     
@@ -568,7 +569,7 @@
   
   <span class="copyright-year">
     <span>
-      55.1k Words
+      56.0k Words
     </span>
     <!-- <span class="division">|</span> -->
   </span>
