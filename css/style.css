@@ -686,129 +686,129 @@ h6 {
         background: #f4efe1;
         content: 'Code'; }
     .post .post-content .highlight.html > table::after {
-      content: "HTML"; }
+      content: "Language: HTML"; }
     .post .post-content .highlight.html > figcaption > span::after {
-      content: " · HTML"; }
+      content: " · Language: HTML"; }
     .post .post-content .highlight.html figcaption + table::after {
       display: none; }
     .post .post-content .highlight.js > table::after {
-      content: "JavaScript"; }
+      content: "Language: JavaScript"; }
     .post .post-content .highlight.js > figcaption > span::after {
-      content: " · JavaScript"; }
+      content: " · Language: JavaScript"; }
     .post .post-content .highlight.js figcaption + table::after {
       display: none; }
     .post .post-content .highlight.bash > table::after {
-      content: "Bash"; }
+      content: "Language: Bash"; }
     .post .post-content .highlight.bash > figcaption > span::after {
-      content: " · Bash"; }
+      content: " · Language: Bash"; }
     .post .post-content .highlight.bash figcaption + table::after {
       display: none; }
     .post .post-content .highlight.css > table::after {
-      content: "CSS"; }
+      content: "Language: CSS"; }
     .post .post-content .highlight.css > figcaption > span::after {
-      content: " · CSS"; }
+      content: " · Language: CSS"; }
     .post .post-content .highlight.css figcaption + table::after {
       display: none; }
     .post .post-content .highlight.scss > table::after {
-      content: "Scss"; }
+      content: "Language: Scss"; }
     .post .post-content .highlight.scss > figcaption > span::after {
-      content: " · Scss"; }
+      content: " · Language: Scss"; }
     .post .post-content .highlight.scss figcaption + table::after {
       display: none; }
     .post .post-content .highlight.java > table::after {
-      content: "Java"; }
+      content: "Language: Java"; }
     .post .post-content .highlight.java > figcaption > span::after {
-      content: " · Java"; }
+      content: " · Language: Java"; }
     .post .post-content .highlight.java figcaption + table::after {
       display: none; }
     .post .post-content .highlight.xml > table::after {
-      content: "XML"; }
+      content: "Language: XML"; }
     .post .post-content .highlight.xml > figcaption > span::after {
-      content: " · XML"; }
+      content: " · Language: XML"; }
     .post .post-content .highlight.xml figcaption + table::after {
       display: none; }
     .post .post-content .highlight.python > table::after {
-      content: "Python"; }
+      content: "Language: Python"; }
     .post .post-content .highlight.python > figcaption > span::after {
-      content: " · Python"; }
+      content: " · Language: Python"; }
     .post .post-content .highlight.python figcaption + table::after {
       display: none; }
     .post .post-content .highlight.json > table::after {
-      content: "JSON"; }
+      content: "Language: JSON"; }
     .post .post-content .highlight.json > figcaption > span::after {
-      content: " · JSON"; }
+      content: " · Language: JSON"; }
     .post .post-content .highlight.json figcaption + table::after {
       display: none; }
     .post .post-content .highlight.swift > table::after {
-      content: "Swift"; }
+      content: "Language: Swift"; }
     .post .post-content .highlight.swift > figcaption > span::after {
-      content: " · Swift"; }
+      content: " · Language: Swift"; }
     .post .post-content .highlight.swift figcaption + table::after {
       display: none; }
     .post .post-content .highlight.ruby > table::after {
-      content: "Ruby"; }
+      content: "Language: Ruby"; }
     .post .post-content .highlight.ruby > figcaption > span::after {
-      content: " · Ruby"; }
+      content: " · Language: Ruby"; }
     .post .post-content .highlight.ruby figcaption + table::after {
       display: none; }
     .post .post-content .highlight.php > table::after {
-      content: "PHP"; }
+      content: "Language: PHP"; }
     .post .post-content .highlight.php > figcaption > span::after {
-      content: " · PHP"; }
+      content: " · Language: PHP"; }
     .post .post-content .highlight.php figcaption + table::after {
       display: none; }
     .post .post-content .highlight.c > table::after {
-      content: "C"; }
+      content: "Language: C"; }
     .post .post-content .highlight.c > figcaption > span::after {
-      content: " · C"; }
+      content: " · Language: C"; }
     .post .post-content .highlight.c figcaption + table::after {
       display: none; }
     .post .post-content .highlight.cpp > table::after {
-      content: "C++"; }
+      content: "Language: C++"; }
     .post .post-content .highlight.cpp > figcaption > span::after {
-      content: " · C++"; }
+      content: " · Language: C++"; }
     .post .post-content .highlight.cpp figcaption + table::after {
       display: none; }
     .post .post-content .highlight.scheme > table::after {
-      content: "Scheme"; }
+      content: "Language: Scheme"; }
     .post .post-content .highlight.scheme > figcaption > span::after {
-      content: " · Scheme"; }
+      content: " · Language: Scheme"; }
     .post .post-content .highlight.scheme figcaption + table::after {
       display: none; }
     .post .post-content .highlight.objectivec > table::after {
-      content: "Objective-C"; }
+      content: "Language: Objective-C"; }
     .post .post-content .highlight.objectivec > figcaption > span::after {
-      content: " · Objective-C"; }
+      content: " · Language: Objective-C"; }
     .post .post-content .highlight.objectivec figcaption + table::after {
       display: none; }
     .post .post-content .highlight.yml > table::after {
-      content: "YAML"; }
+      content: "Language: YAML"; }
     .post .post-content .highlight.yml > figcaption > span::after {
-      content: " · YAML"; }
+      content: " · Language: YAML"; }
     .post .post-content .highlight.yml figcaption + table::after {
       display: none; }
     .post .post-content .highlight.stylus > table::after {
-      content: "Stylus"; }
+      content: "Language: Stylus"; }
     .post .post-content .highlight.stylus > figcaption > span::after {
-      content: " · Stylus"; }
+      content: " · Language: Stylus"; }
     .post .post-content .highlight.stylus figcaption + table::after {
       display: none; }
     .post .post-content .highlight.sql > table::after {
-      content: "SQL"; }
+      content: "Language: SQL"; }
     .post .post-content .highlight.sql > figcaption > span::after {
-      content: " · SQL"; }
+      content: " · Language: SQL"; }
     .post .post-content .highlight.sql figcaption + table::after {
       display: none; }
     .post .post-content .highlight.http > table::after {
-      content: "HTTP"; }
+      content: "Language: HTTP"; }
     .post .post-content .highlight.http > figcaption > span::after {
-      content: " · HTTP"; }
+      content: " · Language: HTTP"; }
     .post .post-content .highlight.http figcaption + table::after {
       display: none; }
     .post .post-content .highlight.go > table::after {
-      content: "Go"; }
+      content: "Language: Go"; }
     .post .post-content .highlight.go > figcaption > span::after {
-      content: " · Go"; }
+      content: " · Language: Go"; }
     .post .post-content .highlight.go figcaption + table::after {
       display: none; }
     .post .post-content .highlight figcaption {
