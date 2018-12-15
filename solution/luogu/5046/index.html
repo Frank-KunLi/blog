@@ -415,19 +415,6 @@
   </span>
 </div>
 
-
-<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js">
-</script>
-
-<script type="text/javascript">
-    $(document).on({
-        'pjax:end': function () {
-            $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
-        }
-    });
-</script>
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
-
 </script>
       </footer>
 
@@ -440,23 +427,7 @@
   
     
 <!-- valine Comments -->
-<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js" data-no-instant></script>
-<script src='//unpkg.com/valine/dist/Valine.min.js' data-no-instant></script>
-<script type="text/javascript">
-    var valine_option = {
-        el: '#vcomments',
-        app_id: "rHgVqrBsv0EYGFSxzDDIDapm-9Nh9j0Va",
-        app_key: "X7Dp3hEvRWPbqHBYkOTBXzPm",
-        placeholder: "留下你的脚印~    （如果评论不能正常加载请尝试刷新）",
-        avatar: 'mm'
-    };
-    var valine = new Valine(valine_option);
-    $(document).on({
-        'pjax:end': function () {
-            valine.init(valine_option);
-        }
-    });
-</script>
+
 
   
 
@@ -501,30 +472,54 @@ var _hmt = _hmt || [];
 })();
 </script>
 
-<!-- mathjax config similar to math.stackexchange -->
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js" data-no-instant></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js' data-no-instant></script>
+<script type="text/javascript">
+    var valine_option = {
+        el: '#vcomments',
+        app_id: "rHgVqrBsv0EYGFSxzDDIDapm-9Nh9j0Va",
+        app_key: "X7Dp3hEvRWPbqHBYkOTBXzPm",
+        placeholder: "留下你的脚印~    （如果评论不能正常加载请尝试刷新）",
+        avatar: 'mm'
+    };
+    var valine = new Valine(valine_option);
+    $(document).on({
+        'pjax:end': function () {
+            valine.init(valine_option);
+        }
+    });
+</script>
+
+<script type="text/javascript">
+    $(document).on({
+        'pjax:end': function () {
+            $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        }
+    });
+</script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
 
 <script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-    tex2jax: {
-        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-        processEscapes: true,
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-    }
-});
+  MathJax.Hub.Config({
+      tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+  });
 
-MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-});
+  MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for(i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
 
-$(document).on({
-    'pjax:end': function () {
-        MathJax.Hub.Typeset();
-        // valine = new Valine(valine_option);
-    }
-});
+  $(document).on({
+      'pjax:end': function () {
+          MathJax.Hub.Typeset();
+      }
+  });
 </script>
 
 <script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
