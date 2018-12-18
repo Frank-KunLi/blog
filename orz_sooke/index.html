@@ -221,9 +221,13 @@
       
 
 <div class="button">
-<button id="button">
-	Do You Want to Orz <span style="color: black">S</span><span style="color: red">ooke</span>
-</button>
+	<button id="button">
+		Do You Want to Orz <span style="color: black">S</span><span style="color: red">ooke</span>
+	</button>
+</div>
+
+<div class="notice" id="notice">
+	点击上方按钮进行膜拜
 </div>
 
 <div class="pic" id="pic" style="display: none">
@@ -234,13 +238,14 @@
 	<p style="text-align: right">
 		—— Sooke
 	</p>
-	<hr>
-	<div class="links" style="font-size: 20px">
+	<br>
+	<div class="links">
 		友情链接：<a href="https://cmxrynp.github.io/Orz%E8%B4%BA%E6%8C%87%E5%AF%BC/" target="_blank" rel="noopener">点击膜拜贺指导</a>
 	</div> 
 </div>
 
 <style>
+
 .button {
 	width: 400px;
 	height: 100px;
@@ -259,6 +264,19 @@
 	background: linear-gradient(to right, #0072ff, #00c6ff);
 }
 
+.notice {
+	color: #666;
+	font-size: 18px;
+	text-align: center;
+	margin-bottom: 60px;
+}
+
+.links {
+	color: #666;
+	font-size: 18px;
+	margin-bottom: 60px;
+}
+
 .pic {
 	font-size: 26px;
 	text-align: center;
@@ -266,6 +284,7 @@
 .pic hr {
 	margin: 20px 0;
 }
+
 </style>
 
 <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
@@ -276,7 +295,13 @@ $(document).ready(function(){
   });
 });
 </script>
-
+<script>
+$(document).ready(function(){
+	$("#button").click(function(){
+		$("#notice").fadeToggle(0);
+	});
+});
+</script>
     </div>
   </article>
 
