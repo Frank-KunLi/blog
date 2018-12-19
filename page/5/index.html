@@ -1,377 +1,276 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
-  <head>
+<html  lang="zh">
+<head>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+<title>memset0&#39;s blog</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+
+
+    <meta property="og:type" content="website">
+<meta property="og:title" content="memset0&#39;s blog">
+<meta property="og:url" content="https://memset0.cn/page/5/index.html">
+<meta property="og:site_name" content="memset0&#39;s blog">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="memset0&#39;s blog">
+
+
+
+
+
+<link rel="icon" href="/images/favicon.svg">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
+
+
     
-<!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-<meta name="theme-color" content="#f8f5ec" />
-<meta name="msapplication-navbutton-color" content="#f8f5ec">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <link rel="alternate" href="/atom.xml" title="memset0's blog">
-
-
-
-
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.10.1" />
-
-
-
-<link rel="canonical" href="https://memset0.cn/page/5/"/>
-
-
-
-
-
-
-  <link rel="stylesheet" type="text/css" href="/lib/nprogress/nprogress.min.css" />
-
-
-
-<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.10.1" />
-
-
-
-  
-
-
-
-  <script id="baidu_push">
-(function(){
-    var bp = document.createElement('script');
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-    }
-    else {
-        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-})();
-</script>
-
-
-
-
-
-
-
-
-
-<script>
-  window.config = {"leancloud":{"app_id":null,"app_key":null},"toc":true,"fancybox":false,"pjax":true};
-</script>
-
-
-    <title> memset0's blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
-  </head>
-
-  <body><div id="mobile-navbar" class="mobile-navbar">
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="mobile-header-logo">
-    <a href="/." class="logo">memset0's blog</a>
-  </div>
-  <div class="mobile-navbar-icon">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-</div>
-
-<nav id="mobile-menu" class="mobile-menu slideout-menu">
-  <ul class="mobile-menu-list">
     
-      <a href="/categories/Solution">
-        <li class="mobile-menu-item">
-          
-          
-            题解
-          
-        </li>
-      </a>
     
-      <a href="/tags">
-        <li class="mobile-menu-item">
-          
-          
-            标签
-          
-        </li>
-      </a>
+    <style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
     
-      <a href="/categories">
-        <li class="mobile-menu-item">
-          
-          
-            分类
-          
-        </li>
-      </a>
+
     
-      <a href="/friends">
-        <li class="mobile-menu-item">
-          
-          
-            友链
-          
-        </li>
-      </a>
     
-      <a href="/about">
-        <li class="mobile-menu-item">
-          
-          
-            关于
-          
-        </li>
-      </a>
     
-  </ul>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+    
+
+    
+    
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+
+    
+    
+    
+    
+
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+<link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+    
+
+
+<link rel="stylesheet" href="/css/style.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+<body class="is-2-column">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <!-- <img src="/images/logo.svg" alt="memset0&#39;s blog" height="28"> -->
+                <span class="navbar-title"> memset0's blog </span>
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item"
+                href="/archives">归档</a>
+                
+                <a class="navbar-item"
+                href="/categories">分类</a>
+                
+                <a class="navbar-item"
+                href="/friends">友链</a>
+                
+                <a class="navbar-item"
+                href="/tags">标签</a>
+                
+                <a class="navbar-item"
+                href="/about">关于</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                
+                
+                <a class="navbar-item search" title="搜索" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
 </nav>
-
-    <div class="container" id="mobile-panel">
-      <header id="header" class="header"><div class="logo-wrapper">
-  <a href="/." class="logo">memset0's blog</a>
-</div>
-
-<nav class="site-navbar">
-  
-    <ul id="menu" class="menu">
-      
-        <li class="menu-item">
-          <a class="menu-item-link" href="/categories/Solution">
-            
-            
-              题解
-            
-          </a>
-        </li>
-      
-        <li class="menu-item">
-          <a class="menu-item-link" href="/tags">
-            
-            
-              标签
-            
-          </a>
-        </li>
-      
-        <li class="menu-item">
-          <a class="menu-item-link" href="/categories">
-            
-            
-              分类
-            
-          </a>
-        </li>
-      
-        <li class="menu-item">
-          <a class="menu-item-link" href="/friends">
-            
-            
-              友链
-            
-          </a>
-        </li>
-      
-        <li class="menu-item">
-          <a class="menu-item-link" href="/about">
-            
-            
-              关于
-            
-          </a>
-        </li>
-      
-    </ul>
-  
-</nav>
-
-      </header>
-
-      <main id="main" class="main">
-        <div class="content-wrapper">
-          <div id="content" class="content">
-            
-  
-  <section id="posts" class="posts">
     
-      
-        
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/solution/codeforces/1059d/">CF1059D - Nature Reserve</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-10-07
-        </span>
-        
-          <span class="post-category">
-            
-              <a href="/categories/Solution/">Solution</a>
-            
-          </span>
-        
-        
-      </div>
-    </header>
-
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column my-content is-8-tablet is-8-desktop is-8-widescreen has-order-2 column-main">
+    <div class="card">
     
-    
-
-
-    <div class="post-content">
-      
+    <div class="card-content article ">
         
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/solution/codeforces/1059d/">CF1059D - Nature Reserve</a>
+            
+        </h1>
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <i class="fa fa-clock"></i>
+                <time class="level-item has-text-grey" datetime="2018-10-07T04:19:20.000Z">
+                    2018-10-07
+                </time>
+                <i class="fa fa-th"></i>
+                
+                    <div class="level-item">
+                        <a class="has-link-grey -link" href="/categories/Solution/">Solution</a>
+                    </div>
+                
+                <i class="fa fa-flag"></i>
+                
+                    <span class="level-item has-text-grey">
+                        544 Words
+                    </span>
+                
+            </div>
+        </div>
         
-          
-        
-
-        
-          <blockquote>
+        <div class="content">
+            <blockquote>
 <p>该死的精度问题让我调了一个小时还没有调出来（事实说明我还是太菜了。）</p>
 </blockquote>
 <p>大概意思就是说平面上给了你一些点然后你要构造一个与 x 轴相切的圆把这些圆都包裹进去。</p>
 <p>考虑二分圆的半径，这样就知道了圆心的 y 坐标，根据点在圆内的充要条件——点到圆心的距离小于等于半径计算出圆心的 x 坐标的范围。如果存在两个范围不相交，说明无法构造出一个符合条件的圆心。</p>
 <p>需要注意浮点数运算的精度问题，比如计算 x 坐标的范围时这么写：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dis = r * r - (r - y) * (r - y);</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dis = r * r - (r - y) * (r - y);</span><br></pre></td></tr></table></figure>
 <p>就容易被卡，而：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dis = <span class="number">2</span> * r * y - y * y;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dis = <span class="hljs-number">2</span> * r * y - y * y;</span><br></pre></td></tr></table></figure>
 <p>就不容易。</p>
-          <div class="read-more">
-            <a href="/solution/codeforces/1059d/" class="read-more-link">阅读更多</a>
-          </div>
+        </div>
         
-      
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/solution/codeforces/1059d/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
+        
+        
     </div>
+</div>
 
+
+
+
+
+    <div class="card">
     
-
-    
-
-  </article>
-
-      
+    <div class="card-content article ">
         
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/solution/codeforces/1059e/">CF1059E - Split the Tree</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-10-07
-        </span>
-        
-          <span class="post-category">
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-              <a href="/categories/Solution/">Solution</a>
+                <a class="has-link-black-ter" href="/solution/codeforces/1059e/">CF1059E - Split the Tree</a>
             
-          </span>
+        </h1>
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <i class="fa fa-clock"></i>
+                <time class="level-item has-text-grey" datetime="2018-10-07T03:57:20.000Z">
+                    2018-10-07
+                </time>
+                <i class="fa fa-th"></i>
+                
+                    <div class="level-item">
+                        <a class="has-link-grey -link" href="/categories/Solution/">Solution</a>
+                    </div>
+                
+                <i class="fa fa-flag"></i>
+                
+                    <span class="level-item has-text-grey">
+                        586 Words
+                    </span>
+                
+            </div>
+        </div>
         
-        
-      </div>
-    </header>
-
-    
-    
-
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <blockquote>
+        <div class="content">
+            <blockquote>
 <p>一个永远只能在考完后调出 Codeforces 的题的菜鸡厚颜无耻得跑来写题解了。。。</p>
 </blockquote>
 <p>本题要求把树分成的链必须是垂直路径，也就是说不能同时跨越一颗子树的两个根。也就是说每次选中的路径都是到根节点的一串。</p>
 <p>所以我们可以通过树上倍增预处理出每个节点 $u$ 如果被选中那么最多可以向上形成长度为 $dp[u]$ 的链。接着跑一遍树上 DP 即可。</p>
 <p>预处理时间复杂度 $O(n \log n)$ ，树上 DP 时间复杂度 $O(n)$ 。</p>
 <p>貌似因为 D 题比较难调试，做这题的人比较少？反正我这种菜鸡就算考场有时间写了估计也调不出来吧。</p>
-          <div class="read-more">
-            <a href="/solution/codeforces/1059e/" class="read-more-link">阅读更多</a>
-          </div>
+        </div>
         
-      
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/solution/codeforces/1059e/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
+        
+        
     </div>
+</div>
 
+
+
+
+
+    <div class="card">
     
-
-    
-
-  </article>
-
-      
+    <div class="card-content article ">
         
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/solution/bzoj/3551/">BZOJ3551 - [ONTAK2010]Peaks加强版</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-09-28
-        </span>
-        
-          <span class="post-category">
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-              <a href="/categories/Solution/">Solution</a>
+                <a class="has-link-black-ter" href="/solution/bzoj/3551/">BZOJ3551 - [ONTAK2010]Peaks加强版</a>
             
-          </span>
+        </h1>
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <i class="fa fa-clock"></i>
+                <time class="level-item has-text-grey" datetime="2018-09-28T11:53:00.000Z">
+                    2018-09-28
+                </time>
+                <i class="fa fa-th"></i>
+                
+                    <div class="level-item">
+                        <a class="has-link-grey -link" href="/categories/Solution/">Solution</a>
+                    </div>
+                
+                <i class="fa fa-flag"></i>
+                
+                    <span class="level-item has-text-grey">
+                        937 Words
+                    </span>
+                
+            </div>
+        </div>
         
-        
-      </div>
-    </header>
-
-    
-    
-
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <blockquote>
+        <div class="content">
+            <blockquote>
 <p>这题洛谷的数据太…水，克鲁斯卡尔重构树不连通都可水过。</p>
 </blockquote>
 <ul>
@@ -381,110 +280,110 @@
 <p>在线算法：克鲁斯卡尔重构树套主席树。</p>
 <p>在克鲁斯卡尔重构树上维护 DFS 序（或树链剖分）再套上主席树，维护第 $k$ 大。</p>
 <p>当然非加强版由于你是重构树<del>（被针对了）</del>可能要大力卡常。比如加个 fread 以及离散化一下什么的。</p>
-          <div class="read-more">
-            <a href="/solution/bzoj/3551/" class="read-more-link">阅读更多</a>
-          </div>
+        </div>
         
-      
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/solution/bzoj/3551/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
+        
+        
     </div>
+</div>
 
+
+
+
+
+    <div class="card">
     
-
-    
-
-  </article>
-
-      
+    <div class="card-content article ">
         
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/solution/bzoj/1002/">BZOJ1002 - [FJOI2007]轮状病毒</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-09-28
-        </span>
-        
-          <span class="post-category">
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-              <a href="/categories/Solution/">Solution</a>
+                <a class="has-link-black-ter" href="/solution/bzoj/1002/">BZOJ1002 - [FJOI2007]轮状病毒</a>
             
-          </span>
+        </h1>
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <i class="fa fa-clock"></i>
+                <time class="level-item has-text-grey" datetime="2018-09-28T11:36:00.000Z">
+                    2018-09-28
+                </time>
+                <i class="fa fa-th"></i>
+                
+                    <div class="level-item">
+                        <a class="has-link-grey -link" href="/categories/Solution/">Solution</a>
+                    </div>
+                
+                <i class="fa fa-flag"></i>
+                
+                    <span class="level-item has-text-grey">
+                        318 Words
+                    </span>
+                
+            </div>
+        </div>
         
-        
-      </div>
-    </header>
-
-    
-    
-
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <p>这题的规律是很好找的，难的就是需要用高精度进行计算。</p>
+        <div class="content">
+            <p>这题的规律是很好找的，难的就是需要用高精度进行计算。</p>
 <p>于是我…厚颜无耻地逃避了高精度，用 Python 打了个表：</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">locate</span><span class="params">(x)</span>:</span></span><br><span class="line">    a = [<span class="number">1</span>, <span class="number">3</span>]</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">2</span>, x):</span><br><span class="line">        a.append(a[<span class="number">-1</span>] + a[<span class="number">-2</span>])</span><br><span class="line">    <span class="comment"># print(a)</span></span><br><span class="line">    <span class="keyword">return</span> a[x - <span class="number">1</span>]</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">solve</span><span class="params">(x)</span>:</span></span><br><span class="line">    t = locate(x)</span><br><span class="line">    <span class="keyword">if</span> x % <span class="number">2</span> == <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> t ** <span class="number">2</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> t ** <span class="number">2</span> - <span class="number">4</span></span><br><span class="line"></span><br><span class="line">n = int(input())</span><br><span class="line">print(solve(n))</span><br></pre></td></tr></table></figure>
-          <div class="read-more">
-            <a href="/solution/bzoj/1002/" class="read-more-link">阅读更多</a>
-          </div>
+<figure class="highlight py hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">locate</span><span class="hljs-params">(x)</span>:</span></span><br><span class="line">    a = [<span class="hljs-number">1</span>, <span class="hljs-number">3</span>]</span><br><span class="line">    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">2</span>, x):</span><br><span class="line">        a.append(a[<span class="hljs-number">-1</span>] + a[<span class="hljs-number">-2</span>])</span><br><span class="line">    <span class="hljs-comment"># print(a)</span></span><br><span class="line">    <span class="hljs-keyword">return</span> a[x - <span class="hljs-number">1</span>]</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">solve</span><span class="hljs-params">(x)</span>:</span></span><br><span class="line">    t = locate(x)</span><br><span class="line">    <span class="hljs-keyword">if</span> x % <span class="hljs-number">2</span> == <span class="hljs-number">1</span>:</span><br><span class="line">        <span class="hljs-keyword">return</span> t ** <span class="hljs-number">2</span></span><br><span class="line">    <span class="hljs-keyword">else</span>:</span><br><span class="line">        <span class="hljs-keyword">return</span> t ** <span class="hljs-number">2</span> - <span class="hljs-number">4</span></span><br><span class="line"></span><br><span class="line">n = int(input())</span><br><span class="line">print(solve(n))</span><br></pre></td></tr></table></figure>
+        </div>
         
-      
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/solution/bzoj/1002/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
+        
+        
     </div>
+</div>
 
+
+
+
+
+    <div class="card">
     
-
-    
-
-  </article>
-
-      
+    <div class="card-content article ">
         
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/solution/bzoj/2956/">BZOJ2956 - 模积和</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-09-27
-        </span>
-        
-          <span class="post-category">
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-              <a href="/categories/Solution/">Solution</a>
+                <a class="has-link-black-ter" href="/solution/bzoj/2956/">BZOJ2956 - 模积和</a>
             
-          </span>
+        </h1>
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <i class="fa fa-clock"></i>
+                <time class="level-item has-text-grey" datetime="2018-09-27T03:18:00.000Z">
+                    2018-09-27
+                </time>
+                <i class="fa fa-th"></i>
+                
+                    <div class="level-item">
+                        <a class="has-link-grey -link" href="/categories/Solution/">Solution</a>
+                    </div>
+                
+                <i class="fa fa-flag"></i>
+                
+                    <span class="level-item has-text-grey">
+                        622 Words
+                    </span>
+                
+            </div>
+        </div>
         
-        
-      </div>
-    </header>
-
-    
-    
-
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <p>$$\sum_{i=1}^{n} \sum_{j=1}^{m} (n \% i) \times (m \% j) \ \ \ (i \not= j)$$</p>
+        <div class="content">
+            <p>$$\sum_{i=1}^{n} \sum_{j=1}^{m} (n \% i) \times (m \% j) \ \ \ (i \not= j)$$</p>
 <p>$$= (\sum_{i=1}^{n} n \% i) \times (\sum_{j=1}^{m} m \% j) - \sum_{i=1}^{\min(n, m)} (n \% i) \times (m \% j)$$</p>
 <p>可以转化成 $A \times B - C$ 的形式，分别来求。</p>
 <p>其中求 $A$ 和 $B$ 的方式是一样的，可以数论分块，也可以直接打表找规律。鉴于这部分不难，笔者写了后者，而描述起来而笔者又非常懒因此忽略求 $A$ 、 $B$ 直接讲求 $C$ 。当然你也可以通过推 $C$ 的方式自己推一下 $A$ 、 $B$ 。</p>
@@ -492,208 +391,298 @@
 <p>$$= \sum_{i=1} ^ {\min(n, m)} (n - i \times \lfloor \frac {n} {i} \rfloor) \times (m - i \times \lfloor \frac {m} {i} \rfloor )$$</p>
 <p>$$= \sum_{i=1} ^ {\min(n, m)} n \times m - m \times  i \times \lfloor \frac {n} {i} \rfloor - n \times i \times \lfloor \frac {m} {i} \rfloor + i ^ 2 \times \lfloor \frac {m} {i} \rfloor \lfloor \frac {m} {i} \rfloor $$</p>
 <p>数论分块即可。</p>
-          <div class="read-more">
-            <a href="/solution/bzoj/2956/" class="read-more-link">阅读更多</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-      
-      
-  <nav class="pagination">
-    
-      <a class="prev" href="/page/4/">
-        <i class="iconfont icon-left"></i>
-        <span class="prev-text">上一页</span>
-      </a>
-    
-    
-      <a class="next" href="/page/6/">
-        <span class="next-text">下一页</span>
-        <i class="iconfont icon-right"></i>
-      </a>
-    
-  </nav>
-
-
-    
-  </section>
-
-          </div>
-          
-
         </div>
-      </main>
-
-      <div class="back-to-top" id="back-to-top">
-        <i class="iconfont icon-up"></i>
-      </div>
-
-      <footer id="footer" class="footer">
-
-  <div class="social-links">
-    
-      
         
-          <a href="mailto:memset0@outlook.com" class="iconfont icon-email" title="email"></a>
         
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/solution/bzoj/2956/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
         
-          <a href="https://github.com/memset0" class="iconfont icon-github" title="github"></a>
         
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-
-    
-      <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
-    
-  </div>
-
-
-
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-<div class="copyright">
-
-  <span class="copyright-year">
-    
-    &copy; 
-     
-      2017 - 
-    
-    2018
-
-    <span class="heart my-colored">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author">memset0</span>
-  </span>
-  
-  <span class="copyright-year">
-    <span>
-      <span>57.8k</span> Words
-    </span>
-    <span id="busuanzi_container_site_pv" style='display:none'>
-      <span class="division">|</span>
-      <span id="busuanzi_value_site_pv"></span> Views
-    </span>
-    <span id="busuanzi_container_site_uv" style='display:none'>
-      <span class="division">|</span>
-      <span id="busuanzi_value_site_uv"></span> Visitors
-    </span>
-  </span>
-
-  <span class="theme-info">
-    Powered By Hexo & Even & Coding Pages
-    <!-- Powered By
-    <a class="hexo-link" href="https://hexo.io/">Hexo</a>
-    &
-    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a> -->
-  </span>
-
+    </div>
 </div>
 
-</script>
-      </footer>
+
+
+
+
+
+    
+<div class="card card-transparent">
+    <nav class="pagination is-centered" role="navigation" aria-label="pagination">
+        <div class="pagination-previous">
+            <a class="is-flex-grow has-text-black-ter" href="/page/4/">上一页</a>
+        </div>
+        <div class="pagination-next">
+            <a class="is-flex-grow has-text-black-ter" href="/page/6/">下一页</a>
+        </div>
+        <ul class="pagination-list is-hidden-mobile">
+            
+            <li><a class="pagination-link has-text-black-ter" href="/">1</a></li>
+            
+            <li><span class="pagination-ellipsis has-text-black-ter">&hellip;</span></li>
+            
+            <li><a class="pagination-link has-text-black-ter" href="/page/4/">4</a></li>
+            
+            <li><a class="pagination-link is-current" href="/page/5/">5</a></li>
+            
+            <li><a class="pagination-link has-text-black-ter" href="/page/6/">6</a></li>
+            
+            <li><span class="pagination-ellipsis has-text-black-ter">&hellip;</span></li>
+            
+            <li><a class="pagination-link has-text-black-ter" href="/page/16/">16</a></li>
+            
+        </ul>
+    </nav>
+</div>
+</div>
+                
+                
+
+
+
+
+<div class="column my-sidebar is-4-tablet is-4-desktop is-4-widescreen  has-order-3 column-right is-sticky">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered">
+                <div>
+                    <img class="image is-128x128 has-mb-6" src="/images/avatar.png" alt="memset0">
+                    
+                    <p class="is-size-4 is-block">
+                        memset0
+                    </p>
+                    
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>Hangzhou, China</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        文章
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        79
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        分类
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        6
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        标签
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        84
+                    </p>
+                </div>
+            </div>
+        </nav>
+        <div class="level">
+            <a class="level-item button is-link is-rounded" href="http://github.com/memset0">
+                关注我</a>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Github" href="http://github.com/memset0">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="RSS" href="/">
+                
+                <i class="fas fa-rss"></i>
+                
+            </a>
+            
+        </div>
+        
     </div>
+</div>
+    
+        
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                分类
+            </h3>
+            <ul class="menu-list">
+            <li>
+        <a class="level is-marginless" href="/categories/Algorithm/">
+            <span class="level-start">
+                <span class="level-item">Algorithm</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">16</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Contest/">
+            <span class="level-start">
+                <span class="level-item">Contest</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">3</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Diary/">
+            <span class="level-start">
+                <span class="level-item">Diary</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">4</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Geek/">
+            <span class="level-start">
+                <span class="level-item">Geek</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">8</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Plan/">
+            <span class="level-start">
+                <span class="level-item">Plan</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Solution/">
+            <span class="level-start">
+                <span class="level-item">Solution</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">47</span>
+            </span>
+        </a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+    
+</div>
+
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img src="/images/logo.svg" alt="memset0&#39;s blog" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2018 memset0&nbsp;
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a
+                        href="http://github.com/ppoffice/hexo-theme-icarus">Icarus</a>
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Creative Commons" href="https://creativecommons.org/">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("zh-CN");</script>
+
 
     
-
-
+    
+    
+    <script src="/js/animation.js"></script>
     
 
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+    <script src="/js/gallery.js" defer></script>
+    
 
-  
-  
+    
+    
 
-
-
-
-
-  
-    <script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
-  
-
-  
-    <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
-  
-
-  
-
-  
-    <script type="text/javascript" src="/lib/pjax/jquery.pjax.min.js"></script>
-  
-
-  
-    <script type="text/javascript" src="/lib/nprogress/nprogress.min.js"></script>
-  
-
-
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
 <script>
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "https://hm.baidu.com/hm.js?d8c0a4185322e94013582201484f9131";
-  var s = document.getElementsByTagName("script")[0]; 
-  s.parentNode.insertBefore(hm, s);
-})();
-</script>
-
-<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js" data-no-instant></script>
-<script src='//unpkg.com/valine/dist/Valine.min.js' data-no-instant></script>
-<script type="text/javascript">
-    var valine_option = {
-        el: '#vcomments',
-        app_id: "rHgVqrBsv0EYGFSxzDDIDapm-9Nh9j0Va",
-        app_key: "X7Dp3hEvRWPbqHBYkOTBXzPm",
-        placeholder: "留下你的脚印~    （如果评论不能正常加载请尝试刷新）",
-        avatar: 'mm'
-    };
-    var valine = new Valine(valine_option);
-    $(document).on({
-        'pjax:end': function () {
-            valine.init(valine_option);
-        }
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
     });
 </script>
 
-<script type="text/javascript">
-$(document).on({
-    $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
-});
-</script>
 
+    
+    
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
     tex2jax: {
@@ -717,8 +706,62 @@ $(document).on({
 });
 </script>
 
-<script async src="//cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
-    <script type="text/javascript" src="/js/src/even.js?v=2.10.1"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
 
-  </body>
+    
+    
+
+<a id="back-to-top" title="回到顶端" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="想要查找什么..." />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+</body>
 </html>

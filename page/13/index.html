@@ -1,260 +1,159 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
-  <head>
+<html  lang="zh">
+<head>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+<title>memset0&#39;s blog</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+
+
+    <meta property="og:type" content="website">
+<meta property="og:title" content="memset0&#39;s blog">
+<meta property="og:url" content="https://memset0.cn/page/13/index.html">
+<meta property="og:site_name" content="memset0&#39;s blog">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="memset0&#39;s blog">
+
+
+
+
+
+<link rel="icon" href="/images/favicon.svg">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
+
+
     
-<!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-<meta name="theme-color" content="#f8f5ec" />
-<meta name="msapplication-navbutton-color" content="#f8f5ec">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <link rel="alternate" href="/atom.xml" title="memset0's blog">
-
-
-
-
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.10.1" />
-
-
-
-<link rel="canonical" href="https://memset0.cn/page/13/"/>
-
-
-
-
-
-
-  <link rel="stylesheet" type="text/css" href="/lib/nprogress/nprogress.min.css" />
-
-
-
-<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.10.1" />
-
-
-
-  
-
-
-
-  <script id="baidu_push">
-(function(){
-    var bp = document.createElement('script');
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-    }
-    else {
-        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-})();
-</script>
-
-
-
-
-
-
-
-
-
-<script>
-  window.config = {"leancloud":{"app_id":null,"app_key":null},"toc":true,"fancybox":false,"pjax":true};
-</script>
-
-
-    <title> memset0's blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
-  </head>
-
-  <body><div id="mobile-navbar" class="mobile-navbar">
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="mobile-header-logo">
-    <a href="/." class="logo">memset0's blog</a>
-  </div>
-  <div class="mobile-navbar-icon">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-</div>
-
-<nav id="mobile-menu" class="mobile-menu slideout-menu">
-  <ul class="mobile-menu-list">
     
-      <a href="/categories/Solution">
-        <li class="mobile-menu-item">
-          
-          
-            题解
-          
-        </li>
-      </a>
     
-      <a href="/tags">
-        <li class="mobile-menu-item">
-          
-          
-            标签
-          
-        </li>
-      </a>
+    <style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
     
-      <a href="/categories">
-        <li class="mobile-menu-item">
-          
-          
-            分类
-          
-        </li>
-      </a>
+
     
-      <a href="/friends">
-        <li class="mobile-menu-item">
-          
-          
-            友链
-          
-        </li>
-      </a>
     
-      <a href="/about">
-        <li class="mobile-menu-item">
-          
-          
-            关于
-          
-        </li>
-      </a>
     
-  </ul>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+    
+
+    
+    
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+
+    
+    
+    
+    
+
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+<link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+    
+
+
+<link rel="stylesheet" href="/css/style.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+<body class="is-2-column">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <!-- <img src="/images/logo.svg" alt="memset0&#39;s blog" height="28"> -->
+                <span class="navbar-title"> memset0's blog </span>
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item"
+                href="/archives">归档</a>
+                
+                <a class="navbar-item"
+                href="/categories">分类</a>
+                
+                <a class="navbar-item"
+                href="/friends">友链</a>
+                
+                <a class="navbar-item"
+                href="/tags">标签</a>
+                
+                <a class="navbar-item"
+                href="/about">关于</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                
+                
+                <a class="navbar-item search" title="搜索" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
 </nav>
-
-    <div class="container" id="mobile-panel">
-      <header id="header" class="header"><div class="logo-wrapper">
-  <a href="/." class="logo">memset0's blog</a>
-</div>
-
-<nav class="site-navbar">
-  
-    <ul id="menu" class="menu">
-      
-        <li class="menu-item">
-          <a class="menu-item-link" href="/categories/Solution">
-            
-            
-              题解
-            
-          </a>
-        </li>
-      
-        <li class="menu-item">
-          <a class="menu-item-link" href="/tags">
-            
-            
-              标签
-            
-          </a>
-        </li>
-      
-        <li class="menu-item">
-          <a class="menu-item-link" href="/categories">
-            
-            
-              分类
-            
-          </a>
-        </li>
-      
-        <li class="menu-item">
-          <a class="menu-item-link" href="/friends">
-            
-            
-              友链
-            
-          </a>
-        </li>
-      
-        <li class="menu-item">
-          <a class="menu-item-link" href="/about">
-            
-            
-              关于
-            
-          </a>
-        </li>
-      
-    </ul>
-  
-</nav>
-
-      </header>
-
-      <main id="main" class="main">
-        <div class="content-wrapper">
-          <div id="content" class="content">
-            
-  
-  <section id="posts" class="posts">
     
-      
-        
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/algorithm/割点/">Tarjan求割点（洛谷3388）</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-08-19
-        </span>
-        
-          <span class="post-category">
-            
-              <a href="/categories/Algorithm/">Algorithm</a>
-            
-          </span>
-        
-        
-      </div>
-    </header>
-
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column my-content is-8-tablet is-8-desktop is-8-widescreen has-order-2 column-main">
+    <div class="card">
     
-    
-
-
-    <div class="post-content">
-      
+    <div class="card-content article ">
         
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/algorithm/割点/">Tarjan求割点（洛谷3388）</a>
+            
+        </h1>
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <i class="fa fa-clock"></i>
+                <time class="level-item has-text-grey" datetime="2018-08-19T07:23:54.000Z">
+                    2018-08-19
+                </time>
+                <i class="fa fa-th"></i>
+                
+                    <div class="level-item">
+                        <a class="has-link-grey -link" href="/categories/Algorithm/">Algorithm</a>
+                    </div>
+                
+                <i class="fa fa-flag"></i>
+                
+                    <span class="level-item has-text-grey">
+                        339 Words
+                    </span>
+                
+            </div>
+        </div>
         
-          
-        
-
-        
-          <p>用 tarjan 遍历整个图，如果某个点是割点，当且仅当以下两种情况</p>
+        <div class="content">
+            <p>用 tarjan 遍历整个图，如果某个点是割点，当且仅当以下两种情况</p>
 <ol>
 <li>当前点是根节点，且当前节点出发独立的联通分量至少有两个</li>
 <li>当前点不是根节点，且当前节点出发的独立分量能回溯到的最早的点在当前节点之后</li>
@@ -265,426 +164,516 @@
 <li><code>u != root &amp;&amp; low[v] &gt;= dfn[u]</code></li>
 </ol>
 <p>其他与 tarjan 算法无异。</p>
-          <div class="read-more">
-            <a href="/algorithm/割点/" class="read-more-link">阅读更多</a>
-          </div>
+        </div>
         
-      
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/algorithm/割点/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
+        
+        
     </div>
+</div>
 
+
+
+
+
+    <div class="card">
     
-
-    
-
-  </article>
-
-      
+    <div class="card-content article ">
         
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/geek/windows-beauty/">Windown10美化计划</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-08-15
-        </span>
-        
-          <span class="post-category">
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-              <a href="/categories/Geek/">Geek</a>
+                <a class="has-link-black-ter" href="/geek/windows-beauty/">Windown10美化计划</a>
             
-          </span>
+        </h1>
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <i class="fa fa-clock"></i>
+                <time class="level-item has-text-grey" datetime="2018-08-15T08:05:17.000Z">
+                    2018-08-15
+                </time>
+                <i class="fa fa-th"></i>
+                
+                    <div class="level-item">
+                        <a class="has-link-grey -link" href="/categories/Geek/">Geek</a>
+                    </div>
+                
+                <i class="fa fa-flag"></i>
+                
+                    <span class="level-item has-text-grey">
+                        786 Words
+                    </span>
+                
+            </div>
+        </div>
         
-        
-      </div>
-    </header>
-
-    
-    
-
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <p><strong>本文不定时持续更新！</strong></p>
+        <div class="content">
+            <p><strong>本文不定时持续更新！</strong></p>
 <p><strong>所有用到的资源可到 <a href="https://cloud.memset0.cn/%E5%88%86%E4%BA%AB/Windows10%20%E7%BE%8E%E5%8C%96%E8%AE%A1%E5%88%92/" target="_blank" rel="noopener">cloud.memset0.cn/分享/Windows10美化计划</a> 中下载</strong></p>
 <p><img src="https://i.loli.net/2018/08/15/5b73df69642f8.png" alt="成品效果"></p>
 <p>成品效果如上</p>
-          <div class="read-more">
-            <a href="/geek/windows-beauty/" class="read-more-link">阅读更多</a>
-          </div>
+        </div>
         
-      
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/geek/windows-beauty/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
+        
+        
     </div>
+</div>
 
+
+
+
+
+    <div class="card">
     
-
-    
-
-  </article>
-
-      
+    <div class="card-content article ">
         
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/algorithm/线性基/">线性基（洛谷3812）</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-08-14
-        </span>
-        
-          <span class="post-category">
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-              <a href="/categories/Algorithm/">Algorithm</a>
+                <a class="has-link-black-ter" href="/algorithm/线性基/">线性基（洛谷3812）</a>
             
-          </span>
+        </h1>
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <i class="fa fa-clock"></i>
+                <time class="level-item has-text-grey" datetime="2018-08-14T13:55:36.000Z">
+                    2018-08-14
+                </time>
+                <i class="fa fa-th"></i>
+                
+                    <div class="level-item">
+                        <a class="has-link-grey -link" href="/categories/Algorithm/">Algorithm</a>
+                    </div>
+                
+                <i class="fa fa-flag"></i>
+                
+                    <span class="level-item has-text-grey">
+                        619 Words
+                    </span>
+                
+            </div>
+        </div>
         
-        
-      </div>
-    </header>
-
-    
-    
-
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <p>线性基是一种解决异或相关问题的算法。</p>
+        <div class="content">
+            <p>线性基是一种解决异或相关问题的算法。</p>
 <p>感谢 mwh 与我分享关于线性基的理解，让我了解线性基。</p>
 <h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><p>线性基理论上来说是一种贪心的思路。一般情况下，我们需要从（二进制）高位到低位贪心，然而这样可能会产生其他影响（例如当前数的选择与否会影响到之前已选择的数）。线性基就巧妙的解决了这个问题。</p>
 <p>假设我们已经有了一个集合 $S$ ，集合中有一数为 $P$ ，现在我们需要插入 $X$ ，则插入 $X$ 和插入 $ X xor P $ 是等价的，理性证明：</p>
 <p>假设集合 $S$ 中任意个数其中包含 $P$ 的异或和的集合为 $S1$ ，不包含 $P$ 的为 $S2$ 。则插入 $X$ 后的 $S$ 中任意数的异或和集合 $S’ = X xor S1 + X xor S2$ ；插入 $X xor P$ 后 $S$ 中任意数的异或集合 $S’’ = (X xor P) xor S1 + (X xor P) xor S2 = X xor (P xor S1) + X xor (P xor S2) = X xor S2 + X xor S1$ 。所以 $S’ = S’’$ 插入 $X$ 和插入 $X xor P$ 等价，证毕。</p>
-          <div class="read-more">
-            <a href="/algorithm/线性基/" class="read-more-link">阅读更多</a>
-          </div>
+        </div>
         
-      
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/algorithm/线性基/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
+        
+        
     </div>
+</div>
 
+
+
+
+
+    <div class="card">
     
-
-    
-
-  </article>
-
-      
+    <div class="card-content article ">
         
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/algorithm/主席树/">主席树（洛谷P3834）</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-08-13
-        </span>
-        
-          <span class="post-category">
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-              <a href="/categories/Algorithm/">Algorithm</a>
+                <a class="has-link-black-ter" href="/algorithm/主席树/">主席树（洛谷P3834）</a>
             
-          </span>
+        </h1>
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <i class="fa fa-clock"></i>
+                <time class="level-item has-text-grey" datetime="2018-08-12T23:20:00.000Z">
+                    2018-08-13
+                </time>
+                <i class="fa fa-th"></i>
+                
+                    <div class="level-item">
+                        <a class="has-link-grey -link" href="/categories/Algorithm/">Algorithm</a>
+                    </div>
+                
+                <i class="fa fa-flag"></i>
+                
+                    <span class="level-item has-text-grey">
+                        645 Words
+                    </span>
+                
+            </div>
+        </div>
         
-        
-      </div>
-    </header>
-
-    
-    
-
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <p>在 mwh 大佬的指引下，我最近学习了主席树。</p>
+        <div class="content">
+            <p>在 mwh 大佬的指引下，我最近学习了主席树。</p>
 <h1 id="思想"><a href="#思想" class="headerlink" title="思想"></a>思想</h1><p>主席树是一种特殊的线段树，能够存储线段树的历史版本，我们称这种性质叫做可持久化。</p>
 <p>主席树的可持久化通过这样来实现：我们每次修改单个节点，必然只会经过 $log_2n​$ 条“线段”，对于这些线段，我们都新开节点来存储。显然对于每一次修改操作，根节点都会被新建。那么我们只要存储下来每一次修改说对应的根节点即可。空间占用 $O(n log n)​$</p>
 <p>具体思路可参考<a href="https://www.luogu.org/blog/LonecharmRiver/zhu-xi-shu" target="_blank" rel="noopener">https://www.luogu.org/blog/LonecharmRiver/zhu-xi-shu</a>中的图片。</p>
 <h1 id="关于模板题"><a href="#关于模板题" class="headerlink" title="关于模板题"></a>关于模板题</h1><p>我们要维护静态区间第 k 小。可以先把数组离散化，比如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">离散化前 4 1 1 2 8 9 4 4 3</span><br><span class="line">离散化后 4 1 1 2 5 6 4 4 3</span><br><span class="line">离散数组 1 2 3 4 8 9</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">离散化前 4 1 1 2 8 9 4 4 3</span><br><span class="line">离散化后 4 1 1 2 5 6 4 4 3</span><br><span class="line">离散数组 1 2 3 4 8 9</span><br></pre></td></tr></table></figure>
 <p>我们根据离散数组作为所维护的区间。第 i 棵树存储<code>[1, i]</code>内各数值出现的次数。</p>
-          <div class="read-more">
-            <a href="/algorithm/主席树/" class="read-more-link">阅读更多</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-      
-        
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/algorithm/gauss/">高斯消元（洛谷3389）</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-08-11
-        </span>
-        
-          <span class="post-category">
-            
-              <a href="/categories/Algorithm/">Algorithm</a>
-            
-          </span>
-        
-        
-      </div>
-    </header>
-
-    
-    
-
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <p>最近的模拟赛出现了一道坑爹的数学题，正解是上一篇博文所讲的数学插值。然而高斯消元还是可以拿到 65 分的成绩，没办法，凭借着我对其原理的依稀记忆我只能考场上手推高斯消元。</p>
-<h1 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h1><p>高斯消元其实是个很简单的东西，无非就小学奥数的难度罢了。按照小学奥数的加减消元和代入消元即可完成。模板题给了你 n 个的 n 元一次多项式求解。我们可以通过加减消元合并为 n - 1 个 n - 1 元的一次多项式（合并相邻两个）；于是，经过 n - 1 次合并我们就可以得到一个一元一次方程，可以很方便的得到解。我们再将解回代，即可解出方程。</p>
-          <div class="read-more">
-            <a href="/algorithm/gauss/" class="read-more-link">阅读更多</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-      
-      
-  <nav class="pagination">
-    
-      <a class="prev" href="/page/12/">
-        <i class="iconfont icon-left"></i>
-        <span class="prev-text">上一页</span>
-      </a>
-    
-    
-      <a class="next" href="/page/14/">
-        <span class="next-text">下一页</span>
-        <i class="iconfont icon-right"></i>
-      </a>
-    
-  </nav>
-
-
-    
-  </section>
-
-          </div>
-          
-
         </div>
-      </main>
-
-      <div class="back-to-top" id="back-to-top">
-        <i class="iconfont icon-up"></i>
-      </div>
-
-      <footer id="footer" class="footer">
-
-  <div class="social-links">
-    
-      
         
-          <a href="mailto:memset0@outlook.com" class="iconfont icon-email" title="email"></a>
         
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/algorithm/主席树/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
         
-          <a href="https://github.com/memset0" class="iconfont icon-github" title="github"></a>
         
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-
-    
-      <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
-    
-  </div>
-
-
-
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-<div class="copyright">
-
-  <span class="copyright-year">
-    
-    &copy; 
-     
-      2017 - 
-    
-    2018
-
-    <span class="heart my-colored">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author">memset0</span>
-  </span>
-  
-  <span class="copyright-year">
-    <span>
-      <span>57.8k</span> Words
-    </span>
-    <span id="busuanzi_container_site_pv" style='display:none'>
-      <span class="division">|</span>
-      <span id="busuanzi_value_site_pv"></span> Views
-    </span>
-    <span id="busuanzi_container_site_uv" style='display:none'>
-      <span class="division">|</span>
-      <span id="busuanzi_value_site_uv"></span> Visitors
-    </span>
-  </span>
-
-  <span class="theme-info">
-    Powered By Hexo & Even & Coding Pages
-    <!-- Powered By
-    <a class="hexo-link" href="https://hexo.io/">Hexo</a>
-    &
-    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a> -->
-  </span>
-
+    </div>
 </div>
 
-</script>
-      </footer>
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/algorithm/gauss/">高斯消元（洛谷3389）</a>
+            
+        </h1>
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <i class="fa fa-clock"></i>
+                <time class="level-item has-text-grey" datetime="2018-08-11T00:45:31.000Z">
+                    2018-08-11
+                </time>
+                <i class="fa fa-th"></i>
+                
+                    <div class="level-item">
+                        <a class="has-link-grey -link" href="/categories/Algorithm/">Algorithm</a>
+                    </div>
+                
+                <i class="fa fa-flag"></i>
+                
+                    <span class="level-item has-text-grey">
+                        880 Words
+                    </span>
+                
+            </div>
+        </div>
+        
+        <div class="content">
+            <p>最近的模拟赛出现了一道坑爹的数学题，正解是上一篇博文所讲的数学插值。然而高斯消元还是可以拿到 65 分的成绩，没办法，凭借着我对其原理的依稀记忆我只能考场上手推高斯消元。</p>
+<h1 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h1><p>高斯消元其实是个很简单的东西，无非就小学奥数的难度罢了。按照小学奥数的加减消元和代入消元即可完成。模板题给了你 n 个的 n 元一次多项式求解。我们可以通过加减消元合并为 n - 1 个 n - 1 元的一次多项式（合并相邻两个）；于是，经过 n - 1 次合并我们就可以得到一个一元一次方程，可以很方便的得到解。我们再将解回代，即可解出方程。</p>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/algorithm/gauss/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
+        
+        
     </div>
+</div>
+
+
+
+
+
+
+    
+<div class="card card-transparent">
+    <nav class="pagination is-centered" role="navigation" aria-label="pagination">
+        <div class="pagination-previous">
+            <a class="is-flex-grow has-text-black-ter" href="/page/12/">上一页</a>
+        </div>
+        <div class="pagination-next">
+            <a class="is-flex-grow has-text-black-ter" href="/page/14/">下一页</a>
+        </div>
+        <ul class="pagination-list is-hidden-mobile">
+            
+            <li><a class="pagination-link has-text-black-ter" href="/">1</a></li>
+            
+            <li><span class="pagination-ellipsis has-text-black-ter">&hellip;</span></li>
+            
+            <li><a class="pagination-link has-text-black-ter" href="/page/12/">12</a></li>
+            
+            <li><a class="pagination-link is-current" href="/page/13/">13</a></li>
+            
+            <li><a class="pagination-link has-text-black-ter" href="/page/14/">14</a></li>
+            
+            <li><a class="pagination-link has-text-black-ter" href="/page/15/">15</a></li>
+            
+            <li><a class="pagination-link has-text-black-ter" href="/page/16/">16</a></li>
+            
+        </ul>
+    </nav>
+</div>
+</div>
+                
+                
+
+
+
+
+<div class="column my-sidebar is-4-tablet is-4-desktop is-4-widescreen  has-order-3 column-right is-sticky">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered">
+                <div>
+                    <img class="image is-128x128 has-mb-6" src="/images/avatar.png" alt="memset0">
+                    
+                    <p class="is-size-4 is-block">
+                        memset0
+                    </p>
+                    
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>Hangzhou, China</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        文章
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        79
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        分类
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        6
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        标签
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        84
+                    </p>
+                </div>
+            </div>
+        </nav>
+        <div class="level">
+            <a class="level-item button is-link is-rounded" href="http://github.com/memset0">
+                关注我</a>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Github" href="http://github.com/memset0">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="RSS" href="/">
+                
+                <i class="fas fa-rss"></i>
+                
+            </a>
+            
+        </div>
+        
+    </div>
+</div>
+    
+        
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                分类
+            </h3>
+            <ul class="menu-list">
+            <li>
+        <a class="level is-marginless" href="/categories/Algorithm/">
+            <span class="level-start">
+                <span class="level-item">Algorithm</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">16</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Contest/">
+            <span class="level-start">
+                <span class="level-item">Contest</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">3</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Diary/">
+            <span class="level-start">
+                <span class="level-item">Diary</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">4</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Geek/">
+            <span class="level-start">
+                <span class="level-item">Geek</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">8</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Plan/">
+            <span class="level-start">
+                <span class="level-item">Plan</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Solution/">
+            <span class="level-start">
+                <span class="level-item">Solution</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">47</span>
+            </span>
+        </a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+    
+</div>
+
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img src="/images/logo.svg" alt="memset0&#39;s blog" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2018 memset0&nbsp;
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a
+                        href="http://github.com/ppoffice/hexo-theme-icarus">Icarus</a>
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Creative Commons" href="https://creativecommons.org/">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("zh-CN");</script>
+
 
     
-
-
+    
+    
+    <script src="/js/animation.js"></script>
     
 
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+    <script src="/js/gallery.js" defer></script>
+    
 
-  
-  
+    
+    
 
-
-
-
-
-  
-    <script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
-  
-
-  
-    <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
-  
-
-  
-
-  
-    <script type="text/javascript" src="/lib/pjax/jquery.pjax.min.js"></script>
-  
-
-  
-    <script type="text/javascript" src="/lib/nprogress/nprogress.min.js"></script>
-  
-
-
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
 <script>
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "https://hm.baidu.com/hm.js?d8c0a4185322e94013582201484f9131";
-  var s = document.getElementsByTagName("script")[0]; 
-  s.parentNode.insertBefore(hm, s);
-})();
-</script>
-
-<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js" data-no-instant></script>
-<script src='//unpkg.com/valine/dist/Valine.min.js' data-no-instant></script>
-<script type="text/javascript">
-    var valine_option = {
-        el: '#vcomments',
-        app_id: "rHgVqrBsv0EYGFSxzDDIDapm-9Nh9j0Va",
-        app_key: "X7Dp3hEvRWPbqHBYkOTBXzPm",
-        placeholder: "留下你的脚印~    （如果评论不能正常加载请尝试刷新）",
-        avatar: 'mm'
-    };
-    var valine = new Valine(valine_option);
-    $(document).on({
-        'pjax:end': function () {
-            valine.init(valine_option);
-        }
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
     });
 </script>
 
-<script type="text/javascript">
-$(document).on({
-    $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
-});
-</script>
 
+    
+    
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
     tex2jax: {
@@ -708,8 +697,62 @@ $(document).on({
 });
 </script>
 
-<script async src="//cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
-    <script type="text/javascript" src="/js/src/even.js?v=2.10.1"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
 
-  </body>
+    
+    
+
+<a id="back-to-top" title="回到顶端" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="想要查找什么..." />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+</body>
 </html>

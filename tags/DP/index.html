@@ -1,483 +1,608 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
-  <head>
+<html  lang="zh">
+<head>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+<title>标签: DP - memset0&#39;s blog</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+
+
+    <meta property="og:type" content="website">
+<meta property="og:title" content="memset0&#39;s blog">
+<meta property="og:url" content="https://memset0.cn/tags/DP/index.html">
+<meta property="og:site_name" content="memset0&#39;s blog">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="memset0&#39;s blog">
+
+
+
+
+
+<link rel="icon" href="/images/favicon.svg">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
+
+
     
-<!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-<meta name="theme-color" content="#f8f5ec" />
-<meta name="msapplication-navbutton-color" content="#f8f5ec">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <link rel="alternate" href="/atom.xml" title="memset0's blog">
-
-
-
-
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.10.1" />
-
-
-
-<link rel="canonical" href="https://memset0.cn/tags/DP/"/>
-
-
-
-
-
-
-  <link rel="stylesheet" type="text/css" href="/lib/nprogress/nprogress.min.css" />
-
-
-
-<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.10.1" />
-
-
-
-  
-
-
-
-  <script id="baidu_push">
-(function(){
-    var bp = document.createElement('script');
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-    }
-    else {
-        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-})();
-</script>
-
-
-
-
-
-
-
-
-
-<script>
-  window.config = {"leancloud":{"app_id":null,"app_key":null},"toc":true,"fancybox":false,"pjax":true};
-</script>
-
-
-    <title>
-  
-    DP · memset0's blog
-  
-</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
-  </head>
-
-  <body><div id="mobile-navbar" class="mobile-navbar">
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="mobile-header-logo">
-    <a href="/." class="logo">memset0's blog</a>
-  </div>
-  <div class="mobile-navbar-icon">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-</div>
-
-<nav id="mobile-menu" class="mobile-menu slideout-menu">
-  <ul class="mobile-menu-list">
     
-      <a href="/categories/Solution">
-        <li class="mobile-menu-item">
-          
-          
-            题解
-          
-        </li>
-      </a>
     
-      <a href="/tags">
-        <li class="mobile-menu-item">
-          
-          
-            标签
-          
-        </li>
-      </a>
+    <style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
     
-      <a href="/categories">
-        <li class="mobile-menu-item">
-          
-          
-            分类
-          
-        </li>
-      </a>
-    
-      <a href="/friends">
-        <li class="mobile-menu-item">
-          
-          
-            友链
-          
-        </li>
-      </a>
-    
-      <a href="/about">
-        <li class="mobile-menu-item">
-          
-          
-            关于
-          
-        </li>
-      </a>
-    
-  </ul>
-</nav>
 
-    <div class="container" id="mobile-panel">
-      <header id="header" class="header"><div class="logo-wrapper">
-  <a href="/." class="logo">memset0's blog</a>
-</div>
-
-<nav class="site-navbar">
-  
-    <ul id="menu" class="menu">
-      
-        <li class="menu-item">
-          <a class="menu-item-link" href="/categories/Solution">
-            
-            
-              题解
-            
-          </a>
-        </li>
-      
-        <li class="menu-item">
-          <a class="menu-item-link" href="/tags">
-            
-            
-              标签
-            
-          </a>
-        </li>
-      
-        <li class="menu-item">
-          <a class="menu-item-link" href="/categories">
-            
-            
-              分类
-            
-          </a>
-        </li>
-      
-        <li class="menu-item">
-          <a class="menu-item-link" href="/friends">
-            
-            
-              友链
-            
-          </a>
-        </li>
-      
-        <li class="menu-item">
-          <a class="menu-item-link" href="/about">
-            
-            
-              关于
-            
-          </a>
-        </li>
-      
-    </ul>
-  
-</nav>
-
-      </header>
-
-      <main id="main" class="main">
-        <div class="content-wrapper">
-          <div id="content" class="content">
-            
-  
-  
-  
-
-  <section id="archive" class="archive">
     
-      
-        <div class="archive-title tag">
-          <h2 class="archive-name">DP</h2>
+    
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+    
+
+    
+    
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+
+    
+    
+    
+    
+
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+<link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+    
+
+
+<link rel="stylesheet" href="/css/style.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+<body class="is-2-column">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <!-- <img src="/images/logo.svg" alt="memset0&#39;s blog" height="28"> -->
+                <span class="navbar-title"> memset0's blog </span>
+            
+            </a>
         </div>
-      
-    
-
-    
-      
-
-      <div class="archive-post">
-        <span class="archive-post-time">
-          
-            2018-09-20
-          
-        </span>
-        <span class="archive-post-title">
-          <a href="/solution/luogu/2051/" class="archive-post-link">
-            洛谷2051 - [AHOI2009]中国象棋
-          </a>
-        </span>
-      </div>
-    
-      
-
-      <div class="archive-post">
-        <span class="archive-post-time">
-          
-            2018-08-26
-          
-        </span>
-        <span class="archive-post-title">
-          <a href="/solution/luogu/4767/" class="archive-post-link">
-            洛谷4767 - [IOI2000]邮局
-          </a>
-        </span>
-      </div>
-    
-      
-
-      <div class="archive-post">
-        <span class="archive-post-time">
-          
-            2018-08-21
-          
-        </span>
-        <span class="archive-post-title">
-          <a href="/solution/codeforces/702e/" class="archive-post-link">
-            CF702E - Analysis of Pathes in Functional Graph
-          </a>
-        </span>
-      </div>
-    
-      
-
-      <div class="archive-post">
-        <span class="archive-post-time">
-          
-            2018-08-20
-          
-        </span>
-        <span class="archive-post-title">
-          <a href="/solution/uva/1220/" class="archive-post-link">
-            UVA1220 - Party at Hali-Bula
-          </a>
-        </span>
-      </div>
-    
-  </section>
-
-  
-  <nav class="pagination">
-    
-    
-  </nav>
-
-
-
-
-          </div>
-          
-
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item"
+                href="/archives">归档</a>
+                
+                <a class="navbar-item"
+                href="/categories">分类</a>
+                
+                <a class="navbar-item"
+                href="/friends">友链</a>
+                
+                <a class="navbar-item"
+                href="/tags">标签</a>
+                
+                <a class="navbar-item"
+                href="/about">关于</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                
+                
+                <a class="navbar-item search" title="搜索" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
         </div>
-      </main>
-
-      <div class="back-to-top" id="back-to-top">
-        <i class="iconfont icon-up"></i>
-      </div>
-
-      <footer id="footer" class="footer">
-
-  <div class="social-links">
-    
-      
-        
-          <a href="mailto:memset0@outlook.com" class="iconfont icon-email" title="email"></a>
-        
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-        
-          <a href="https://github.com/memset0" class="iconfont icon-github" title="github"></a>
-        
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-
-    
-      <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
-    
-  </div>
-
-
-
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-<div class="copyright">
-
-  <span class="copyright-year">
-    
-    &copy; 
-     
-      2017 - 
-    
-    2018
-
-    <span class="heart my-colored">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author">memset0</span>
-  </span>
-  
-  <span class="copyright-year">
-    <span>
-      <span>57.8k</span> Words
-    </span>
-    <span id="busuanzi_container_site_pv" style='display:none'>
-      <span class="division">|</span>
-      <span id="busuanzi_value_site_pv"></span> Views
-    </span>
-    <span id="busuanzi_container_site_uv" style='display:none'>
-      <span class="division">|</span>
-      <span id="busuanzi_value_site_uv"></span> Visitors
-    </span>
-  </span>
-
-  <span class="theme-info">
-    Powered By Hexo & Even & Coding Pages
-    <!-- Powered By
-    <a class="hexo-link" href="https://hexo.io/">Hexo</a>
-    &
-    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a> -->
-  </span>
-
-</div>
-
-</script>
-      </footer>
     </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column my-content is-8-tablet is-8-desktop is-8-widescreen has-order-2 column-main"><div class="card">
+    <div class="card-content">
+        <nav class="breadcrumb" aria-label="breadcrumbs">
+        <ul>
+            <li><a href="/tags">标签</a></li>
+            <li class="is-active"><a href="#" aria-current="page">DP</a></li>
+        </ul>
+        </nav>
+    </div>
+</div>
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/solution/luogu/2051/">洛谷2051 - [AHOI2009]中国象棋</a>
+            
+        </h1>
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <i class="fa fa-clock"></i>
+                <time class="level-item has-text-grey" datetime="2018-09-20T10:46:00.000Z">
+                    2018-09-20
+                </time>
+                <i class="fa fa-th"></i>
+                
+                    <div class="level-item">
+                        <a class="has-link-grey -link" href="/categories/Solution/">Solution</a>
+                    </div>
+                
+                <i class="fa fa-flag"></i>
+                
+                    <span class="level-item has-text-grey">
+                        332 Words
+                    </span>
+                
+            </div>
+        </div>
+        
+        <div class="content">
+            <p>逐行 DP ，一行一行扫下去，显然之前选择的是那几列不重要，重要的是有多少列已经放了一个棋子，多少列已经放了两个棋子。</p>
+<p>用 $f[k][i][j]$ 表示到第 $k$ 行为止，有 $i$ 行放了一个棋子， $j$ 行放了两个棋子的方案数，没放棋子的行数可以由此推出。</p>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/solution/luogu/2051/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/solution/luogu/4767/">洛谷4767 - [IOI2000]邮局</a>
+            
+        </h1>
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <i class="fa fa-clock"></i>
+                <time class="level-item has-text-grey" datetime="2018-08-26T14:35:55.000Z">
+                    2018-08-26
+                </time>
+                <i class="fa fa-th"></i>
+                
+                    <div class="level-item">
+                        <a class="has-link-grey -link" href="/categories/Solution/">Solution</a>
+                    </div>
+                
+                <i class="fa fa-flag"></i>
+                
+                    <span class="level-item has-text-grey">
+                        612 Words
+                    </span>
+                
+            </div>
+        </div>
+        
+        <div class="content">
+            <p>非常简单的四边形不等式优化模板题。</p>
+<h3 id="（一）"><a href="#（一）" class="headerlink" title="（一）"></a>（一）</h3><p>首先考虑 $O(n^2 \times m)$ 的做法，先将 $a$ 数组排序，假设 $f[i][j]$ 表示前 $i$ 个村庄中设立 $j$ 个邮局，可以列出转移方程：</p>
+<p>$$f[i][j] = min(f[i][j], f[k][j - 1] + dis(k + 1, i))$$</p>
+<p>其中 $dis(l, r)$ 表示在 $l$ 到 $r$ 的区间中建立一个邮局所对答案产生的贡献，<strong>利用人类智慧可知把邮局建在中间花费最少</strong>。</p>
+<h3 id="（二）"><a href="#（二）" class="headerlink" title="（二）"></a>（二）</h3><p>在进行四边形不等式优化之前，我们先考虑如何在 $O(1)$ 的时间复杂度内求出 $dis(l, r)$：</p>
+<p>在暴力做法中，我们需要枚举 $l$ 到 $r$ 之间的数，去其与中间的村庄的距离差的绝对值，代码大概如下：</p>
+<figure class="highlight cpp hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = l; i &lt;= r; i++)</span><br><span class="line">    ans += <span class="hljs-built_in">abs</span>(a[i] - a[mid]);</span><br></pre></td></tr></table></figure>
+<p>由于 $a$ 数组是有序的，我们可知在 $mid$ 左面的村庄 $abs(a_i - a_{mid}) = a_{mid} - a_i$，右边的村庄 $abs(a_i - a_{mid}) = a_i - a_{mid}$ 。那么通过前缀和即可在 $O(1)$ 的时间复杂度内求出。</p>
+<h3 id="（三）"><a href="#（三）" class="headerlink" title="（三）"></a>（三）</h3><p>四边形不等式优化必须满足：</p>
+<p>$$f[a][c]+f[b][d]&lt;=f[b][c]+f[a][d]$$</p>
+<p>且决策单调。</p>
+<p>本题可以通过<del>打表</del>等方法证明成立，那么 $f[i][j]$ 的状态只能从 $f[i][j - 1]$ 到 $f[i + 1][j]$ 的决策中选择一个进行转移。</p>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/solution/luogu/4767/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/solution/codeforces/702e/">CF702E - Analysis of Pathes in Functional Graph</a>
+            
+        </h1>
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <i class="fa fa-clock"></i>
+                <time class="level-item has-text-grey" datetime="2018-08-21T03:41:09.000Z">
+                    2018-08-21
+                </time>
+                <i class="fa fa-th"></i>
+                
+                    <div class="level-item">
+                        <a class="has-link-grey -link" href="/categories/Solution/">Solution</a>
+                    </div>
+                
+                <i class="fa fa-flag"></i>
+                
+                    <span class="level-item has-text-grey">
+                        292 Words
+                    </span>
+                
+            </div>
+        </div>
+        
+        <div class="content">
+            <p>倍增，处理出每个点往后 $2^i$ 的点、和、最大值，然后倍增乱搞即可。复杂度 $O(n log k)$ ，可过。</p>
+<p>需要注意的是 $k$ 是 $10^{10}$ ，需要开 long long。</p>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/solution/codeforces/702e/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/solution/uva/1220/">UVA1220 - Party at Hali-Bula</a>
+            
+        </h1>
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <i class="fa fa-clock"></i>
+                <time class="level-item has-text-grey" datetime="2018-08-20T09:56:04.000Z">
+                    2018-08-20
+                </time>
+                <i class="fa fa-th"></i>
+                
+                    <div class="level-item">
+                        <a class="has-link-grey -link" href="/categories/Solution/">Solution</a>
+                    </div>
+                
+                <i class="fa fa-flag"></i>
+                
+                    <span class="level-item has-text-grey">
+                        400 Words
+                    </span>
+                
+            </div>
+        </div>
+        
+        <div class="content">
+            <p>用 $f[i][0]$ 表示 $i$ 不选所能取到的最大值， $f[i][1]$ 表示选 $i$ 能取到的最大值。</p>
+<p>假设当前节点为 $u$ ，孩子节点为 $v$ ，则：</p>
+<ul>
+<li>$f[u][0] = \sum max(f[v][0], f[v][1])$</li>
+<li>$f[u][1] = \sum f[v][0]$</li>
+</ul>
+<p>关于判断是否有多种情况：我们无需存种数，只要存是否即可，用数组 $d$ 表示，则：</p>
+<ul>
+<li>如果当前节点 $u$ 更新状态选中的来自 $v$ 的某个状态存在多种，那么 $u$ 的这个状态也存在多种。</li>
+<li>如果 $u$ 节点的某个孩子 $v$ 满足 $f[v][0] == f[v][1]$ ，那么 $f[u][0]$ 存在多种。</li>
+</ul>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/solution/uva/1220/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+</div>
+                
+                
+
+
+
+
+<div class="column my-sidebar is-4-tablet is-4-desktop is-4-widescreen  has-order-3 column-right is-sticky">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered">
+                <div>
+                    <img class="image is-128x128 has-mb-6" src="/images/avatar.png" alt="memset0">
+                    
+                    <p class="is-size-4 is-block">
+                        memset0
+                    </p>
+                    
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>Hangzhou, China</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        文章
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        79
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        分类
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        6
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        标签
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        84
+                    </p>
+                </div>
+            </div>
+        </nav>
+        <div class="level">
+            <a class="level-item button is-link is-rounded" href="http://github.com/memset0">
+                关注我</a>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Github" href="http://github.com/memset0">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="RSS" href="/">
+                
+                <i class="fas fa-rss"></i>
+                
+            </a>
+            
+        </div>
+        
+    </div>
+</div>
+    
+        
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                分类
+            </h3>
+            <ul class="menu-list">
+            <li>
+        <a class="level is-marginless" href="/categories/Algorithm/">
+            <span class="level-start">
+                <span class="level-item">Algorithm</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">16</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Contest/">
+            <span class="level-start">
+                <span class="level-item">Contest</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">3</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Diary/">
+            <span class="level-start">
+                <span class="level-item">Diary</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">4</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Geek/">
+            <span class="level-start">
+                <span class="level-item">Geek</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">8</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Plan/">
+            <span class="level-start">
+                <span class="level-item">Plan</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Solution/">
+            <span class="level-start">
+                <span class="level-item">Solution</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">47</span>
+            </span>
+        </a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+    
+</div>
+
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img src="/images/logo.svg" alt="memset0&#39;s blog" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2018 memset0&nbsp;
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a
+                        href="http://github.com/ppoffice/hexo-theme-icarus">Icarus</a>
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Creative Commons" href="https://creativecommons.org/">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("zh-CN");</script>
+
 
     
-  
     
-<!-- valine Comments -->
-
-
-  
-
-
-
+    
+    <script src="/js/animation.js"></script>
     
 
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+    <script src="/js/gallery.js" defer></script>
+    
 
-  
-  
+    
+    
 
-
-
-
-
-  
-    <script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
-  
-
-  
-    <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
-  
-
-  
-
-  
-    <script type="text/javascript" src="/lib/pjax/jquery.pjax.min.js"></script>
-  
-
-  
-    <script type="text/javascript" src="/lib/nprogress/nprogress.min.js"></script>
-  
-
-
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
 <script>
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "https://hm.baidu.com/hm.js?d8c0a4185322e94013582201484f9131";
-  var s = document.getElementsByTagName("script")[0]; 
-  s.parentNode.insertBefore(hm, s);
-})();
-</script>
-
-<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js" data-no-instant></script>
-<script src='//unpkg.com/valine/dist/Valine.min.js' data-no-instant></script>
-<script type="text/javascript">
-    var valine_option = {
-        el: '#vcomments',
-        app_id: "rHgVqrBsv0EYGFSxzDDIDapm-9Nh9j0Va",
-        app_key: "X7Dp3hEvRWPbqHBYkOTBXzPm",
-        placeholder: "留下你的脚印~    （如果评论不能正常加载请尝试刷新）",
-        avatar: 'mm'
-    };
-    var valine = new Valine(valine_option);
-    $(document).on({
-        'pjax:end': function () {
-            valine.init(valine_option);
-        }
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
     });
 </script>
 
-<script type="text/javascript">
-$(document).on({
-    $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
-});
-</script>
 
+    
+    
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
     tex2jax: {
@@ -501,8 +626,62 @@ $(document).on({
 });
 </script>
 
-<script async src="//cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
-    <script type="text/javascript" src="/js/src/even.js?v=2.10.1"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
 
-  </body>
+    
+    
+
+<a id="back-to-top" title="回到顶端" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="想要查找什么..." />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+</body>
 </html>

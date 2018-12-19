@@ -1,261 +1,166 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
-  <head>
-    
-<!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-<meta name="theme-color" content="#f8f5ec" />
-<meta name="msapplication-navbutton-color" content="#f8f5ec">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+<html  lang="zh">
+<head>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+<title>Python 模拟登陆 hustoj - memset0&#39;s blog</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
 
 
-  <meta name="description" content="Python 模拟登陆 hustoj"/>
-
-
-
-
-  <meta name="keywords" content="Python, memset0's blog" />
-
-
+    <meta name="description" content="前言最近闲着无聊准备写写Python爬虫，爬一下我们学校的oj用来横向比对做题量。但由于我校OJ对没有登录的账号有浏览限制，因此想要获取数据，就必须要登录账号。以前我一直手动生成Cookie，然后到浏览器里用该Cookie登录，这样的话没过一会儿又要重来比较麻烦。于是我就学习了一下用Python来POST数据的方式实现登录功能。 说明 感谢hiuseues大佬对我的指导！ 此处以我校OJ为例 请不">
+<meta name="keywords" content="Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python 模拟登陆 hustoj">
+<meta property="og:url" content="https://memset0.cn/geek/python-login-hostoj/index.html">
+<meta property="og:site_name" content="memset0&#39;s blog">
+<meta property="og:description" content="前言最近闲着无聊准备写写Python爬虫，爬一下我们学校的oj用来横向比对做题量。但由于我校OJ对没有登录的账号有浏览限制，因此想要获取数据，就必须要登录账号。以前我一直手动生成Cookie，然后到浏览器里用该Cookie登录，这样的话没过一会儿又要重来比较麻烦。于是我就学习了一下用Python来POST数据的方式实现登录功能。 说明 感谢hiuseues大佬对我的指导！ 此处以我校OJ为例 请不">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://i.loli.net/2018/05/22/5b042c8d4c0f1.png">
+<meta property="og:image" content="https://i.loli.net/2018/05/25/5b0819fc2701a.png">
+<meta property="og:updated_time" content="2018-10-10T12:14:53.315Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python 模拟登陆 hustoj">
+<meta name="twitter:description" content="前言最近闲着无聊准备写写Python爬虫，爬一下我们学校的oj用来横向比对做题量。但由于我校OJ对没有登录的账号有浏览限制，因此想要获取数据，就必须要登录账号。以前我一直手动生成Cookie，然后到浏览器里用该Cookie登录，这样的话没过一会儿又要重来比较麻烦。于是我就学习了一下用Python来POST数据的方式实现登录功能。 说明 感谢hiuseues大佬对我的指导！ 此处以我校OJ为例 请不">
+<meta name="twitter:image" content="https://i.loli.net/2018/05/22/5b042c8d4c0f1.png">
 
 
 
 
 
+<link rel="icon" href="/images/favicon.svg">
 
 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
 
-  <link rel="alternate" href="/atom.xml" title="memset0's blog">
-
-
-
-
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.10.1" />
-
-
-
-<link rel="canonical" href="https://memset0.cn/geek/python-login-hostoj/"/>
-
-
-
-
-
-
-  <link rel="stylesheet" type="text/css" href="/lib/nprogress/nprogress.min.css" />
-
-
-
-<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.10.1" />
-
-
-
-  
-
-
-
-  <script id="baidu_push">
-(function(){
-    var bp = document.createElement('script');
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-    }
-    else {
-        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-})();
-</script>
-
-
-
-
-
-
-
-
-
-<script>
-  window.config = {"leancloud":{"app_id":null,"app_key":null},"toc":true,"fancybox":false,"pjax":true};
-</script>
-
-
-    <title> Python 模拟登陆 hustoj - memset0's blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
-  </head>
-
-  <body><div id="mobile-navbar" class="mobile-navbar">
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="mobile-header-logo">
-    <a href="/." class="logo">memset0's blog</a>
-  </div>
-  <div class="mobile-navbar-icon">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-</div>
-
-<nav id="mobile-menu" class="mobile-menu slideout-menu">
-  <ul class="mobile-menu-list">
-    
-      <a href="/categories/Solution">
-        <li class="mobile-menu-item">
-          
-          
-            题解
-          
-        </li>
-      </a>
-    
-      <a href="/tags">
-        <li class="mobile-menu-item">
-          
-          
-            标签
-          
-        </li>
-      </a>
-    
-      <a href="/categories">
-        <li class="mobile-menu-item">
-          
-          
-            分类
-          
-        </li>
-      </a>
-    
-      <a href="/friends">
-        <li class="mobile-menu-item">
-          
-          
-            友链
-          
-        </li>
-      </a>
-    
-      <a href="/about">
-        <li class="mobile-menu-item">
-          
-          
-            关于
-          
-        </li>
-      </a>
-    
-  </ul>
-</nav>
-
-    <div class="container" id="mobile-panel">
-      <header id="header" class="header"><div class="logo-wrapper">
-  <a href="/." class="logo">memset0's blog</a>
-</div>
-
-<nav class="site-navbar">
-  
-    <ul id="menu" class="menu">
-      
-        <li class="menu-item">
-          <a class="menu-item-link" href="/categories/Solution">
-            
-            
-              题解
-            
-          </a>
-        </li>
-      
-        <li class="menu-item">
-          <a class="menu-item-link" href="/tags">
-            
-            
-              标签
-            
-          </a>
-        </li>
-      
-        <li class="menu-item">
-          <a class="menu-item-link" href="/categories">
-            
-            
-              分类
-            
-          </a>
-        </li>
-      
-        <li class="menu-item">
-          <a class="menu-item-link" href="/friends">
-            
-            
-              友链
-            
-          </a>
-        </li>
-      
-        <li class="menu-item">
-          <a class="menu-item-link" href="/about">
-            
-            
-              关于
-            
-          </a>
-        </li>
-      
-    </ul>
-  
-</nav>
-
-      </header>
-
-      <main id="main" class="main">
-        <div class="content-wrapper">
-          <div id="content" class="content">
-            
-  
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          Python 模拟登陆 hustoj
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-05-25
-        </span>
-        
-          <span class="post-category">
-            
-              <a href="/categories/Geek/">Geek</a>
-            
-          </span>
-        
-        
-      </div>
-    </header>
 
     
     
-  <div class="post-toc" id="post-toc">
-    <h4 class="post-toc-title colored">[ TOC ]</h4>
-    <div class="post-toc-content">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#说明"><span class="toc-text">说明</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#分析"><span class="toc-text">分析</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#登录页面"><span class="toc-text">登录页面</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分析数据"><span class="toc-text">分析数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如何post数据"><span class="toc-text">如何post数据</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#构建opener"><span class="toc-text">构建opener</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#完整代码"><span class="toc-text">完整代码</span></a></li></ol>
+    
+    <style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+    
+
+    
+    
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+    
+
+    
+    
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+
+    
+    
+    
+    
+
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+<link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+    
+
+
+<link rel="stylesheet" href="/css/style.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+<body class="is-2-column">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <!-- <img src="/images/logo.svg" alt="Python 模拟登陆 hustoj" height="28"> -->
+                <span class="navbar-title"> memset0's blog </span>
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item"
+                href="/archives">归档</a>
+                
+                <a class="navbar-item"
+                href="/categories">分类</a>
+                
+                <a class="navbar-item"
+                href="/friends">友链</a>
+                
+                <a class="navbar-item"
+                href="/tags">标签</a>
+                
+                <a class="navbar-item"
+                href="/about">关于</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                
+                
+                <a class="navbar-item search" title="搜索" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
     </div>
-  </div>
-
-
-
-    <div class="post-content">
-      
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>最近闲着无聊准备写写<code>Python</code>爬虫，爬一下我们学校的oj用来横向比对做题量。但由于我校OJ对没有登录的账号有浏览限制，因此想要获取数据，就必须要登录账号。以前我一直手动生成<code>Cookie</code>，然后到浏览器里用该<code>Cookie</code>登录，这样的话没过一会儿又要重来比较麻烦。于是我就学习了一下用<code>Python</code>来<strong><code>POST</code>数据</strong>的方式实现登录功能。</p>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column my-content is-8-tablet is-8-desktop is-8-widescreen has-order-2 column-main"><div class="card">
+    
+    <div class="card-content article ">
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                Python 模拟登陆 hustoj
+            
+        </h1>
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <i class="fa fa-clock"></i>
+                <time class="level-item has-text-grey" datetime="2018-05-25T14:14:00.000Z">
+                    2018-05-25
+                </time>
+                <i class="fa fa-th"></i>
+                
+                    <div class="level-item">
+                        <a class="has-link-grey -link" href="/categories/Geek/">Geek</a>
+                    </div>
+                
+                <i class="fa fa-flag"></i>
+                
+                    <span class="level-item has-text-grey">
+                        1368 Words
+                    </span>
+                
+            </div>
+        </div>
+        
+        <div class="content">
+            <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>最近闲着无聊准备写写<code>Python</code>爬虫，爬一下我们学校的oj用来横向比对做题量。但由于我校OJ对没有登录的账号有浏览限制，因此想要获取数据，就必须要登录账号。以前我一直手动生成<code>Cookie</code>，然后到浏览器里用该<code>Cookie</code>登录，这样的话没过一会儿又要重来比较麻烦。于是我就学习了一下用<code>Python</code>来<strong><code>POST</code>数据</strong>的方式实现登录功能。</p>
 <h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><ol start="0">
 <li>感谢hiuseues大佬对我的指导！</li>
 <li>此处以我校OJ为例</li>
@@ -268,7 +173,7 @@
 <p>使用“审查元素”功能查看一下这个登录框的源代码。</p>
 <p><img src="https://i.loli.net/2018/05/25/5b0819fc2701a.png" alt=""></p>
 <p>其中的核心代码如下（其他内容并没有什么卵用）：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"login.php"</span> <span class="attr">method</span>=<span class="string">"post"</span> <span class="attr">role</span>=<span class="string">"form"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">name</span>=<span class="string">"user_id"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">name</span>=<span class="string">"password"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span>&gt;</span>登录<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">action</span>=<span class="hljs-string">"login.php"</span> <span class="hljs-attr">method</span>=<span class="hljs-string">"post"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"form"</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"user_id"</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"password"</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">button</span>&gt;</span>登录<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>即使你把代码删到只剩这么点，你照样可以登录：只不过界面难看点罢了。</p>
 <h2 id="分析数据"><a href="#分析数据" class="headerlink" title="分析数据"></a>分析数据</h2><p>那么我们来讲讲这段“最简代码”讲了什么：</p>
 <ol>
@@ -281,242 +186,360 @@
 <p>那么你需要做的，就是给”/login.php”这个页面发送两个分别叫<code>user_id</code>和<code>password</code>的数据即可！</p>
 <h2 id="如何post数据"><a href="#如何post数据" class="headerlink" title="如何post数据"></a>如何post数据</h2><p>此处我们使用<code>urllib</code>和<code>urllib2</code>来操作，前者用于编码post的数据，后者用于发送请求。这两个库的名称和用法在python3略有改变，请参照下面的代码（下面的代码采用try的方式确保了在py2和py3中的兼容性，我以后的代码可能只会在py2中生效，但是你完全可以用同样的修改方式让它在py3中运行）。<br>当然，你也可以使用<code>requests</code>等第三方库。值得一提的是，<code>requests</code>库在处理post文件的操作时非常方便。</p>
 <p>我们用<code>urllib</code>库中的<code>urlencode()</code>方法来编码我们需要post的数据，在py2中的代码如下</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data = urllib.urlencode(&#123;<span class="string">"user_id"</span>: username, <span class="string">"password"</span>: password&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data = urllib.urlencode(&#123;<span class="hljs-string">"user_id"</span>: username, <span class="hljs-string">"password"</span>: password&#125;)</span><br></pre></td></tr></table></figure>
 <p>接着你需要使用<code>urllib2</code>库中的<code>urlopen()</code>方法来打开网页，同时post数据（<code>data</code>）</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">urllib2.urlopen(<span class="string">"http://www.h2zbmh.com:8080/html/JudgeOnline/index.php"</span>, data)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">urllib2.urlopen(<span class="hljs-string">"http://www.h2zbmh.com:8080/html/JudgeOnline/index.php"</span>, data)</span><br></pre></td></tr></table></figure>
 <h3 id="构建opener"><a href="#构建opener" class="headerlink" title="构建opener"></a>构建opener</h3><p>也许你在想，这就没了？结果你在尝试打开下一个页面时会发现，我还是没法获取那些需要登陆的页面啊！</p>
 <p>那么你可能需要一个opener来维持你打开页面的状态。接着使用<code>opener.open(url)</code>来代替<code>urllib2.urlopen(url)</code>并保留登陆状态。</p>
 <p>在构建opener的同时，我们也会把当前自身的cookie保存到文件中，方便进一步的调试。</p>
-<h1 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># encoding=utf8</span></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    <span class="comment"># python2的引入</span></span><br><span class="line">    <span class="keyword">import</span> urllib</span><br><span class="line">    <span class="keyword">import</span> urllib2</span><br><span class="line">    <span class="keyword">import</span> cookielib</span><br><span class="line"><span class="keyword">except</span> ImportError:</span><br><span class="line">    <span class="comment"># python3的引入</span></span><br><span class="line">    <span class="keyword">import</span> urllib.parse <span class="keyword">as</span> urllib</span><br><span class="line">    <span class="keyword">import</span> urllib.request <span class="keyword">as</span> urllib2</span><br><span class="line">    <span class="keyword">import</span> http.cookiejar <span class="keyword">as</span> cookielib </span><br><span class="line"><span class="comment"># 利用try实现同时兼容py2和py3的效果</span></span><br><span class="line"></span><br><span class="line">username = <span class="string">'LJB001590'</span></span><br><span class="line">password = <span class="string">'123'</span> <span class="comment"># 测试账号，账号密码来自某团队</span></span><br><span class="line">rooturl = <span class="string">'http://www.h2zbmh.com:8080/html/JudgeOnline/'</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">geturl</span><span class="params">(url)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> rooturl + url;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">Build</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">global</span> opener  <span class="comment"># 引入全局变量</span></span><br><span class="line">    filename = <span class="string">'cookie.txt'</span> <span class="comment"># 保存cookie的文件</span></span><br><span class="line">    cookie = cookielib.MozillaCookieJar(filename) <span class="comment"># 创建一个实例</span></span><br><span class="line">    handler = urllib2.HTTPCookieProcessor(cookie) <span class="comment"># 创建urllib2的cookie处理器</span></span><br><span class="line">    opener = urllib2.build_opener(handler) <span class="comment"># 通过之前的cookie处理器构造opener</span></span><br><span class="line">    opener.open(geturl(<span class="string">'index.php'</span>)) <span class="comment"># “随机”打开一个页面来获得cookie</span></span><br><span class="line">    cookie.save(ignore_discard=<span class="keyword">True</span>, ignore_expires=<span class="keyword">True</span>) <span class="comment"># 保存cookie到文件</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">Login</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">global</span> username, password, rooturl, opener <span class="comment"># 引入全局变量</span></span><br><span class="line">    url = geturl(<span class="string">'login.php'</span>) <span class="comment"># 对应的网址</span></span><br><span class="line">    data = urllib.urlencode(&#123;<span class="string">"user_id"</span>: username, <span class="string">"password"</span>: password, &#125;) <span class="comment"># 需要post的数据</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        response = opener.open(url, data=data) <span class="comment"># post数据 即 发送登录请求</span></span><br><span class="line">    <span class="keyword">except</span> TypeError:</span><br><span class="line">        response = opener.open(url, data=data.encode(<span class="string">'utf-8'</span>)) <span class="comment"># python3中的解决方式</span></span><br><span class="line"></span><br><span class="line">Build()</span><br><span class="line">Login()</span><br><span class="line"></span><br><span class="line">open(<span class="string">"ans.html"</span>, <span class="string">"wb+"</span>).write(opener.open(geturl(<span class="string">'problemset.php'</span>)).read()) <span class="comment"># 利用构建好的opener打开网页并输出到ans.html文件中（如果不显示“请登陆后继续操作！”说明成功）</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 再次感谢hiuseues大佬</span></span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-      
-      
-
-
-
-      
-      
-    
-
-    
-      <footer class="post-footer">
-        
-          <div class="post-tags">
-            
-              <a href="/tags/Python/">Python</a>
-            
-          </div>
-        
-        
-        
-  <nav class="post-nav">
-    
-      <a class="prev" href="/algorithm/gcd-from/">
-        <i class="iconfont icon-left"></i>
-        <span class="prev-text nav-default">C++ 中的 __gcd() 函数探源</span>
-        <span class="prev-text nav-mobile">上一篇</span>
-      </a>
-    
-    
-      <a class="next" href="/diary/2018浙大校赛游记/">
-        <span class="next-text nav-default">2018浙大校赛&图森未来杯(4.7) 游记</span>
-        <span class="prev-text nav-mobile">下一篇</span>
-        <i class="iconfont icon-right"></i>
-      </a>
-    
-  </nav>
-
-
-      </footer>
-    
-
-  </article>
-
-
-          </div>
-          
-  <div class="comments" id="comments">
-    
-      <div id="vcomments"></div>
-    
-  </div>
-
-
+<h1 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h1><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># encoding=utf8</span></span><br><span class="line"><span class="hljs-keyword">try</span>:</span><br><span class="line">    <span class="hljs-comment"># python2的引入</span></span><br><span class="line">    <span class="hljs-keyword">import</span> urllib</span><br><span class="line">    <span class="hljs-keyword">import</span> urllib2</span><br><span class="line">    <span class="hljs-keyword">import</span> cookielib</span><br><span class="line"><span class="hljs-keyword">except</span> ImportError:</span><br><span class="line">    <span class="hljs-comment"># python3的引入</span></span><br><span class="line">    <span class="hljs-keyword">import</span> urllib.parse <span class="hljs-keyword">as</span> urllib</span><br><span class="line">    <span class="hljs-keyword">import</span> urllib.request <span class="hljs-keyword">as</span> urllib2</span><br><span class="line">    <span class="hljs-keyword">import</span> http.cookiejar <span class="hljs-keyword">as</span> cookielib </span><br><span class="line"><span class="hljs-comment"># 利用try实现同时兼容py2和py3的效果</span></span><br><span class="line"></span><br><span class="line">username = <span class="hljs-string">'LJB001590'</span></span><br><span class="line">password = <span class="hljs-string">'123'</span> <span class="hljs-comment"># 测试账号，账号密码来自某团队</span></span><br><span class="line">rooturl = <span class="hljs-string">'http://www.h2zbmh.com:8080/html/JudgeOnline/'</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">geturl</span><span class="hljs-params">(url)</span>:</span></span><br><span class="line">    <span class="hljs-keyword">return</span> rooturl + url;</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">Build</span><span class="hljs-params">()</span>:</span></span><br><span class="line">    <span class="hljs-keyword">global</span> opener  <span class="hljs-comment"># 引入全局变量</span></span><br><span class="line">    filename = <span class="hljs-string">'cookie.txt'</span> <span class="hljs-comment"># 保存cookie的文件</span></span><br><span class="line">    cookie = cookielib.MozillaCookieJar(filename) <span class="hljs-comment"># 创建一个实例</span></span><br><span class="line">    handler = urllib2.HTTPCookieProcessor(cookie) <span class="hljs-comment"># 创建urllib2的cookie处理器</span></span><br><span class="line">    opener = urllib2.build_opener(handler) <span class="hljs-comment"># 通过之前的cookie处理器构造opener</span></span><br><span class="line">    opener.open(geturl(<span class="hljs-string">'index.php'</span>)) <span class="hljs-comment"># “随机”打开一个页面来获得cookie</span></span><br><span class="line">    cookie.save(ignore_discard=<span class="hljs-keyword">True</span>, ignore_expires=<span class="hljs-keyword">True</span>) <span class="hljs-comment"># 保存cookie到文件</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">Login</span><span class="hljs-params">()</span>:</span></span><br><span class="line">    <span class="hljs-keyword">global</span> username, password, rooturl, opener <span class="hljs-comment"># 引入全局变量</span></span><br><span class="line">    url = geturl(<span class="hljs-string">'login.php'</span>) <span class="hljs-comment"># 对应的网址</span></span><br><span class="line">    data = urllib.urlencode(&#123;<span class="hljs-string">"user_id"</span>: username, <span class="hljs-string">"password"</span>: password, &#125;) <span class="hljs-comment"># 需要post的数据</span></span><br><span class="line">    <span class="hljs-keyword">try</span>:</span><br><span class="line">        response = opener.open(url, data=data) <span class="hljs-comment"># post数据 即 发送登录请求</span></span><br><span class="line">    <span class="hljs-keyword">except</span> TypeError:</span><br><span class="line">        response = opener.open(url, data=data.encode(<span class="hljs-string">'utf-8'</span>)) <span class="hljs-comment"># python3中的解决方式</span></span><br><span class="line"></span><br><span class="line">Build()</span><br><span class="line">Login()</span><br><span class="line"></span><br><span class="line">open(<span class="hljs-string">"ans.html"</span>, <span class="hljs-string">"wb+"</span>).write(opener.open(geturl(<span class="hljs-string">'problemset.php'</span>)).read()) <span class="hljs-comment"># 利用构建好的opener打开网页并输出到ans.html文件中（如果不显示“请登陆后继续操作！”说明成功）</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 再次感谢hiuseues大佬</span></span><br></pre></td></tr></table></figure>
         </div>
-      </main>
-
-      <div class="back-to-top" id="back-to-top">
-        <i class="iconfont icon-up"></i>
-      </div>
-
-      <footer id="footer" class="footer">
-
-  <div class="social-links">
-    
-      
         
-          <a href="mailto:memset0@outlook.com" class="iconfont icon-email" title="email"></a>
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/Python/">Python</a>
+                </div>
+            </div>
+        </div>
         
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
         
-          <a href="https://github.com/memset0" class="iconfont icon-github" title="github"></a>
         
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-
-    
-      <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
-    
-  </div>
-
-
-
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-<div class="copyright">
-
-  <span class="copyright-year">
-    
-    &copy; 
-     
-      2017 - 
-    
-    2018
-
-    <span class="heart my-colored">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author">memset0</span>
-  </span>
-  
-  <span class="copyright-year">
-    <span>
-      <span>57.8k</span> Words
-    </span>
-    <span id="busuanzi_container_site_pv" style='display:none'>
-      <span class="division">|</span>
-      <span id="busuanzi_value_site_pv"></span> Views
-    </span>
-    <span id="busuanzi_container_site_uv" style='display:none'>
-      <span class="division">|</span>
-      <span id="busuanzi_value_site_uv"></span> Visitors
-    </span>
-  </span>
-
-  <span class="theme-info">
-    Powered By Hexo & Even & Coding Pages
-    <!-- Powered By
-    <a class="hexo-link" href="https://hexo.io/">Hexo</a>
-    &
-    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a> -->
-  </span>
-
+    </div>
 </div>
 
-</script>
-      </footer>
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/algorithm/gcd-from/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">C++ 中的 __gcd() 函数探源</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/diary/2018浙大校赛游记/">
+                <span class="level-item">2018浙大校赛&amp;图森未来杯(4.7) 游记</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
     </div>
-
-    
-  
-    
-<!-- valine Comments -->
-
-
-  
+</div>
 
 
 
-    
-
-
-  
-  
-
-
-
-
-
-  
-    <script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
-  
-
-  
-    <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
-  
-
-  
-
-  
-    <script type="text/javascript" src="/lib/pjax/jquery.pjax.min.js"></script>
-  
-
-  
-    <script type="text/javascript" src="/lib/nprogress/nprogress.min.js"></script>
-  
-
-
+<div class="card">
+    <div class="card-content">
+        <h3 class="title is-5 has-text-weight-normal">评论</h3>
+        
+<div id="valine-thread"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
 <script>
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "https://hm.baidu.com/hm.js?d8c0a4185322e94013582201484f9131";
-  var s = document.getElementsByTagName("script")[0]; 
-  s.parentNode.insertBefore(hm, s);
-})();
-</script>
-
-<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js" data-no-instant></script>
-<script src='//unpkg.com/valine/dist/Valine.min.js' data-no-instant></script>
-<script type="text/javascript">
-    var valine_option = {
-        el: '#vcomments',
-        app_id: "rHgVqrBsv0EYGFSxzDDIDapm-9Nh9j0Va",
-        app_key: "X7Dp3hEvRWPbqHBYkOTBXzPm",
-        placeholder: "留下你的脚印~    （如果评论不能正常加载请尝试刷新）",
-        avatar: 'mm'
-    };
-    var valine = new Valine(valine_option);
-    $(document).on({
-        'pjax:end': function () {
-            valine.init(valine_option);
-        }
+    new Valine({
+        el: '#valine-thread' ,
+        notify: false,
+        verify: false,
+        app_id: 'rHgVqrBsv0EYGFSxzDDIDapm-9Nh9j0Va',
+        app_key: 'X7Dp3hEvRWPbqHBYkOTBXzPm',
+        placeholder: '留下你的脚印~'
     });
 </script>
 
-<script type="text/javascript">
-$(document).on({
-    $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
-});
+    </div>
+</div>
+</div>
+                
+                
+
+
+
+
+<div class="column my-sidebar is-4-tablet is-4-desktop is-4-widescreen  has-order-3 column-right is-sticky">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered">
+                <div>
+                    <img class="image is-128x128 has-mb-6" src="/images/avatar.png" alt="memset0">
+                    
+                    <p class="is-size-4 is-block">
+                        memset0
+                    </p>
+                    
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>Hangzhou, China</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        文章
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        79
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        分类
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        6
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        标签
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        84
+                    </p>
+                </div>
+            </div>
+        </nav>
+        <div class="level">
+            <a class="level-item button is-link is-rounded" href="http://github.com/memset0">
+                关注我</a>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Github" href="http://github.com/memset0">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="RSS" href="/">
+                
+                <i class="fas fa-rss"></i>
+                
+            </a>
+            
+        </div>
+        
+    </div>
+</div>
+    
+        
+<div class="card widget" id="toc">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                目录
+            </h3>
+            <ul class="menu-list"><li>
+        <a class="is-flex" href="#前言">
+        <span class="has-mr-6">1</span>
+        <span>前言</span>
+        </a></li><li>
+        <a class="is-flex" href="#说明">
+        <span class="has-mr-6">2</span>
+        <span>说明</span>
+        </a></li><li>
+        <a class="is-flex" href="#分析">
+        <span class="has-mr-6">3</span>
+        <span>分析</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#登录页面">
+        <span class="has-mr-6">3.1</span>
+        <span>登录页面</span>
+        </a></li><li>
+        <a class="is-flex" href="#分析数据">
+        <span class="has-mr-6">3.2</span>
+        <span>分析数据</span>
+        </a></li><li>
+        <a class="is-flex" href="#如何post数据">
+        <span class="has-mr-6">3.3</span>
+        <span>如何post数据</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#构建opener">
+        <span class="has-mr-6">3.3.1</span>
+        <span>构建opener</span>
+        </a></li></ul></li></ul></li><li>
+        <a class="is-flex" href="#完整代码">
+        <span class="has-mr-6">4</span>
+        <span>完整代码</span>
+        </a></li></ul>
+        </div>
+    </div>
+</div>
+
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                分类
+            </h3>
+            <ul class="menu-list">
+            <li>
+        <a class="level is-marginless" href="/categories/Algorithm/">
+            <span class="level-start">
+                <span class="level-item">Algorithm</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">16</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Contest/">
+            <span class="level-start">
+                <span class="level-item">Contest</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">3</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Diary/">
+            <span class="level-start">
+                <span class="level-item">Diary</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">4</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Geek/">
+            <span class="level-start">
+                <span class="level-item">Geek</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">8</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Plan/">
+            <span class="level-start">
+                <span class="level-item">Plan</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Solution/">
+            <span class="level-start">
+                <span class="level-item">Solution</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">47</span>
+            </span>
+        </a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+    
+</div>
+
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img src="/images/logo.svg" alt="Python 模拟登陆 hustoj" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2018 memset0&nbsp;
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a
+                        href="http://github.com/ppoffice/hexo-theme-icarus">Icarus</a>
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Creative Commons" href="https://creativecommons.org/">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("zh-CN");</script>
+
+
+    
+    
+    
+    <script src="/js/animation.js"></script>
+    
+
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+    <script src="/js/gallery.js" defer></script>
+    
+
+    
+    
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
 </script>
 
+
+    
+    
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
     tex2jax: {
@@ -540,8 +563,62 @@ $(document).on({
 });
 </script>
 
-<script async src="//cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
-    <script type="text/javascript" src="/js/src/even.js?v=2.10.1"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
 
-  </body>
+    
+    
+
+<a id="back-to-top" title="回到顶端" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="想要查找什么..." />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+</body>
 </html>
