@@ -223,6 +223,164 @@
     <header class="post-header">
       <h1 class="post-title">
         
+          <a class="post-link" href="/diary/关于最近的集训/">关于最近的集训的一些事情</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-08-10
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/Diary/">Diary</a>
+            
+          </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+
+        
+          <p>这两天一直在信奥集训也没时间休息，基本上处于  早上七点不到起床  =&gt;  上午八点模拟赛  =&gt;  中午十一点半去吃饭  =&gt;  下午一点继续上课  =&gt;  下午五点去吃晚饭  =&gt;  晚饭吃完继续搞信奥  =&gt;  晚上九点多回家  =&gt;  继续刷题直到晚上十一点半  =&gt;  睡觉  的状态。也没有时间休息，今天好不容易暂时放假了，然而还是轻松不了，不过来水一篇博文的时间还是有的。</p>
+<p>这段时间新学了很多算法（网络流乱搞 / 树上乱搞 / 数论乱搞 / 平衡树乱搞 等等），感觉自己学了很多知识。原本对于自己来说感觉很难很难的知识现在基本研究个几个小时也能解决了，比如 Splay （我还写了几篇有关她的博文）。当然本来感觉很充足的睡觉时间和休息时间现在也基本 disappear 了。<del>谁说的期末考考完就轻松了给我站出来！</del></p>
+<p>最近也新换了一处博客，毕竟新学了一些东西，觉得原来写的一些博文质量都很不高，打算重新开始。这当然也需要时间和过程，所以可能在很长的一段时间内我可能会一直维持两个博客都开着但只维护这里的状态。</p>
+<p>我对博客的看法也发生了改变，也许当初是觉得新鲜，对此非常兴奋，<del>浪费大量时间</del>。不过现在心态也转变了，也觉得自己的博客是写给自己看的，其实别人看不看也没有什么关系，更何况本来看的人就屈指可数呢。</p>
+
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/algorithm/拉格朗日插值/">拉格朗日插值（洛谷4781）</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-08-10
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/Algorithm/">Algorithm</a>
+            
+          </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>给你平面上的 n 个点，可以唯一确定一个多项式。</p>
+<p>现在告诉你这些点的坐标和 k ，请你求出多项式在 k 的取值。</p>
+<h1 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h1><p>显然我们可以根据题意列出 n 个方程，利用高斯消元求解后带入。时间复杂度<code>O(n ^ 3)</code>。</p>
+<p>我们可以利用插值法求解并使得时间复杂度降至<code>O(n ^ 2)</code>。</p>
+          <div class="read-more">
+            <a href="/algorithm/拉格朗日插值/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/algorithm/fhq-treap/">非旋 Treap 模板（普通平衡树）</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-08-09
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/Algorithm/">Algorithm</a>
+            
+          </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>和 Splay 一样，非旋 Treap （又名 fhq-treap）也是平衡树的一种。由于其不需要进行旋转操作，故可利用其进行可持久化。</p>
+<p>写一颗非旋 Treap，我们只需要合并、分离操作，其他的只要有颗脑子就会了啦！</p>
+<h1 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h1><p>我们定义类<code>FhqTreap</code>为非旋 Treap 主体，结构体<code>node</code>为其节点。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">FhqTheap</span> &#123;</span></span><br><span class="line">    </span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    </span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">node</span> &#123;</span></span><br><span class="line">        <span class="keyword">int</span> val, rnd;      <span class="comment">// val =&gt; 该点存储的值，rnd =&gt; 该点键值，随机产生</span></span><br><span class="line">        <span class="keyword">int</span> siz, ch[<span class="number">2</span>];    <span class="comment">// siz =&gt; 该点包括其子树的节点大小，ch[2] =&gt; 指向左/右儿子</span></span><br><span class="line">    &#125; e[maxn];</span><br><span class="line">    <span class="keyword">int</span> tot, root;         <span class="comment">// tot =&gt; 节点总数，root =&gt; 根节点</span></span><br><span class="line">    <span class="keyword">int</span> x, y, z;           <span class="comment">// 操作过程中的临时变量</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">// Your Code Goes Here...</span></span><br><span class="line">    </span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// Your Code Goes Here...</span></span><br><span class="line">    </span><br><span class="line">&#125; s;</span><br></pre></td></tr></table></figure>
+          <div class="read-more">
+            <a href="/algorithm/fhq-treap/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
           <a class="post-link" href="/algorithm/Splay基本操作/">Splay 非指针模板（普通平衡树）</a>
         
       </h1>
@@ -331,163 +489,6 @@
   </article>
 
       
-        
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/algorithm/splay-q-and-a/">Splay Q&A</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-08-08
-        </span>
-        
-          <span class="post-category">
-            
-              <a href="/categories/Algorithm/">Algorithm</a>
-            
-          </span>
-        
-        
-      </div>
-    </header>
-
-    
-    
-
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <p>最近正在学习 Splay 平衡树，其中也遇到了不少问题，正是分享的时候。</p>
-<p>代码来自于我的另外两篇博文中的 Splay 板子。</p>
-<h1 id="求前驱后继时为什么要取等号？"><a href="#求前驱后继时为什么要取等号？" class="headerlink" title="求前驱后继时为什么要取等号？"></a>求前驱后继时为什么要取等号？</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">lower</span><span class="params">(<span class="keyword">int</span> val)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> u = root, result = -inf, cho = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (u) &#123;</span><br><span class="line">        <span class="keyword">if</span> (e[u].val &lt; val &amp;&amp; e[u].val &gt; result) result = e[u].val, cho = u;</span><br><span class="line">        u = e[u].ch[val &lt;= e[u].val ? <span class="number">0</span> : <span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    splay(cho, root);</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>Q: </strong>以<code>Splay::lower()</code>的代码为例，在u更新时，我们使用的是<code>e[u].val &lt;= e[u].val ? 0 : 1</code>而非<code>val &lt; e[u].val ? 0 : 1</code>，为什么？</p>
-<p><strong>A: </strong>根据平衡树的性质，小于当前节点的数在左边，而<code>e[u].val</code>的前驱显然不能是<code>e[u].val</code>本身，而是在其左子树中，所以要写等于号。</p>
-          <div class="read-more">
-            <a href="/algorithm/splay-q-and-a/" class="read-more-link">阅读更多</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-      
-        
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/geek/devc更改主题/">Dev C++ 更改主题</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-08-08
-        </span>
-        
-          <span class="post-category">
-            
-              <a href="/categories/Geek/">Geek</a>
-            
-          </span>
-        
-        
-      </div>
-    </header>
-
-    
-    
-
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <p>Dev C++ 是目前OIer使用最多的IDE，然而原始界面却<del>丑的一逼</del>。所以让我们来美化它233。</p>
-<h1 id="Before-using"><a href="#Before-using" class="headerlink" title="Before using"></a>Before using</h1><p>Dev C++ 的主题默认存储在<code>C:/Users/&lt;your name&gt;/AppData/Roaming/Dev-Cpp</code>目录下，在该目录新建<code>&lt;文件名&gt;.syntax</code>添加配色。</p>
-<p>在 Dev C++ 的菜单栏中选择<code>工具[T]</code>&gt;<code>编辑器属性</code>&gt;<code>语法</code>&gt;<code>预设</code>应用配色（可在选项中找到你之前新建的配色）；同时也可直接在 Dev C++ 中方便的调色（点击右侧自动跳转到对应内容）并保存（如果文件名与已存在的相同则默认替换）。</p>
-<p>修改完后，务必在<code>工具[T]</code>&gt;<code>编辑器属性</code>&gt;<code>基本</code>中更改<code>高亮显示当前行</code>的颜色，以符合背景。</p>
-<p>另外，推荐在使用暗色主题时关闭 Dev C++ 自带的各种工具栏！</p>
-          <div class="read-more">
-            <a href="/geek/devc更改主题/" class="read-more-link">阅读更多</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-      
-        
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/algorithm/最长上升子序列/">十行求解 $O(n \log n)$ 求最长上升子序列</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-07-18
-        </span>
-        
-          <span class="post-category">
-            
-              <a href="/categories/Algorithm/">Algorithm</a>
-            
-          </span>
-        
-        
-      </div>
-    </header>
-
-    
-    
-
-
-    <div class="post-content">
-      
-        
-        
-
-        
-          <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">int</span> n, x, f[<span class="number">100001</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">memset</span>(f, <span class="number">63</span>, <span class="keyword">sizeof</span>(f));</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;x), *<span class="built_in">std</span>::lower_bound(f + <span class="number">1</span>, f + n + <span class="number">1</span>, x) = x;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, <span class="built_in">std</span>::lower_bound(f + <span class="number">1</span>, f + n + <span class="number">1</span>, f[<span class="number">0</span>]) - f - <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-      
       
   <nav class="pagination">
     
@@ -584,7 +585,7 @@
   
   <span class="copyright-year">
     <span>
-      <span>56.0k</span> Words
+      <span>57.8k</span> Words
     </span>
     <span id="busuanzi_container_site_pv" style='display:none'>
       <span class="division">|</span>

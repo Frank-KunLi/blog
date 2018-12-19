@@ -223,6 +223,183 @@
     <header class="post-header">
       <h1 class="post-title">
         
+          <a class="post-link" href="/solution/codeforces/1059d/">CF1059D - Nature Reserve</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-10-07
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/Solution/">Solution</a>
+            
+          </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <blockquote>
+<p>该死的精度问题让我调了一个小时还没有调出来（事实说明我还是太菜了。）</p>
+</blockquote>
+<p>大概意思就是说平面上给了你一些点然后你要构造一个与 x 轴相切的圆把这些圆都包裹进去。</p>
+<p>考虑二分圆的半径，这样就知道了圆心的 y 坐标，根据点在圆内的充要条件——点到圆心的距离小于等于半径计算出圆心的 x 坐标的范围。如果存在两个范围不相交，说明无法构造出一个符合条件的圆心。</p>
+<p>需要注意浮点数运算的精度问题，比如计算 x 坐标的范围时这么写：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dis = r * r - (r - y) * (r - y);</span><br></pre></td></tr></table></figure>
+<p>就容易被卡，而：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dis = <span class="number">2</span> * r * y - y * y;</span><br></pre></td></tr></table></figure>
+<p>就不容易。</p>
+          <div class="read-more">
+            <a href="/solution/codeforces/1059d/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/solution/codeforces/1059e/">CF1059E - Split the Tree</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-10-07
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/Solution/">Solution</a>
+            
+          </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <blockquote>
+<p>一个永远只能在考完后调出 Codeforces 的题的菜鸡厚颜无耻得跑来写题解了。。。</p>
+</blockquote>
+<p>本题要求把树分成的链必须是垂直路径，也就是说不能同时跨越一颗子树的两个根。也就是说每次选中的路径都是到根节点的一串。</p>
+<p>所以我们可以通过树上倍增预处理出每个节点 $u$ 如果被选中那么最多可以向上形成长度为 $dp[u]$ 的链。接着跑一遍树上 DP 即可。</p>
+<p>预处理时间复杂度 $O(n \log n)$ ，树上 DP 时间复杂度 $O(n)$ 。</p>
+<p>貌似因为 D 题比较难调试，做这题的人比较少？反正我这种菜鸡就算考场有时间写了估计也调不出来吧。</p>
+          <div class="read-more">
+            <a href="/solution/codeforces/1059e/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/solution/bzoj/3551/">BZOJ3551 - [ONTAK2010]Peaks加强版</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-09-28
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/Solution/">Solution</a>
+            
+          </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <blockquote>
+<p>这题洛谷的数据太…水，克鲁斯卡尔重构树不连通都可水过。</p>
+</blockquote>
+<ul>
+<li>3545: [ONTAK2010]Peaks</li>
+<li>3551: [ONTAK2010]Peaks加强版</li>
+</ul>
+<p>在线算法：克鲁斯卡尔重构树套主席树。</p>
+<p>在克鲁斯卡尔重构树上维护 DFS 序（或树链剖分）再套上主席树，维护第 $k$ 大。</p>
+<p>当然非加强版由于你是重构树<del>（被针对了）</del>可能要大力卡常。比如加个 fread 以及离散化一下什么的。</p>
+          <div class="read-more">
+            <a href="/solution/bzoj/3551/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
           <a class="post-link" href="/solution/bzoj/1002/">BZOJ1002 - [FJOI2007]轮状病毒</a>
         
       </h1>
@@ -317,164 +494,6 @@
 <p>数论分块即可。</p>
           <div class="read-more">
             <a href="/solution/bzoj/2956/" class="read-more-link">阅读更多</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-      
-        
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/solution/bzoj/2588/">BZOJ2588 - Count on a tree</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-09-27
-        </span>
-        
-          <span class="post-category">
-            
-              <a href="/categories/Solution/">Solution</a>
-            
-          </span>
-        
-        
-      </div>
-    </header>
-
-    
-    
-
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <p>询问树上路径第 $k$ 大：二分答案 + 树上查询。查询时用主席树差分 $tree[now] = tree[u] + tree[v] - tree[lca(u,v)] - tree[father(lca(u,v))]$ 即可。</p>
-<p>时间复杂度 $O(n \log ^2 n)$</p>
-          <div class="read-more">
-            <a href="/solution/bzoj/2588/" class="read-more-link">阅读更多</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-      
-        
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/solution/codeforces/776d/">CF776D - The Door Problem</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-09-26
-        </span>
-        
-          <span class="post-category">
-            
-              <a href="/categories/Solution/">Solution</a>
-            
-          </span>
-        
-        
-      </div>
-    </header>
-
-    
-    
-
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <p>由于每个门只会被两个钥匙控制，那么两个钥匙的选或不选就能建立起一种对应关系。即如果门本来是开着的，那么用了一把必须用另一把，不用一把必须不用另一把；如果们本来是开着的，那么不用一把必须用另一把，用了一把必须不用另一把。</p>
-<p>Tarjan 跑 2-SAT 随手切，注意 $n$ 和 $m$ 不要搞反。</p>
-          <div class="read-more">
-            <a href="/solution/codeforces/776d/" class="read-more-link">阅读更多</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-      
-        
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/solution/bzoj/1070/">BZOJ1070 - [SCOI2007]修车</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-09-25
-        </span>
-        
-          <span class="post-category">
-            
-              <a href="/categories/Solution/">Solution</a>
-            
-          </span>
-        
-        
-      </div>
-    </header>
-
-    
-    
-
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <p>最小费用最大流。由于一个工人在给一个顾客服务后还能再给一个顾客服务， 所以把每个顾客和每个工人建点显然不能完成任务。</p>
-<p>那么我们考虑把第 $i$ 个工人建成 $n$ 个点，表示为 $P(i,j)  (i \in [1, m], j \in [1, n])$。把第 $i$ 个顾客表示为 $T(k)$。</p>
-<p>把 $T(k)$ 依次向 $P(i,j)$ 连边，流量为 $1$ ，费用为 $w(k,i) \times j$ 。表示第 $k$ 个顾客被第 $i$ 个工人倒数第 $j$ 个服务对答案产生的贡献（即包括在它之后的人的等待时间，而不是这个人自己的花费）。</p>
-<p>最后从源点向每个顾客连流量 $1$ ，费用 $0$ 的边，$n \times m$ 个工人向汇点连流量 $1$ ，费用为 $0$ 的边，跑最小费用最大流即可。</p>
-          <div class="read-more">
-            <a href="/solution/bzoj/1070/" class="read-more-link">阅读更多</a>
           </div>
         
       
@@ -583,7 +602,7 @@
   
   <span class="copyright-year">
     <span>
-      <span>56.0k</span> Words
+      <span>57.8k</span> Words
     </span>
     <span id="busuanzi_container_site_pv" style='display:none'>
       <span class="division">|</span>

@@ -223,6 +223,171 @@
     <header class="post-header">
       <h1 class="post-title">
         
+          <a class="post-link" href="/solution/bzoj/4945/">BZOJ4945 - [NOI2017] 游戏</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-09-18
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/Solution/">Solution</a>
+            
+          </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <blockquote>
+<p>洛谷 SPJ 坏了，一个月了没修好。怎么回事啊？</p>
+<p>UPD: QQ 群里 @ 了一下 chen_zhe 竟然很快修好了</p>
+</blockquote>
+<p>回到正题：本题是 2-SAT 裸题，做之前可以参考一下洛谷的模板题，下面假装你已经看过并 AC 了那道题。</p>
+<p>对于 $a$ 、 $b$ 、 $c$ 三种地图，都是不允许一辆车，而允许另外两辆。对于 $x$ 地图，显然不能交给 2-SAT 算法解决，暴力枚举他是 $a$ 地图还是 $b$ 地图（如果 $a$ 和 $b$ 都不行那么 $c$ 也不行）。</p>
+<p>关于连边，用 $u$ 表示第 $i$ 场游戏使用赛车 $h_i$ 所对应的点，$v$ 表示 第 $j$ 场游戏赛车 $h_j$ 所对应的点，$u’$ 和 $v’$ 则表示对应地图可以使用的另一辆赛车所对应的点。</p>
+<p>如果 $h_i$ 不符合第 $i$ 张地图的限制条件，那么这种约束肯定不会遇到，跳过即可。</p>
+<p>如果 $h_j$ 不符合第 $j$ 张地图的限制条件，那么说明 $i$ 的这种情况肯定不能取到，就从 $u$ 向 $u’$ 连一条边。</p>
+<p>否则说明如果取了 $h_i$ 就一定要取 $h_j$ ，连接边 $u$ 到 $v$ 和 $u’$ 到 $v’$ 即可。</p>
+<p>另外，由于 2-SAT 要跑很多遍，所以请注意清空数组（我不会告诉你我没有清空 dfn 拿到了 $90$ 分的好成绩）。</p>
+          <div class="read-more">
+            <a href="/solution/bzoj/4945/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/solution/luogu/1979/">洛谷1979 - 华容道</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-09-16
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/Solution/">Solution</a>
+            
+          </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>一道经典的搜索题。由于棋子没必要也不可能和非空格的棋子交换，目标棋子也只可能通过与空格交换位置达到目标位置，因此我们只需要存储空格和目标棋子的位置即可。这样爆搜即可拿到 $80$ 分。</p>
+<p>接着考虑能否继续优化：每次目标棋子改变位置空格必须在他旁边，因此存储除了初始状态和终止状态外的空格不在目标棋子旁边的状态没有意义。因此我们可以用 BFS 处理出状态之间转移的代价，然后用 SPFA 等最短路算法跑一遍即可。本题由于状态个数和状态之间的边不多，正常常数的 SPFA 不会被卡掉。</p>
+<p>需要注意的是：在使用 BFS 搜索空格转移代价时不能经过目标棋子。<br>算法时间复杂度：$O(n^4)$</p>
+          <div class="read-more">
+            <a href="/solution/luogu/1979/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/solution/luogu/2783/">洛谷2783 - 有机化学之神偶尔会做作弊</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-09-16
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/Solution/">Solution</a>
+            
+          </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>又是一道非常水的黑题。给你一个双向图，你需要代替炎魔之王拉格纳罗斯（？？？）会净化图中的所有环，也就是除了链以外的强连通分量，成为一颗无根树。然后询问树上距离。</p>
+          <div class="read-more">
+            <a href="/solution/luogu/2783/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
           <a class="post-link" href="/solution/bzoj/3211/">BZOJ3211 - 花神游历各国</a>
         
       </h1>
@@ -335,165 +500,6 @@
   </article>
 
       
-        
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/solution/spoj/2666/">SPOJ2666 - QTREE4 - Query on a tree IV</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-09-11
-        </span>
-        
-          <span class="post-category">
-            
-              <a href="/categories/Solution/">Solution</a>
-            
-          </span>
-        
-        
-      </div>
-    </header>
-
-    
-    
-
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <p>我在学习点分治时，一直卡在这道题，今天我一鼓作气想尽办法终于把她 AC 了。</p>
-<p>将要讲述的方法是动态点分治，有另一种链分治的方法个人感觉较为麻烦且不自然就不在此赘述。</p>
-<p>首先静态点分治一遍建立点分树，并算出初始答案，存储每个节点作为重心时到上一个节点的边。当动态修改时从底层向上逐层修改直到抵达根节点。</p>
-<p>对于每个节点，我们存储每个子树中距离最远的点（用 <code>son</code> 维护）和距离当前节点距离最远的点（用 <code>hep</code> 维护），最后再维护一个答案堆 <code>ans</code> 供查询。这个堆要资瓷添加和删除操作，可以用经典的建两个堆的方法，一个插入，一个删除即可。</p>
-<p>其他当前子树中没有白色时应该返回 $-inf$ ，否则与当前子树的根节点是白色节点时等价的 qwq。</p>
-          <div class="read-more">
-            <a href="/solution/spoj/2666/" class="read-more-link">阅读更多</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-      
-        
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/solution/luogu/4826/">洛谷4826 - [USACO15FEB]Superbull 超级牛</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-09-10
-        </span>
-        
-          <span class="post-category">
-            
-              <a href="/categories/Solution/">Solution</a>
-            
-          </span>
-        
-        
-      </div>
-    </header>
-
-    
-    
-
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <p>把淘汰赛问题转换为一棵生成树，每一条边相当于一个二选一淘汰的过程。</p>
-          <div class="read-more">
-            <a href="/solution/luogu/4826/" class="read-more-link">阅读更多</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-      
-        
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/solution/luogu/3810/">洛谷3810 - 【模板】三维偏序（陌上花开）</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-09-10
-        </span>
-        
-          <span class="post-category">
-            
-              <a href="/categories/Solution/">Solution</a>
-            
-          </span>
-        
-        
-      </div>
-    </header>
-
-    
-    
-
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <p>三维偏序，一维一维解决：第一维排序，第二维 CDQ ，第三维树状数组（或 CDQ ）。</p>
-<p>先按照 $a$ 进行排序，考虑 CDQ ，先分治左右两边，使得左右两边的节点都按 $b$ 排序，于是依次从两边取（优先 $b$ ， $b$ 相等优先 $c$），左边的取出时在树状数组中更新，右边的取出时从树状数组中查询，考虑贡献。</p>
-<p>需要注意的是，$a$ 、 $b$ 、 $c$ 的值都相同的节点有可能互相产生贡献，很难用 CDQ 解决，于是可以将这些点缩为一个，并单独计算他们内部互相产生的贡献。</p>
-          <div class="read-more">
-            <a href="/solution/luogu/3810/" class="read-more-link">阅读更多</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-      
       
   <nav class="pagination">
     
@@ -590,7 +596,7 @@
   
   <span class="copyright-year">
     <span>
-      <span>56.0k</span> Words
+      <span>57.8k</span> Words
     </span>
     <span id="busuanzi_container_site_pv" style='display:none'>
       <span class="division">|</span>

@@ -223,6 +223,178 @@
     <header class="post-header">
       <h1 class="post-title">
         
+          <a class="post-link" href="/algorithm/多项式/">多项式系列板子</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-12-02
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/Algorithm/">Algorithm</a>
+            
+          </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <ul>
+<li>快速傅里叶变换 FFT</li>
+<li>数论傅里叶变换 NTT</li>
+<li>任意模数 NTT</li>
+<li>多项式求逆</li>
+<li>未完待续……</li>
+</ul>
+          <div class="read-more">
+            <a href="/algorithm/多项式/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/solution/luogu/5046/">洛谷5046 - [YNOI2019] Yuno loves sqrt technology I</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-11-24
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/Solution/">Solution</a>
+            
+          </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>一道卡常题。考虑分块。</p>
+<p>如果查询的 $l$ 和 $r$ 不在同一个块内。 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">查询区间 =&gt;                ┌-----------------------------┐</span><br><span class="line">分好的块 =&gt; [.........][........][........][........][........][........]</span><br></pre></td></tr></table></figure>
+<p>把查询的区间分成三个部分、A（块前零散部分）、B（整块的）、C（块后零散部分）</p>
+<p>先考虑每个部分自身与自身匹配对答案的贡献。我们可以预处理出从每个点出发，到所属块的开始 / 结尾的逆序对个数，分别用 <code>lft[]</code> 和 <code>rit[]</code> 表示，预处理时间复杂度 $O(\sqrt n \times \sqrt n \times \log n)$。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">┌-----1.-----┐               1. 这一部分的逆序对个数表示为 lft[i]</span><br><span class="line">             ┌-----2.----┐   2. 这一部分的逆序对个数表示为 rit[i]</span><br><span class="line">[............i...........]</span><br></pre></td></tr></table></figure>
+<p>接下来我们考虑 A -&gt; B ， C -&gt; B 的贡献，类似于蒲公英这题，处理出 <code>cnt[i][j]</code> 数组表示前 $i$ 个块内小于等于 $j$  的数字个数，查询时枚举 A 和 C 中的每一个数，利用这个前缀和查询对答案的贡献。这个部分也可以不在查询的时候做，而是预处理出结果，做二维前缀和，直接查询。</p>
+<p>接下来考虑 A -&gt; C 的贡献，由于 A 和 C 是不重合的两个部分，可以采用类似归并排序的方法，把两个序列合并的同时计算出逆序对个数。</p>
+<p>如果查询的 $l$ 和 $r$ 在同一个块内。</p>
+<p>首先我们考虑，相邻的两个区间 A 和 B 。A 和 B 总共的逆序对个数，等于 A 内部的逆序对个数 + B 内部的逆序对个数 + A 对 B 贡献的逆序对个数。</p>
+<p>好，那么我们再来考虑 $l$ 和 $r$ 在同一个块内：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">┌------A+B-------┐      这一部分即之前已经处理出的 lft[r]</span><br><span class="line">┌----A----┐             这一部分即之前已经处理出的 lft[l]</span><br><span class="line">          ┌--B---┐</span><br><span class="line">[.........l......r.......]</span><br></pre></td></tr></table></figure>
+<p>现在我们要求 B 的逆序对个数，只需要把 A + B 的逆序对个数减掉 A 内部的逆序对个数，再减掉 A 对 B 的逆序对个数即可。</p>
+<p>剩下你只需要时间来卡常。</p>
+          <div class="read-more">
+            <a href="/solution/luogu/5046/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/plan/plan1/">退役后的做题计划（一）</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-11-12
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/Plan/">Plan</a>
+            
+          </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>本计划根据 <a href="//oi.men.ci">Menci 博客</a> 题解时间顺序排列。<br>CodeVS 和 COGS 的部分题出于某些原因不打算做（主要是没有账号）。<br>部分未完成且正准备做的题目可能会给出链接（优先级：洛谷 &gt; BZOJ &gt; LOJ &gt; UOJ）。</p>
+          <div class="read-more">
+            <a href="/plan/plan1/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
           <a class="post-link" href="/solution/bzoj/5017/">BZOJ5017 - [SNOI2017] 炸弹</a>
         
       </h1>
@@ -363,167 +535,6 @@
   </article>
 
       
-        
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/geek/sublime-run-g++-with-mac/">Mac 下 Sublime Text 3 配置运行 G++</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-11-07
-        </span>
-        
-          <span class="post-category">
-            
-              <a href="/categories/Geek/">Geek</a>
-            
-          </span>
-        
-        
-      </div>
-    </header>
-
-    
-    
-
-
-    <div class="post-content">
-      
-        
-        
-
-        
-          <h1 id="配置编译系统"><a href="#配置编译系统" class="headerlink" title="配置编译系统"></a>配置编译系统</h1><p>新建编译系统并粘贴入以下命令，保存为 <code>G++.sublime-build</code> 或其他你喜欢的名称。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;shell_cmd&quot;: &quot;g++ \&quot;$&#123;file&#125;\&quot; -o \&quot;$&#123;file_path&#125;/$&#123;file_base_name&#125;\&quot; -Wall&quot;,</span><br><span class="line">    &quot;file_regex&quot;: &quot;^(..[^:]*):([0-9]+):?([0-9]+)?:? (.*)$&quot;,</span><br><span class="line">    &quot;working_dir&quot;: &quot;$&#123;file_path&#125;&quot;,</span><br><span class="line">    &quot;selector&quot;: &quot;source.c, source.c++&quot;,</span><br><span class="line">    &quot;variants&quot;:</span><br><span class="line">    [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;name&quot;: &quot;compile&quot;,</span><br><span class="line">            &quot;shell_cmd&quot;: &quot;g++ \&quot;$&#123;file&#125;\&quot; -o \&quot;/tmp/$&#123;file_base_name&#125;\&quot; -Wall -O2 &amp;&amp; echo &apos;Compile finished.&apos;&quot;</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;name&quot;: &quot;run&quot;,</span><br><span class="line">            &quot;shell_cmd&quot;: &quot;&apos;/tmp/$&#123;file_base_name&#125;&apos; &amp;&amp; echo &apos;=============\nRun finished.&apos;&quot;</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;name&quot;: &quot;compile &amp; run&quot;,</span><br><span class="line">            &quot;shell_cmd&quot;: &quot;g++ \&quot;$&#123;file&#125;\&quot; -o \&quot;/tmp/$&#123;file_base_name&#125;\&quot; -Wall -O2 &amp;&amp; /tmp/$&#123;file_base_name&#125; &amp;&amp; echo &apos;=============\nComplie &amp; run finished.&apos;&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="配置编译运行快捷键"><a href="#配置编译运行快捷键" class="headerlink" title="配置编译运行快捷键"></a>配置编译运行快捷键</h1><p>把以下代码粘贴到你的快捷键配置文件中，表示 <code>F9</code> 编译， <code>F10</code> 运行， <code>F11</code> 编译并运行。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	&quot;keys&quot;: [&quot;f9&quot;], &quot;command&quot;: &quot;build&quot;,</span><br><span class="line">	&quot;args&quot;: &#123;</span><br><span class="line">		&quot;variant&quot;: &quot;compile&quot;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;,</span><br><span class="line">	&#123;</span><br><span class="line">		&quot;keys&quot;: [&quot;f10&quot;], &quot;command&quot;: &quot;build&quot;,</span><br><span class="line">		&quot;args&quot;: &#123;</span><br><span class="line">			&quot;variant&quot;: &quot;run&quot;</span><br><span class="line">		&#125;</span><br><span class="line">&#125;,</span><br><span class="line">	&#123;</span><br><span class="line">		&quot;keys&quot;: [&quot;f11&quot;], &quot;command&quot;: &quot;build&quot;,</span><br><span class="line">		&quot;args&quot;: &#123;</span><br><span class="line">			&quot;variant&quot;: &quot;compile &amp; run&quot;</span><br><span class="line">		&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="其他注意事项"><a href="#其他注意事项" class="headerlink" title="其他注意事项"></a>其他注意事项</h1><p>Mac OS 下默认用 Clang 编译 G++ 代码。因此不支持使用万能头文件（<code>bits/stdc++.h</code>），解决方案：</p>
-<ol>
-<li><p>手动复制 <code>bits/stdc++.h</code> 文件到对应目录中</p>
-</li>
-<li><p>手动安装 <code>g++4.9</code> 并把上面编译命令中的 <code>g++</code> 替换为 <code>g++-4.9</code></p>
-</li>
-</ol>
-
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-      
-        
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/solution/luogu/4949/">洛谷4949 - 最短距离</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-10-26
-        </span>
-        
-          <span class="post-category">
-            
-              <a href="/categories/Solution/">Solution</a>
-            
-          </span>
-        
-        
-      </div>
-    </header>
-
-    
-    
-
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <p>本题大概是一个基环树上带修改边权的最短距离。可以把他看做一棵树，把多的那条边拎出来，树剖维护距离，分类讨论即可。大概是你谷蓝题难度吧。</p>
-<p>由于树剖只需要查询 dfs 序上区间最小值，可以考虑树状数组维护常熟较小。目前不卡常的情况下你谷效率 rk1 。</p>
-          <div class="read-more">
-            <a href="/solution/luogu/4949/" class="read-more-link">阅读更多</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-      
-        
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/solution/luogu/3620/">洛谷3620 - [APIO/CTSC 2007] 数据备份</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-10-17
-        </span>
-        
-          <span class="post-category">
-            
-              <a href="/categories/Solution/">Solution</a>
-            
-          </span>
-        
-        
-      </div>
-    </header>
-
-    
-    
-
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <p>首先我们把原来的距离数组 $p$ 差分为数组 $a$。原题可以等同为在 $a$ 数组中选择 $k$ 个不相邻的数使得总和最小。</p>
-<p>假设我们已经选择了 $a_i$ ，那么 $a_{i-1}$ 和 $a_{i+1}$ 要么同时选择，要么同时没有被选择。同时，如果我们同时选择，需要的花费即 $V_{a_{i+1}} + V_{a_{i-1}} - V_{a_i}$ 。我们维护一个堆和双向链表，每次从小根堆选择堆顶，把 $a_i$、 $a_{i-1}$ 和 $a_{i+1}$ 同时删除，再新建一个价值为 $V_{a_{i+1}} + V_{a_{i-1}} - V_{a_i}$ 的节点，扔到堆里，重复 $k$ 次就能得到答案。 </p>
-          <div class="read-more">
-            <a href="/solution/luogu/3620/" class="read-more-link">阅读更多</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-      
       
   <nav class="pagination">
     
@@ -620,7 +631,7 @@
   
   <span class="copyright-year">
     <span>
-      <span>56.0k</span> Words
+      <span>57.8k</span> Words
     </span>
     <span id="busuanzi_container_site_pv" style='display:none'>
       <span class="division">|</span>

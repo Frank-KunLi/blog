@@ -223,6 +223,164 @@
     <header class="post-header">
       <h1 class="post-title">
         
+          <a class="post-link" href="/solution/bzoj/2588/">BZOJ2588 - Count on a tree</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-09-27
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/Solution/">Solution</a>
+            
+          </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>询问树上路径第 $k$ 大：二分答案 + 树上查询。查询时用主席树差分 $tree[now] = tree[u] + tree[v] - tree[lca(u,v)] - tree[father(lca(u,v))]$ 即可。</p>
+<p>时间复杂度 $O(n \log ^2 n)$</p>
+          <div class="read-more">
+            <a href="/solution/bzoj/2588/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/solution/codeforces/776d/">CF776D - The Door Problem</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-09-26
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/Solution/">Solution</a>
+            
+          </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>由于每个门只会被两个钥匙控制，那么两个钥匙的选或不选就能建立起一种对应关系。即如果门本来是开着的，那么用了一把必须用另一把，不用一把必须不用另一把；如果们本来是开着的，那么不用一把必须用另一把，用了一把必须不用另一把。</p>
+<p>Tarjan 跑 2-SAT 随手切，注意 $n$ 和 $m$ 不要搞反。</p>
+          <div class="read-more">
+            <a href="/solution/codeforces/776d/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/solution/bzoj/1070/">BZOJ1070 - [SCOI2007]修车</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-09-25
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/Solution/">Solution</a>
+            
+          </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>最小费用最大流。由于一个工人在给一个顾客服务后还能再给一个顾客服务， 所以把每个顾客和每个工人建点显然不能完成任务。</p>
+<p>那么我们考虑把第 $i$ 个工人建成 $n$ 个点，表示为 $P(i,j)  (i \in [1, m], j \in [1, n])$。把第 $i$ 个顾客表示为 $T(k)$。</p>
+<p>把 $T(k)$ 依次向 $P(i,j)$ 连边，流量为 $1$ ，费用为 $w(k,i) \times j$ 。表示第 $k$ 个顾客被第 $i$ 个工人倒数第 $j$ 个服务对答案产生的贡献（即包括在它之后的人的等待时间，而不是这个人自己的花费）。</p>
+<p>最后从源点向每个顾客连流量 $1$ ，费用 $0$ 的边，$n \times m$ 个工人向汇点连流量 $1$ ，费用为 $0$ 的边，跑最小费用最大流即可。</p>
+          <div class="read-more">
+            <a href="/solution/bzoj/1070/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
           <a class="post-link" href="/solution/luogu/1251/">洛谷1251 - 餐巾计划问题</a>
         
       </h1>
@@ -339,167 +497,6 @@
   </article>
 
       
-        
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/geek/函数传递二维数组/">C++ 函数传递二维数组</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-09-23
-        </span>
-        
-          <span class="post-category">
-            
-              <a href="/categories/Geek/">Geek</a>
-            
-          </span>
-        
-        
-      </div>
-    </header>
-
-    
-    
-
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <p>QAQ 写树套树的时候忽然用到。。。</p>
-          <div class="read-more">
-            <a href="/geek/函数传递二维数组/" class="read-more-link">阅读更多</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-      
-        
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/solution/luogu/4396/">洛谷4396 - [AHOI2013]作业</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-09-22
-        </span>
-        
-          <span class="post-category">
-            
-              <a href="/categories/Solution/">Solution</a>
-            
-          </span>
-        
-        
-      </div>
-    </header>
-
-    
-    
-
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <blockquote>
-<p>最近忽然发现 BZOJ 的权限题还是很多的（可能是因为以前搜不到就不搜了现在上 DARKBZOJ ），看来还是得众筹买个权限号了（雾</p>
-</blockquote>
-<p>这是一道傻逼数据结构题，由于数据范围小，各种奇葩算法随便过。本菜鸡就写了个普通的树状数组套莫队，各位大佬不要见笑。</p>
-          <div class="read-more">
-            <a href="/solution/luogu/4396/" class="read-more-link">阅读更多</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-      
-        
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/solution/codeforces/706e/">CF706E - Working routine</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-09-21
-        </span>
-        
-          <span class="post-category">
-            
-              <a href="/categories/Solution/">Solution</a>
-            
-          </span>
-        
-        
-      </div>
-    </header>
-
-    
-    
-
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <p>题意：</p>
-<blockquote>
-<p>给你个 $1000 \times 1000$ 的矩阵，每次交换任意两个不重合的子矩阵，求最后的结果</p>
-</blockquote>
-<p>如果你是一位数据结构学傻的选手（像我），那么第一感觉肯定是用平衡树做，复杂度 $O(m \times n \log n)$ ，不过不幸的是，由于常数巨大，最后得分甚至可能不如暴力的 <code>memcpy</code> 。</p>
-<p>如果你是一个不会高级数据结构的普及选手你说不定就能想到链表。维护一个矩形的链表，然后每次交换就分别把两块矩阵取出再拼接上去。</p>
-          <div class="read-more">
-            <a href="/solution/codeforces/706e/" class="read-more-link">阅读更多</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-      
       
   <nav class="pagination">
     
@@ -596,7 +593,7 @@
   
   <span class="copyright-year">
     <span>
-      <span>56.0k</span> Words
+      <span>57.8k</span> Words
     </span>
     <span id="busuanzi_container_site_pv" style='display:none'>
       <span class="division">|</span>
