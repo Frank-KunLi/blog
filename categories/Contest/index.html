@@ -274,7 +274,7 @@ var _hmt = _hmt || [];
 <p>$$C_i = E_{a_i} + (B_i - D_i \times E_i + E_i + \sum E_{ P_j } [ j 是 i 的孩子])$$</p>
 <p>通过简单的 trick 把括号内的东西（假设叫 $F_i$ ）放到 $i$ 节点上维护，可以使得 1 、 2 操作的复杂度变为 $O(1)$ ，但 3 操作需要遍历所有节点，复杂度是 $O(n)$ 。考虑优化，把每个节点都开个 multiset （或可删堆），用来存自己的每个孩子的 $F_i$ ，当自己的 $E_i$ 改变时利用自己的 multiset 去更新答案，同时当自己的 $F_i$  改变时更新父亲的 multiset ，并利用父亲的 multiset 更新答案</p>
 <h2 id="Bear"><a href="#Bear" class="headerlink" title="Bear"></a>Bear</h2><p>20 分简单爆枚，40 分简单状压。100 分以对角线进行插头 dp ，还没写过。</p>
-<h2 id="Juice"><a href="#Juice" class="headerlink" title="Juice"></a>Juice</h2><p>考场上用一个乱搞做法 AC 了这题（也依赖与 IOI 赛制）。先枚举答案，对于每个答案进行 check ，方法如下。</p>
+<h2 id="Juice"><a href="#Juice" class="headerlink" title="Juice"></a>Juice</h2><p>考场上用一个乱搞做法 AC 了这题（也依赖于 IOI 赛制）。先枚举答案，对于每个答案进行 check ，方法如下。</p>
 <p>先根据答案计算出分出的每个桶的大小 $S$，把给定的每个 $a_i$ 丢进 multiset 里。每次取出一个最小的 $A$，如果 $A &gt; S$ ，那么就把 $A - S$ 丢回去；如果 $A &lt; S$ ，那么就在 set.lower_bound(A) 到 –set.end() 的范围内随机一个迭代器配对。利用合适的随机种子和合适的调参，成功 Accepted。</p>
 
         </div>
