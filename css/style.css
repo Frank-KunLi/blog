@@ -490,11 +490,17 @@ code {
 }
 /* Valine 评论样式 */
 .v .vwrap .vheader .vinput:hover {
-  border-bottom: 1px dashed #3273dc;
+  border-bottom: 1px dashed #3273dc !important;
+}
+.v .vlist .vcard .vh .vmeta .vat {
+  color: #3273dc !important;
+}
+.v .vlist .vcard .vh .vmeta .vatr:hover {
+  color: #000 !important;
 }
 .v .vlist .vcard .vhead .vnick {
-  color: #3273dc;
+  color: #3273dc !important;
 }
 .v .vlist .vcard .vhead .vnick:hover {
-  color: #000;
+  color: #000 !important;
 }
