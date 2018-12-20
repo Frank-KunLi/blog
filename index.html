@@ -139,16 +139,62 @@ var _hmt = _hmt || [];
         <div class="my-title ">
             <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
                 
+                    <a class="has-link-black-ter" href="/algorithm/ddp/">动态 DP 学习笔记</a>
+                
+            </h1>
+            <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
+                <div class="level-left">
+                    <i class="fa fa-clock"></i>
+                    <time class="level-item has-text-grey" datetime="2018-12-20T01:47:57.000Z">
+                        2018-12-20
+                    </time>
+                    <i class="fa fa-archive"></i>
+                    
+                        <div class="level-item">
+                            <a class="has-link-grey -link" href="/categories/Algorithm/">Algorithm</a>
+                        </div>
+                    
+                    <i class="fa fa-flag"></i>
+                    
+                        <span class="level-item has-text-grey">
+                            1 Words
+                        </span>
+                    
+                </div>
+            </div>
+        </div>
+        
+        <div class="content">
+            <p>咕</p>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article  ">
+        
+        <div class="my-title ">
+            <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+                
                     <a class="has-link-black-ter" href="/solution/luogu/5106/">洛谷5106 - dkw的lcm</a>
                 
             </h1>
             <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
-                <div class="level">
+                <div class="level-left">
                     <i class="fa fa-clock"></i>
                     <time class="level-item has-text-grey" datetime="2018-12-19T01:22:05.000Z">
                         2018-12-19
                     </time>
-                    <i class="fa fa-th"></i>
+                    <i class="fa fa-archive"></i>
                     
                         <div class="level-item">
                             <a class="has-link-grey -link" href="/categories/Solution/">Solution</a>
@@ -204,12 +250,12 @@ var _hmt = _hmt || [];
                 
             </h1>
             <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
-                <div class="level">
+                <div class="level-left">
                     <i class="fa fa-clock"></i>
                     <time class="level-item has-text-grey" datetime="2018-12-19T01:21:20.000Z">
                         2018-12-19
                     </time>
-                    <i class="fa fa-th"></i>
+                    <i class="fa fa-archive"></i>
                     
                         <div class="level-item">
                             <a class="has-link-grey -link" href="/categories/Solution/">Solution</a>
@@ -264,12 +310,12 @@ var _hmt = _hmt || [];
                 
             </h1>
             <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
-                <div class="level">
+                <div class="level-left">
                     <i class="fa fa-clock"></i>
                     <time class="level-item has-text-grey" datetime="2018-12-19T01:21:17.000Z">
                         2018-12-19
                     </time>
-                    <i class="fa fa-th"></i>
+                    <i class="fa fa-archive"></i>
                     
                         <div class="level-item">
                             <a class="has-link-grey -link" href="/categories/Solution/">Solution</a>
@@ -318,12 +364,12 @@ var _hmt = _hmt || [];
                 
             </h1>
             <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
-                <div class="level">
+                <div class="level-left">
                     <i class="fa fa-clock"></i>
                     <time class="level-item has-text-grey" datetime="2018-12-13T12:29:44.000Z">
                         2018-12-13
                     </time>
-                    <i class="fa fa-th"></i>
+                    <i class="fa fa-archive"></i>
                     
                         <div class="level-item">
                             <a class="has-link-grey -link" href="/categories/Algorithm/">Algorithm</a>
@@ -362,55 +408,6 @@ var _hmt = _hmt || [];
                 </div>
             </div>
         </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
-    <div class="card">
-    
-    <div class="card-content article  ">
-        
-        <div class="my-title ">
-            <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-                
-                    <a class="has-link-black-ter" href="/contest/20181211/">20181211 - NOI模拟赛</a>
-                
-            </h1>
-            <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
-                <div class="level">
-                    <i class="fa fa-clock"></i>
-                    <time class="level-item has-text-grey" datetime="2018-12-12T02:10:56.000Z">
-                        2018-12-12
-                    </time>
-                    <i class="fa fa-th"></i>
-                    
-                        <div class="level-item">
-                            <a class="has-link-grey -link" href="/categories/Contest/">Contest</a>
-                        </div>
-                    
-                    <i class="fa fa-flag"></i>
-                    
-                        <span class="level-item has-text-grey">
-                            416 Words
-                        </span>
-                    
-                </div>
-            </div>
-        </div>
-        
-        <div class="content">
-            <p>T1、T3 的思路基本都成型但是由于自己傻逼最后一个都没调出来。</p>
-<h2 id="LCM"><a href="#LCM" class="headerlink" title="LCM"></a>LCM</h2><p>考虑一个数最多被分解为一个大于 $\sqrt {\max a_i}$ 的质数和一些小于 $\sqrt {\max a_i} $ 的质数的乘积。考虑小于的部分，最多有 4320 种状态，我们可以用一种简单背包的方法统计出每一种值的个数。对于大于的部分，相当于我们给上一步统计的个数的时候给个数加上一个权值。通过一些简单的处理避免超过 $\sqrt { \max a_i }$ 的质数被重复计算。理论复杂度 $O(n \times 4320 \times (\log n + \log 4320))$ 。</p>
-<h2 id="Xor"><a href="#Xor" class="headerlink" title="Xor"></a>Xor</h2><p>不知道为什么出题人要把题意搞的这么迷。我们直接把边权异或到两个端点上，计算割的价值就是一边的点的权值的异或和。考虑贪心，把点按照权值从大到小排序，利用线性基维护会不会产生 $0$ ，不会就加上价值，否则减掉即可。</p>
-<h2 id="Lis"><a href="#Lis" class="headerlink" title="Lis"></a>Lis</h2><p>考虑把从左到右的最长上升子序列转变为从右到左的最长下降子序列，这样每次操作最多影响十棵树。树套树（树状数组套权值线段树）维护一个后缀高度大于指定值的 dp 值的最大值，每次暴力重算那十棵树即可。复杂度 $O(n \log^2 n \times 10)$ 。需要注意的是需要动态开的节点个数可能会很多，一定要开够。</p>
-
-        </div>
-        
         
         
     </div>
@@ -481,7 +478,7 @@ var _hmt = _hmt || [];
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        79
+                        80
                     </p>
                 </div>
             </div>
@@ -501,7 +498,7 @@ var _hmt = _hmt || [];
                         标签
                     </p>
                     <p class="title has-text-weight-normal">
-                        84
+                        86
                     </p>
                 </div>
             </div>
@@ -549,7 +546,7 @@ var _hmt = _hmt || [];
                 <span class="level-item">Algorithm</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">16</span>
+                <span class="level-item tag">17</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/Contest/">
@@ -614,7 +611,9 @@ var _hmt = _hmt || [];
                  -->
                 </a>
                 <p class="is-size-7">
-                &copy; 2017 - 2018 memset0&nbsp;
+                    &copy; 2017 - 2018
+                    <i class="fa fa-heart"></i>
+                    memset0
                 </p>
                 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
                 <p class="is-size-7">
