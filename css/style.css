@@ -489,6 +489,9 @@ code {
   border-radius: 2px;
 }
 /* Valine 评论样式 */
+.v .vwrap .vheader .vinput:hover {
+  border-bottom: 1px dashed #3273dc;
+}
 .v .vnick,
 .v .vat {
   color: #3273dc;
