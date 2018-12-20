@@ -8,7 +8,6 @@
 
 
     <meta name="description" content="前言最近闲着无聊准备写写Python爬虫，爬一下我们学校的oj用来横向比对做题量。但由于我校OJ对没有登录的账号有浏览限制，因此想要获取数据，就必须要登录账号。以前我一直手动生成Cookie，然后到浏览器里用该Cookie登录，这样的话没过一会儿又要重来比较麻烦。于是我就学习了一下用Python来POST数据的方式实现登录功能。 说明 感谢hiuseues大佬对我的指导！ 此处以我校OJ为例 请不">
-<meta name="keywords" content="Python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python 模拟登陆 hustoj">
 <meta property="og:url" content="https://memset0.cn/geek/python-login-hostoj/index.html">
@@ -17,7 +16,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://i.loli.net/2018/05/22/5b042c8d4c0f1.png">
 <meta property="og:image" content="https://i.loli.net/2018/05/25/5b0819fc2701a.png">
-<meta property="og:updated_time" content="2018-10-10T12:14:53.315Z">
+<meta property="og:updated_time" content="2018-12-20T12:41:58.221Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python 模拟登陆 hustoj">
 <meta name="twitter:description" content="前言最近闲着无聊准备写写Python爬虫，爬一下我们学校的oj用来横向比对做题量。但由于我校OJ对没有登录的账号有浏览限制，因此想要获取数据，就必须要登录账号。以前我一直手动生成Cookie，然后到浏览器里用该Cookie登录，这样的话没过一会儿又要重来比较麻烦。于是我就学习了一下用Python来POST数据的方式实现登录功能。 说明 感谢hiuseues大佬对我的指导！ 此处以我校OJ为例 请不">
@@ -202,15 +201,6 @@ var _hmt = _hmt || [];
 <h1 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h1><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># encoding=utf8</span></span><br><span class="line"><span class="hljs-keyword">try</span>:</span><br><span class="line">    <span class="hljs-comment"># python2的引入</span></span><br><span class="line">    <span class="hljs-keyword">import</span> urllib</span><br><span class="line">    <span class="hljs-keyword">import</span> urllib2</span><br><span class="line">    <span class="hljs-keyword">import</span> cookielib</span><br><span class="line"><span class="hljs-keyword">except</span> ImportError:</span><br><span class="line">    <span class="hljs-comment"># python3的引入</span></span><br><span class="line">    <span class="hljs-keyword">import</span> urllib.parse <span class="hljs-keyword">as</span> urllib</span><br><span class="line">    <span class="hljs-keyword">import</span> urllib.request <span class="hljs-keyword">as</span> urllib2</span><br><span class="line">    <span class="hljs-keyword">import</span> http.cookiejar <span class="hljs-keyword">as</span> cookielib </span><br><span class="line"><span class="hljs-comment"># 利用try实现同时兼容py2和py3的效果</span></span><br><span class="line"></span><br><span class="line">username = <span class="hljs-string">'LJB001590'</span></span><br><span class="line">password = <span class="hljs-string">'123'</span> <span class="hljs-comment"># 测试账号，账号密码来自某团队</span></span><br><span class="line">rooturl = <span class="hljs-string">'http://www.h2zbmh.com:8080/html/JudgeOnline/'</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">geturl</span><span class="hljs-params">(url)</span>:</span></span><br><span class="line">    <span class="hljs-keyword">return</span> rooturl + url;</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">Build</span><span class="hljs-params">()</span>:</span></span><br><span class="line">    <span class="hljs-keyword">global</span> opener  <span class="hljs-comment"># 引入全局变量</span></span><br><span class="line">    filename = <span class="hljs-string">'cookie.txt'</span> <span class="hljs-comment"># 保存cookie的文件</span></span><br><span class="line">    cookie = cookielib.MozillaCookieJar(filename) <span class="hljs-comment"># 创建一个实例</span></span><br><span class="line">    handler = urllib2.HTTPCookieProcessor(cookie) <span class="hljs-comment"># 创建urllib2的cookie处理器</span></span><br><span class="line">    opener = urllib2.build_opener(handler) <span class="hljs-comment"># 通过之前的cookie处理器构造opener</span></span><br><span class="line">    opener.open(geturl(<span class="hljs-string">'index.php'</span>)) <span class="hljs-comment"># “随机”打开一个页面来获得cookie</span></span><br><span class="line">    cookie.save(ignore_discard=<span class="hljs-keyword">True</span>, ignore_expires=<span class="hljs-keyword">True</span>) <span class="hljs-comment"># 保存cookie到文件</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">Login</span><span class="hljs-params">()</span>:</span></span><br><span class="line">    <span class="hljs-keyword">global</span> username, password, rooturl, opener <span class="hljs-comment"># 引入全局变量</span></span><br><span class="line">    url = geturl(<span class="hljs-string">'login.php'</span>) <span class="hljs-comment"># 对应的网址</span></span><br><span class="line">    data = urllib.urlencode(&#123;<span class="hljs-string">"user_id"</span>: username, <span class="hljs-string">"password"</span>: password, &#125;) <span class="hljs-comment"># 需要post的数据</span></span><br><span class="line">    <span class="hljs-keyword">try</span>:</span><br><span class="line">        response = opener.open(url, data=data) <span class="hljs-comment"># post数据 即 发送登录请求</span></span><br><span class="line">    <span class="hljs-keyword">except</span> TypeError:</span><br><span class="line">        response = opener.open(url, data=data.encode(<span class="hljs-string">'utf-8'</span>)) <span class="hljs-comment"># python3中的解决方式</span></span><br><span class="line"></span><br><span class="line">Build()</span><br><span class="line">Login()</span><br><span class="line"></span><br><span class="line">open(<span class="hljs-string">"ans.html"</span>, <span class="hljs-string">"wb+"</span>).write(opener.open(geturl(<span class="hljs-string">'problemset.php'</span>)).read()) <span class="hljs-comment"># 利用构建好的opener打开网页并输出到ans.html文件中（如果不显示“请登陆后继续操作！”说明成功）</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 再次感谢hiuseues大佬</span></span><br></pre></td></tr></table></figure>
         </div>
         
-        <div class="level is-size-7 is-uppercase">
-            <div class="level-start">
-                <div class="level-item">
-                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
-                    <a class="has-link-grey -link" href="/tags/Python/">Python</a>
-                </div>
-            </div>
-        </div>
-        
         
         
     </div>
@@ -318,7 +308,7 @@ var _hmt = _hmt || [];
                         标签
                     </p>
                     <p class="title has-text-weight-normal">
-                        88
+                        87
                     </p>
                 </div>
             </div>
