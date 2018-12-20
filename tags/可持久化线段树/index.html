@@ -162,7 +162,7 @@ var _hmt = _hmt || [];
                     <i class="far fa-edit"></i>
                     
                         <span class="level-item has-text-grey">
-                            645 Words
+                            646 Words
                         </span>
                     
                 </div>
@@ -173,10 +173,10 @@ var _hmt = _hmt || [];
             <p>在 mwh 大佬的指引下，我最近学习了主席树。</p>
 <h1 id="思想"><a href="#思想" class="headerlink" title="思想"></a>思想</h1><p>主席树是一种特殊的线段树，能够存储线段树的历史版本，我们称这种性质叫做可持久化。</p>
 <p>主席树的可持久化通过这样来实现：我们每次修改单个节点，必然只会经过 $log_2n​$ 条“线段”，对于这些线段，我们都新开节点来存储。显然对于每一次修改操作，根节点都会被新建。那么我们只要存储下来每一次修改说对应的根节点即可。空间占用 $O(n log n)​$</p>
-<p>具体思路可参考<a href="https://www.luogu.org/blog/LonecharmRiver/zhu-xi-shu" target="_blank" rel="noopener">https://www.luogu.org/blog/LonecharmRiver/zhu-xi-shu</a>中的图片。</p>
+<p>具体思路可参考 <a href="https://www.luogu.org/blog/LonecharmRiver/zhu-xi-shu" target="_blank" rel="noopener">https://www.luogu.org/blog/LonecharmRiver/zhu-xi-shu</a> ss中的图片。</p>
 <h1 id="关于模板题"><a href="#关于模板题" class="headerlink" title="关于模板题"></a>关于模板题</h1><p>我们要维护静态区间第 k 小。可以先把数组离散化，比如：</p>
 <figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">离散化前 4 1 1 2 8 9 4 4 3</span><br><span class="line">离散化后 4 1 1 2 5 6 4 4 3</span><br><span class="line">离散数组 1 2 3 4 8 9</span><br></pre></td></tr></table></figure>
-<p>我们根据离散数组作为所维护的区间。第 i 棵树存储<code>[1, i]</code>内各数值出现的次数。</p>
+<p>我们根据离散数组作为所维护的区间。第 i 棵树存储 <code>[1, i]</code> 内各数值出现的次数。</p>
         </div>
         
         

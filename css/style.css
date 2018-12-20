@@ -488,3 +488,11 @@ code {
 .card {
   border-radius: 2px;
 }
+/* Valine 评论样式 */
+.v .vnick,
+.v .vat {
+  color: #3273dc;
+}
+.v .vnick:hover {
+  color: #000;
+}

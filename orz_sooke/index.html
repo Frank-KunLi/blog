@@ -7,18 +7,18 @@
 
 
 
-    <meta name="description" content="Do You Want to Orz Sooke 	    	点击上方按钮进行膜拜    	Sooke is Our Red Sun. 	Without him, We Cannot Live Anymore. 	 	回眸一笑百媚生 	 		—— Sooke 	 	 	 		友情链接：点击膜拜贺指导 	      .button { 	width: 400px; 	height: 1">
+    <meta name="description" content="Do You Want to Orz Sooke 	    	点击上方按钮进行膜拜    	Sooke is Our Red Sun. 	Without him, We Cannot Live Anymore. 	 	回眸一笑百媚生 	 		—— Sooke 	 	 	 		友情链接：点击膜拜贺指导 	      .orz-sooke-button { 	display: block">
 <meta property="og:type" content="website">
 <meta property="og:title" content="每日一膜 Sooke">
 <meta property="og:url" content="https://memset0.cn/orz_sooke/index.html">
 <meta property="og:site_name" content="memset0&#39;s blog">
-<meta property="og:description" content="Do You Want to Orz Sooke 	    	点击上方按钮进行膜拜    	Sooke is Our Red Sun. 	Without him, We Cannot Live Anymore. 	 	回眸一笑百媚生 	 		—— Sooke 	 	 	 		友情链接：点击膜拜贺指导 	      .button { 	width: 400px; 	height: 1">
+<meta property="og:description" content="Do You Want to Orz Sooke 	    	点击上方按钮进行膜拜    	Sooke is Our Red Sun. 	Without him, We Cannot Live Anymore. 	 	回眸一笑百媚生 	 		—— Sooke 	 	 	 		友情链接：点击膜拜贺指导 	      .orz-sooke-button { 	display: block">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://i.loli.net/2018/12/18/5c18803c379a9.jpg">
-<meta property="og:updated_time" content="2018-12-18T05:22:41.273Z">
+<meta property="og:updated_time" content="2018-12-20T05:49:23.780Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="每日一膜 Sooke">
-<meta name="twitter:description" content="Do You Want to Orz Sooke 	    	点击上方按钮进行膜拜    	Sooke is Our Red Sun. 	Without him, We Cannot Live Anymore. 	 	回眸一笑百媚生 	 		—— Sooke 	 	 	 		友情链接：点击膜拜贺指导 	      .button { 	width: 400px; 	height: 1">
+<meta name="twitter:description" content="Do You Want to Orz Sooke 	    	点击上方按钮进行膜拜    	Sooke is Our Red Sun. 	Without him, We Cannot Live Anymore. 	 	回眸一笑百媚生 	 		—— Sooke 	 	 	 		友情链接：点击膜拜贺指导 	      .orz-sooke-button { 	display: block">
 <meta name="twitter:image" content="https://i.loli.net/2018/12/18/5c18803c379a9.jpg">
 
 
@@ -139,17 +139,17 @@ var _hmt = _hmt || [];
         <div class="content">
             
 
-<div class="button">
-	<button id="button">
+<div class="orz-sooke-button">
+	<button id="orz-sooke-button">
 		Do You Want to Orz <span style="color: black">S</span><span style="color: red">ooke</span>
 	</button>
 </div>
 
-<div class="notice" id="notice">
+<div class="orz-sooke-notice" id="orz-sooke-notice">
 	点击上方按钮进行膜拜
 </div>
 
-<div class="pic" id="pic" style="display: none">
+<div class="orz-sooke-pic" id="orz-sooke-pic" style="display: none">
 	<p>Sooke is Our Red Sun.</p>
 	<p>Without him, We Cannot Live Anymore.</p>
 	<img src="https://i.loli.net/2018/12/18/5c18803c379a9.jpg" alt="Sooke - 回眸一笑百媚生">
@@ -158,24 +158,28 @@ var _hmt = _hmt || [];
 		—— Sooke
 	</p>
 	<br>
-	<div class="links">
+	<div class="orz-sooke-links">
 		友情链接：<a href="https://cmxrynp.github.io/Orz%E8%B4%BA%E6%8C%87%E5%AF%BC/" target="_blank" rel="noopener">点击膜拜贺指导</a>
 	</div> 
 </div>
 
 <style>
 
-.button {
+.orz-sooke-button {
+	display: block;
 	width: 400px;
 	height: 100px;
 	margin: auto;
 	padding: 40px;
+	margin-bottom: 40px;
 }
-.button button {
+.orz-sooke-button button {
+	display: block;
 	color: #fff;
 	font-size: 24px;
 	width: 100%;
-	height: 100%;
+	height: 80px;
+	margin-bottom: 100px;
 	text-align: center;
 	border: none;
 	background: #00c6ff;
@@ -183,24 +187,24 @@ var _hmt = _hmt || [];
 	background: linear-gradient(to right, #0072ff, #00c6ff);
 }
 
-.notice {
+.orz-sooke-notice {
 	color: #666;
 	font-size: 18px;
 	text-align: center;
 	margin-bottom: 60px;
 }
 
-.links {
+.orz-sooke-links {
 	color: #666;
 	font-size: 18px;
 	margin-bottom: 60px;
 }
 
-.pic {
+.orz-sooke-pic {
 	font-size: 26px;
 	text-align: center;
 }
-.pic hr {
+.orz-sooke-pic hr {
 	margin: 20px 0;
 }
 
@@ -209,15 +213,15 @@ var _hmt = _hmt || [];
 <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
 <script>
 $(document).ready(function(){
-  $("#button").click(function(){
-    $("#pic").fadeToggle(500);
+  $("#orz-sooke-button").click(function(){
+    $("#orz-sooke-pic").fadeToggle(500);
   });
 });
 </script>
 <script>
 $(document).ready(function(){
-	$("#button").click(function(){
-		$("#notice").fadeToggle(0);
+	$("#orz-sooke-button").click(function(){
+		$("#orz-sooke-notice").fadeToggle(0);
 	});
 });
 </script>
