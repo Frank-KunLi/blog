@@ -134,8 +134,63 @@ var _hmt = _hmt || [];
         <div class="my-title ">
             <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
                 
-                    <a class="has-link-black-ter" href="/solution/bzoj/2956/">BZOJ2956 - 模积和</a>
+                    <a class="has-link-black-ter" href="/solution/bzoj/1002/">BZOJ1002 - [FJOI2007]轮状病毒</a>
+                 
+            </h1>
+            <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
+                <div class="level-left">
+                    <i class="far fa-clock"></i>
+                    <time class="level-item has-text-grey" datetime="2018-09-28T11:36:00.000Z">
+                        2018-09-28
+                    </time>
+                    <i class="far fa-folder"></i>
+                    
+                        <div class="level-item">
+                            <a class="has-link-grey -link" href="/categories/Solution/">Solution</a>
+                        </div>
+                    
+                    <i class="far fa-edit"></i>
+                    
+                        <span class="level-item has-text-grey">
+                            318 Words
+                        </span>
+                    
+                </div>
+            </div>
+        </div>
+        
+        <div class="content">
+            <p>这题的规律是很好找的，难的就是需要用高精度进行计算。</p>
+<p>于是我…厚颜无耻地逃避了高精度，用 Python 打了个表：</p>
+<figure class="highlight py hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">locate</span><span class="hljs-params">(x)</span>:</span></span><br><span class="line">    a = [<span class="hljs-number">1</span>, <span class="hljs-number">3</span>]</span><br><span class="line">    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">2</span>, x):</span><br><span class="line">        a.append(a[<span class="hljs-number">-1</span>] + a[<span class="hljs-number">-2</span>])</span><br><span class="line">    <span class="hljs-comment"># print(a)</span></span><br><span class="line">    <span class="hljs-keyword">return</span> a[x - <span class="hljs-number">1</span>]</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">solve</span><span class="hljs-params">(x)</span>:</span></span><br><span class="line">    t = locate(x)</span><br><span class="line">    <span class="hljs-keyword">if</span> x % <span class="hljs-number">2</span> == <span class="hljs-number">1</span>:</span><br><span class="line">        <span class="hljs-keyword">return</span> t ** <span class="hljs-number">2</span></span><br><span class="line">    <span class="hljs-keyword">else</span>:</span><br><span class="line">        <span class="hljs-keyword">return</span> t ** <span class="hljs-number">2</span> - <span class="hljs-number">4</span></span><br><span class="line"></span><br><span class="line">n = int(input())</span><br><span class="line">print(solve(n))</span><br></pre></td></tr></table></figure>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/solution/bzoj/1002/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article  ">
+        
+        <div class="my-title ">
+            <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
                 
+                    <a class="has-link-black-ter" href="/solution/bzoj/2956/">BZOJ2956 - 模积和</a>
+                 
             </h1>
             <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
                 <div class="level-left">
@@ -195,7 +250,7 @@ var _hmt = _hmt || [];
             <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
                 
                     <a class="has-link-black-ter" href="/solution/bzoj/2588/">BZOJ2588 - Count on a tree</a>
-                
+                 
             </h1>
             <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
                 <div class="level-left">
@@ -249,7 +304,7 @@ var _hmt = _hmt || [];
             <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
                 
                     <a class="has-link-black-ter" href="/solution/codeforces/776d/">CF776D - The Door Problem</a>
-                
+                 
             </h1>
             <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
                 <div class="level-left">
@@ -303,7 +358,7 @@ var _hmt = _hmt || [];
             <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
                 
                     <a class="has-link-black-ter" href="/solution/bzoj/1070/">BZOJ1070 - [SCOI2007]修车</a>
-                
+                 
             </h1>
             <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
                 <div class="level-left">
@@ -351,64 +406,6 @@ var _hmt = _hmt || [];
 
 
 
-    <div class="card">
-    
-    <div class="card-content article  ">
-        
-        <div class="my-title ">
-            <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-                
-                    <a class="has-link-black-ter" href="/solution/luogu/1251/">洛谷1251 - 餐巾计划问题</a>
-                
-            </h1>
-            <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
-                <div class="level-left">
-                    <i class="far fa-clock"></i>
-                    <time class="level-item has-text-grey" datetime="2018-09-24T14:58:00.000Z">
-                        2018-09-24
-                    </time>
-                    <i class="far fa-folder"></i>
-                    
-                        <div class="level-item">
-                            <a class="has-link-grey -link" href="/categories/Solution/">Solution</a>
-                        </div>
-                    
-                    <i class="far fa-edit"></i>
-                    
-                        <span class="level-item has-text-grey">
-                            707 Words
-                        </span>
-                    
-                </div>
-            </div>
-        </div>
-        
-        <div class="content">
-            <blockquote>
-<p>到这题为止网络流 24 题也快刷完了呢，还剩下几道码量特大的等着以后有空去浪费时间（逃</p>
-</blockquote>
-<p>这题一眼最小费用最大流，一开始我想了个类似于 <a href="http://localhost:4000/solution/luogu3980/" target="_blank" rel="noopener">NOI2008 志愿者招募</a> 之类的利用满流的方法，但是一直没有调出来。后来怂了，直接连边，最后因为有个 <code>- 1</code> 没有删干净还是调了老半天。orz ，我还是太菜了。</p>
-<p>把每一天分成两个节点，一个接受干净的毛巾，一个输出用过的毛巾。直接在这两个点之间连边显然不现实，我们可以分别把这两个点和源点、汇点连边。然后再按照题目条件一一连上对应边。这样最大流肯定能够跑满，求最小费用的话就是这图的最小费用最大流了。</p>
-<p>这告诉我们对于不清楚的知识点不要瞎用。</p>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/solution/luogu/1251/#more">阅读更多</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
 
     
 <div class="card card-transparent">
@@ -433,7 +430,7 @@ var _hmt = _hmt || [];
             
             <li><span class="pagination-ellipsis has-text-black-ter">&hellip;</span></li>
             
-            <li><a class="pagination-link has-text-black-ter" href="/page/16/">16</a></li>
+            <li><a class="pagination-link has-text-black-ter" href="/page/17/">17</a></li>
             
         </ul>
     </nav>
@@ -476,7 +473,7 @@ var _hmt = _hmt || [];
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        80
+                        81
                     </p>
                 </div>
             </div>
@@ -496,7 +493,7 @@ var _hmt = _hmt || [];
                         标签
                     </p>
                     <p class="title has-text-weight-normal">
-                        87
+                        88
                     </p>
                 </div>
             </div>
@@ -582,7 +579,7 @@ var _hmt = _hmt || [];
                 <span class="level-item">Solution</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">47</span>
+                <span class="level-item tag">48</span>
             </span>
         </a></li>
             </ul>
@@ -614,7 +611,7 @@ var _hmt = _hmt || [];
                 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
                 <p class="is-size-7">
                     <span>
-                        <span>57.7k</span> Words
+                        <span>58.6k</span> Words
                     </span>
                     <span id="busuanzi_container_site_pv" style="display:none">
                     <span class="division">|</span>
