@@ -492,10 +492,9 @@ code {
 .v .vwrap .vheader .vinput:hover {
   border-bottom: 1px dashed #3273dc;
 }
-.v .vnick,
-.v .vat {
+.v .vlist .vcard .vhead .vnick {
   color: #3273dc;
 }
-.v .vnick:hover {
+.v .vlist .vcard .vhead .vnick:hover {
   color: #000;
 }
