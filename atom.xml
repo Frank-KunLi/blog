@@ -44,9 +44,9 @@
     
       <category term="数学，数论" scheme="https://memset0.cn/tags/%E6%95%B0%E5%AD%A6%EF%BC%8C%E6%95%B0%E8%AE%BA/"/>
     
-      <category term="欧拉定理" scheme="https://memset0.cn/tags/%E6%AC%A7%E6%8B%89%E5%AE%9A%E7%90%86/"/>
-    
       <category term="线性筛" scheme="https://memset0.cn/tags/%E7%BA%BF%E6%80%A7%E7%AD%9B/"/>
+    
+      <category term="欧拉定理" scheme="https://memset0.cn/tags/%E6%AC%A7%E6%8B%89%E5%AE%9A%E7%90%86/"/>
     
       <category term="欧拉函数" scheme="https://memset0.cn/tags/%E6%AC%A7%E6%8B%89%E5%87%BD%E6%95%B0/"/>
     
@@ -268,13 +268,13 @@
       <category term="Contest" scheme="https://memset0.cn/categories/Contest/"/>
     
     
-      <category term="巧妙的思路" scheme="https://memset0.cn/tags/%E5%B7%A7%E5%A6%99%E7%9A%84%E6%80%9D%E8%B7%AF/"/>
-    
       <category term="STL" scheme="https://memset0.cn/tags/STL/"/>
     
       <category term="贪心" scheme="https://memset0.cn/tags/%E8%B4%AA%E5%BF%83/"/>
     
       <category term="乱搞" scheme="https://memset0.cn/tags/%E4%B9%B1%E6%90%9E/"/>
+    
+      <category term="巧妙的思路" scheme="https://memset0.cn/tags/%E5%B7%A7%E5%A6%99%E7%9A%84%E6%80%9D%E8%B7%AF/"/>
     
   </entry>
   
