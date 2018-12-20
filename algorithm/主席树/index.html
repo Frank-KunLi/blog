@@ -8,7 +8,7 @@
 
 
     <meta name="description" content="在 mwh 大佬的指引下，我最近学习了主席树。 思想主席树是一种特殊的线段树，能够存储线段树的历史版本，我们称这种性质叫做可持久化。 主席树的可持久化通过这样来实现：我们每次修改单个节点，必然只会经过 $log_2n​$ 条“线段”，对于这些线段，我们都新开节点来存储。显然对于每一次修改操作，根节点都会被新建。那么我们只要存储下来每一次修改说对应的根节点即可。空间占用 $O(n log n)​$">
-<meta name="keywords" content="可持久化线段树,主席树">
+<meta name="keywords" content="主席树,可持久化线段树">
 <meta property="og:type" content="article">
 <meta property="og:title" content="主席树（洛谷P3834）">
 <meta property="og:url" content="https://memset0.cn/algorithm/主席树/index.html">
@@ -139,7 +139,7 @@ var _hmt = _hmt || [];
             <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
                 
                     主席树（洛谷P3834）
-                 
+                
             </h1>
             <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
                 <div class="level-left">
@@ -308,7 +308,8 @@ var _hmt = _hmt || [];
         </nav>
         <div class="level">
             <a class="level-item button is-link is-rounded" href="http://github.com/memset0">
-                关注我</a>
+                关注我
+            </a>
         </div>
         
         

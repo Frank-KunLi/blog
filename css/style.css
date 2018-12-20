@@ -457,8 +457,7 @@ code {
 }
 .navbar .navbar-item {
   font-size: 15px;
-  padding-top: 0.75em;
-  padding-bottom: 0.75em;
+  padding: 0.75em 1em;
 }
 /* 修改内容样式 */
 .card-content .title {
@@ -489,18 +488,36 @@ code {
   border-radius: 2px;
 }
 /* Valine 评论样式 */
+.v a {
+  color: #000 !important;
+}
+.v a:hover {
+  color: #3273dc !important;
+}
+.v a:before {
+  background: #3273dc !important;
+}
+.v .info {
+  display: none !important;
+}
+.v .vwrap .vcontrol .col {
+  display: none !important;
+}
 .v .vwrap .vheader .vinput:hover {
   border-bottom: 1px dashed #3273dc !important;
 }
 .v .vlist .vcard .vh .vmeta .vat {
-  color: #3273dc !important;
-}
-.v .vlist .vcard .vh .vmeta .vatr:hover {
   color: #000 !important;
+}
+.v .vlist .vcard .vh .vmeta .vat:hover {
+  color: #3273dc !important;
 }
 .v .vlist .vcard .vhead .vnick {
   color: #3273dc !important;
 }
 .v .vlist .vcard .vhead .vnick:hover {
-  color: #000 !important;
+  color: #3273dc !important;
+}
+.v .vlist .vcard .vhead .vnick:before {
+  background: #3273dc !important;
 }
