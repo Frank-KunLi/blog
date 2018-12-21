@@ -8,7 +8,7 @@
 
 
     <meta name="description" content="T3 难度并不大，但是由于时间分配问题 + 出题人数据有锅必须输出行末空格否则 WA 导致本来会做的 T3 没有 AC 。 迷路对于每一个点，建出最短路树，对于每一条非树边，如果他的两个节点在根节点的不同子树内，那么可以对答案产生贡献。 宝藏类欧优化的数学题，不会。 蛋糕THUPC 原题的强化版，由 $4$ 维变成 $n$ 维。每一维变成一个多项式分治 NTT 即可。">
-<meta name="keywords" content="Dijkstra,最短路树,NTT,多项式">
+<meta name="keywords" content="NTT,Dijkstra,最短路树,多项式">
 <meta property="og:type" content="article">
 <meta property="og:title" content="20181210 - NOI模拟赛">
 <meta property="og:url" content="https://memset0.cn/contest/20181210/index.html">
@@ -133,7 +133,9 @@ var _hmt = _hmt || [];
             <div class="columns">
                 <div class="column my-content is-8-tablet is-8-desktop is-8-widescreen has-order-2 column-main"><div class="card">
     
-    <div class="card-content article  ">
+    <div class="card-content article
+         
+    ">
         
         <div class="my-title  my-post-title ">
             <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
@@ -211,7 +213,7 @@ var _hmt = _hmt || [];
 
 <div class="card">
     <div class="card-content">
-        <h3 class="title is-5 has-text-weight-normal">评论</h3>
+        <!-- <h3 class="title is-5 has-text-weight-normal">评论</h3> -->
         
 <div id="valine-thread"></div>
 <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
@@ -239,7 +241,7 @@ var _hmt = _hmt || [];
 <div class="column my-sidebar is-4-tablet is-4-desktop is-4-widescreen  has-order-3 column-right is-sticky">
     
         
-<div class="card widget">
+<div class="card widget" id="my-id-sidebar-profile">
     <div class="card-content">
         <nav class="level">
             <div class="level-item has-text-centered">
@@ -341,9 +343,14 @@ var _hmt = _hmt || [];
         </div>
     </div>
 </div>
+<!-- <script type="text/javascript">
+function myHideElement(name) {
+    document.getElementById(name).style.display = 'none';
+}
+</script> -->
 
     
-        
+        	
 <div class="card widget">
     <div class="card-content">
         <div class="menu">
@@ -411,6 +418,10 @@ var _hmt = _hmt || [];
             </div>
         </div>
     </section>
+    <!-- <script type="text/javascript">
+        myHideElement('my-id-sidebar-profile');
+        myHideElement('my-id-sidebar-category');
+    </script> -->
     <footer class="footer">
     <div class="container">
         <div class="level">
@@ -458,9 +469,25 @@ var _hmt = _hmt || [];
                 </p>
                 
                 <p class="control">
-                    <a class="button is-white is-large" target="_blank" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                    <a class="button is-white is-large" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
                         
                         <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="NonCommercial" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+                        
+                        <i class="fab fa-creative-commons-nc"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="NoDerivatives" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+                        
+                        <i class="fab fa-creative-commons-nd"></i>
                         
                     </a>
                 </p>

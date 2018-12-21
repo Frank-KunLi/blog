@@ -500,8 +500,25 @@ code {
 .v .info {
   display: none !important;
 }
-.v .vwrap .vcontrol .col {
+.v .vwrap .vcontrol .col svg {
   display: none !important;
+}
+.v .vwrap .vcontrol .col.col-80 {
+  width: 100% !important;
+}
+.v .vwrap .vcontrol .col.col-80 button {
+  height: 30px !important;
+  padding-top: 4px !important;
+  padding-bottom: 4px !important;
+  border-radius: 20040725px !important;
+  border-color: #3273dc !important;
+  color: #3273dc !important;
+  background-color: #fff !important;
+  width: 100% !important;
+}
+.v .vwrap .vcontrol .col.col-80 button:hover {
+  color: #fff !important;
+  background-color: #3273dc !important;
 }
 .v .vwrap .vheader .vinput:hover {
   border-bottom: 1px dashed #3273dc !important;
