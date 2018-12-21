@@ -433,6 +433,9 @@ figure.highlight .section {
   all: initial;
 }
 /* 修改内容样式 */
+* {
+  tab-size: 4 !important;
+}
 code {
   color: #3273dc !important;
   margin: 0 5px;
@@ -514,6 +517,9 @@ code {
 .v .info {
   display: none !important;
 }
+.v .vwrap {
+  border: none !important;
+}
 .v .vwrap .vcontrol .col svg {
   display: none !important;
 }
@@ -537,11 +543,20 @@ code {
 .v .vwrap .vheader .vinput:hover {
   border-bottom: 1px dashed #3273dc !important;
 }
+.v .vlist .vcard .vquote {
+  border: none !important;
+}
+.v .vlist .vcard .vh {
+  border: none !important;
+}
 .v .vlist .vcard .vh .vmeta .vat {
   color: #000 !important;
 }
 .v .vlist .vcard .vh .vmeta .vat:hover {
   color: #3273dc !important;
+}
+.v .vlist .vcard .vhead .vsys {
+  display: none !important;
 }
 .v .vlist .vcard .vhead .vnick {
   color: #3273dc !important;
