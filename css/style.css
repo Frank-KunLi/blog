@@ -452,6 +452,20 @@ code {
     display: none;
   }
 }
+.my-post-tags {
+  color: #fff !important;
+}
+.my-post-tags .my-post-tag {
+  font-size: 13px;
+  margin-right: 10px;
+  color: #666 !important;
+}
+.my-post-tags .my-post-tag:hover {
+  color: #3273dc !important;
+}
+.my-post-tags .my-post-tag:before {
+  content: '#';
+}
 .navbar .navbar-title {
   font-size: 18px;
 }
