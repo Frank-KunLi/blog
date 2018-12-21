@@ -7,18 +7,18 @@
 
 
 
-    <meta name="description" content="询问树上路径第 $k$ 大：二分答案 + 树上查询。查询时用主席树差分 $tree[now] = tree[u] + tree[v] - tree[lca(u,v)] - tree[father(lca(u,v))]$ 即可。 时间复杂度 $O(n \log ^2 n)$">
+    <meta name="description" content="询问树上路径第 $k$ 大：二分答案 + 树上查询。查询时用主席树差分： $$tree[now] = tree[u] + tree[v] - tree[lca(u,v)] - tree[father(lca(u,v))]$$ 时间复杂度 $O(n \log ^2 n)$">
 <meta name="keywords" content="主席树,树上差分,二分答案">
 <meta property="og:type" content="article">
 <meta property="og:title" content="BZOJ2588 - Count on a tree">
 <meta property="og:url" content="https://memset0.cn/solution/bzoj/2588/index.html">
 <meta property="og:site_name" content="memset0&#39;s blog">
-<meta property="og:description" content="询问树上路径第 $k$ 大：二分答案 + 树上查询。查询时用主席树差分 $tree[now] = tree[u] + tree[v] - tree[lca(u,v)] - tree[father(lca(u,v))]$ 即可。 时间复杂度 $O(n \log ^2 n)$">
+<meta property="og:description" content="询问树上路径第 $k$ 大：二分答案 + 树上查询。查询时用主席树差分： $$tree[now] = tree[u] + tree[v] - tree[lca(u,v)] - tree[father(lca(u,v))]$$ 时间复杂度 $O(n \log ^2 n)$">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-12-09T02:04:54.759Z">
+<meta property="og:updated_time" content="2018-12-21T06:17:05.332Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="BZOJ2588 - Count on a tree">
-<meta name="twitter:description" content="询问树上路径第 $k$ 大：二分答案 + 树上查询。查询时用主席树差分 $tree[now] = tree[u] + tree[v] - tree[lca(u,v)] - tree[father(lca(u,v))]$ 即可。 时间复杂度 $O(n \log ^2 n)$">
+<meta name="twitter:description" content="询问树上路径第 $k$ 大：二分答案 + 树上查询。查询时用主席树差分： $$tree[now] = tree[u] + tree[v] - tree[lca(u,v)] - tree[father(lca(u,v))]$$ 时间复杂度 $O(n \log ^2 n)$">
 
 
 
@@ -158,7 +158,7 @@ var _hmt = _hmt || [];
                     <i class="far fa-edit"></i>
                     
                         <span class="level-item has-text-grey">
-                            633 Words
+                            631 Words
                         </span>
                     
                 </div>
@@ -166,7 +166,8 @@ var _hmt = _hmt || [];
         </div>
         
         <div class="content">
-            <p>询问树上路径第 $k$ 大：二分答案 + 树上查询。查询时用主席树差分 $tree[now] = tree[u] + tree[v] - tree[lca(u,v)] - tree[father(lca(u,v))]$ 即可。</p>
+            <p>询问树上路径第 $k$ 大：二分答案 + 树上查询。查询时用主席树差分：</p>
+<p>$$tree[now] = tree[u] + tree[v] - tree[lca(u,v)] - tree[father(lca(u,v))]$$</p>
 <p>时间复杂度 $O(n \log ^2 n)$</p>
 <a id="more"></a>
 <p>代码：</p>
