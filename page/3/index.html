@@ -136,6 +136,108 @@ var _hmt = _hmt || [];
         <div class="my-title ">
             <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
                 
+                    <a class="has-link-black-ter" href="/contest/20181211/">20181211 - NOI模拟赛</a>
+                
+            </h1>
+            <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
+                <div class="level-left">
+                    <i class="far fa-clock"></i>
+                    <time class="level-item has-text-grey" datetime="2018-12-12T02:10:56.000Z">
+                        2018-12-12
+                    </time>
+                    <i class="far fa-folder"></i>
+                    
+                        <div class="level-item">
+                            <a class="has-link-grey -link" href="/categories/Contest/">Contest</a>
+                        </div>
+                    
+                    <i class="far fa-edit"></i>
+                    
+                        <span class="level-item has-text-grey">
+                            416 Words
+                        </span>
+                    
+                </div>
+            </div>
+        </div>
+        
+        <div class="content">
+            <p>T1、T3 的思路基本都成型但是由于自己傻逼最后一个都没调出来。</p>
+<h2 id="LCM"><a href="#LCM" class="headerlink" title="LCM"></a>LCM</h2><p>考虑一个数最多被分解为一个大于 $\sqrt {\max a_i}$ 的质数和一些小于 $\sqrt {\max a_i} $ 的质数的乘积。考虑小于的部分，最多有 4320 种状态，我们可以用一种简单背包的方法统计出每一种值的个数。对于大于的部分，相当于我们给上一步统计的个数的时候给个数加上一个权值。通过一些简单的处理避免超过 $\sqrt { \max a_i }$ 的质数被重复计算。理论复杂度 $O(n \times 4320 \times (\log n + \log 4320))$ 。</p>
+<h2 id="Xor"><a href="#Xor" class="headerlink" title="Xor"></a>Xor</h2><p>不知道为什么出题人要把题意搞的这么迷。我们直接把边权异或到两个端点上，计算割的价值就是一边的点的权值的异或和。考虑贪心，把点按照权值从大到小排序，利用线性基维护会不会产生 $0$ ，不会就加上价值，否则减掉即可。</p>
+<h2 id="Lis"><a href="#Lis" class="headerlink" title="Lis"></a>Lis</h2><p>考虑把从左到右的最长上升子序列转变为从右到左的最长下降子序列，这样每次操作最多影响十棵树。树套树（树状数组套权值线段树）维护一个后缀高度大于指定值的 dp 值的最大值，每次暴力重算那十棵树即可。复杂度 $O(n \log^2 n \times 10)$ 。需要注意的是需要动态开的节点个数可能会很多，一定要开够。</p>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article
+         
+    ">
+        
+        <div class="my-title ">
+            <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+                
+                    <a class="has-link-black-ter" href="/contest/20181210/">20181210 - NOI模拟赛</a>
+                
+            </h1>
+            <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
+                <div class="level-left">
+                    <i class="far fa-clock"></i>
+                    <time class="level-item has-text-grey" datetime="2018-12-11T09:35:19.000Z">
+                        2018-12-11
+                    </time>
+                    <i class="far fa-folder"></i>
+                    
+                        <div class="level-item">
+                            <a class="has-link-grey -link" href="/categories/Contest/">Contest</a>
+                        </div>
+                    
+                    <i class="far fa-edit"></i>
+                    
+                        <span class="level-item has-text-grey">
+                            150 Words
+                        </span>
+                    
+                </div>
+            </div>
+        </div>
+        
+        <div class="content">
+            <p>T3 难度并不大，但是由于时间分配问题 + 出题人数据有锅必须输出行末空格否则 WA 导致本来会做的 T3 没有 AC 。</p>
+<h2 id="迷路"><a href="#迷路" class="headerlink" title="迷路"></a>迷路</h2><p>对于每一个点，建出最短路树，对于每一条非树边，如果他的两个节点在根节点的不同子树内，那么可以对答案产生贡献。</p>
+<h2 id="宝藏"><a href="#宝藏" class="headerlink" title="宝藏"></a>宝藏</h2><p>类欧优化的数学题，不会。</p>
+<h2 id="蛋糕"><a href="#蛋糕" class="headerlink" title="蛋糕"></a>蛋糕</h2><p>THUPC 原题的强化版，由 $4$ 维变成 $n$ 维。每一维变成一个多项式分治 NTT 即可。</p>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article
+         
+    ">
+        
+        <div class="my-title ">
+            <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+                
                     <a class="has-link-black-ter" href="/solution/luogu/5071/">洛谷5071 - [Ynoi2015]此时此刻的光辉</a>
                 
             </h1>
@@ -296,126 +398,6 @@ var _hmt = _hmt || [];
 
 
 
-    <div class="card">
-    
-    <div class="card-content article
-         
-    ">
-        
-        <div class="my-title ">
-            <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-                
-                    <a class="has-link-black-ter" href="/solution/bzoj/4939/">BZOJ4939 - [YNOI2016] 掉进兔子洞</a>
-                
-            </h1>
-            <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
-                <div class="level-left">
-                    <i class="far fa-clock"></i>
-                    <time class="level-item has-text-grey" datetime="2018-12-08T10:15:32.000Z">
-                        2018-12-08
-                    </time>
-                    <i class="far fa-folder"></i>
-                    
-                        <div class="level-item">
-                            <a class="has-link-grey -link" href="/categories/Solution/">Solution</a>
-                        </div>
-                    
-                    <i class="far fa-edit"></i>
-                    
-                        <span class="level-item has-text-grey">
-                            653 Words
-                        </span>
-                    
-                </div>
-            </div>
-        </div>
-        
-        <div class="content">
-            <p>bitset 套莫队板子题。</p>
-<p>题意是如果第一个区间里有 $ a $ 个 $ x $ ，第二个区间 $ b $ 个，第三个区间 $ c $ 个，只会对答案产生 $ \min(a, b, c) $ 的贡献；每次询问给你三个区间，问你三个区间里能产生这样的贡献的大小。</p>
-<p>考虑 bitset 套莫队。通过一个简单的 trick 使得 bitset 既能反映出每种数又能反映出每种数的个数，每个查询就用三个区间的 bitset 的按位并，取结果的 count 。</p>
-<p>然而 $ 10^5 $ 个 $ 10^5 $ 的 bitset 会 MLE 。我们把莫队分成三次，只需要三分之一的空间，可以卡进。</p>
-<p>看起来这样 $ O(n ^ 2) $ 的复杂度过不了 $ n = 10^5 $ ，但是由于使用了 bitset 的关系，常数只有 1 / 32 ，实际跑的飞快。</p>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/solution/bzoj/4939/#more">阅读更多</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
-    <div class="card">
-    
-    <div class="card-content article
-         
-    ">
-        
-        <div class="my-title ">
-            <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-                
-                    <a class="has-link-black-ter" href="/algorithm/多项式/">多项式系列板子</a>
-                
-            </h1>
-            <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
-                <div class="level-left">
-                    <i class="far fa-clock"></i>
-                    <time class="level-item has-text-grey" datetime="2018-12-02T03:47:49.000Z">
-                        2018-12-02
-                    </time>
-                    <i class="far fa-folder"></i>
-                    
-                        <div class="level-item">
-                            <a class="has-link-grey -link" href="/categories/Algorithm/">Algorithm</a>
-                        </div>
-                    
-                    <i class="far fa-edit"></i>
-                    
-                        <span class="level-item has-text-grey">
-                            1539 Words
-                        </span>
-                    
-                </div>
-            </div>
-        </div>
-        
-        <div class="content">
-            <ul>
-<li>快速傅里叶变换 FFT</li>
-<li>数论傅里叶变换 NTT</li>
-<li>任意模数 NTT</li>
-<li>多项式求逆</li>
-<li>未完待续……</li>
-</ul>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/algorithm/多项式/#more">阅读更多</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
 
     
 <div class="card card-transparent">
@@ -481,7 +463,7 @@ var _hmt = _hmt || [];
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        83
+                        85
                     </p>
                 </div>
             </div>
@@ -501,7 +483,7 @@ var _hmt = _hmt || [];
                         标签
                     </p>
                     <p class="title has-text-weight-normal">
-                        91
+                        92
                     </p>
                 </div>
             </div>
@@ -588,7 +570,7 @@ var _hmt = _hmt || [];
                 <span class="level-item">Solution</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">49</span>
+                <span class="level-item tag">51</span>
             </span>
         </a></li>
             </ul>
@@ -624,7 +606,7 @@ var _hmt = _hmt || [];
                 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
                 <p class="is-size-7">
                     <span>
-                        <span>61k</span> Words
+                        <span>63.2k</span> Words
                     </span>
                     <span id="busuanzi_container_site_pv" style="display:none">
                     <span class="division">|</span>
