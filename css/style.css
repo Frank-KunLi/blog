@@ -504,6 +504,7 @@ code {
 .card {
   border-radius: 2px;
 }
+/* 设置鼠标样式 */
 /* Valine 评论样式 */
 .v a {
   color: #000 !important;

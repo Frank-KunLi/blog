@@ -136,6 +136,62 @@ var _hmt = _hmt || [];
         <div class="my-title ">
             <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
                 
+                    <a class="has-link-black-ter" href="/solution/luogu/3701/">洛谷3701 -「伪模板」主席树</a>
+                
+            </h1>
+            <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
+                <div class="level-left">
+                    <i class="far fa-clock"></i>
+                    <time class="level-item has-text-grey" datetime="2018-08-20T02:19:00.000Z">
+                        2018-08-20
+                    </time>
+                    <i class="far fa-folder"></i>
+                    
+                        <div class="level-item">
+                            <a class="has-link-grey -link" href="/categories/Solution/">Solution</a>
+                        </div>
+                    
+                    <i class="far fa-edit"></i>
+                    
+                        <span class="level-item has-text-grey">
+                            590 Words
+                        </span>
+                    
+                </div>
+            </div>
+        </div>
+        
+        <div class="content">
+            <p><del>去他妈的NOI难度</del></p>
+<p>从 $S$ 到 byx 的每个人连条容量为生命的边，从手气君的每个人到 $E$ 连条容量为生命的边；如果 byx 的这个人能打赢对方的某个人连一条容量为 $1$ 的边，$+1s$ 的话直接加到生命里，最后跑一遍最大流即可。</p>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/solution/luogu/3701/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article
+         
+    ">
+        
+        <div class="my-title ">
+            <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+                
                     <a class="has-link-black-ter" href="/algorithm/树状数组/">树状数组 区间修改 &amp; 区间查询（LOJ132）</a>
                 
             </h1>
@@ -376,67 +432,6 @@ var _hmt = _hmt || [];
 
 
 
-    <div class="card">
-    
-    <div class="card-content article
-         
-    ">
-        
-        <div class="my-title ">
-            <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-                
-                    <a class="has-link-black-ter" href="/algorithm/主席树/">主席树（洛谷P3834）</a>
-                
-            </h1>
-            <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
-                <div class="level-left">
-                    <i class="far fa-clock"></i>
-                    <time class="level-item has-text-grey" datetime="2018-08-12T23:20:00.000Z">
-                        2018-08-13
-                    </time>
-                    <i class="far fa-folder"></i>
-                    
-                        <div class="level-item">
-                            <a class="has-link-grey -link" href="/categories/Algorithm/">Algorithm</a>
-                        </div>
-                    
-                    <i class="far fa-edit"></i>
-                    
-                        <span class="level-item has-text-grey">
-                            646 Words
-                        </span>
-                    
-                </div>
-            </div>
-        </div>
-        
-        <div class="content">
-            <p>在 mwh 大佬的指引下，我最近学习了主席树。</p>
-<h1 id="思想"><a href="#思想" class="headerlink" title="思想"></a>思想</h1><p>主席树是一种特殊的线段树，能够存储线段树的历史版本，我们称这种性质叫做可持久化。</p>
-<p>主席树的可持久化通过这样来实现：我们每次修改单个节点，必然只会经过 $log_2n​$ 条“线段”，对于这些线段，我们都新开节点来存储。显然对于每一次修改操作，根节点都会被新建。那么我们只要存储下来每一次修改说对应的根节点即可。空间占用 $O(n log n)​$</p>
-<p>具体思路可参考 <a href="https://www.luogu.org/blog/LonecharmRiver/zhu-xi-shu" target="_blank" rel="noopener">https://www.luogu.org/blog/LonecharmRiver/zhu-xi-shu</a> ss中的图片。</p>
-<h1 id="关于模板题"><a href="#关于模板题" class="headerlink" title="关于模板题"></a>关于模板题</h1><p>我们要维护静态区间第 k 小。可以先把数组离散化，比如：</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">离散化前 4 1 1 2 8 9 4 4 3</span><br><span class="line">离散化后 4 1 1 2 5 6 4 4 3</span><br><span class="line">离散数组 1 2 3 4 8 9</span><br></pre></td></tr></table></figure>
-<p>我们根据离散数组作为所维护的区间。第 i 棵树存储 <code>[1, i]</code> 内各数值出现的次数。</p>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/algorithm/主席树/#more">阅读更多</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
 
     
 <div class="card card-transparent">
@@ -459,9 +454,9 @@ var _hmt = _hmt || [];
             
             <li><a class="pagination-link has-text-black-ter" href="/page/15/">15</a></li>
             
-            <li><a class="pagination-link has-text-black-ter" href="/page/16/">16</a></li>
+            <li><span class="pagination-ellipsis has-text-black-ter">&hellip;</span></li>
             
-            <li><a class="pagination-link has-text-black-ter" href="/page/17/">17</a></li>
+            <li><a class="pagination-link has-text-black-ter" href="/page/18/">18</a></li>
             
         </ul>
     </nav>
@@ -504,7 +499,7 @@ var _hmt = _hmt || [];
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        85
+                        86
                     </p>
                 </div>
             </div>
@@ -524,7 +519,7 @@ var _hmt = _hmt || [];
                         标签
                     </p>
                     <p class="title has-text-weight-normal">
-                        92
+                        94
                     </p>
                 </div>
             </div>
@@ -611,7 +606,7 @@ var _hmt = _hmt || [];
                 <span class="level-item">Solution</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">51</span>
+                <span class="level-item tag">52</span>
             </span>
         </a></li>
             </ul>
@@ -647,7 +642,7 @@ var _hmt = _hmt || [];
                 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
                 <p class="is-size-7">
                     <span>
-                        <span>63.2k</span> Words
+                        <span>64.4k</span> Words
                     </span>
                     <span id="busuanzi_container_site_pv" style="display:none">
                     <span class="division">|</span>

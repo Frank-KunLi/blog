@@ -164,7 +164,7 @@ var _hmt = _hmt || [];
                     <i class="far fa-edit"></i>
                     
                         <span class="level-item has-text-grey">
-                            925 Words
+                            912 Words
                         </span>
                     
                 </div>
@@ -177,11 +177,11 @@ var _hmt = _hmt || [];
 <figure class="highlight cpp hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">solve</span><span class="hljs-params">(<span class="hljs-keyword">int</span> l, <span class="hljs-keyword">int</span> r)</span> </span>&#123;</span><br><span class="line">	<span class="hljs-keyword">if</span> (bln[l] == bln[r]) &#123;</span><br><span class="line">		<span class="hljs-keyword">for</span> (<span class="hljs-keyword">register</span> <span class="hljs-keyword">int</span> i = l; i &lt;= r; i++)</span><br><span class="line">			ans.<span class="hljs-built_in">set</span>(a[i]);</span><br><span class="line">	&#125; <span class="hljs-keyword">else</span> &#123;</span><br><span class="line">		<span class="hljs-keyword">for</span> (<span class="hljs-keyword">register</span> <span class="hljs-keyword">int</span> i = l; i &lt; fst[bln[l] + <span class="hljs-number">1</span>]; i++)</span><br><span class="line">			ans.<span class="hljs-built_in">set</span>(a[i]);</span><br><span class="line">		<span class="hljs-keyword">for</span> (<span class="hljs-keyword">register</span> <span class="hljs-keyword">int</span> i = fst[bln[r]]; i &lt;= r; i++)</span><br><span class="line">			ans.<span class="hljs-built_in">set</span>(a[i]);</span><br><span class="line">		<span class="hljs-keyword">for</span> (<span class="hljs-keyword">register</span> <span class="hljs-keyword">int</span> i = bln[l] + <span class="hljs-number">1</span>; i &lt;= bln[r] - <span class="hljs-number">1</span>; i++)</span><br><span class="line">			ans |= f[i];</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>如果块大小为 $\sqrt n$ ，那么实际上的复杂度是 $\frac {n ^ 2 \sqrt n}{64} $，复杂度其实和暴力差不多。</p>
 <p><del>Dilute: 我™写了个（假）正解分还和暴力一样。</del></p>
-<p>在不会正解的情况下，显然只能考虑在优化分块上做文章。同学基本都是调整块大小为 $7000$ 左右 + 奇技淫巧的卡常通过，此处提出一种不太一样的做法：</p>
+<p>在不会正解的情况下，显然只能考虑在优化分块上做文章。同学基本都是调整块大小为 $7000$ 左右 + 奇技淫巧的卡常通过，此处讲一个不太一样的做法：</p>
 <p>考虑使我们的复杂度变的不正确的部分：</p>
 <figure class="highlight cpp hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">for</span> (<span class="hljs-keyword">register</span> <span class="hljs-keyword">int</span> i = bln[l] + <span class="hljs-number">1</span>; i &lt;= bln[r] - <span class="hljs-number">1</span>; i++)</span><br><span class="line">	ans |= f[i];</span><br></pre></td></tr></table></figure>
 <p>由于最多会访问到 $\sqrt n$ 个块，复杂度就不能保证。考虑处理出一个 $pre[i][j]$ 数组，表示<code>std::bitset &lt;N&gt; f[i]</code>  到  <code>std::bitset &lt;N&gt; f[i + j - 1]</code> 的异或和。由于空间限制只有 8MB ，我们只能开约 $480$ 个 <code>std::bitset &lt;N&gt;</code> ，就分成 80 个块，预处理的 $j$ 从 $1$ 到 $8$ 即可。</p>
-<p>当然我们的 txc 哥哥还给出了一个非常优秀的常数优化：如果一个数在整个序列里只出现了一次，那么他只要在区间内，对答案的贡献肯定为 $1$（不会因为出现和自己值相同的数而减少）。前缀和处理即可，理论可以少掉一半的常数，可以说是非常优秀的 Orz.</p>
+<p>我们的 txc 哥哥还给了一个非常优秀的常数优化：如果一个数在整个序列里只出现了一次，那么他只要在区间内，对答案的贡献肯定为 $1$（不会因为出现和自己值相同的数而减少）。前缀和处理即可，理论可以少掉一半的常数，Orz.</p>
         </div>
         
         
@@ -298,7 +298,7 @@ var _hmt = _hmt || [];
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        85
+                        86
                     </p>
                 </div>
             </div>
@@ -318,7 +318,7 @@ var _hmt = _hmt || [];
                         标签
                     </p>
                     <p class="title has-text-weight-normal">
-                        92
+                        94
                     </p>
                 </div>
             </div>
@@ -405,7 +405,7 @@ var _hmt = _hmt || [];
                 <span class="level-item">Solution</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">51</span>
+                <span class="level-item tag">52</span>
             </span>
         </a></li>
             </ul>
@@ -441,7 +441,7 @@ var _hmt = _hmt || [];
                 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
                 <p class="is-size-7">
                     <span>
-                        <span>63.2k</span> Words
+                        <span>64.4k</span> Words
                     </span>
                     <span id="busuanzi_container_site_pv" style="display:none">
                     <span class="division">|</span>
