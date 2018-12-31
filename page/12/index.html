@@ -136,6 +136,63 @@ var _hmt = _hmt || [];
         <div class="my-title ">
             <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
                 
+                    <a class="has-link-black-ter" href="/solution/luogu/3810/">洛谷3810 - 【模板】三维偏序（陌上花开）</a>
+                
+            </h1>
+            <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
+                <div class="level-left">
+                    <i class="far fa-clock"></i>
+                    <time class="level-item has-text-grey" datetime="2018-09-10T05:13:41.000Z">
+                        2018-09-10
+                    </time>
+                    <i class="far fa-folder"></i>
+                    
+                        <div class="level-item">
+                            <a class="has-link-grey -link" href="/categories/Solution/">Solution</a>
+                        </div>
+                    
+                    <i class="far fa-edit"></i>
+                    
+                        <span class="level-item has-text-grey">
+                            631 Words
+                        </span>
+                    
+                </div>
+            </div>
+        </div>
+        
+        <div class="content">
+            <p>三维偏序，一维一维解决：第一维排序，第二维 CDQ ，第三维树状数组（或 CDQ ）。</p>
+<p>先按照 $a$ 进行排序，考虑 CDQ ，先分治左右两边，使得左右两边的节点都按 $b$ 排序，于是依次从两边取（优先 $b$ ， $b$ 相等优先 $c$），左边的取出时在树状数组中更新，右边的取出时从树状数组中查询，考虑贡献。</p>
+<p>需要注意的是，$a$ 、 $b$ 、 $c$ 的值都相同的节点有可能互相产生贡献，很难用 CDQ 解决，于是可以将这些点缩为一个，并单独计算他们内部互相产生的贡献。</p>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/solution/luogu/3810/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article
+         
+    ">
+        
+        <div class="my-title ">
+            <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+                
                     <a class="has-link-black-ter" href="/solution/luogu/3980/">洛谷3980 - [NOI2008]志愿者招募</a>
                 
             </h1>
@@ -361,63 +418,6 @@ var _hmt = _hmt || [];
 
 
 
-    <div class="card">
-    
-    <div class="card-content article
-         
-    ">
-        
-        <div class="my-title ">
-            <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-                
-                    <a class="has-link-black-ter" href="/solution/luogu/3285/">洛谷3285 - [SCOI2014]方伯伯的OJ</a>
-                
-            </h1>
-            <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
-                <div class="level-left">
-                    <i class="far fa-clock"></i>
-                    <time class="level-item has-text-grey" datetime="2018-08-30T09:56:45.000Z">
-                        2018-08-30
-                    </time>
-                    <i class="far fa-folder"></i>
-                    
-                        <div class="level-item">
-                            <a class="has-link-grey -link" href="/categories/Solution/">Solution</a>
-                        </div>
-                    
-                    <i class="far fa-edit"></i>
-                    
-                        <span class="level-item has-text-grey">
-                            714 Words
-                        </span>
-                    
-                </div>
-            </div>
-        </div>
-        
-        <div class="content">
-            <p>本题的 $n$ 特别大，如果直接开那么大的空间，想必会直接超时。所以我们可以先把所有“用户”合并成一个点，需要访问到哪个就进行分裂。这样的话 $m$ 次操作每次都只会分裂一次，时间复杂度就能保证在 $O(m\log m)$ ，空间也不会炸。</p>
-<p>另外本题只有提到最前面和提到最后面两种操作，使用平衡树的必要不大，用动态开点线段树就好了。</p>
-<p>p.s. 感觉 Leafy Tree 和这个好像啊 (=’w’​=)</p>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/solution/luogu/3285/#more">阅读更多</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
 
     
 <div class="card card-transparent">
@@ -485,7 +485,7 @@ var _hmt = _hmt || [];
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        86
+                        87
                     </p>
                 </div>
             </div>
@@ -568,7 +568,7 @@ var _hmt = _hmt || [];
                 <span class="level-item">Diary</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">4</span>
+                <span class="level-item tag">5</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/Geek/">
@@ -628,7 +628,7 @@ var _hmt = _hmt || [];
                 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
                 <p class="is-size-7">
                     <span>
-                        <span>64.4k</span> Words
+                        <span>65.2k</span> Words
                     </span>
                     <span id="busuanzi_container_site_pv" style="display:none">
                     <span class="division">|</span>
