@@ -136,6 +136,65 @@ var _hmt = _hmt || [];
         <div class="my-title ">
             <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
                 
+                    <a class="has-link-black-ter" href="/solution-spoj-2666/">SPOJ2666 - QTREE4 - Query on a tree IV</a>
+                
+            </h1>
+            <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
+                <div class="level-left">
+                    <i class="far fa-clock"></i>
+                    <time class="level-item has-text-grey" datetime="2018-09-11T09:31:23.000Z">
+                        2018-09-11
+                    </time>
+                    <i class="far fa-folder"></i>
+                    
+                        <div class="level-item">
+                            <a class="has-link-grey -link" href="/categories/Solution/">Solution</a>
+                        </div>
+                    
+                    <i class="far fa-edit"></i>
+                    
+                        <span class="level-item has-text-grey">
+                            910 Words
+                        </span>
+                    
+                </div>
+            </div>
+        </div>
+        
+        <div class="content">
+            <p>我在学习点分治时，一直卡在这道题，今天我一鼓作气想尽办法终于把她 AC 了。</p>
+<p>将要讲述的方法是动态点分治，有另一种链分治的方法个人感觉较为麻烦且不自然就不在此赘述。</p>
+<p>首先静态点分治一遍建立点分树，并算出初始答案，存储每个节点作为重心时到上一个节点的边。当动态修改时从底层向上逐层修改直到抵达根节点。</p>
+<p>对于每个节点，我们存储每个子树中距离最远的点（用 <code>son</code> 维护）和距离当前节点距离最远的点（用 <code>hep</code> 维护），最后再维护一个答案堆 <code>ans</code> 供查询。这个堆要资瓷添加和删除操作，可以用经典的建两个堆的方法，一个插入，一个删除即可。</p>
+<p>其他当前子树中没有白色时应该返回 $-inf$ ，否则与当前子树的根节点是白色节点时等价的 qwq。</p>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/solution-spoj-2666/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article
+         
+    ">
+        
+        <div class="my-title ">
+            <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+                
                     <a class="has-link-black-ter" href="/solution-luogu-4826/">洛谷4826 - [USACO15FEB]Superbull 超级牛</a>
                 
             </h1>
@@ -358,65 +417,6 @@ var _hmt = _hmt || [];
 
 
 
-    <div class="card">
-    
-    <div class="card-content article
-         
-    ">
-        
-        <div class="my-title ">
-            <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-                
-                    <a class="has-link-black-ter" href="/solution-luogu-2387/">洛谷2387 - [NOI2014]魔法森林</a>
-                
-            </h1>
-            <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
-                <div class="level-left">
-                    <i class="far fa-clock"></i>
-                    <time class="level-item has-text-grey" datetime="2018-08-30T10:04:24.000Z">
-                        2018-08-30
-                    </time>
-                    <i class="far fa-folder"></i>
-                    
-                        <div class="level-item">
-                            <a class="has-link-grey -link" href="/categories/Solution/">Solution</a>
-                        </div>
-                    
-                    <i class="far fa-edit"></i>
-                    
-                        <span class="level-item has-text-grey">
-                            797 Words
-                        </span>
-                    
-                </div>
-            </div>
-        </div>
-        
-        <div class="content">
-            <p>题意可以理解为找到一条 $1$ 到 $n$ 的路径，使得其中 $a$ 的最大值和 $b$ 的最大值之和最小。</p>
-<p>我们可以先按照 $a$ 的值排序，然后使用 LCT 维护关于 $b$ 的最小生成树；算法的正确性很容易证明：对于每一个 $a$ 的最大值我们都取到了 $b$ 的最大值的最小值。</p>
-<p>维护动态最小生成树：对于新加的边 $(u, v)$ ，如果已经连接，则需要断掉其中最大的一条（当前的 $b$ 值比最大的 $b$ 值还大就不用加了），否则无脑 link 。所以我们的 LCT 还要存储下最大的边以及对应的编号。</p>
-<p>由于 LCT 只能维护点不能维护边，我们可以考虑化边为点，总共有 $n$ 个 LCT 中的点表示实际意义的点，以及 $m$ 的 LCT 中的点表示实际意义的边。这样子瞎搞即可。</p>
-<p>注意一定要当 $1$ 和 $n$ 已经联通时才能用当前的状态尝试更新答案哦！</p>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/solution-luogu-2387/#more">阅读更多</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
 
     
 <div class="card card-transparent">
@@ -441,7 +441,7 @@ var _hmt = _hmt || [];
             
             <li><span class="pagination-ellipsis has-text-black-ter">&hellip;</span></li>
             
-            <li><a class="pagination-link has-text-black-ter" href="/page/17/">17</a></li>
+            <li><a class="pagination-link has-text-black-ter" href="/page/18/">18</a></li>
             
         </ul>
     </nav>
@@ -484,7 +484,7 @@ var _hmt = _hmt || [];
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        85
+                        86
                     </p>
                 </div>
             </div>
@@ -591,7 +591,7 @@ var _hmt = _hmt || [];
                 <span class="level-item">Solution</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">53</span>
+                <span class="level-item tag">54</span>
             </span>
         </a></li>
             </ul>
@@ -627,7 +627,7 @@ var _hmt = _hmt || [];
                 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
                 <p class="is-size-7">
                     <span>
-                        <span>65k</span> Words
+                        <span>66k</span> Words
                     </span>
                     <span id="busuanzi_container_site_pv" style="display:none">
                     <span class="division">|</span>

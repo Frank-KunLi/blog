@@ -136,6 +136,69 @@ var _hmt = _hmt || [];
         <div class="my-title ">
             <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
                 
+                    <a class="has-link-black-ter" href="/solution-luogu-5106/">洛谷5106 - dkw的lcm</a>
+                
+            </h1>
+            <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
+                <div class="level-left">
+                    <i class="far fa-clock"></i>
+                    <time class="level-item has-text-grey" datetime="2018-12-19T01:22:05.000Z">
+                        2018-12-19
+                    </time>
+                    <i class="far fa-folder"></i>
+                    
+                        <div class="level-item">
+                            <a class="has-link-grey -link" href="/categories/Solution/">Solution</a>
+                        </div>
+                    
+                    <i class="far fa-edit"></i>
+                    
+                        <span class="level-item has-text-grey">
+                            598 Words
+                        </span>
+                    
+                </div>
+            </div>
+        </div>
+        
+        <div class="content">
+            <p>积性函数的定义： 如果 $(a,b) = 1$ ，那么 $f(ab) = f(a) \times f(b)$ 。 显然欧拉函数是积性函数。</p>
+<p>设 $lcm(i_1, i_2, …, i_k) = x$ ，我们把 $x$ 表示成 $x = \prod {p_i ^ {a_i}}$ 的形式。对每个 $p_i ^ { a_i }$ 分开考虑，枚举每个质数与幂次，用简单容斥统计出每个 $\varphi({p_i ^ {a_i}})$ 在答案中出现的次数，通过欧拉定理 + 快速幂计算答案。</p>
+<p>假设我们当前枚举的质数为 $p^k$ ，我们把 $[1..n]$ 的数分成三个集合 $A, B, C$</p>
+<ul>
+<li>对于每个 $x \in A$ ，当且仅当 $p^k \not\mid x$；</li>
+<li>对于每个 $x \in B$ ，当且仅当 $p^k \mid x$ 且 $p^{k + 1} \not\mid x$ ；</li>
+<li>对于每个 $x \in C$ ，当且仅当 $p^{k+1} \mid x$。</li>
+</ul>
+<p>则答案中 $\varphi({p^k})$ 的幂次相当于给 $k$ 个空位，只能放集合 $A$ 和 $B$ 中的元素且集合 $B$ 中的元素至少放一次的方案数，即 $(|A| + |B|)^k - |A|^k$，此处的值可能会超过 int 的存储范围，因而根据欧拉定理，对 $\varphi(10^9+7) $ （即 $ 10^9+6$ ）取模。</p>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/solution-luogu-5106/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article
+         
+    ">
+        
+        <div class="my-title ">
+            <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+                
                     <a class="has-link-black-ter" href="/solution-luogu-5105/">洛谷5105 - 不强制在线的动态快速排序</a>
                 
             </h1>
@@ -362,57 +425,6 @@ var _hmt = _hmt || [];
 
 
 
-    <div class="card">
-    
-    <div class="card-content article
-         
-    ">
-        
-        <div class="my-title ">
-            <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-                
-                    <a class="has-link-black-ter" href="/contest-20181210/">20181210 - NOI模拟赛</a>
-                
-            </h1>
-            <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
-                <div class="level-left">
-                    <i class="far fa-clock"></i>
-                    <time class="level-item has-text-grey" datetime="2018-12-11T09:35:19.000Z">
-                        2018-12-11
-                    </time>
-                    <i class="far fa-folder"></i>
-                    
-                        <div class="level-item">
-                            <a class="has-link-grey -link" href="/categories/Contest/">Contest</a>
-                        </div>
-                    
-                    <i class="far fa-edit"></i>
-                    
-                        <span class="level-item has-text-grey">
-                            150 Words
-                        </span>
-                    
-                </div>
-            </div>
-        </div>
-        
-        <div class="content">
-            <p>T3 难度并不大，但是由于时间分配问题 + 出题人数据有锅必须输出行末空格否则 WA 导致本来会做的 T3 没有 AC 。</p>
-<h2 id="迷路"><a href="#迷路" class="headerlink" title="迷路"></a>迷路</h2><p>对于每一个点，建出最短路树，对于每一条非树边，如果他的两个节点在根节点的不同子树内，那么可以对答案产生贡献。</p>
-<h2 id="宝藏"><a href="#宝藏" class="headerlink" title="宝藏"></a>宝藏</h2><p>类欧优化的数学题，不会。</p>
-<h2 id="蛋糕"><a href="#蛋糕" class="headerlink" title="蛋糕"></a>蛋糕</h2><p>THUPC 原题的强化版，由 $4$ 维变成 $n$ 维。每一维变成一个多项式分治 NTT 即可。</p>
-
-        </div>
-        
-        
-        
-    </div>
-</div>
-
-
-
-
-
 
     
 <div class="card card-transparent">
@@ -435,7 +447,7 @@ var _hmt = _hmt || [];
             
             <li><span class="pagination-ellipsis has-text-black-ter">&hellip;</span></li>
             
-            <li><a class="pagination-link has-text-black-ter" href="/page/17/">17</a></li>
+            <li><a class="pagination-link has-text-black-ter" href="/page/18/">18</a></li>
             
         </ul>
     </nav>
@@ -478,7 +490,7 @@ var _hmt = _hmt || [];
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        85
+                        86
                     </p>
                 </div>
             </div>
@@ -585,7 +597,7 @@ var _hmt = _hmt || [];
                 <span class="level-item">Solution</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">53</span>
+                <span class="level-item tag">54</span>
             </span>
         </a></li>
             </ul>
@@ -621,7 +633,7 @@ var _hmt = _hmt || [];
                 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
                 <p class="is-size-7">
                     <span>
-                        <span>65k</span> Words
+                        <span>66k</span> Words
                     </span>
                     <span id="busuanzi_container_site_pv" style="display:none">
                     <span class="division">|</span>
