@@ -2,22 +2,23 @@
 <html lang="zh">
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-<title>NOIP2018 爆零记 - memset0&#39;s blog</title>
+<title>洛谷4131 - [WC2005]友好的生物 - memset0&#39;s blog</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-    <meta name="description" content="Day -1 注意这是 -1 天  上午照常模拟赛，考 NOIP 信心赛。 虽然是信心赛，但是题目好难。T1 洛谷原题，黑题难度 QAQ 。后两题稍微简单一点，但是如果开始刚了 T1 估计就来不及了。 我先开了 T2 ，推出了容斥，期望 $O(t \log n)$ 的 70 分。然后去开 T3 ，写了个 $O(n \times m \log n)$ 加卡常，期望 80 。最后开 T1 ，一遍写对了">
+    <meta name="description" content="首先 $c$ 没什么卵用，我们直接把他乘到属性里。 可以发现这里的 $d$ 是两个属性值减一减的绝对值，所以我们要考虑怎么维护这个绝对值。 我们先考虑 $K = 1$ 的情况，先把这些生物按照 $d$ 的大小排个序，那么后一个减前一个的值一定就是非负的，也就等于绝对值，直接扫一遍就好了。 接下来考虑 $K \not = 1$ 的时候的前 $K - 1$ 位，根据幼儿园学过的知识我们可以知道： $$">
+<meta name="keywords" content="巧妙的思路,状态压缩,约束与放缩">
 <meta property="og:type" content="article">
-<meta property="og:title" content="NOIP2018 爆零记">
-<meta property="og:url" content="https://memset0.cn/diary-NOIP2018游记/index.html">
+<meta property="og:title" content="洛谷4131 - [WC2005]友好的生物">
+<meta property="og:url" content="https://memset0.cn/solution-luogu-4131/index.html">
 <meta property="og:site_name" content="memset0&#39;s blog">
-<meta property="og:description" content="Day -1 注意这是 -1 天  上午照常模拟赛，考 NOIP 信心赛。 虽然是信心赛，但是题目好难。T1 洛谷原题，黑题难度 QAQ 。后两题稍微简单一点，但是如果开始刚了 T1 估计就来不及了。 我先开了 T2 ，推出了容斥，期望 $O(t \log n)$ 的 70 分。然后去开 T3 ，写了个 $O(n \times m \log n)$ 加卡常，期望 80 。最后开 T1 ，一遍写对了">
+<meta property="og:description" content="首先 $c$ 没什么卵用，我们直接把他乘到属性里。 可以发现这里的 $d$ 是两个属性值减一减的绝对值，所以我们要考虑怎么维护这个绝对值。 我们先考虑 $K = 1$ 的情况，先把这些生物按照 $d$ 的大小排个序，那么后一个减前一个的值一定就是非负的，也就等于绝对值，直接扫一遍就好了。 接下来考虑 $K \not = 1$ 的时候的前 $K - 1$ 位，根据幼儿园学过的知识我们可以知道： $$">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-12-02T04:02:06.852Z">
+<meta property="og:updated_time" content="2019-01-07T11:01:17.959Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="NOIP2018 爆零记">
-<meta name="twitter:description" content="Day -1 注意这是 -1 天  上午照常模拟赛，考 NOIP 信心赛。 虽然是信心赛，但是题目好难。T1 洛谷原题，黑题难度 QAQ 。后两题稍微简单一点，但是如果开始刚了 T1 估计就来不及了。 我先开了 T2 ，推出了容斥，期望 $O(t \log n)$ 的 70 分。然后去开 T3 ，写了个 $O(n \times m \log n)$ 加卡常，期望 80 。最后开 T1 ，一遍写对了">
+<meta name="twitter:title" content="洛谷4131 - [WC2005]友好的生物">
+<meta name="twitter:description" content="首先 $c$ 没什么卵用，我们直接把他乘到属性里。 可以发现这里的 $d$ 是两个属性值减一减的绝对值，所以我们要考虑怎么维护这个绝对值。 我们先考虑 $K = 1$ 的情况，先把这些生物按照 $d$ 的大小排个序，那么后一个减前一个的值一定就是非负的，也就等于绝对值，直接扫一遍就好了。 接下来考虑 $K \not = 1$ 的时候的前 $K - 1$ 位，根据幼儿园学过的知识我们可以知道： $$">
 
 
 
@@ -93,7 +94,7 @@ var _hmt = _hmt || [];
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <!-- <img src="/favicon.ico" alt="NOIP2018 爆零记" height="28"> -->
+                <!-- <img src="/favicon.ico" alt="洛谷4131 - [WC2005]友好的生物" height="28"> -->
                 <span class="navbar-title"> memset0's blog </span>
             
             </a>
@@ -139,25 +140,25 @@ var _hmt = _hmt || [];
         <div class="my-title  my-post-title ">
             <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
                 
-                    NOIP2018 爆零记
+                    洛谷4131 - [WC2005]友好的生物
                 
             </h1>
             <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
                 <div class="level-left">
                     <i class="far fa-clock"></i>
-                    <time class="level-item has-text-grey" datetime="2018-11-10T12:51:19.000Z">
-                        2018-11-10
+                    <time class="level-item has-text-grey" datetime="2019-01-07T10:51:15.000Z">
+                        2019-01-07
                     </time>
                     <i class="far fa-folder"></i>
                     
                         <div class="level-item">
-                            <a class="has-link-grey -link" href="/categories/Diary/">Diary</a>
+                            <a class="has-link-grey -link" href="/categories/Solution/">Solution</a>
                         </div>
                     
                     <i class="far fa-edit"></i>
                     
                         <span class="level-item has-text-grey">
-                            2055 Words
+                            549 Words
                         </span>
                     
                 </div>
@@ -165,51 +166,24 @@ var _hmt = _hmt || [];
         </div>
         
         <div class="content">
-            <h1 id="Day-1"><a href="#Day-1" class="headerlink" title="Day -1"></a>Day -1</h1><blockquote>
-<p>注意这是 -1 天</p>
-</blockquote>
-<p>上午照常模拟赛，考 NOIP 信心赛。</p>
-<p>虽然是信心赛，但是题目好难。T1 洛谷原题，黑题难度 QAQ 。后两题稍微简单一点，但是如果开始刚了 T1 估计就来不及了。</p>
-<p>我先开了 T2 ，推出了容斥，期望 $O(t \log n)$ 的 70 分。然后去开 T3 ，写了个 $O(n \times m \log n)$ 加卡常，期望 80 。最后开 T1 ，一遍写对了一个动态开点线段树，特判特殊情况拿到 50 分部分分。</p>
-<p>考试成绩出来，诶 T3 怎么 A 了 QAQ 。T2 没有输出 <code>STO yyb ORZ</code> （无解情况）少了 15 分， T1 还是预测得分 50 分。算是涨了不少信心吧。</p>
-<p>下午继续写板子，任务列表也清的差不多了。还有一些很难的算法感觉也不会用到懒得写了。</p>
-<p>晚上老师讲竞赛时间安排和一些注意事项，同是说明天是 “ Open Day ” ，我们可以光明正大的地颓废放松 233 . </p>
-<p>讲完之后感觉压力突然加大，本来以为很遥远的 NOIP 真的近在眼前了。真的，真的，好紧张。找学长哭诉。 lyc 哥哥特别好，特别温暖，给了我许多安慰 qwq。</p>
-<h1 id="Day-0"><a href="#Day-0" class="headerlink" title="Day 0"></a>Day 0</h1><p>上午开始机房集体颓废，打 <code>jokebird.com</code> 爆踩全服。之后开始打球球大作战。也有人 5 人组队 LOL （第一局被对面五杀，第二局吊打对面 233）</p>
-<p>下午继续颓废，看了点数论。</p>
-<p>在赛百味吃完饭的时候遇见了 zx2003 学长，他给我们讲了一些他的故事，也给了我很大的鼓励。</p>
-<p>晚上颓了一会会儿，然后手推 EXGCD 和 EXCRT ，虽说感觉不会考，主要还是熟悉一下推式子的感觉 QAQ 。</p>
-<p>接着去楼上机房蹭 RP ，好紧张，又哭了 QAQ 。但是学长的安慰真的很有用（不然可能窝晚上心态就蹦了）。</p>
-<p>睡觉的时候还是有点紧张，半夜睡不着。</p>
-<h1 id="Day-1-1"><a href="#Day-1-1" class="headerlink" title="Day 1"></a>Day 1</h1><p>但是早上起来精神状态还是很好的。一路赶去学军紫金港路也很顺畅。</p>
-<p>早点到校门口集合领准考证，我们有同学的准考证在校园里还没领但是要有准考证才能进场 233 。还好老师送出来了。我们初中几个还拍了合影。</p>
-<p>进考场前最后膜拜了一次大佬。坐我左边的是一个超好的（不认识的）高三学长。当时我特别紧张，他安慰了我也给了我鼓励，也让我平静了一下心态。</p>
-<p>开题，解压密码 <code>Fei2Xue@Lian$Tian!</code> 。学军体育馆可真冷。</p>
-<p>T1 上手一个 $O(n ^ 2)$ 贪心过了大样例，然后用 ST 表优化成 $O(n \log n)$ 开始拍。</p>
-<p>T2 一开始以为是 exgcd ，但又感觉不可能那么难。看了眼 T3 没思路，滚回来手玩了一下样例想到了个背包。一发过了大样例感觉很稳。</p>
-<p>T3 先写了部分分，和状压暴力对拍。差不多写满 55 分部分分，正解的思路也有了。此时我可以写二叉树的部分分到 80 ，也可以直接写正解。经过了一番焦灼，还是写了部分分，毕竟写正解也有可能调不出来。</p>
-<p>考完和同学 yy T3 ，发现了一个思维漏洞，不过很容易拍出来，而且我也立马想到了补救措施。不过如果这是考场就不一定了。所以感觉当初自己稳一点写了部分分也是挺正确的。</p>
-<p>估分 $280 = 100 + 100 + 80$ ，考完听说 Sooke 、mocania 、 LJC00118 、 Isonan 都 AK 了。唉，毕竟技不如人，甘拜下风。</p>
-<p>下午继续颓废，帮学长安 Flash Player 但是失败了，同时跟同学继续嘴巴 T3 。</p>
-<p>晚上颓废 + 写游记，也不是很紧张了。</p>
-<p>明天加油：尽人事，听天命。</p>
-<h1 id="Day-2"><a href="#Day-2" class="headerlink" title="Day 2"></a>Day 2</h1><p>无论如何预感今天的题目会很难。跟同学开玩笑说今天写满暴力就好了，结果还真 tmd 暴力滚粗了。</p>
-<p>解压密码和昨天连起来：“飞雪连天射白鹿，笑书神侠倚碧鸳。” CCF 的解压密码倒是一年比一年有创意了233。就是能不能不要出原题QAQ。</p>
-<p>开 T1 ，一开始以为是一张图，没想到是一个树和基环树。等等，这一题当两题的画风，让我想到了栗栗的书架啊。先随手写了个树的情况，过了大样例，开始看 T2 。</p>
-<p>T2 一眼以为是状压，一脸懵逼。还成功出现了“关于 T2 的题目解释请看 T1 的情况”（那放洛谷上怎么办 233）。本想枚举个数然后直接判断，结果第二个样例输出 <code>144</code> 瞬间懵逼。写了发状压枚举路径判断过了两个小样例。开始跑 $5 \times 5$ 的但始终过不去（为什么别人的状压可以跑 $7 \times 7$ QAQ）。发现了每次 $\times 3$ 的规律。</p>
-<p>没办法，开 T3 ，44 分的 $O(n m)$ 暴力很好写，一遍过了大样例。开始想正解却没思路。目前已经有 $60 + 50 + 44 = 154$ 分了，还有两个小时多，先上个厕所冷静一下。</p>
-<p>回来想继续优化 T2 ，但脑子里一直把枚举矩阵的 $O(2^{nm})$  复杂度搞成了 $O(2^{n+m})$ 。结果当然是就算苦苦优化还是过不去大样例，白白浪费了半个小时。</p>
-<p>接下去去看 T1 $n = m$ 的情况，由于 $m = n - 1$ 的情况可以 $O(n)$ 完成，我把 $n = 5000$ 的数据范围当成了 $n = 100000$ 最后强行想出来了一个 $O(n)$ 解法但已经又过了半个小时。还有一个小时感觉写不完这个及其麻烦的做法，赶紧苟了个成环的部分分。</p>
-<p>只能看 T3 部分分。一条链上的情况考场里一脸懵逼毫无思路，考完出来却豁然开朗（mmp）。其实把 dp 的转移变成一个个矩阵放到线段树上区间查询即可。然而考场上我脑子里一片空白，什么也想不到。</p>
-<p>回去检查 T2 ， T2 的大样例好毒啊，不仅给的数据范围小，而且都是 $n = m$ 的，感觉有坑。检查了老半天暴力还有不到半个小时。发现 $n = 1$ 的情况不是每次乘以 $3$ 而是 $2$ 。赶快改过来（差点就没分了），捡回一条狗命。</p>
-<p>最后时间照常检查文件，交卷。考完出来要了隔壁同学的 QQ 号，也算是一种缘分吧。</p>
-<p>Sooke ， Isonan 照样稳的一比 ， $200+$ 。感觉考场 debuff 太严重了，真的脑子里一片空白。平时模拟赛可以拖一段时间交卷，大胆地去尝试正解，然而考试的时候不仅没拖延的可能，还要单独花时间检查文件等等，一下就丧失了去尝试正解的勇气。</p>
-<p>最后期望得分 $189 = 80 + 65 + 44$</p>
-<h1 id="Day-3"><a href="#Day-3" class="headerlink" title="Day 3"></a>Day 3</h1><p>出选手代码了，去洛谷上交了一发竟然 $ 474 = 100 + 100 + 80 + 80 + 70 + 44 $ ，激动的要死。</p>
-<p>当然也有同学 D2T1 的 $O(n log n)$ 做法挂了，但还是比我高。</p>
-<h1 id="Day"><a href="#Day" class="headerlink" title="Day ?"></a>Day ?</h1><p>CCF 官方成绩出了，只有 $ 454 = 100 + 100 + 65 + 80 + 65 + 44 $ ，原来 D1T3 的分支不超过三按照我的那种方法有可能在根节点三叉。</p>
-<p>看来 WC 无望了，只能希望可以上 PKUWC 的初中线吧。</p>
+            <p>首先 $c$ 没什么卵用，我们直接把他乘到属性里。</p>
+<p>可以发现这里的 $d$ 是两个属性值减一减的绝对值，所以我们要考虑怎么维护这个绝对值。</p>
+<p>我们先考虑 $K = 1$ 的情况，先把这些生物按照 $d$ 的大小排个序，那么后一个减前一个的值一定就是非负的，也就等于绝对值，直接扫一遍就好了。</p>
+<p>接下来考虑 $K \not = 1$ 的时候的前 $K - 1$ 位，根据幼儿园学过的知识我们可以知道：</p>
+<p>$$a - b \leq |a -b|$$</p>
+<p>由于我们要求绝对值的和的最大值，所以我们只要枚举每个属性的正负把他们一起取最大值即可。</p>
+<p>那么第 $K $ 位怎么办呢？我们可是要加上绝对值的相反数啊。没关系，采用之前  $K = 1$ 的时候的方法，减一减扫过去，就能保证你去到的值非负啦。</p>
+<figure class="highlight cpp hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">// =================================</span></span><br><span class="line"><span class="hljs-comment">//   author: memset0</span></span><br><span class="line"><span class="hljs-comment">//   date: 2019.01.06 09:54:22</span></span><br><span class="line"><span class="hljs-comment">//   website: https://memset0.cn/</span></span><br><span class="line"><span class="hljs-comment">// =================================</span></span><br><span class="line"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> int long long</span></span><br><span class="line"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="hljs-keyword">namespace</span> ringo &#123;</span><br><span class="line"><span class="hljs-keyword">template</span> &lt;<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">T</span>&gt; <span class="hljs-title">inline</span> <span class="hljs-title">void</span> <span class="hljs-title">read</span>(<span class="hljs-title">T</span> &amp;<span class="hljs-title">x</span>) &#123;</span></span><br><span class="line">    x = <span class="hljs-number">0</span>; <span class="hljs-keyword">register</span> <span class="hljs-keyword">char</span> c = getchar(); <span class="hljs-keyword">register</span> <span class="hljs-keyword">bool</span> f = <span class="hljs-number">0</span>;</span><br><span class="line">    <span class="hljs-keyword">while</span> (!<span class="hljs-built_in">isdigit</span>(c)) f ^= c == <span class="hljs-string">'-'</span>, c = getchar();</span><br><span class="line">    <span class="hljs-keyword">while</span> (<span class="hljs-built_in">isdigit</span>(c)) x = x * <span class="hljs-number">10</span> + c - <span class="hljs-string">'0'</span>, c = getchar();</span><br><span class="line">    <span class="hljs-keyword">if</span> (f) x = -x;</span><br><span class="line">&#125;</span><br><span class="line"><span class="hljs-keyword">template</span> &lt;<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">T</span>&gt; <span class="hljs-title">inline</span> <span class="hljs-title">void</span> <span class="hljs-title">print</span>(<span class="hljs-title">T</span> <span class="hljs-title">x</span>) &#123;</span></span><br><span class="line">    <span class="hljs-keyword">if</span> (x &lt; <span class="hljs-number">0</span>) <span class="hljs-built_in">putchar</span>(<span class="hljs-string">'-'</span>), x = -x;</span><br><span class="line">    <span class="hljs-keyword">if</span> (x &gt; <span class="hljs-number">9</span>) print(x / <span class="hljs-number">10</span>);</span><br><span class="line">    <span class="hljs-built_in">putchar</span>(<span class="hljs-string">'0'</span> + x % <span class="hljs-number">10</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="hljs-keyword">template</span> &lt;<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">T</span>&gt; <span class="hljs-title">inline</span> <span class="hljs-title">void</span> <span class="hljs-title">print</span>(<span class="hljs-title">T</span> <span class="hljs-title">x</span>, <span class="hljs-title">char</span> <span class="hljs-title">c</span>) &#123;</span> print(x), <span class="hljs-built_in">putchar</span>(c); &#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> N = <span class="hljs-number">1e5</span> + <span class="hljs-number">10</span>, M = <span class="hljs-number">6</span>;</span><br><span class="line"><span class="hljs-keyword">int</span> n, m, sum;</span><br><span class="line"><span class="hljs-keyword">int</span> c[M];</span><br><span class="line"></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">status</span> &#123;</span></span><br><span class="line">    <span class="hljs-keyword">int</span> min, id;</span><br><span class="line">    <span class="hljs-keyword">inline</span> <span class="hljs-keyword">bool</span> <span class="hljs-keyword">operator</span> &lt; (<span class="hljs-keyword">const</span> status &amp;other) <span class="hljs-keyword">const</span> &#123;</span><br><span class="line">        <span class="hljs-keyword">return</span> min &lt; other.min;</span><br><span class="line">    &#125;</span><br><span class="line">&#125; min[<span class="hljs-number">1</span> &lt;&lt; <span class="hljs-number">5</span>];</span><br><span class="line"></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">answer</span> &#123;</span></span><br><span class="line">    <span class="hljs-keyword">int</span> max, x, y;</span><br><span class="line">    <span class="hljs-keyword">inline</span> <span class="hljs-keyword">bool</span> <span class="hljs-keyword">operator</span> &lt; (<span class="hljs-keyword">const</span> answer &amp;other) <span class="hljs-keyword">const</span> &#123;</span><br><span class="line">        <span class="hljs-keyword">return</span> max &lt; other.max;</span><br><span class="line">    &#125;</span><br><span class="line">&#125; ans;</span><br><span class="line"></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">node</span> &#123;</span></span><br><span class="line">    <span class="hljs-keyword">int</span> b[<span class="hljs-number">6</span>], id;</span><br><span class="line">    <span class="hljs-keyword">inline</span> <span class="hljs-keyword">bool</span> <span class="hljs-keyword">operator</span> &lt; (<span class="hljs-keyword">const</span> node &amp;other) <span class="hljs-keyword">const</span> &#123;</span><br><span class="line">        <span class="hljs-keyword">return</span> b[m] &lt; other.b[m];</span><br><span class="line">    &#125;</span><br><span class="line">&#125; a[N];</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">    read(n), read(m);</span><br><span class="line">    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt;= m; i++) read(c[i]);</span><br><span class="line">    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">        a[i].id = i;</span><br><span class="line">        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">1</span>; j &lt;= m; j++) &#123;</span><br><span class="line">            read(a[i].b[j]);</span><br><span class="line">            a[i].b[j] *= c[j];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-built_in">std</span>::sort(a + <span class="hljs-number">1</span>, a + n + <span class="hljs-number">1</span>);</span><br><span class="line">    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> x = <span class="hljs-number">0</span>, lim = <span class="hljs-number">1</span> &lt;&lt; (m - <span class="hljs-number">1</span>); x &lt; lim; x++)</span><br><span class="line">        min[x].min = <span class="hljs-number">1e9</span> + <span class="hljs-number">7</span>;</span><br><span class="line">    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> x = <span class="hljs-number">0</span>, lim = <span class="hljs-number">1</span> &lt;&lt; (m - <span class="hljs-number">1</span>); x &lt; lim; x++) &#123;</span><br><span class="line">            sum = <span class="hljs-number">0</span>;</span><br><span class="line">            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">1</span>; j &lt; m; j++)</span><br><span class="line">                sum += (x &amp; (<span class="hljs-number">1</span> &lt;&lt; (j - <span class="hljs-number">1</span>)) ? <span class="hljs-number">1</span> : <span class="hljs-number">-1</span>) * a[i].b[j];</span><br><span class="line">            ans = <span class="hljs-built_in">std</span>::max(ans, (answer)&#123;sum - min[x].min - a[i].b[m], a[i].id, min[x].id&#125;);</span><br><span class="line">            min[x] = <span class="hljs-built_in">std</span>::min(min[x], (status)&#123;sum - a[i].b[m], a[i].id&#125;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    print(ans.x, <span class="hljs-string">' '</span>), print(ans.y, <span class="hljs-string">'\n'</span>), print(ans.max, <span class="hljs-string">'\n'</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125; <span class="hljs-function"><span class="hljs-keyword">signed</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123; <span class="hljs-keyword">return</span> ringo::main(), <span class="hljs-number">0</span>; &#125;</span><br></pre></td></tr></table></figure>
 
+        </div>
+        
+        <div class="level is-size-7 is-uppercase my-post-tags">
+            <div class="level-start">
+                <div class="level-item">
+                    <!-- <span class="is-size-6 has-text-grey has-mr-7">#</span> -->
+                    <a class="my-post-tag has-link-grey -link" href="/tags/巧妙的思路/">巧妙的思路</a>, <a class="my-post-tag has-link-grey -link" href="/tags/状态压缩/">状态压缩</a>, <a class="my-post-tag has-link-grey -link" href="/tags/约束与放缩/">约束与放缩</a>
+                </div>
+            </div>
         </div>
         
         
@@ -221,17 +195,10 @@ var _hmt = _hmt || [];
 <div class="card card-transparent">
     <div class="level post-navigation is-flex-wrap is-mobile">
         
-        <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/solution-bzoj-5017/">
-                <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">BZOJ5017 - [SNOI2017] 炸弹</span>
-            </a>
-        </div>
-        
         
         <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/geek-mac下sb3运行g++/">
-                <span class="level-item">Mac 下 Sublime Text 3 配置运行 G++</span>
+            <a class="level level-item has-link-grey  article-nav-next" href="/solution-codeforces-1093g/">
+                <span class="level-item">CF1093G - Multidimensional Queries</span>
                 <i class="level-item fas fa-chevron-right"></i>
             </a>
         </div>
@@ -351,44 +318,10 @@ var _hmt = _hmt || [];
 </div>
     
         
-<div class="card widget" id="toc">
-    <div class="card-content">
-        <div class="menu">
-            <h3 class="menu-label">
-                目录
-            </h3>
-            <ul class="menu-list"><li>
-        <a class="is-flex" href="#Day-1">
-        <span class="has-mr-6">1</span>
-        <span>Day -1</span>
-        </a></li><li>
-        <a class="is-flex" href="#Day-0">
-        <span class="has-mr-6">2</span>
-        <span>Day 0</span>
-        </a></li><li>
-        <a class="is-flex" href="#Day-1-1">
-        <span class="has-mr-6">3</span>
-        <span>Day 1</span>
-        </a></li><li>
-        <a class="is-flex" href="#Day-2">
-        <span class="has-mr-6">4</span>
-        <span>Day 2</span>
-        </a></li><li>
-        <a class="is-flex" href="#Day-3">
-        <span class="has-mr-6">5</span>
-        <span>Day 3</span>
-        </a></li><li>
-        <a class="is-flex" href="#Day">
-        <span class="has-mr-6">6</span>
-        <span>Day ?</span>
-        </a></li></ul>
-        </div>
-    </div>
-</div>
 <!-- <script type="text/javascript">
-function myHideElement(name) {
-    document.getElementById(name).style.display = 'none';
-}
+    function myHideElement(name) {
+        return;
+    }
 </script> -->
 
     
@@ -470,7 +403,7 @@ function myHideElement(name) {
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 <!-- 
-                    <img src="/favicon.ico" alt="NOIP2018 爆零记" height="28">
+                    <img src="/favicon.ico" alt="洛谷4131 - [WC2005]友好的生物" height="28">
                     memset0's blog
                  -->
                 </a>
