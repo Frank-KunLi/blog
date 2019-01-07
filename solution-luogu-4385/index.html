@@ -7,18 +7,18 @@
 
 
 
-    <meta name="description" content="今天模拟赛的第三题（又达成了原题考试的成就）。考场的时候由于 T2 调太久这题暴力都没写… 现在依然不会正解于是写了个随机化算法 AC 。 每次随机两个点，然后计算出他们的连线的斜率，每次 $O(n)$ 判断一下选取与这条直线平行的两条直接的答案，随机个次几万次就过了… 这里可能有个细节问题，也就是说我们每次选出的两个点中可能有不合法的点，实际上影响不大，因为我们可以通过略倾斜直线来取到另一个合法">
+    <meta name="description" content="今天模拟赛的第三题（又达成了原题考试的成就）。考场的时候由于 T2 调太久这题暴力都没写… 现在依然不会正解于是写了个随机化算法 AC 。 每次随机两个点，然后计算出他们的连线的斜率，每次 $O(n)$ 判断一下选取与这条直线平行的两条直接的答案，随机个次几万次w就过了… 这里可能有个细节问题，也就是说我们每次选出的两个点中可能有不合法的点，实际上影响不大，因为我们可以通过略倾斜直线来取到另一个合">
 <meta name="keywords" content="贪心,随机化算法">
 <meta property="og:type" content="article">
 <meta property="og:title" content="洛谷4385 - [COCI2009]Dvapravca">
 <meta property="og:url" content="https://memset0.cn/solution-luogu-4385/index.html">
 <meta property="og:site_name" content="memset0&#39;s blog">
-<meta property="og:description" content="今天模拟赛的第三题（又达成了原题考试的成就）。考场的时候由于 T2 调太久这题暴力都没写… 现在依然不会正解于是写了个随机化算法 AC 。 每次随机两个点，然后计算出他们的连线的斜率，每次 $O(n)$ 判断一下选取与这条直线平行的两条直接的答案，随机个次几万次就过了… 这里可能有个细节问题，也就是说我们每次选出的两个点中可能有不合法的点，实际上影响不大，因为我们可以通过略倾斜直线来取到另一个合法">
+<meta property="og:description" content="今天模拟赛的第三题（又达成了原题考试的成就）。考场的时候由于 T2 调太久这题暴力都没写… 现在依然不会正解于是写了个随机化算法 AC 。 每次随机两个点，然后计算出他们的连线的斜率，每次 $O(n)$ 判断一下选取与这条直线平行的两条直接的答案，随机个次几万次w就过了… 这里可能有个细节问题，也就是说我们每次选出的两个点中可能有不合法的点，实际上影响不大，因为我们可以通过略倾斜直线来取到另一个合">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-01-07T10:25:05.834Z">
+<meta property="og:updated_time" content="2019-01-07T10:25:20.274Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="洛谷4385 - [COCI2009]Dvapravca">
-<meta name="twitter:description" content="今天模拟赛的第三题（又达成了原题考试的成就）。考场的时候由于 T2 调太久这题暴力都没写… 现在依然不会正解于是写了个随机化算法 AC 。 每次随机两个点，然后计算出他们的连线的斜率，每次 $O(n)$ 判断一下选取与这条直线平行的两条直接的答案，随机个次几万次就过了… 这里可能有个细节问题，也就是说我们每次选出的两个点中可能有不合法的点，实际上影响不大，因为我们可以通过略倾斜直线来取到另一个合法">
+<meta name="twitter:description" content="今天模拟赛的第三题（又达成了原题考试的成就）。考场的时候由于 T2 调太久这题暴力都没写… 现在依然不会正解于是写了个随机化算法 AC 。 每次随机两个点，然后计算出他们的连线的斜率，每次 $O(n)$ 判断一下选取与这条直线平行的两条直接的答案，随机个次几万次w就过了… 这里可能有个细节问题，也就是说我们每次选出的两个点中可能有不合法的点，实际上影响不大，因为我们可以通过略倾斜直线来取到另一个合">
 
 
 
@@ -158,7 +158,7 @@ var _hmt = _hmt || [];
                     <i class="far fa-edit"></i>
                     
                         <span class="level-item has-text-grey">
-                            497 Words
+                            498 Words
                         </span>
                     
                 </div>
@@ -167,7 +167,7 @@ var _hmt = _hmt || [];
         
         <div class="content">
             <p>今天模拟赛的第三题<del>（又达成了原题考试的成就）</del>。考场的时候由于 T2 调太久这题暴力都没写… 现在依然不会正解于是写了个随机化算法 AC 。</p>
-<p>每次随机两个点，然后计算出他们的连线的斜率，每次 $O(n)$ 判断一下选取与这条直线平行的两条直接的答案，随机个次几万次就过了…</p>
+<p>每次随机两个点，然后计算出他们的连线的斜率，每次 $O(n)$ 判断一下选取与这条直线平行的两条直接的答案，随机个次几万次w就过了…</p>
 <p>这里可能有个细节问题，也就是说我们每次选出的两个点中可能有不合法的点，实际上影响不大，因为我们可以通过略倾斜直线来取到另一个合法的点。</p>
 <a id="more"></a>
 <figure class="highlight cpp hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">// =================================</span></span><br><span class="line"><span class="hljs-comment">//   author: memset0</span></span><br><span class="line"><span class="hljs-comment">//   date: 2019.01.07 16:15:49</span></span><br><span class="line"><span class="hljs-comment">//   website: https://memset0.cn/</span></span><br><span class="line"><span class="hljs-comment">// =================================</span></span><br><span class="line"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="hljs-keyword">namespace</span> ringo &#123;</span><br><span class="line"><span class="hljs-keyword">template</span> &lt;<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">T</span>&gt; <span class="hljs-title">inline</span> <span class="hljs-title">void</span> <span class="hljs-title">read</span>(<span class="hljs-title">T</span> &amp;<span class="hljs-title">x</span>) &#123;</span></span><br><span class="line">    x = <span class="hljs-number">0</span>; <span class="hljs-keyword">register</span> <span class="hljs-keyword">char</span> c = getchar(); <span class="hljs-keyword">register</span> <span class="hljs-keyword">bool</span> f = <span class="hljs-number">0</span>;</span><br><span class="line">    <span class="hljs-keyword">while</span> (!<span class="hljs-built_in">isdigit</span>(c)) f ^= c == <span class="hljs-string">'-'</span>, c = getchar();</span><br><span class="line">    <span class="hljs-keyword">while</span> (<span class="hljs-built_in">isdigit</span>(c)) x = x * <span class="hljs-number">10</span> + c - <span class="hljs-string">'0'</span>, c = getchar();</span><br><span class="line">    <span class="hljs-keyword">if</span> (f) x = -x;</span><br><span class="line">&#125;</span><br><span class="line"><span class="hljs-keyword">template</span> &lt;<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">T</span>&gt; <span class="hljs-title">inline</span> <span class="hljs-title">void</span> <span class="hljs-title">print</span>(<span class="hljs-title">T</span> <span class="hljs-title">x</span>) &#123;</span></span><br><span class="line">    <span class="hljs-keyword">if</span> (x &lt; <span class="hljs-number">0</span>) <span class="hljs-built_in">putchar</span>(<span class="hljs-string">'-'</span>), x = -x;</span><br><span class="line">    <span class="hljs-keyword">if</span> (x &gt; <span class="hljs-number">9</span>) print(x / <span class="hljs-number">10</span>);</span><br><span class="line">    <span class="hljs-built_in">putchar</span>(<span class="hljs-string">'0'</span> + x % <span class="hljs-number">10</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="hljs-keyword">template</span> &lt;<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">T</span>&gt; <span class="hljs-title">inline</span> <span class="hljs-title">void</span> <span class="hljs-title">print</span>(<span class="hljs-title">T</span> <span class="hljs-title">x</span>, <span class="hljs-title">char</span> <span class="hljs-title">c</span>) &#123;</span> print(x), <span class="hljs-built_in">putchar</span>(c); &#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> N = <span class="hljs-number">1e3</span> + <span class="hljs-number">10</span>;</span><br><span class="line"><span class="hljs-keyword">const</span> <span class="hljs-keyword">double</span> inf = <span class="hljs-number">1e30</span>;</span><br><span class="line"><span class="hljs-keyword">int</span> n, ans, now;</span><br><span class="line"></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">node</span> &#123;</span></span><br><span class="line">    <span class="hljs-keyword">int</span> x, y;</span><br><span class="line">    <span class="hljs-keyword">inline</span> <span class="hljs-keyword">bool</span> <span class="hljs-keyword">operator</span> == (<span class="hljs-keyword">const</span> node &amp;other) <span class="hljs-keyword">const</span> &#123;</span><br><span class="line">        <span class="hljs-keyword">return</span> x == other.x &amp;&amp; y == other.y;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="hljs-built_in">std</span>::<span class="hljs-built_in">vector</span> &lt;node&gt; a, b, c;</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">solve</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">    <span class="hljs-keyword">int</span> ans = <span class="hljs-number">0</span>, __1 = rand() % c.size(), __2 = rand() % c.size(); </span><br><span class="line">    node _1 = c[__1], _2 = c[__2];</span><br><span class="line">    <span class="hljs-keyword">if</span> (_1 == _2 || (__1 &gt; a.size() &amp;&amp; __2 &gt; a.size())) &#123; rand(); <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>; &#125;</span><br><span class="line">    <span class="hljs-keyword">if</span> (_1.x == _2.x) &#123;</span><br><span class="line">        <span class="hljs-keyword">int</span> min = <span class="hljs-number">-1e9</span> - <span class="hljs-number">10</span>, max = <span class="hljs-number">1e9</span> + <span class="hljs-number">10</span>;</span><br><span class="line">        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> u : b) u.x &lt; _1.x ? min = <span class="hljs-built_in">std</span>::max(min, u.x) : max = <span class="hljs-built_in">std</span>::min(max, u.x);</span><br><span class="line">        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> u : a) <span class="hljs-keyword">if</span> (min &lt;= u.x &amp;&amp; u.x &lt;= max) ++ans;</span><br><span class="line">        rand();</span><br><span class="line">    &#125; <span class="hljs-keyword">else</span> &#123;</span><br><span class="line">        <span class="hljs-keyword">double</span> k = (_1.y - _2.y) / (<span class="hljs-keyword">double</span>)(_1.x - _2.x);</span><br><span class="line">        <span class="hljs-keyword">double</span> _b = ((ll)_1.y * _2.x - (ll)_2.y * _1.x) / (<span class="hljs-keyword">double</span>)(_2.x - _1.x);</span><br><span class="line">        <span class="hljs-keyword">double</span> min = -inf, max = inf;</span><br><span class="line">        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> u : b) &#123;</span><br><span class="line">            <span class="hljs-keyword">double</span> b = u.y - k * u.x;</span><br><span class="line">            b &lt; _b ? min = <span class="hljs-built_in">std</span>::max(min, b) : max = <span class="hljs-built_in">std</span>::min(max, b);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> u : a) &#123;</span><br><span class="line">            <span class="hljs-keyword">double</span> b = u.y - k * u.x;</span><br><span class="line">            <span class="hljs-keyword">if</span> (min &lt;= b &amp;&amp; b &lt;= max) ++ans;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">    srand(<span class="hljs-number">20040725</span>);</span><br><span class="line">    read(n);</span><br><span class="line">    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>, x, y, c; i &lt;= n; i++) &#123;</span><br><span class="line">        read(x), read(y), c = getchar();</span><br><span class="line">        <span class="hljs-keyword">if</span> (c == <span class="hljs-string">'R'</span>) a.push_back((node)&#123;x, y&#125;);</span><br><span class="line">        <span class="hljs-keyword">else</span> b.push_back((node)&#123;x, y&#125;);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> u : a) c.push_back(u);</span><br><span class="line">    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> u : b) c.push_back(u);</span><br><span class="line">    <span class="hljs-keyword">int</span> limit = <span class="hljs-number">130000000</span> / n;</span><br><span class="line">    <span class="hljs-keyword">while</span> (limit--) ans = <span class="hljs-built_in">std</span>::max(ans, solve());</span><br><span class="line">    print(ans, <span class="hljs-string">'\n'</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125; <span class="hljs-function"><span class="hljs-keyword">signed</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123; <span class="hljs-keyword">return</span> ringo::main(), <span class="hljs-number">0</span>; &#125;</span><br></pre></td></tr></table></figure>
@@ -191,6 +191,13 @@ var _hmt = _hmt || [];
 
 <div class="card card-transparent">
     <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/solution-codeforces-1093g/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">CF1093G - Multidimensional Queries</span>
+            </a>
+        </div>
         
         
         <div class="level-end">
@@ -263,7 +270,7 @@ var _hmt = _hmt || [];
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        90
+                        91
                     </p>
                 </div>
             </div>
@@ -283,7 +290,7 @@ var _hmt = _hmt || [];
                         标签
                     </p>
                     <p class="title has-text-weight-normal">
-                        102
+                        103
                     </p>
                 </div>
             </div>
@@ -376,7 +383,7 @@ var _hmt = _hmt || [];
                 <span class="level-item">Solution</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">58</span>
+                <span class="level-item tag">59</span>
             </span>
         </a></li>
             </ul>
@@ -412,7 +419,7 @@ var _hmt = _hmt || [];
                 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
                 <p class="is-size-7">
                     <span>
-                        <span>70.2k</span> Words
+                        <span>70.9k</span> Words
                     </span>
                     <span id="busuanzi_container_site_pv" style="display:none">
                     <span class="division">|</span>
