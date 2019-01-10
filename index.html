@@ -163,7 +163,7 @@ var _hmt = _hmt || [];
         
         <div class="content">
             <p>和其他题解不太一样，这里没有用线段树……</p>
-<p>首先肯定会在 LCA 出集合，通过树剖 + bitset 维护出可选的集合。然后利用 Hall 定理进行完美匹配统计答案。可以发现直接树剖 + 暴力跳是 $O(n ^ 2)$ 的，所以限制树链的长度至多为 $S$ ，则复杂度为：$O(n + qcS\times\frac{m}{32} + qc \times \frac{n}{S} + q \times 2^c \times \frac{m}{32})$ ，取 $S = \sqrt n$ 。</p>
+<p>首先肯定会在 LCA 处集合，通过树剖 + bitset 维护出可选的集合。然后利用 Hall 定理进行完美匹配统计答案。可以发现直接树剖 + 暴力跳是 $O(n ^ 2)$ 的，所以限制树链的长度至多为 $S$ ，则复杂度为：$O(n + qcS\times\frac{m}{32} + qc \times \frac{n}{S} + q \times 2^c \times \frac{m}{32})$ ，取 $S = \sqrt n$ 。</p>
 <p>然后跑的飞快 233333.</p>
 <p><img src="https://ws2.sinaimg.cn/large/006tNc79ly1fz1mb68s1ej319m02u0tr.jpg" alt=""></p>
         </div>
