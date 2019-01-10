@@ -147,6 +147,65 @@ var _hmt = _hmt || [];
         <div class="my-title ">
             <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
                 
+                    <a class="has-link-black-ter" href="/solution-bzoj-4939/">BZOJ4939 - [YNOI2016] 掉进兔子洞</a>
+                
+            </h1>
+            <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
+                <div class="level-left">
+                    <i class="far fa-clock"></i>
+                    <time class="level-item has-text-grey" datetime="2018-12-08T10:15:32.000Z">
+                        2018-12-08
+                    </time>
+                    <i class="far fa-folder"></i>
+                    
+                        <div class="level-item">
+                            <a class="has-link-grey -link" href="/categories/Solution/">Solution</a>
+                        </div>
+                    
+                    <i class="far fa-edit"></i>
+                    
+                        <span class="level-item has-text-grey">
+                            653 Words
+                        </span>
+                    
+                </div>
+            </div>
+        </div>
+        
+        <div class="content">
+            <p>bitset 套莫队板子题。</p>
+<p>题意是如果第一个区间里有 $ a $ 个 $ x $ ，第二个区间 $ b $ 个，第三个区间 $ c $ 个，只会对答案产生 $ \min(a, b, c) $ 的贡献；每次询问给你三个区间，问你三个区间里能产生这样的贡献的大小。</p>
+<p>考虑 bitset 套莫队。通过一个简单的 trick 使得 bitset 既能反映出每种数又能反映出每种数的个数，每个查询就用三个区间的 bitset 的按位并，取结果的 count 。</p>
+<p>然而 $ 10^5 $ 个 $ 10^5 $ 的 bitset 会 MLE 。我们把莫队分成三次，只需要三分之一的空间，可以卡进。</p>
+<p>看起来这样 $ O(n ^ 2) $ 的复杂度过不了 $ n = 10^5 $ ，但是由于使用了 bitset 的关系，常数只有 1 / 32 ，实际跑的飞快。</p>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/solution-bzoj-4939/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article
+         
+    ">
+        
+        <div class="my-title ">
+            <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+                
                     <a class="has-link-black-ter" href="/solution-luogu-5046/">洛谷5046 - [YNOI2019] Yuno loves sqrt technology I</a>
                 
             </h1>
@@ -1280,61 +1339,6 @@ var _hmt = _hmt || [];
 
 
 
-    <div class="card">
-    
-    <div class="card-content article
-         
-    ">
-        
-        <div class="my-title ">
-            <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-                
-                    <a class="has-link-black-ter" href="/solution-luogu-2325/">洛谷2325 - [SCOI2005]王室联邦</a>
-                
-            </h1>
-            <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
-                <div class="level-left">
-                    <i class="far fa-clock"></i>
-                    <time class="level-item has-text-grey" datetime="2018-09-20T10:44:00.000Z">
-                        2018-09-20
-                    </time>
-                    <i class="far fa-folder"></i>
-                    
-                        <div class="level-item">
-                            <a class="has-link-grey -link" href="/categories/Solution/">Solution</a>
-                        </div>
-                    
-                    <i class="far fa-edit"></i>
-                    
-                        <span class="level-item has-text-grey">
-                            224 Words
-                        </span>
-                    
-                </div>
-            </div>
-        </div>
-        
-        <div class="content">
-            <p>给树分块即可，为树上分块 / 树上莫队做铺垫。</p>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/solution-luogu-2325/#more">阅读更多</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
 
     
 <div class="card card-transparent">
@@ -1396,7 +1400,7 @@ var _hmt = _hmt || [];
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        93
+                        94
                     </p>
                 </div>
             </div>
@@ -1416,7 +1420,7 @@ var _hmt = _hmt || [];
                         标签
                     </p>
                     <p class="title has-text-weight-normal">
-                        104
+                        105
                     </p>
                 </div>
             </div>
@@ -1503,7 +1507,7 @@ var _hmt = _hmt || [];
                 <span class="level-item">Solution</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">61</span>
+                <span class="level-item tag">62</span>
             </span>
         </a></li>
             </ul>
@@ -1539,7 +1543,7 @@ var _hmt = _hmt || [];
                 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
                 <p class="is-size-7">
                     <span>
-                        <span>72.5k</span> Words
+                        <span>73.7k</span> Words
                     </span>
                     <span id="busuanzi_container_site_pv" style="display:none">
                     <span class="division">|</span>
