@@ -136,6 +136,63 @@ var _hmt = _hmt || [];
         <div class="my-title ">
             <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
                 
+                    <a class="has-link-black-ter" href="/solution-loj-6515/">LOJ - 6515 「雅礼集训 2018 Day10」贪玩蓝月</a>
+                
+            </h1>
+            <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
+                <div class="level-left">
+                    <i class="far fa-clock"></i>
+                    <time class="level-item has-text-grey" datetime="2019-01-03T06:20:04.000Z">
+                        2019-01-03
+                    </time>
+                    <i class="far fa-folder"></i>
+                    
+                        <div class="level-item">
+                            <a class="has-link-grey -link" href="/categories/Solution/">Solution</a>
+                        </div>
+                    
+                    <i class="far fa-edit"></i>
+                    
+                        <span class="level-item has-text-grey">
+                            1020 Words
+                        </span>
+                    
+                </div>
+            </div>
+        </div>
+        
+        <div class="content">
+            <p>考虑离线做法，每个物品存在的时间一定是一段连续的区间。建一棵线段树按时间分治，乱搞一下。</p>
+<p>考虑在线做法：有一个部分分是只会在一端进行插入删除操作，那么我们开个栈，插入元素就加进去，删除就弹出。复杂度 $ O ( n m ) $ ；既然我们需要在两端操作，那么我们只要维护两个这样的栈即可，查询时把两边的 dp 数组合并。暴力合并是 $ O ( m ^ 2 ) $ 的，会 TLE ，所以我们把一个数组放在线段树上，枚举另一个数组的每一个数，做一下区间查询即可。同时有个问题即有可能在前端删除从后端插入的元素，这种时候我们暴力重构两个栈，各放一半的元素，就能保证复杂度。最后总时间复杂度 $ O (n \log n \times m \log m) $ ，可以通过此题。</p>
+<p>由于笔者在做题时把合并的 $ O (m ^ 2) $ 算成了 $ O ( m ) $ 所以去写了在线做法，还好想出了线段树才捡回一条命 233。</p>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/solution-loj-6515/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article
+         
+    ">
+        
+        <div class="my-title ">
+            <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+                
                     <a class="has-link-black-ter" href="/diary-2018感谢有你/">2018 感谢有你</a>
                 
             </h1>
@@ -371,63 +428,6 @@ var _hmt = _hmt || [];
 
 
 
-    <div class="card">
-    
-    <div class="card-content article
-         
-    ">
-        
-        <div class="my-title ">
-            <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-                
-                    <a class="has-link-black-ter" href="/solution-loj-6495/">LOJ6495 - 「雅礼集训 2018 Day1」树</a>
-                
-            </h1>
-            <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
-                <div class="level-left">
-                    <i class="far fa-clock"></i>
-                    <time class="level-item has-text-grey" datetime="2018-12-25T10:16:54.000Z">
-                        2018-12-25
-                    </time>
-                    <i class="far fa-folder"></i>
-                    
-                        <div class="level-item">
-                            <a class="has-link-grey -link" href="/categories/Solution/">Solution</a>
-                        </div>
-                    
-                    <i class="far fa-edit"></i>
-                    
-                        <span class="level-item has-text-grey">
-                            546 Words
-                        </span>
-                    
-                </div>
-            </div>
-        </div>
-        
-        <div class="content">
-            <p>非常妙的一道状压题。</p>
-<p>考虑依次加入每一个点，状态之间的转移和对答案的贡献只与每个深度的节点个数，因此我们可以这样定义状态：把这棵树的节点按深度排序，显然相邻两个的深度最多相差一，如果差等于一，状压出的对应位就是 1 ，否则就是 0 。利用这个即可进行 $O(2^n \times n ^ 2)$ 的转移。</p>
-<p>还有一种 $O(n ^ 3)$ 的天顶星写法，但是我暂时不会，只能等以后补锅。</p>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/solution-loj-6495/#more">阅读更多</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
 
     
 <div class="card card-transparent">
@@ -493,7 +493,7 @@ var _hmt = _hmt || [];
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        94
+                        95
                     </p>
                 </div>
             </div>
@@ -513,7 +513,7 @@ var _hmt = _hmt || [];
                         标签
                     </p>
                     <p class="title has-text-weight-normal">
-                        105
+                        107
                     </p>
                 </div>
             </div>
@@ -600,7 +600,7 @@ var _hmt = _hmt || [];
                 <span class="level-item">Solution</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">62</span>
+                <span class="level-item tag">63</span>
             </span>
         </a></li>
             </ul>
@@ -636,7 +636,7 @@ var _hmt = _hmt || [];
                 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
                 <p class="is-size-7">
                     <span>
-                        <span>73.7k</span> Words
+                        <span>74.4k</span> Words
                     </span>
                     <span id="busuanzi_container_site_pv" style="display:none">
                     <span class="division">|</span>

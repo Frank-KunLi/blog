@@ -136,6 +136,67 @@ var _hmt = _hmt || [];
         <div class="my-title ">
             <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
                 
+                    <a class="has-link-black-ter" href="/solution-codeforces-1059e/">CF1059E - Split the Tree</a>
+                
+            </h1>
+            <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
+                <div class="level-left">
+                    <i class="far fa-clock"></i>
+                    <time class="level-item has-text-grey" datetime="2018-10-07T03:57:20.000Z">
+                        2018-10-07
+                    </time>
+                    <i class="far fa-folder"></i>
+                    
+                        <div class="level-item">
+                            <a class="has-link-grey -link" href="/categories/Solution/">Solution</a>
+                        </div>
+                    
+                    <i class="far fa-edit"></i>
+                    
+                        <span class="level-item has-text-grey">
+                            586 Words
+                        </span>
+                    
+                </div>
+            </div>
+        </div>
+        
+        <div class="content">
+            <blockquote>
+<p>一个永远只能在考完后调出 Codeforces 的题的菜鸡厚颜无耻得跑来写题解了。。。</p>
+</blockquote>
+<p>本题要求把树分成的链必须是垂直路径，也就是说不能同时跨越一颗子树的两个根。也就是说每次选中的路径都是到根节点的一串。</p>
+<p>所以我们可以通过树上倍增预处理出每个节点 $u$ 如果被选中那么最多可以向上形成长度为 $dp[u]$ 的链。接着跑一遍树上 DP 即可。</p>
+<p>预处理时间复杂度 $O(n \log n)$ ，树上 DP 时间复杂度 $O(n)$ 。</p>
+<p>貌似因为 D 题比较难调试，做这题的人比较少？反正我这种菜鸡就算考场有时间写了估计也调不出来吧。</p>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/solution-codeforces-1059e/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article
+         
+    ">
+        
+        <div class="my-title ">
+            <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+                
                     <a class="has-link-black-ter" href="/solution-bzoj-3551/">BZOJ3551 - [ONTAK2010]Peaks加强版</a>
                 
             </h1>
@@ -367,62 +428,6 @@ var _hmt = _hmt || [];
 
 
 
-    <div class="card">
-    
-    <div class="card-content article
-         
-    ">
-        
-        <div class="my-title ">
-            <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-                
-                    <a class="has-link-black-ter" href="/solution-codeforces-776d/">CF776D - The Door Problem</a>
-                
-            </h1>
-            <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
-                <div class="level-left">
-                    <i class="far fa-clock"></i>
-                    <time class="level-item has-text-grey" datetime="2018-09-26T00:49:00.000Z">
-                        2018-09-26
-                    </time>
-                    <i class="far fa-folder"></i>
-                    
-                        <div class="level-item">
-                            <a class="has-link-grey -link" href="/categories/Solution/">Solution</a>
-                        </div>
-                    
-                    <i class="far fa-edit"></i>
-                    
-                        <span class="level-item has-text-grey">
-                            491 Words
-                        </span>
-                    
-                </div>
-            </div>
-        </div>
-        
-        <div class="content">
-            <p>由于每个门只会被两个钥匙控制，那么两个钥匙的选或不选就能建立起一种对应关系。即如果门本来是开着的，那么用了一把必须用另一把，不用一把必须不用另一把；如果们本来是开着的，那么不用一把必须用另一把，用了一把必须不用另一把。</p>
-<p>Tarjan 跑 2-SAT 随手切，注意 $n$ 和 $m$ 不要搞反。</p>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/solution-codeforces-776d/#more">阅读更多</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
 
     
 <div class="card card-transparent">
@@ -490,7 +495,7 @@ var _hmt = _hmt || [];
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        94
+                        95
                     </p>
                 </div>
             </div>
@@ -510,7 +515,7 @@ var _hmt = _hmt || [];
                         标签
                     </p>
                     <p class="title has-text-weight-normal">
-                        105
+                        107
                     </p>
                 </div>
             </div>
@@ -597,7 +602,7 @@ var _hmt = _hmt || [];
                 <span class="level-item">Solution</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">62</span>
+                <span class="level-item tag">63</span>
             </span>
         </a></li>
             </ul>
@@ -633,7 +638,7 @@ var _hmt = _hmt || [];
                 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
                 <p class="is-size-7">
                     <span>
-                        <span>73.7k</span> Words
+                        <span>74.4k</span> Words
                     </span>
                     <span id="busuanzi_container_site_pv" style="display:none">
                     <span class="division">|</span>

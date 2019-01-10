@@ -136,6 +136,68 @@ var _hmt = _hmt || [];
         <div class="my-title ">
             <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
                 
+                    <a class="has-link-black-ter" href="/solution-luogu-5105/">洛谷5105 - 不强制在线的动态快速排序</a>
+                
+            </h1>
+            <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
+                <div class="level-left">
+                    <i class="far fa-clock"></i>
+                    <time class="level-item has-text-grey" datetime="2018-12-19T01:21:20.000Z">
+                        2018-12-19
+                    </time>
+                    <i class="far fa-folder"></i>
+                    
+                        <div class="level-item">
+                            <a class="has-link-grey -link" href="/categories/Solution/">Solution</a>
+                        </div>
+                    
+                    <i class="far fa-edit"></i>
+                    
+                        <span class="level-item has-text-grey">
+                            597 Words
+                        </span>
+                    
+                </div>
+            </div>
+        </div>
+        
+        <div class="content">
+            <p>考虑最后的集合是否为可重集对答案没有影响，我们可以把相邻或重合的区间合并</p>
+<ul>
+<li><p>对于一个连续区间的异或和，其实就是连续奇数的异或和，对于每一个二进制位进行分析，发现他是有循环节的，故对于每一个二进制位进行分析，以 $O(\log \ \texttt{值域})$ 的复杂度计算出答案。</p>
+</li>
+<li><p>对于相邻的两个区间，我们可以 $O(1)$ 直接计算</p>
+</li>
+</ul>
+<p>故把这些区间放到 std::set / std::vector / 平衡树 / 线段树上。每次暴力合并区间。由于每个区间最多被删一次，也最多被加一次，总复杂度为 $O(n \log n)$ 。</p>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/solution-luogu-5105/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article
+         
+    ">
+        
+        <div class="my-title ">
+            <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+                
                     <a class="has-link-black-ter" href="/solution-luogu-5104/">洛谷5104 - 红包发红包</a>
                 
             </h1>
@@ -351,63 +413,6 @@ var _hmt = _hmt || [];
 
 
 
-    <div class="card">
-    
-    <div class="card-content article
-         
-    ">
-        
-        <div class="my-title ">
-            <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-                
-                    <a class="has-link-black-ter" href="/solution-luogu-5071/">洛谷5071 - [Ynoi2015]此时此刻的光辉</a>
-                
-            </h1>
-            <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
-                <div class="level-left">
-                    <i class="far fa-clock"></i>
-                    <time class="level-item has-text-grey" datetime="2018-12-09T16:00:11.000Z">
-                        2018-12-10
-                    </time>
-                    <i class="far fa-folder"></i>
-                    
-                        <div class="level-item">
-                            <a class="has-link-grey -link" href="/categories/Solution/">Solution</a>
-                        </div>
-                    
-                    <i class="far fa-edit"></i>
-                    
-                        <span class="level-item has-text-grey">
-                            983 Words
-                        </span>
-                    
-                </div>
-            </div>
-        </div>
-        
-        <div class="content">
-            <p>根据小学我们就学过的一个简单公式，如果 $x = \prod p_i ^ { a_i } $ 那么 $x$ 因子个数为 $\prod a_i + 1$ 。因此我们需要维护查询的区间内每一个质数的和。</p>
-<p>考虑把原来的数分解，这一步我们只需要预处理出小于 $ \sqrt { \max {a_i} }$ 的质数即可。然后对于每个数 $ a_i $ 依次判断小于 $ a_i $ 的质数。复杂度 $ O( \frac {n \sqrt{\max{a_i}}} {\log n} )$ ，实际情况下表现非常优越。或者采用  Pollard-Rho 算法优化为 $ n \times \sum { a_i^{ 1 / 4 } }$ ，但实现会较为复杂而且没有必要。</p>
-<p>接下来考虑分解出的质数如何处理，如果直接放在一起去莫队的话复杂度是 $ O(n \sqrt n \log n) $ ，如果常数不优秀的话会 TLE 。我们考虑一个优化方式，对于大小在前 $\sqrt n$ 个的范围内的质数，预处理出个数，前缀和统计，不参与莫队，其余分解出的质数参与莫队，可以证明，每一个数需要参与莫队的数的个数是 $O(1)$ 级别的。这样的话复杂度降为 $n \sqrt n$ ，事实上我们可以把范围由 $\sqrt n$ 调整为 $100$ ~ $200$ 左右以获得一个较小的常数，跑到目前效率 rank 1。</p>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/solution-luogu-5071/#more">阅读更多</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
 
     
 <div class="card card-transparent">
@@ -475,7 +480,7 @@ var _hmt = _hmt || [];
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        94
+                        95
                     </p>
                 </div>
             </div>
@@ -495,7 +500,7 @@ var _hmt = _hmt || [];
                         标签
                     </p>
                     <p class="title has-text-weight-normal">
-                        105
+                        107
                     </p>
                 </div>
             </div>
@@ -582,7 +587,7 @@ var _hmt = _hmt || [];
                 <span class="level-item">Solution</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">62</span>
+                <span class="level-item tag">63</span>
             </span>
         </a></li>
             </ul>
@@ -618,7 +623,7 @@ var _hmt = _hmt || [];
                 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
                 <p class="is-size-7">
                     <span>
-                        <span>73.7k</span> Words
+                        <span>74.4k</span> Words
                     </span>
                     <span id="busuanzi_container_site_pv" style="display:none">
                     <span class="division">|</span>
