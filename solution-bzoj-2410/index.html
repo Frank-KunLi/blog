@@ -8,7 +8,7 @@
 
 
     <meta name="description" content="@GNAQ 给的博弈劲爆题，让人无言以对 233. 题解k &amp;gt; 2对于这种情况，我们可以发现任何时候一定可以给空白格子染色。所以我们只需要判断剩余空白格子的奇偶性即可 k = 1显然被已经染色的格子分隔出的连续空白格子是不会相互影响的，所以我们可以把他看做一个组合 Nim 游戏，最后判断求一下每个游戏的 SG 函数异或和。 首先你要知道 mex 函数是什么，这里不再赘述，以下的打表程序中用到">
-<meta name="keywords" content="打表,博弈,SG 函数">
+<meta name="keywords" content="博弈,SG 函数,打表">
 <meta property="og:type" content="article">
 <meta property="og:title" content="BZOJ2410 - Nim游戏">
 <meta property="og:url" content="https://memset0.cn/solution-bzoj-2410/index.html">
@@ -592,11 +592,6 @@ MathJax.Hub.Queue(function() {
     }
 });
 
-$(document).on({
-    'pjax:end': function () {
-        MathJax.Hub.Typeset();
-    }
-});
 </script>
 
 <script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
