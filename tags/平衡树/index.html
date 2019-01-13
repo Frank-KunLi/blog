@@ -350,7 +350,7 @@ var _hmt = _hmt || [];
             <h1 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h1><p>之前我们讲到了用 Splay 写普通平衡树，这次我们将用 Splay 来完成区间操作。</p>
 <p>之前的 Splay 是按照权值排序，而这里的 Splay 则是要按照编号排序。</p>
 <p>不难想到，整棵树的编号第 k 大点即数列中的第 k 个，整棵树的中序遍历即被维护的数列。</p>
-<hr>
+<p><br></p>
 <p>假设我们要翻转区间<code>[l, r]</code>，那么我们先把<code>l - 1</code>旋转到根节点，再把<code>r + 1</code>旋转到根节点的右孩子。那么<code>r + 1</code>的左子树即区间<code>[l, r]</code>。翻转该区间只需要把该区间内的每个节点的左右子树交换即可。</p>
 <p>参考线段树的 lazytag，我们也使用一个类似于懒标记的方法，保证复杂度为<code>O(log n)</code>。</p>
 <p><img src="https://i.loli.net/2018/08/08/5b6b07758f2d3.png" alt="1.png"></p>

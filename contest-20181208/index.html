@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="memset0&#39;s blog">
 <meta property="og:description" content="最近准备学科营，平时考的模拟赛准备总结记录一下。这些题解会被分类到 Contest 目录下，可能只会讲笔者会的部分或笔者觉得有用的部分，思路可能会讲完整也可能不会，代码可能会放也可能不会，但题面和题意肯定是不会有的。大概就是这样（ Forest考虑到每个节点出去只有一个父亲，所以要把修改都集中到自己和自己的父亲上去（而不是遍历自己的孩子）。为了方便维护，我们把原来的 $C_i$ 拆成 $$C_i">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-12-20T07:36:33.746Z">
+<meta property="og:updated_time" content="2019-01-13T07:20:20.602Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="20181208 - NOI模拟赛">
 <meta name="twitter:description" content="最近准备学科营，平时考的模拟赛准备总结记录一下。这些题解会被分类到 Contest 目录下，可能只会讲笔者会的部分或笔者觉得有用的部分，思路可能会讲完整也可能不会，代码可能会放也可能不会，但题面和题意肯定是不会有的。大概就是这样（ Forest考虑到每个节点出去只有一个父亲，所以要把修改都集中到自己和自己的父亲上去（而不是遍历自己的孩子）。为了方便维护，我们把原来的 $C_i$ 拆成 $$C_i">
@@ -168,7 +168,7 @@ var _hmt = _hmt || [];
         <div class="content">
             <p>最近准备学科营，平时考的模拟赛准备总结记录一下。这些题解会被分类到 Contest 目录下，可能只会讲笔者会的部分或笔者觉得有用的部分，思路可能会讲完整也可能不会，代码可能会放也可能不会，但题面和题意肯定是不会有的。大概就是这样（</p>
 <h2 id="Forest"><a href="#Forest" class="headerlink" title="Forest"></a>Forest</h2><p>考虑到每个节点出去只有一个父亲，所以要把修改都集中到自己和自己的父亲上去（而不是遍历自己的孩子）。为了方便维护，我们把原来的 $C_i$ 拆成</p>
-<p>$$C_i = E_{a_i} + (B_i - D_i \times E_i + E_i + \sum E_{ P_j } [ j 是 i 的孩子])$$</p>
+<p>$$<br>C_i = E_{a_i} + (B_i - D_i \times E_i + E_i + \sum E_{ P_j } [ j 是 i 的孩子])<br>$$</p>
 <p>通过简单的 trick 把括号内的东西（假设叫 $F_i$ ）放到 $i$ 节点上维护，可以使得 1 、 2 操作的复杂度变为 $O(1)$ ，但 3 操作需要遍历所有节点，复杂度是 $O(n)$ 。考虑优化，把每个节点都开个 multiset （或可删堆），用来存自己的每个孩子的 $F_i$ ，当自己的 $E_i$ 改变时利用自己的 multiset 去更新答案，同时当自己的 $F_i$  改变时更新父亲的 multiset ，并利用父亲的 multiset 更新答案</p>
 <h2 id="Bear"><a href="#Bear" class="headerlink" title="Bear"></a>Bear</h2><p>20 分简单爆枚，40 分简单状压。100 分以对角线进行插头 dp ，还没写过。</p>
 <h2 id="Juice"><a href="#Juice" class="headerlink" title="Juice"></a>Juice</h2><p>考场上用一个乱搞做法 AC 了这题（也依赖于 IOI 赛制）。先枚举答案，对于每个答案进行 check ，方法如下。</p>

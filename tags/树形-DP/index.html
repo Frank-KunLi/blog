@@ -336,7 +336,7 @@ var _hmt = _hmt || [];
                     <i class="far fa-edit"></i>
                     
                         <span class="level-item has-text-grey">
-                            400 Words
+                            410 Words
                         </span>
                     
                 </div>
@@ -347,8 +347,8 @@ var _hmt = _hmt || [];
             <p>用 $f[i][0]$ 表示 $i$ 不选所能取到的最大值， $f[i][1]$ 表示选 $i$ 能取到的最大值。</p>
 <p>假设当前节点为 $u$ ，孩子节点为 $v$ ，则：</p>
 <ul>
-<li>$f[u][0] = \sum max(f[v][0], f[v][1])$</li>
-<li>$f[u][1] = \sum f[v][0]$</li>
+<li>$f[u][0] = \sum\limits_{v \in son[u]} \max(f[v][0], f[v][1])$</li>
+<li>$f[u][1] = \sum\limits_{v \in son[u]} f[v][0]$</li>
 </ul>
 <p>关于判断是否有多种情况：我们无需存种数，只要存是否即可，用数组 $d$ 表示，则：</p>
 <ul>

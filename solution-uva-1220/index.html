@@ -7,18 +7,18 @@
 
 
 
-    <meta name="description" content="用 $f[i][0]$ 表示 $i$ 不选所能取到的最大值， $f[i][1]$ 表示选 $i$ 能取到的最大值。 假设当前节点为 $u$ ，孩子节点为 $v$ ，则：  $f[u][0] = \sum max(f[v][0], f[v][1])$ $f[u][1] = \sum f[v][0]$  关于判断是否有多种情况：我们无需存种数，只要存是否即可，用数组 $d$ 表示，则：  如果当前节点">
+    <meta name="description" content="用 $f[i][0]$ 表示 $i$ 不选所能取到的最大值， $f[i][1]$ 表示选 $i$ 能取到的最大值。 假设当前节点为 $u$ ，孩子节点为 $v$ ，则：  $f[u][0] = \sum\limits_{v \in son[u]} \max(f[v][0], f[v][1])$ $f[u][1] = \sum\limits_{v \in son[u]} f[v][0]$  关于判断">
 <meta name="keywords" content="DP,树形 DP">
 <meta property="og:type" content="article">
 <meta property="og:title" content="UVA1220 - Party at Hali-Bula">
 <meta property="og:url" content="https://memset0.cn/solution-uva-1220/index.html">
 <meta property="og:site_name" content="memset0&#39;s blog">
-<meta property="og:description" content="用 $f[i][0]$ 表示 $i$ 不选所能取到的最大值， $f[i][1]$ 表示选 $i$ 能取到的最大值。 假设当前节点为 $u$ ，孩子节点为 $v$ ，则：  $f[u][0] = \sum max(f[v][0], f[v][1])$ $f[u][1] = \sum f[v][0]$  关于判断是否有多种情况：我们无需存种数，只要存是否即可，用数组 $d$ 表示，则：  如果当前节点">
+<meta property="og:description" content="用 $f[i][0]$ 表示 $i$ 不选所能取到的最大值， $f[i][1]$ 表示选 $i$ 能取到的最大值。 假设当前节点为 $u$ ，孩子节点为 $v$ ，则：  $f[u][0] = \sum\limits_{v \in son[u]} \max(f[v][0], f[v][1])$ $f[u][1] = \sum\limits_{v \in son[u]} f[v][0]$  关于判断">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-12-13T12:47:32.380Z">
+<meta property="og:updated_time" content="2019-01-13T07:19:40.546Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="UVA1220 - Party at Hali-Bula">
-<meta name="twitter:description" content="用 $f[i][0]$ 表示 $i$ 不选所能取到的最大值， $f[i][1]$ 表示选 $i$ 能取到的最大值。 假设当前节点为 $u$ ，孩子节点为 $v$ ，则：  $f[u][0] = \sum max(f[v][0], f[v][1])$ $f[u][1] = \sum f[v][0]$  关于判断是否有多种情况：我们无需存种数，只要存是否即可，用数组 $d$ 表示，则：  如果当前节点">
+<meta name="twitter:description" content="用 $f[i][0]$ 表示 $i$ 不选所能取到的最大值， $f[i][1]$ 表示选 $i$ 能取到的最大值。 假设当前节点为 $u$ ，孩子节点为 $v$ ，则：  $f[u][0] = \sum\limits_{v \in son[u]} \max(f[v][0], f[v][1])$ $f[u][1] = \sum\limits_{v \in son[u]} f[v][0]$  关于判断">
 
 
 
@@ -158,7 +158,7 @@ var _hmt = _hmt || [];
                     <i class="far fa-edit"></i>
                     
                         <span class="level-item has-text-grey">
-                            400 Words
+                            410 Words
                         </span>
                     
                 </div>
@@ -169,8 +169,8 @@ var _hmt = _hmt || [];
             <p>用 $f[i][0]$ 表示 $i$ 不选所能取到的最大值， $f[i][1]$ 表示选 $i$ 能取到的最大值。</p>
 <p>假设当前节点为 $u$ ，孩子节点为 $v$ ，则：</p>
 <ul>
-<li>$f[u][0] = \sum max(f[v][0], f[v][1])$</li>
-<li>$f[u][1] = \sum f[v][0]$</li>
+<li>$f[u][0] = \sum\limits_{v \in son[u]} \max(f[v][0], f[v][1])$</li>
+<li>$f[u][1] = \sum\limits_{v \in son[u]} f[v][0]$</li>
 </ul>
 <p>关于判断是否有多种情况：我们无需存种数，只要存是否即可，用数组 $d$ 表示，则：</p>
 <ul>
