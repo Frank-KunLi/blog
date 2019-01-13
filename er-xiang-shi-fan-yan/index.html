@@ -7,18 +7,18 @@
 
 
 
-    <meta name="description" content="二项式反演： $$\begin{aligned}f(i) &amp;amp;= \sum\limits_{i=0}^n {n \choose i} g(i) \\\iffg(i) &amp;amp;= \sum\limits_{i=0}^n (-1)^{n-i} {n \choose i} f(i)\end{aligned}$$">
+    <meta name="description" content="二项式反演： $$\begin{aligned}f_n=\sum_{i=0}^{n}(-1)^i {n \choose i} g_i&amp;amp;\Leftrightarrowg_n=\sum_{i=0}^{n}(-1)^i {n \choose i} f_i\\f_n=\sum_{i=0}^{n}{n \choose i} g_i&amp;amp;\Leftrightarrowg_n=\sum_{i=0}^">
 <meta name="keywords" content="数学，数论,二项式反演,组合数学">
 <meta property="og:type" content="article">
 <meta property="og:title" content="二项式反演学习笔记">
 <meta property="og:url" content="https://memset0.cn/er-xiang-shi-fan-yan/index.html">
 <meta property="og:site_name" content="memset0&#39;s blog">
-<meta property="og:description" content="二项式反演： $$\begin{aligned}f(i) &amp;amp;= \sum\limits_{i=0}^n {n \choose i} g(i) \\\iffg(i) &amp;amp;= \sum\limits_{i=0}^n (-1)^{n-i} {n \choose i} f(i)\end{aligned}$$">
+<meta property="og:description" content="二项式反演： $$\begin{aligned}f_n=\sum_{i=0}^{n}(-1)^i {n \choose i} g_i&amp;amp;\Leftrightarrowg_n=\sum_{i=0}^{n}(-1)^i {n \choose i} f_i\\f_n=\sum_{i=0}^{n}{n \choose i} g_i&amp;amp;\Leftrightarrowg_n=\sum_{i=0}^">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-01-13T13:26:39.978Z">
+<meta property="og:updated_time" content="2019-01-13T13:32:07.778Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="二项式反演学习笔记">
-<meta name="twitter:description" content="二项式反演： $$\begin{aligned}f(i) &amp;amp;= \sum\limits_{i=0}^n {n \choose i} g(i) \\\iffg(i) &amp;amp;= \sum\limits_{i=0}^n (-1)^{n-i} {n \choose i} f(i)\end{aligned}$$">
+<meta name="twitter:description" content="二项式反演： $$\begin{aligned}f_n=\sum_{i=0}^{n}(-1)^i {n \choose i} g_i&amp;amp;\Leftrightarrowg_n=\sum_{i=0}^{n}(-1)^i {n \choose i} f_i\\f_n=\sum_{i=0}^{n}{n \choose i} g_i&amp;amp;\Leftrightarrowg_n=\sum_{i=0}^">
 
 
 
@@ -158,7 +158,7 @@ var _hmt = _hmt || [];
                     <i class="far fa-edit"></i>
                     
                         <span class="level-item has-text-grey">
-                            97 Words
+                            118 Words
                         </span>
                     
                 </div>
@@ -167,7 +167,7 @@ var _hmt = _hmt || [];
         
         <div class="content">
             <p>二项式反演：</p>
-<p>$$<br>\begin{aligned}<br>f(i) &amp;= \sum\limits_{i=0}^n {n \choose i} g(i) \\<br>\iff<br>g(i) &amp;= \sum\limits_{i=0}^n (-1)^{n-i} {n \choose i} f(i)<br>\end{aligned}<br>$$</p>
+<p>$$<br>\begin{aligned}<br>f_n=\sum_{i=0}^{n}(-1)^i {n \choose i} g_i<br>&amp;\Leftrightarrow<br>g_n=\sum_{i=0}^{n}(-1)^i {n \choose i} f_i<br>\\<br>f_n=\sum_{i=0}^{n}{n \choose i} g_i<br>&amp;\Leftrightarrow<br>g_n=\sum_{i=0}^{n}(-1)^{n-i} {n \choose i} f_i \end{aligned}<br>$$</p>
 <a id="more"></a>
 <h2 id="简单应用"><a href="#简单应用" class="headerlink" title="简单应用"></a>简单应用</h2><p>假设 $f(i)$ 表示大于等于 $i$ 的数对答案的贡献，求恰好为 $k$ 时对答案的贡献。</p>
 <p>证明在上一篇题解，结论：</p>
