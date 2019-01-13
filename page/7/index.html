@@ -136,6 +136,71 @@ var _hmt = _hmt || [];
         <div class="my-title ">
             <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
                 
+                    <a class="has-link-black-ter" href="/solution-bzoj-4945/">BZOJ4945 - [NOI2017] 游戏</a>
+                
+            </h1>
+            <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
+                <div class="level-left">
+                    <i class="far fa-clock"></i>
+                    <time class="level-item has-text-grey" datetime="2018-09-18T05:29:00.000Z">
+                        2018-09-18
+                    </time>
+                    <i class="far fa-folder"></i>
+                    
+                        <div class="level-item">
+                            <a class="has-link-grey -link" href="/categories/Solution/">Solution</a>
+                        </div>
+                    
+                    <i class="far fa-edit"></i>
+                    
+                        <span class="level-item has-text-grey">
+                            871 Words
+                        </span>
+                    
+                </div>
+            </div>
+        </div>
+        
+        <div class="content">
+            <blockquote>
+<p>洛谷 SPJ 坏了，一个月了没修好。怎么回事啊？</p>
+<p>UPD: QQ 群里 @ 了一下 chen_zhe 竟然很快修好了</p>
+</blockquote>
+<p>回到正题：本题是 2-SAT 裸题，做之前可以参考一下洛谷的模板题，下面假装你已经看过并 AC 了那道题。</p>
+<p>对于 $a$ 、 $b$ 、 $c$ 三种地图，都是不允许一辆车，而允许另外两辆。对于 $x$ 地图，显然不能交给 2-SAT 算法解决，暴力枚举他是 $a$ 地图还是 $b$ 地图（如果 $a$ 和 $b$ 都不行那么 $c$ 也不行）。</p>
+<p>关于连边，用 $u$ 表示第 $i$ 场游戏使用赛车 $h_i$ 所对应的点，$v$ 表示 第 $j$ 场游戏赛车 $h_j$ 所对应的点，$u’$ 和 $v’$ 则表示对应地图可以使用的另一辆赛车所对应的点。</p>
+<p>如果 $h_i$ 不符合第 $i$ 张地图的限制条件，那么这种约束肯定不会遇到，跳过即可。</p>
+<p>如果 $h_j$ 不符合第 $j$ 张地图的限制条件，那么说明 $i$ 的这种情况肯定不能取到，就从 $u$ 向 $u’$ 连一条边。</p>
+<p>否则说明如果取了 $h_i$ 就一定要取 $h_j$ ，连接边 $u$ 到 $v$ 和 $u’$ 到 $v’$ 即可。</p>
+<p>另外，由于 2-SAT 要跑很多遍，所以请注意清空数组（我不会告诉你我没有清空 dfn 拿到了 $90$ 分的好成绩）。</p>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/solution-bzoj-4945/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article
+         
+    ">
+        
+        <div class="my-title ">
+            <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+                
                     <a class="has-link-black-ter" href="/solution-luogu-1979/">洛谷1979 - 华容道</a>
                 
             </h1>
@@ -651,65 +716,6 @@ var _hmt = _hmt || [];
 
 
 
-    <div class="card">
-    
-    <div class="card-content article
-         
-    ">
-        
-        <div class="my-title ">
-            <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-                
-                    <a class="has-link-black-ter" href="/solution-luogu-2387/">洛谷2387 - [NOI2014]魔法森林</a>
-                
-            </h1>
-            <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
-                <div class="level-left">
-                    <i class="far fa-clock"></i>
-                    <time class="level-item has-text-grey" datetime="2018-08-30T10:04:24.000Z">
-                        2018-08-30
-                    </time>
-                    <i class="far fa-folder"></i>
-                    
-                        <div class="level-item">
-                            <a class="has-link-grey -link" href="/categories/Solution/">Solution</a>
-                        </div>
-                    
-                    <i class="far fa-edit"></i>
-                    
-                        <span class="level-item has-text-grey">
-                            797 Words
-                        </span>
-                    
-                </div>
-            </div>
-        </div>
-        
-        <div class="content">
-            <p>题意可以理解为找到一条 $1$ 到 $n$ 的路径，使得其中 $a$ 的最大值和 $b$ 的最大值之和最小。</p>
-<p>我们可以先按照 $a$ 的值排序，然后使用 LCT 维护关于 $b$ 的最小生成树；算法的正确性很容易证明：对于每一个 $a$ 的最大值我们都取到了 $b$ 的最大值的最小值。</p>
-<p>维护动态最小生成树：对于新加的边 $(u, v)$ ，如果已经连接，则需要断掉其中最大的一条（当前的 $b$ 值比最大的 $b$ 值还大就不用加了），否则无脑 link 。所以我们的 LCT 还要存储下最大的边以及对应的编号。</p>
-<p>由于 LCT 只能维护点不能维护边，我们可以考虑化边为点，总共有 $n$ 个 LCT 中的点表示实际意义的点，以及 $m$ 的 LCT 中的点表示实际意义的边。这样子瞎搞即可。</p>
-<p>注意一定要当 $1$ 和 $n$ 已经联通时才能用当前的状态尝试更新答案哦！</p>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/solution-luogu-2387/#more">阅读更多</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
 
     
 <div class="card card-transparent">
@@ -764,7 +770,7 @@ var _hmt = _hmt || [];
                     
                     <p class="is-size-6 is-flex is-flex-center has-text-grey">
                         <i class="fas fa-map-marker-alt has-mr-7"></i>
-                        <span>Hangzhou, China</span>
+                        <span>The Cruel World</span>
                     </p>
                     
                 </div>
@@ -777,7 +783,7 @@ var _hmt = _hmt || [];
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        95
+                        96
                     </p>
                 </div>
             </div>
@@ -868,7 +874,7 @@ var _hmt = _hmt || [];
                 <span class="level-item">Geek</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">8</span>
+                <span class="level-item tag">9</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/Plan/">
@@ -920,7 +926,7 @@ var _hmt = _hmt || [];
                 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
                 <p class="is-size-7">
                     <span>
-                        <span>74.4k</span> Words
+                        <span>74.8k</span> Words
                     </span>
                     <span id="busuanzi_container_site_pv" style="display:none">
                     <span class="division">|</span>
