@@ -2,18 +2,23 @@
 <html lang="zh">
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-<title>标签: STL - memset0&#39;s blog</title>
+<title>二项式反演学习笔记 - memset0&#39;s blog</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-    <meta property="og:type" content="website">
-<meta property="og:title" content="memset0&#39;s blog">
-<meta property="og:url" content="https://memset0.cn/tags/STL/index.html">
+    <meta name="description" content="二项式反演： $$\begin{aligned}f(i) &amp;amp;= \sum\limits_{i=0}^n {n \choose i} g(i) \\\iffg(i) &amp;amp;= \sum\limits_{i=0}^n (-1)^{n-i} {n \choose i} f(i)\end{aligned}$$">
+<meta name="keywords" content="数学，数论,二项式反演,组合数学">
+<meta property="og:type" content="article">
+<meta property="og:title" content="二项式反演学习笔记">
+<meta property="og:url" content="https://memset0.cn/er-xiang-shi-fan-yan/index.html">
 <meta property="og:site_name" content="memset0&#39;s blog">
+<meta property="og:description" content="二项式反演： $$\begin{aligned}f(i) &amp;amp;= \sum\limits_{i=0}^n {n \choose i} g(i) \\\iffg(i) &amp;amp;= \sum\limits_{i=0}^n (-1)^{n-i} {n \choose i} f(i)\end{aligned}$$">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-01-13T13:26:39.978Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="memset0&#39;s blog">
+<meta name="twitter:title" content="二项式反演学习笔记">
+<meta name="twitter:description" content="二项式反演： $$\begin{aligned}f(i) &amp;amp;= \sum\limits_{i=0}^n {n \choose i} g(i) \\\iffg(i) &amp;amp;= \sum\limits_{i=0}^n (-1)^{n-i} {n \choose i} f(i)\end{aligned}$$">
 
 
 
@@ -89,7 +94,7 @@ var _hmt = _hmt || [];
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <!-- <img src="/images/logo.png" alt="memset0&#39;s blog" height="28"> -->
+                <!-- <img src="/images/logo.png" alt="二项式反演学习笔记" height="28"> -->
                 <span class="navbar-title"> memset0's blog </span>
             
             </a>
@@ -127,44 +132,33 @@ var _hmt = _hmt || [];
         <div class="container">
             <div class="columns">
                 <div class="column my-content is-8-tablet is-8-desktop is-8-widescreen has-order-2 column-main"><div class="card">
-    <div class="card-content">
-        <nav class="breadcrumb" aria-label="breadcrumbs">
-        <ul>
-            <li><a href="/tags">标签</a></li>
-            <li class="is-active"><a href="#" aria-current="page">STL</a></li>
-        </ul>
-        </nav>
-    </div>
-</div>
-
-    <div class="card">
     
     <div class="card-content article
          
     ">
         
-        <div class="my-title ">
+        <div class="my-title  my-post-title ">
             <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
                 
-                    <a class="has-link-black-ter" href="/contest-20181208/">20181208 - NOI模拟赛</a>
+                    二项式反演学习笔记
                 
             </h1>
             <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
                 <div class="level-left">
                     <i class="far fa-clock"></i>
-                    <time class="level-item has-text-grey" datetime="2018-12-09T05:56:35.000Z">
-                        2018-12-09
+                    <time class="level-item has-text-grey" datetime="2019-01-13T13:19:57.000Z">
+                        2019-01-13
                     </time>
                     <i class="far fa-folder"></i>
                     
                         <div class="level-item">
-                            <a class="has-link-grey -link" href="/categories/Contest/">Contest</a>
+                            <a class="has-link-grey -link" href="/categories/Algorithm/">Algorithm</a>
                         </div>
                     
                     <i class="far fa-edit"></i>
                     
                         <span class="level-item has-text-grey">
-                            529 Words
+                            97 Words
                         </span>
                     
                 </div>
@@ -172,14 +166,22 @@ var _hmt = _hmt || [];
         </div>
         
         <div class="content">
-            <p>最近准备学科营，平时考的模拟赛准备总结记录一下。这些题解会被分类到 Contest 目录下，可能只会讲笔者会的部分或笔者觉得有用的部分，思路可能会讲完整也可能不会，代码可能会放也可能不会，但题面和题意肯定是不会有的。大概就是这样（</p>
-<h2 id="Forest"><a href="#Forest" class="headerlink" title="Forest"></a>Forest</h2><p>考虑到每个节点出去只有一个父亲，所以要把修改都集中到自己和自己的父亲上去（而不是遍历自己的孩子）。为了方便维护，我们把原来的 $C_i$ 拆成</p>
-<p>$$<br>C_i = E_{a_i} + (B_i - D_i \times E_i + E_i + \sum E_{ P_j } [ j 是 i 的孩子])<br>$$</p>
-<p>通过简单的 trick 把括号内的东西（假设叫 $F_i$ ）放到 $i$ 节点上维护，可以使得 1 、 2 操作的复杂度变为 $O(1)$ ，但 3 操作需要遍历所有节点，复杂度是 $O(n)$ 。考虑优化，把每个节点都开个 multiset （或可删堆），用来存自己的每个孩子的 $F_i$ ，当自己的 $E_i$ 改变时利用自己的 multiset 去更新答案，同时当自己的 $F_i$  改变时更新父亲的 multiset ，并利用父亲的 multiset 更新答案</p>
-<h2 id="Bear"><a href="#Bear" class="headerlink" title="Bear"></a>Bear</h2><p>20 分简单爆枚，40 分简单状压。100 分以对角线进行插头 dp ，还没写过。</p>
-<h2 id="Juice"><a href="#Juice" class="headerlink" title="Juice"></a>Juice</h2><p>考场上用一个乱搞做法 AC 了这题（也依赖于 IOI 赛制）。先枚举答案，对于每个答案进行 check ，方法如下。</p>
-<p>先根据答案计算出分出的每个桶的大小 $S$，把给定的每个 $a_i$ 丢进 multiset 里。每次取出一个最小的 $A$，如果 $A &gt; S$ ，那么就把 $A - S$ 丢回去；如果 $A &lt; S$ ，那么就在 set.lower_bound(A) 到 –set.end() 的范围内随机一个迭代器配对。利用合适的随机种子和合适的调参，成功 Accepted。</p>
+            <p>二项式反演：</p>
+<p>$$<br>\begin{aligned}<br>f(i) &amp;= \sum\limits_{i=0}^n {n \choose i} g(i) \\<br>\iff<br>g(i) &amp;= \sum\limits_{i=0}^n (-1)^{n-i} {n \choose i} f(i)<br>\end{aligned}<br>$$</p>
+<a id="more"></a>
+<h2 id="简单应用"><a href="#简单应用" class="headerlink" title="简单应用"></a>简单应用</h2><p>假设 $f(i)$ 表示大于等于 $i$ 的数对答案的贡献，求恰好为 $k$ 时对答案的贡献。</p>
+<p>证明在上一篇题解，结论：</p>
+<p>$$<br>\sum\limits_{i=k}^n (-1)^{i-k} {i \choose k} f(i)<br>$$</p>
 
+        </div>
+        
+        <div class="level is-size-7 is-uppercase my-post-tags">
+            <div class="level-start">
+                <div class="level-item">
+                    <!-- <span class="is-size-6 has-text-grey has-mr-7">#</span> -->
+                    <a class="my-post-tag has-link-grey -link" href="/tags/二项式反演/">二项式反演</a>, <a class="my-post-tag has-link-grey -link" href="/tags/数学，数论/">数学，数论</a>, <a class="my-post-tag has-link-grey -link" href="/tags/组合数学/">组合数学</a>
+                </div>
+            </div>
         </div>
         
         
@@ -188,9 +190,42 @@ var _hmt = _hmt || [];
 </div>
 
 
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/solution-bzoj-2839/">
+                <span class="level-item">BZOJ2839 - 集合计数</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
 
 
 
+<div class="card">
+    <div class="card-content">
+        <!-- <h3 class="title is-5 has-text-weight-normal">评论</h3> -->
+        
+<div id="valine-thread"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/volantis@1/js/volantis.min.js"></script>
+<script>
+    new Valine({
+        el: '#valine-thread' ,
+        notify: false,
+        verify: false,
+        app_id: 'rHgVqrBsv0EYGFSxzDDIDapm-9Nh9j0Va',
+        app_key: 'X7Dp3hEvRWPbqHBYkOTBXzPm',
+        placeholder: '留下你的脚印~'
+    });
+</script>
+
+    </div>
+</div>
 </div>
                 
                 
@@ -281,6 +316,26 @@ var _hmt = _hmt || [];
 </div>
     
         
+<div class="card widget" id="toc">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                目录
+            </h3>
+            <ul class="menu-list"><li>
+        <a class="is-flex" href="#简单应用">
+        <span class="has-mr-6">1</span>
+        <span>简单应用</span>
+        </a></li></ul>
+        </div>
+    </div>
+</div>
+<!-- <script type="text/javascript">
+function myHideElement(name) {
+    document.getElementById(name).style.display = 'none';
+}
+</script> -->
+
     
         	
 <div class="card widget">
@@ -360,7 +415,7 @@ var _hmt = _hmt || [];
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 <!-- 
-                    <img src="/images/logo.png" alt="memset0&#39;s blog" height="28">
+                    <img src="/images/logo.png" alt="二项式反演学习笔记" height="28">
                     memset0's blog
                  -->
                 </a>
