@@ -136,6 +136,75 @@ var _hmt = _hmt || [];
         <div class="my-title ">
             <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
                 
+                    <a class="has-link-black-ter" href="/solution-bzoj-1001/">BZOJ1001 - [BJOI2006]狼抓兔子</a>
+                
+            </h1>
+            <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
+                <div class="level-left">
+                    <i class="far fa-clock"></i>
+                    <time class="level-item has-text-grey" datetime="2018-09-24T09:02:00.000Z">
+                        2018-09-24
+                    </time>
+                    <i class="far fa-folder"></i>
+                    
+                        <div class="level-item">
+                            <a class="has-link-grey -link" href="/categories/Solution/">Solution</a>
+                        </div>
+                    
+                    <i class="far fa-edit"></i>
+                    
+                        <span class="level-item has-text-grey">
+                            805 Words
+                        </span>
+                    
+                </div>
+            </div>
+        </div>
+        
+        <div class="content">
+            <p>最大流最小割模板题。</p>
+<blockquote>
+<p>想当年第一次打开 BZOJ 做完 A + B 之后看得一脸懵逼的就是这道题，没想到现如今看起来这么简单</p>
+<p>不过还是没有秒切，双向边没看到调了好久 QAQ</p>
+</blockquote>
+<p>好了，关于那个连边。这是本人单向边网络流连边：</p>
+<figure class="highlight cpp hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-keyword">void</span> <span class="hljs-title">add_edge</span><span class="hljs-params">(<span class="hljs-keyword">int</span> u, <span class="hljs-keyword">int</span> v, <span class="hljs-keyword">int</span> w)</span> </span>&#123;</span><br><span class="line">	nxt[tot] = hed[u], to[tot] = v, val[tot] = w, hed[u] = tot++;</span><br><span class="line">	nxt[tot] = hed[v], to[tot] = u, val[tot] = <span class="hljs-number">0</span>, hed[v] = tot++;</span><br><span class="line">	<span class="hljs-keyword">return</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这是本人的双向网络流连边（连两遍也是一样的）：</p>
+<figure class="highlight cpp hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-keyword">void</span> <span class="hljs-title">add_edge</span><span class="hljs-params">(<span class="hljs-keyword">int</span> u, <span class="hljs-keyword">int</span> v, <span class="hljs-keyword">int</span> w)</span> </span>&#123;</span><br><span class="line">	nxt[tot] = hed[u], to[tot] = v, val[tot] = w, hed[u] = tot++;</span><br><span class="line">	nxt[tot] = hed[v], to[tot] = u, val[tot] = w, hed[v] = tot++;</span><br><span class="line">	<span class="hljs-keyword">return</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>另外 $最大流 = 最小割$ 不必多说了吧，贴个直观的证明（来自：<a href="https://jecvay.com/2014/11/what-is-min-cut.html" target="_blank" rel="noopener">https://jecvay.com/2014/11/what-is-min-cut.html</a>）：</p>
+<blockquote>
+<p>1.最大流不可能大于最小割, 因为最大流所有的水流都一定经过最小割那些割边, 流过的水流怎么可能比水管容量还大呢? </p>
+<p>2.最大流不可能小于最小割, 如果小, 那么说明水管容量没有物尽其用, 可以继续加大水流.</p>
+</blockquote>
+<p>那么 SAP + 当前弧优化 + 断层优化 + 反向 BFS 一遍轻松跑过。</p>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/solution-bzoj-1001/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article
+         
+    ">
+        
+        <div class="my-title ">
+            <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+                
                     <a class="has-link-black-ter" href="/geek-函数传递二维数组/">C++ 函数传递二维数组</a>
                 
             </h1>
@@ -648,66 +717,6 @@ var _hmt = _hmt || [];
 
 
 
-    <div class="card">
-    
-    <div class="card-content article
-         
-    ">
-        
-        <div class="my-title ">
-            <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-                
-                    <a class="has-link-black-ter" href="/solution-luogu-4768/">洛谷4768 -  [NOI2018]归程</a>
-                
-            </h1>
-            <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
-                <div class="level-left">
-                    <i class="far fa-clock"></i>
-                    <time class="level-item has-text-grey" datetime="2018-09-18T10:26:00.000Z">
-                        2018-09-18
-                    </time>
-                    <i class="far fa-folder"></i>
-                    
-                        <div class="level-item">
-                            <a class="has-link-grey -link" href="/categories/Solution/">Solution</a>
-                        </div>
-                    
-                    <i class="far fa-edit"></i>
-                    
-                        <span class="level-item has-text-grey">
-                            671 Words
-                        </span>
-                    
-                </div>
-            </div>
-        </div>
-        
-        <div class="content">
-            <blockquote>
-<p>真是纳闷，为什么这题在 BZOJ 上是权限题？？？</p>
-</blockquote>
-<p>首先你需要了解一下 这种算法，然后你在重构树上树形 DP 处理出子树中距离的最小值，最后对于每次询问倍增找出最高点回答即可。</p>
-<p>过程就不详细说啦，相信在坐的各位大佬早就会啦。。。</p>
-<p>不过也有 sqq 这种巨佬写了可持久化并查集 AC 了的 QAQ ，下次写写。</p>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/solution-luogu-4768/#more">阅读更多</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
 
     
 <div class="card card-transparent">
@@ -775,7 +784,7 @@ var _hmt = _hmt || [];
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        96
+                        97
                     </p>
                 </div>
             </div>
@@ -795,7 +804,7 @@ var _hmt = _hmt || [];
                         标签
                     </p>
                     <p class="title has-text-weight-normal">
-                        107
+                        110
                     </p>
                 </div>
             </div>
@@ -882,7 +891,7 @@ var _hmt = _hmt || [];
                 <span class="level-item">Solution</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">63</span>
+                <span class="level-item tag">64</span>
             </span>
         </a></li>
             </ul>
@@ -918,7 +927,7 @@ var _hmt = _hmt || [];
                 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
                 <p class="is-size-7">
                     <span>
-                        <span>74.8k</span> Words
+                        <span>75.4k</span> Words
                     </span>
                     <span id="busuanzi_container_site_pv" style="display:none">
                     <span class="division">|</span>
