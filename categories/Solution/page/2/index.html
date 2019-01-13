@@ -147,6 +147,124 @@ var _hmt = _hmt || [];
         <div class="my-title ">
             <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
                 
+                    <a class="has-link-black-ter" href="/solution-luogu-5105/">洛谷5105 - 不强制在线的动态快速排序</a>
+                
+            </h1>
+            <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
+                <div class="level-left">
+                    <i class="far fa-clock"></i>
+                    <time class="level-item has-text-grey" datetime="2018-12-19T01:21:20.000Z">
+                        2018-12-19
+                    </time>
+                    <i class="far fa-folder"></i>
+                    
+                        <div class="level-item">
+                            <a class="has-link-grey -link" href="/categories/Solution/">Solution</a>
+                        </div>
+                    
+                    <i class="far fa-edit"></i>
+                    
+                        <span class="level-item has-text-grey">
+                            597 Words
+                        </span>
+                    
+                </div>
+            </div>
+        </div>
+        
+        <div class="content">
+            <p>考虑最后的集合是否为可重集对答案没有影响，我们可以把相邻或重合的区间合并</p>
+<ul>
+<li><p>对于一个连续区间的异或和，其实就是连续奇数的异或和，对于每一个二进制位进行分析，发现他是有循环节的，故对于每一个二进制位进行分析，以 $O(\log \ \texttt{值域})$ 的复杂度计算出答案。</p>
+</li>
+<li><p>对于相邻的两个区间，我们可以 $O(1)$ 直接计算</p>
+</li>
+</ul>
+<p>故把这些区间放到 std::set / std::vector / 平衡树 / 线段树上。每次暴力合并区间。由于每个区间最多被删一次，也最多被加一次，总复杂度为 $O(n \log n)$ 。</p>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/solution-luogu-5105/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article
+         
+    ">
+        
+        <div class="my-title ">
+            <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+                
+                    <a class="has-link-black-ter" href="/solution-luogu-5104/">洛谷5104 - 红包发红包</a>
+                
+            </h1>
+            <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
+                <div class="level-left">
+                    <i class="far fa-clock"></i>
+                    <time class="level-item has-text-grey" datetime="2018-12-19T01:21:17.000Z">
+                        2018-12-19
+                    </time>
+                    <i class="far fa-folder"></i>
+                    
+                        <div class="level-item">
+                            <a class="has-link-grey -link" href="/categories/Solution/">Solution</a>
+                        </div>
+                    
+                    <i class="far fa-edit"></i>
+                    
+                        <span class="level-item has-text-grey">
+                            266 Words
+                        </span>
+                    
+                </div>
+            </div>
+        </div>
+        
+        <div class="content">
+            <p>在 $[0,w]$ 中等概率取出的值的期望是 $\frac{1}{2} w$ ，简单观察可以发现，答案就是 $\frac{1}{2} ^ k$ ，快速幂一下就好了。</p>
+<p>需要注意的是，根据欧拉定理，若 $p$ 是质数：<br>$$a^b \equiv a ^ {b \mod \varphi(p)} (\mod p)$$<br>所以这题如果你直接给 $k$ 模下 $p$ 就会挂啦 233.</p>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/solution-luogu-5104/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article
+         
+    ">
+        
+        <div class="my-title ">
+            <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+                
                     <a class="has-link-black-ter" href="/solution-luogu-5071/">洛谷5071 - [Ynoi2015]此时此刻的光辉</a>
                 
             </h1>
@@ -1217,127 +1335,6 @@ var _hmt = _hmt || [];
 
 
 
-    <div class="card">
-    
-    <div class="card-content article
-         
-    ">
-        
-        <div class="my-title ">
-            <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-                
-                    <a class="has-link-black-ter" href="/solution-codeforces-706e/">CF706E - Working routine</a>
-                
-            </h1>
-            <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
-                <div class="level-left">
-                    <i class="far fa-clock"></i>
-                    <time class="level-item has-text-grey" datetime="2018-09-21T12:55:00.000Z">
-                        2018-09-21
-                    </time>
-                    <i class="far fa-folder"></i>
-                    
-                        <div class="level-item">
-                            <a class="has-link-grey -link" href="/categories/Solution/">Solution</a>
-                        </div>
-                    
-                    <i class="far fa-edit"></i>
-                    
-                        <span class="level-item has-text-grey">
-                            959 Words
-                        </span>
-                    
-                </div>
-            </div>
-        </div>
-        
-        <div class="content">
-            <p>题意：</p>
-<blockquote>
-<p>给你个 $1000 \times 1000$ 的矩阵，每次交换任意两个不重合的子矩阵，求最后的结果</p>
-</blockquote>
-<p>如果你是一位数据结构学傻的选手（像我），那么第一感觉肯定是用平衡树做，复杂度 $O(m \times n \log n)$ ，不过不幸的是，由于常数巨大，最后得分甚至可能不如暴力的 <code>memcpy</code> 。</p>
-<p>如果你是一个不会高级数据结构的普及选手你说不定就能想到链表。维护一个矩形的链表，然后每次交换就分别把两块矩阵取出再拼接上去。</p>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/solution-codeforces-706e/#more">阅读更多</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
-    <div class="card">
-    
-    <div class="card-content article
-         
-    ">
-        
-        <div class="my-title ">
-            <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-                
-                    <a class="has-link-black-ter" href="/solution-luogu-4168/">洛谷4168 - [Violet]蒲公英</a>
-                
-            </h1>
-            <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
-                <div class="level-left">
-                    <i class="far fa-clock"></i>
-                    <time class="level-item has-text-grey" datetime="2018-09-21T07:56:00.000Z">
-                        2018-09-21
-                    </time>
-                    <i class="far fa-folder"></i>
-                    
-                        <div class="level-item">
-                            <a class="has-link-grey -link" href="/categories/Solution/">Solution</a>
-                        </div>
-                    
-                    <i class="far fa-edit"></i>
-                    
-                        <span class="level-item has-text-grey">
-                            689 Words
-                        </span>
-                    
-                </div>
-            </div>
-        </div>
-        
-        <div class="content">
-            <blockquote>
-<p>这道黑题为什么那么水 QAQ<br>这道题在 BZOJ 上为什么又又又又又是权限题</p>
-</blockquote>
-<p>本题求区间众数，强制在线。</p>
-<p>对于每次查询，必定可以分为整块的和非整块的，我们先预处理出第 $i$ 块到第 $j$ 块的众数（ $max[i][j]$ ）和某个数 $i$ 在前 $j$ 个块内的前缀和（ $sum[i][j]$ ）。对于非整块的部分 $O(\sqrt n)$ 暴力加到桶里，加上整块中的个数判断能否更新答案。然后判断 $l$ 与 $r$ 之间的块的众数是否能否更新答案。</p>
-<p>预处理的话 $max$ 和 $sum$ 数组全都暴力扫一遍更新，时间复杂度 $O(n \sqrt n)$，详见代码。</p>
-<p>时间复杂度：$O(n \sqrt n + m \sqrt m)$</p>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/solution-luogu-4168/#more">阅读更多</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
 
     
 <div class="card card-transparent">
@@ -1399,7 +1396,7 @@ var _hmt = _hmt || [];
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        98
+                        101
                     </p>
                 </div>
             </div>
@@ -1419,7 +1416,7 @@ var _hmt = _hmt || [];
                         标签
                     </p>
                     <p class="title has-text-weight-normal">
-                        111
+                        116
                     </p>
                 </div>
             </div>
@@ -1482,7 +1479,7 @@ var _hmt = _hmt || [];
                 <span class="level-item">Diary</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">3</span>
+                <span class="level-item tag">4</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/Geek/">
@@ -1506,7 +1503,7 @@ var _hmt = _hmt || [];
                 <span class="level-item">Solution</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">64</span>
+                <span class="level-item tag">66</span>
             </span>
         </a></li>
             </ul>
@@ -1542,7 +1539,7 @@ var _hmt = _hmt || [];
                 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
                 <p class="is-size-7">
                     <span>
-                        <span>76.1k</span> Words
+                        <span>77.7k</span> Words
                     </span>
                     <span id="busuanzi_container_site_pv" style="display:none">
                     <span class="division">|</span>
