@@ -136,6 +136,66 @@ var _hmt = _hmt || [];
         <div class="my-title ">
             <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
                 
+                    <a class="has-link-black-ter" href="/min-max-rong-chi/">Min-Max 容斥学习笔记</a>
+                
+            </h1>
+            <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
+                <div class="level-left">
+                    <i class="far fa-clock"></i>
+                    <time class="level-item has-text-grey" datetime="2019-01-13T14:19:26.000Z">
+                        2019-01-13
+                    </time>
+                    <i class="far fa-folder"></i>
+                    
+                        <div class="level-item">
+                            <a class="has-link-grey -link" href="/categories/Algorithm/">Algorithm</a>
+                        </div>
+                    
+                    <i class="far fa-edit"></i>
+                    
+                        <span class="level-item has-text-grey">
+                            169 Words
+                        </span>
+                    
+                </div>
+            </div>
+        </div>
+        
+        <div class="content">
+            <blockquote>
+<p>感谢 lyc 哥哥上次给我讲了一下…然而我并没有听懂，只能自己再去学了一遍</p>
+</blockquote>
+<p>Min-Max 容斥：</p>
+<p>$$<br>\max(S) = \sum\limits_{S’ \subseteq S} \min(S’) (-1)^{|S’| - 1}<br>$$</p>
+<p>可以用二项式反演证明：构造容斥函数 $f(x)$ 使得</p>
+<p>$$<br>\max(S) = \sum\limits_{S’ \subseteq S} \min(S’) f(|S’|)<br>$$</p>
+<p>考虑每个 $S’ \subseteq S$ 中 $\min(S’) = a_{x+1}$ 对答案的贡献为：</p>
+<p>$$<br>g(x) = [x = 0] = \sum\limits_{i=0}^x {x \choose i} f(i+1)<br>$$</p>
+<p>二项式反演得：</p>
+<p>$$<br>\begin{aligned}<br>f(x + 1) &amp;= \sum\limits_{i=0}^x (-1)^{x-i} {x \choose i} g(i) \\<br>\Rightarrow \ \ \ f(x + 1) &amp;= (-1)^{x} \\<br>\Rightarrow \ \ \ f(x)     &amp;= (-1)^{x-1}<br>\end{aligned}<br>$$</p>
+<p>所以：</p>
+<p>$$<br>\begin{aligned}<br>\max(S) &amp;= \sum\limits_{S’ \subseteq S} \min(S’) f(|S’|) \\<br>        &amp;= \sum\limits_{S’ \subseteq S} \min(S’) (-1)^{|S’| - 1}<br>\end{aligned}<br>$$</p>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article
+         
+    ">
+        
+        <div class="my-title ">
+            <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+                
                     <a class="has-link-black-ter" href="/er-xiang-shi-fan-yan/">二项式反演学习笔记</a>
                 
             </h1>
@@ -210,7 +270,7 @@ var _hmt = _hmt || [];
                     <i class="far fa-edit"></i>
                     
                         <span class="level-item has-text-grey">
-                            419 Words
+                            421 Words
                         </span>
                     
                 </div>
@@ -230,7 +290,7 @@ var _hmt = _hmt || [];
 <p>$$<br>\begin{aligned}<br>f(x) &amp;= \sum\limits_{i=0}^x {x \choose i} (-1)^{x-i} g(x) \\<br>     &amp;= {x \choose k} (-1)^{x-k} [x \ge k]<br>\end{aligned}<br>$$</p>
 <p>代入得：</p>
 <p>$$<br>\begin{aligned}<br>ans &amp;= \sum\limits_{i=0}^n f(i) \times a(i) \\<br>    &amp;= \sum\limits_{i=0}^n {i \choose k} (-1)^{i-k} [i \ge k]<br>       \times {n \choose i} (2^{2^{n-i}} - 1) \\<br>    &amp;= \sum\limits_{i=k}^n (-1)^{i-k} (2^{2^{n-i}} - 1) {i \choose k} {n \choose i}<br>\end{aligned}<br>$$</p>
-<p>即可 $O(n)$ 求解</p>
+<p>即可 $O(n \log n)$ 求解</p>
         </div>
         
         
@@ -643,64 +703,6 @@ var _hmt = _hmt || [];
 
 
 
-    <div class="card">
-    
-    <div class="card-content article
-         
-    ">
-        
-        <div class="my-title ">
-            <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-                
-                    <a class="has-link-black-ter" href="/solution-bzoj-5405/">BZOJ5405 - platform</a>
-                
-            </h1>
-            <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
-                <div class="level-left">
-                    <i class="far fa-clock"></i>
-                    <time class="level-item has-text-grey" datetime="2019-01-10T05:55:09.000Z">
-                        2019-01-10
-                    </time>
-                    <i class="far fa-folder"></i>
-                    
-                        <div class="level-item">
-                            <a class="has-link-grey -link" href="/categories/Solution/">Solution</a>
-                        </div>
-                    
-                    <i class="far fa-edit"></i>
-                    
-                        <span class="level-item has-text-grey">
-                            925 Words
-                        </span>
-                    
-                </div>
-            </div>
-        </div>
-        
-        <div class="content">
-            <p>首先，我们需要知道如何利用后缀数组对一个指定的字符串计算字典序 Rank 。我们以 abaab 为例：</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"> a    a    b</span><br><span class="line">11   10    9</span><br><span class="line"> a    b</span><br><span class="line"> x    8</span><br><span class="line"> a    b    a    a    b</span><br><span class="line"> x    x    7    6    5</span><br><span class="line"> b</span><br><span class="line"> 4</span><br><span class="line"> b    a    a    b</span><br><span class="line"> x    3    2    1</span><br></pre></td></tr></table></figure>
-<p>按照顺序进行编号，因为本质相同的字符串不重复计算次数，所以每一行的前 $height_i$ 个不计入个数，所以我们也有了一个很自然的 $O(n ^ 2)$ 做法。</p>
-<p>接下来我们考虑正解，可以发现，每次可以看做对上面的字典序 Rank 数组进行了依次递减的区间覆盖，可以使用线段树维护。同时我们可以发现，这个 Rank 是递减的，而前缀和是递增的，所以我们可以二分出相等的那个位置。</p>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/solution-bzoj-5405/#more">阅读更多</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
 
     
 <div class="card card-transparent">
@@ -762,7 +764,7 @@ var _hmt = _hmt || [];
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        107
+                        108
                     </p>
                 </div>
             </div>
@@ -782,7 +784,7 @@ var _hmt = _hmt || [];
                         标签
                     </p>
                     <p class="title has-text-weight-normal">
-                        122
+                        123
                     </p>
                 </div>
             </div>
@@ -829,7 +831,7 @@ var _hmt = _hmt || [];
                 <span class="level-item">Algorithm</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">18</span>
+                <span class="level-item tag">19</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/Contest/">
@@ -905,7 +907,7 @@ var _hmt = _hmt || [];
                 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
                 <p class="is-size-7">
                     <span>
-                        <span>80.4k</span> Words
+                        <span>80.6k</span> Words
                     </span>
                     <span id="busuanzi_container_site_pv" style="display:none">
                     <span class="division">|</span>

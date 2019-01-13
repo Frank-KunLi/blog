@@ -136,6 +136,68 @@ var _hmt = _hmt || [];
         <div class="my-title ">
             <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
                 
+                    <a class="has-link-black-ter" href="/solution-ljoj-1244/">LJOJ1244 - 埃及分数</a>
+                
+            </h1>
+            <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
+                <div class="level-left">
+                    <i class="far fa-clock"></i>
+                    <time class="level-item has-text-grey" datetime="2018-07-08T08:47:00.000Z">
+                        2018-07-08
+                    </time>
+                    <i class="far fa-folder"></i>
+                    
+                        <div class="level-item">
+                            <a class="has-link-grey -link" href="/categories/Solution/">Solution</a>
+                        </div>
+                    
+                    <i class="far fa-edit"></i>
+                    
+                        <span class="level-item has-text-grey">
+                            571 Words
+                        </span>
+                    
+                </div>
+            </div>
+        </div>
+        
+        <div class="content">
+            <p>您可以去 Vijos 上搜索此题，不过温馨提示， Vijos 的数据是错的，详情可以参考那题的讨论。</p>
+<p>这是一道<code>IDA*</code>经典题，集成了<code>启发式搜索</code>和<code>迭代加深</code>的特点进行剪枝。</p>
+<ul>
+<li><p>迭代加深<br>本题中，我们限定DFS搜索的层数，如果超过这个层数，就进行剪枝。</p>
+</li>
+<li><p>启发式搜索<br>我们设立一个估价函数，考虑最优情况下的步数。<br>本题中我们按照分母从小到大的顺序来DFS埃及分母，所以之后遇到的值就必定大于当前取到的值。<br>我们可以通过这个特性来写估价函数，即<code>(a / b) / (1 / u)</code>（其中<code>a / b</code>表示当前的值，<code>u</code>表示剩下能够取到的最小分母）<br>做其他题目时一定要注意<strong>估价函数所估计的值之多劣于实际情况，而不能比实际情况更优</strong>。</p>
+</li>
+</ul>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/solution-ljoj-1244/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article
+         
+    ">
+        
+        <div class="my-title ">
+            <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+                
                     <a class="has-link-black-ter" href="/untitled-1547374113352/">洛谷2996 - 拜访奶牛</a>
                 
             </h1>
@@ -370,7 +432,7 @@ var _hmt = _hmt || [];
         <div class="my-title ">
             <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
                 
-                    <a class="has-link-black-ter" href="/geek-python登录hostoj/">Python 模拟登陆 hustoj</a>
+                    <a class="has-link-black-ter" href="/geek-python登录hostoj/">Python 模拟登陆 Hust OJ</a>
                 
             </h1>
             <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
@@ -598,7 +660,7 @@ var _hmt = _hmt || [];
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        107
+                        108
                     </p>
                 </div>
             </div>
@@ -618,7 +680,7 @@ var _hmt = _hmt || [];
                         标签
                     </p>
                     <p class="title has-text-weight-normal">
-                        122
+                        123
                     </p>
                 </div>
             </div>
@@ -665,7 +727,7 @@ var _hmt = _hmt || [];
                 <span class="level-item">Algorithm</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">18</span>
+                <span class="level-item tag">19</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/Contest/">
@@ -741,7 +803,7 @@ var _hmt = _hmt || [];
                 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
                 <p class="is-size-7">
                     <span>
-                        <span>80.4k</span> Words
+                        <span>80.6k</span> Words
                     </span>
                     <span id="busuanzi_container_site_pv" style="display:none">
                     <span class="division">|</span>
