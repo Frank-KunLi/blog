@@ -136,14 +136,14 @@ var _hmt = _hmt || [];
         <div class="my-title ">
             <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
                 
-                    <a class="has-link-black-ter" href="/solution-loj-6495/">LOJ6495 - 「雅礼集训 2018 Day1」树</a>
+                    <a class="has-link-black-ter" href="/solution-luogu-5046/">洛谷5046 - [YNOI2019] Yuno loves sqrt technology I</a>
                 
             </h1>
             <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
                 <div class="level-left">
                     <i class="far fa-clock"></i>
-                    <time class="level-item has-text-grey" datetime="2018-12-25T10:16:54.000Z">
-                        2018-12-25
+                    <time class="level-item has-text-grey" datetime="2018-11-24T04:33:01.000Z">
+                        2018-11-24
                     </time>
                     <i class="far fa-folder"></i>
                     
@@ -154,7 +154,7 @@ var _hmt = _hmt || [];
                     <i class="far fa-edit"></i>
                     
                         <span class="level-item has-text-grey">
-                            546 Words
+                            1527 Words
                         </span>
                     
                 </div>
@@ -162,16 +162,27 @@ var _hmt = _hmt || [];
         </div>
         
         <div class="content">
-            <p>非常妙的一道状压题。</p>
-<p>考虑依次加入每一个点，状态之间的转移和对答案的贡献只与每个深度的节点个数，因此我们可以这样定义状态：把这棵树的节点按深度排序，显然相邻两个的深度最多相差一，如果差等于一，状压出的对应位就是 1 ，否则就是 0 。利用这个即可进行 $O(2^n \times n ^ 2)$ 的转移。</p>
-<p>还有一种 $O(n ^ 3)$ 的天顶星写法，但是我暂时不会，只能等以后补锅。</p>
+            <p>一道卡常题。考虑分块。</p>
+<p>如果查询的 $l$ 和 $r$ 不在同一个块内。 </p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">查询区间 =&gt;                ┌-----------------------------┐</span><br><span class="line">分好的块 =&gt; [.........][........][........][........][........][........]</span><br></pre></td></tr></table></figure>
+<p>把查询的区间分成三个部分、A（块前零散部分）、B（整块的）、C（块后零散部分）</p>
+<p>先考虑每个部分自身与自身匹配对答案的贡献。我们可以预处理出从每个点出发，到所属块的开始 / 结尾的逆序对个数，分别用 <code>lft[]</code> 和 <code>rit[]</code> 表示，预处理时间复杂度 $O(\sqrt n \times \sqrt n \times \log n)$。</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">┌-----1.-----┐               1. 这一部分的逆序对个数表示为 lft[i]</span><br><span class="line">             ┌-----2.----┐   2. 这一部分的逆序对个数表示为 rit[i]</span><br><span class="line">[............i...........]</span><br></pre></td></tr></table></figure>
+<p>接下来我们考虑 A -&gt; B ， C -&gt; B 的贡献，类似于蒲公英这题，处理出 <code>cnt[i][j]</code> 数组表示前 $i$ 个块内小于等于 $j$  的数字个数，查询时枚举 A 和 C 中的每一个数，利用这个前缀和查询对答案的贡献。这个部分也可以不在查询的时候做，而是预处理出结果，做二维前缀和，直接查询。</p>
+<p>接下来考虑 A -&gt; C 的贡献，由于 A 和 C 是不重合的两个部分，可以采用类似归并排序的方法，把两个序列合并的同时计算出逆序对个数。</p>
+<p>如果查询的 $l$ 和 $r$ 在同一个块内。</p>
+<p>首先我们考虑，相邻的两个区间 A 和 B 。A 和 B 总共的逆序对个数，等于 A 内部的逆序对个数 + B 内部的逆序对个数 + A 对 B 贡献的逆序对个数。</p>
+<p>好，那么我们再来考虑 $l$ 和 $r$ 在同一个块内：</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">┌------A+B-------┐      这一部分即之前已经处理出的 lft[r]</span><br><span class="line">┌----A----┐             这一部分即之前已经处理出的 lft[l]</span><br><span class="line">          ┌--B---┐</span><br><span class="line">[.........l......r.......]</span><br></pre></td></tr></table></figure>
+<p>现在我们要求 B 的逆序对个数，只需要把 A + B 的逆序对个数减掉 A 内部的逆序对个数，再减掉 A 对 B 的逆序对个数即可。</p>
+<p>剩下你只需要时间来卡常。</p>
         </div>
         
         
         <div class="level is-mobile">
             <div class="level-start">
                 <div class="level-item">
-                <a class="button is-size-7 is-light" href="/solution-loj-6495/#more">阅读更多</a>
+                <a class="button is-size-7 is-light" href="/solution-luogu-5046/#more">阅读更多</a>
                 </div>
             </div>
         </div>
@@ -193,14 +204,69 @@ var _hmt = _hmt || [];
         <div class="my-title ">
             <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
                 
-                    <a class="has-link-black-ter" href="/solution-luogu-4606/">洛谷4606 - [SDOI2018]战略游戏</a>
+                    <a class="has-link-black-ter" href="/plan-menci-blog/">退役后的做题计划（一）</a>
                 
             </h1>
             <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
                 <div class="level-left">
                     <i class="far fa-clock"></i>
-                    <time class="level-item has-text-grey" datetime="2018-12-25T09:17:54.000Z">
-                        2018-12-25
+                    <time class="level-item has-text-grey" datetime="2018-11-12T12:00:02.000Z">
+                        2018-11-12
+                    </time>
+                    <i class="far fa-folder"></i>
+                    
+                        <div class="level-item">
+                            <a class="has-link-grey -link" href="/categories/Plan/">Plan</a>
+                        </div>
+                    
+                    <i class="far fa-edit"></i>
+                    
+                        <span class="level-item has-text-grey">
+                            1060 Words
+                        </span>
+                    
+                </div>
+            </div>
+        </div>
+        
+        <div class="content">
+            <p>本计划根据 <a href="//oi.men.ci">Menci 博客</a> 题解时间顺序排列。<br>CodeVS 和 COGS 的部分题出于某些原因不打算做（主要是没有账号）。<br>部分未完成且正准备做的题目可能会给出链接（优先级：洛谷 &gt; BZOJ &gt; LOJ &gt; UOJ）。</p>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/plan-menci-blog/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article
+         
+    ">
+        
+        <div class="my-title ">
+            <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+                
+                    <a class="has-link-black-ter" href="/solution-bzoj-5017/">BZOJ5017 - [SNOI2017] 炸弹</a>
+                
+            </h1>
+            <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
+                <div class="level-left">
+                    <i class="far fa-clock"></i>
+                    <time class="level-item has-text-grey" datetime="2018-11-12T11:33:40.000Z">
+                        2018-11-12
                     </time>
                     <i class="far fa-folder"></i>
                     
@@ -211,7 +277,7 @@ var _hmt = _hmt || [];
                     <i class="far fa-edit"></i>
                     
                         <span class="level-item has-text-grey">
-                            857 Words
+                            935 Words
                         </span>
                     
                 </div>
@@ -219,14 +285,18 @@ var _hmt = _hmt || [];
         </div>
         
         <div class="content">
-            <p>先考虑 $|S| = 2$ 的情况：把原图缩成一棵圆方树，查询两点路径上的圆点个数（除去这两个点本身）。我们可以很方便的把这个性质拓展到 $|S|$ 为任意值的的情况，只要先差分出圆方树上每个点到根节点的圆点个数，然后把每次查询的点建出虚树，进行简单的树上差分即可。需要注意的是多组数据间的变量初始化，以及圆方树的节点个数是原来的两倍。</p>
+            <p>zhouyuheng2003 学长一天打完 CF 后给我做的一道他说是简单题的题，然而炒鸡难！！！</p>
+<p>考虑暴力，每个炸弹向能引爆炸弹的连边，总数是 $n^2$ 级别的。之后跑 tarjan 缩点，并在 DAG 上统计答案。统计是，考虑合并来的点所对应的情况可能会有重点，因此需要开桶去重。这样的时空复杂度都是 $O(n^2)$ 的。</p>
+<p>考虑优化，通过观察可以发现，能引爆的炸弹一定是连续的一整段区间。可以用线段树优化建边，统计答案时不需要开桶统计，而是统计能够炸掉的最左端的点和最右端的点。时间复杂度 $O(n \log n)$ ，空间复杂度 $O(n \log n)$。</p>
+<p>同时</p>
+<p>当然这并不是最优的，zhouyuheng2003 学长的博客中给出了一种时空复杂度均为 $O(n)$ 的做法。见 <a href="https://blog.csdn.net/zhouyuheng2003/article/details/83278984" target="_blank" rel="noopener">https://blog.csdn.net/zhouyuheng2003/article/details/83278984</a> 。</p>
         </div>
         
         
         <div class="level is-mobile">
             <div class="level-start">
                 <div class="level-item">
-                <a class="button is-size-7 is-light" href="/solution-luogu-4606/#more">阅读更多</a>
+                <a class="button is-size-7 is-light" href="/solution-bzoj-5017/#more">阅读更多</a>
                 </div>
             </div>
         </div>
@@ -248,25 +318,25 @@ var _hmt = _hmt || [];
         <div class="my-title ">
             <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
                 
-                    <a class="has-link-black-ter" href="/algorithm-虚树/">虚树学习笔记</a>
+                    <a class="has-link-black-ter" href="/diary-NOIP2018游记/">NOIP2018 爆零记</a>
                 
             </h1>
             <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
                 <div class="level-left">
                     <i class="far fa-clock"></i>
-                    <time class="level-item has-text-grey" datetime="2018-12-20T02:35:31.000Z">
-                        2018-12-20
+                    <time class="level-item has-text-grey" datetime="2018-11-10T12:51:19.000Z">
+                        2018-11-10
                     </time>
                     <i class="far fa-folder"></i>
                     
                         <div class="level-item">
-                            <a class="has-link-grey -link" href="/categories/Algorithm/">Algorithm</a>
+                            <a class="has-link-grey -link" href="/categories/Diary/">Diary</a>
                         </div>
                     
                     <i class="far fa-edit"></i>
                     
                         <span class="level-item has-text-grey">
-                            748 Words
+                            2055 Words
                         </span>
                     
                 </div>
@@ -274,18 +344,53 @@ var _hmt = _hmt || [];
         </div>
         
         <div class="content">
-            <p>题目先给定一棵树，然后每次询问和其中的一部分点有关的信息，且只考虑这些点和他们的 LCA 对答案没有影响，则可以考虑虚树。先求出所有点的欧拉序，把每次询问给出的点按照欧拉序排序，依次插入栈中，维护栈内元素使得形成一条在已插入的点中最右端的链。</p>
-<p>其实没什么新知识，可以说是一种思想，所以代码也很好写，就是需要注意细节。</p>
+            <h1 id="Day-1"><a href="#Day-1" class="headerlink" title="Day -1"></a>Day -1</h1><blockquote>
+<p>注意这是 -1 天</p>
+</blockquote>
+<p>上午照常模拟赛，考 NOIP 信心赛。</p>
+<p>虽然是信心赛，但是题目好难。T1 洛谷原题，黑题难度 QAQ 。后两题稍微简单一点，但是如果开始刚了 T1 估计就来不及了。</p>
+<p>我先开了 T2 ，推出了容斥，期望 $O(t \log n)$ 的 70 分。然后去开 T3 ，写了个 $O(n \times m \log n)$ 加卡常，期望 80 。最后开 T1 ，一遍写对了一个动态开点线段树，特判特殊情况拿到 50 分部分分。</p>
+<p>考试成绩出来，诶 T3 怎么 A 了 QAQ 。T2 没有输出 <code>STO yyb ORZ</code> （无解情况）少了 15 分， T1 还是预测得分 50 分。算是涨了不少信心吧。</p>
+<p>下午继续写板子，任务列表也清的差不多了。还有一些很难的算法感觉也不会用到懒得写了。</p>
+<p>晚上老师讲竞赛时间安排和一些注意事项，同是说明天是 “ Open Day ” ，我们可以光明正大的地颓废放松 233 . </p>
+<p>讲完之后感觉压力突然加大，本来以为很遥远的 NOIP 真的近在眼前了。真的，真的，好紧张。找学长哭诉。 lyc 哥哥特别好，特别温暖，给了我许多安慰 qwq。</p>
+<h1 id="Day-0"><a href="#Day-0" class="headerlink" title="Day 0"></a>Day 0</h1><p>上午开始机房集体颓废，打 <code>jokebird.com</code> 爆踩全服。之后开始打球球大作战。也有人 5 人组队 LOL （第一局被对面五杀，第二局吊打对面 233）</p>
+<p>下午继续颓废，看了点数论。</p>
+<p>在赛百味吃完饭的时候遇见了 zx2003 学长，他给我们讲了一些他的故事，也给了我很大的鼓励。</p>
+<p>晚上颓了一会会儿，然后手推 EXGCD 和 EXCRT ，虽说感觉不会考，主要还是熟悉一下推式子的感觉 QAQ 。</p>
+<p>接着去楼上机房蹭 RP ，好紧张，又哭了 QAQ 。但是学长的安慰真的很有用（不然可能窝晚上心态就蹦了）。</p>
+<p>睡觉的时候还是有点紧张，半夜睡不着。</p>
+<h1 id="Day-1-1"><a href="#Day-1-1" class="headerlink" title="Day 1"></a>Day 1</h1><p>但是早上起来精神状态还是很好的。一路赶去学军紫金港路也很顺畅。</p>
+<p>早点到校门口集合领准考证，我们有同学的准考证在校园里还没领但是要有准考证才能进场 233 。还好老师送出来了。我们初中几个还拍了合影。</p>
+<p>进考场前最后膜拜了一次大佬。坐我左边的是一个超好的（不认识的）高三学长。当时我特别紧张，他安慰了我也给了我鼓励，也让我平静了一下心态。</p>
+<p>开题，解压密码 <code>Fei2Xue@Lian$Tian!</code> 。学军体育馆可真冷。</p>
+<p>T1 上手一个 $O(n ^ 2)$ 贪心过了大样例，然后用 ST 表优化成 $O(n \log n)$ 开始拍。</p>
+<p>T2 一开始以为是 exgcd ，但又感觉不可能那么难。看了眼 T3 没思路，滚回来手玩了一下样例想到了个背包。一发过了大样例感觉很稳。</p>
+<p>T3 先写了部分分，和状压暴力对拍。差不多写满 55 分部分分，正解的思路也有了。此时我可以写二叉树的部分分到 80 ，也可以直接写正解。经过了一番焦灼，还是写了部分分，毕竟写正解也有可能调不出来。</p>
+<p>考完和同学 yy T3 ，发现了一个思维漏洞，不过很容易拍出来，而且我也立马想到了补救措施。不过如果这是考场就不一定了。所以感觉当初自己稳一点写了部分分也是挺正确的。</p>
+<p>估分 $280 = 100 + 100 + 80$ ，考完听说 Sooke 、mocania 、 LJC00118 、 Isonan 都 AK 了。唉，毕竟技不如人，甘拜下风。</p>
+<p>下午继续颓废，帮学长安 Flash Player 但是失败了，同时跟同学继续嘴巴 T3 。</p>
+<p>晚上颓废 + 写游记，也不是很紧张了。</p>
+<p>明天加油：尽人事，听天命。</p>
+<h1 id="Day-2"><a href="#Day-2" class="headerlink" title="Day 2"></a>Day 2</h1><p>无论如何预感今天的题目会很难。跟同学开玩笑说今天写满暴力就好了，结果还真 tmd 暴力滚粗了。</p>
+<p>解压密码和昨天连起来：“飞雪连天射白鹿，笑书神侠倚碧鸳。” CCF 的解压密码倒是一年比一年有创意了233。就是能不能不要出原题QAQ。</p>
+<p>开 T1 ，一开始以为是一张图，没想到是一个树和基环树。等等，这一题当两题的画风，让我想到了栗栗的书架啊。先随手写了个树的情况，过了大样例，开始看 T2 。</p>
+<p>T2 一眼以为是状压，一脸懵逼。还成功出现了“关于 T2 的题目解释请看 T1 的情况”（那放洛谷上怎么办 233）。本想枚举个数然后直接判断，结果第二个样例输出 <code>144</code> 瞬间懵逼。写了发状压枚举路径判断过了两个小样例。开始跑 $5 \times 5$ 的但始终过不去（为什么别人的状压可以跑 $7 \times 7$ QAQ）。发现了每次 $\times 3$ 的规律。</p>
+<p>没办法，开 T3 ，44 分的 $O(n m)$ 暴力很好写，一遍过了大样例。开始想正解却没思路。目前已经有 $60 + 50 + 44 = 154$ 分了，还有两个小时多，先上个厕所冷静一下。</p>
+<p>回来想继续优化 T2 ，但脑子里一直把枚举矩阵的 $O(2^{nm})$  复杂度搞成了 $O(2^{n+m})$ 。结果当然是就算苦苦优化还是过不去大样例，白白浪费了半个小时。</p>
+<p>接下去去看 T1 $n = m$ 的情况，由于 $m = n - 1$ 的情况可以 $O(n)$ 完成，我把 $n = 5000$ 的数据范围当成了 $n = 100000$ 最后强行想出来了一个 $O(n)$ 解法但已经又过了半个小时。还有一个小时感觉写不完这个及其麻烦的做法，赶紧苟了个成环的部分分。</p>
+<p>只能看 T3 部分分。一条链上的情况考场里一脸懵逼毫无思路，考完出来却豁然开朗（mmp）。其实把 dp 的转移变成一个个矩阵放到线段树上区间查询即可。然而考场上我脑子里一片空白，什么也想不到。</p>
+<p>回去检查 T2 ， T2 的大样例好毒啊，不仅给的数据范围小，而且都是 $n = m$ 的，感觉有坑。检查了老半天暴力还有不到半个小时。发现 $n = 1$ 的情况不是每次乘以 $3$ 而是 $2$ 。赶快改过来（差点就没分了），捡回一条狗命。</p>
+<p>最后时间照常检查文件，交卷。考完出来要了隔壁同学的 QQ 号，也算是一种缘分吧。</p>
+<p>Sooke ， Isonan 照样稳的一比 ， $200+$ 。感觉考场 debuff 太严重了，真的脑子里一片空白。平时模拟赛可以拖一段时间交卷，大胆地去尝试正解，然而考试的时候不仅没拖延的可能，还要单独花时间检查文件等等，一下就丧失了去尝试正解的勇气。</p>
+<p>最后期望得分 $189 = 80 + 65 + 44$</p>
+<h1 id="Day-3"><a href="#Day-3" class="headerlink" title="Day 3"></a>Day 3</h1><p>出选手代码了，去洛谷上交了一发竟然 $ 474 = 100 + 100 + 80 + 80 + 70 + 44 $ ，激动的要死。</p>
+<p>当然也有同学 D2T1 的 $O(n log n)$ 做法挂了，但还是比我高。</p>
+<h1 id="Day"><a href="#Day" class="headerlink" title="Day ?"></a>Day ?</h1><p>CCF 官方成绩出了，只有 $ 454 = 100 + 100 + 65 + 80 + 65 + 44 $ ，原来 D1T3 的分支不超过三按照我的那种方法有可能在根节点三叉。</p>
+<p>看来 WC 无望了，只能希望可以上 PKUWC 的初中线吧。</p>
+
         </div>
         
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/algorithm-虚树/#more">阅读更多</a>
-                </div>
-            </div>
-        </div>
         
         
     </div>
@@ -304,25 +409,25 @@ var _hmt = _hmt || [];
         <div class="my-title ">
             <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
                 
-                    <a class="has-link-black-ter" href="/algorithm-动态DP/">动态 DP 学习笔记</a>
+                    <a class="has-link-black-ter" href="/geek-mac下sb3运行g++/">Mac 下 Sublime Text 3 配置运行 G++</a>
                 
             </h1>
             <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
                 <div class="level-left">
                     <i class="far fa-clock"></i>
-                    <time class="level-item has-text-grey" datetime="2018-12-20T01:47:57.000Z">
-                        2018-12-20
+                    <time class="level-item has-text-grey" datetime="2018-11-07T08:19:00.000Z">
+                        2018-11-07
                     </time>
                     <i class="far fa-folder"></i>
                     
                         <div class="level-item">
-                            <a class="has-link-grey -link" href="/categories/Algorithm/">Algorithm</a>
+                            <a class="has-link-grey -link" href="/categories/Geek/">Geek</a>
                         </div>
                     
                     <i class="far fa-edit"></i>
                     
                         <span class="level-item has-text-grey">
-                            1764 Words
+                            255 Words
                         </span>
                     
                 </div>
@@ -330,18 +435,20 @@ var _hmt = _hmt || [];
         </div>
         
         <div class="content">
-            <p>（好懒不想写博客）</p>
-<p>把每个点的 dp 转移分成 重儿子 和 自己+轻儿子 两个部分。重儿子的转移把矩阵放树上维护，利用矩阵乘法的性质；轻儿子的转移的每次修改时暴力维护，利用 dp 的性质。详情参考 <a href="https://cmxrynp.github.io/2018/11/03/%E5%9F%BA%E4%BA%8E%E5%8F%98%E6%8D%A2%E5%90%88%E5%B9%B6%E7%9A%84%E6%A0%91%E4%B8%8A%E5%8A%A8%E6%80%81DP%E7%9A%84%E9%93%BE%E5%88%86%E6%B2%BB%E7%AE%97%E6%B3%95%E5%92%8C%E5%85%A8%E5%B1%80%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" target="_blank" rel="noopener"> txc 哥哥的博客</a>。</p>
+            <h1 id="配置编译系统"><a href="#配置编译系统" class="headerlink" title="配置编译系统"></a>配置编译系统</h1><p>新建编译系统并粘贴入以下命令，保存为 <code>G++.sublime-build</code> 或其他你喜欢的名称。</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;shell_cmd&quot;: &quot;g++ \&quot;$&#123;file&#125;\&quot; -o \&quot;$&#123;file_path&#125;/$&#123;file_base_name&#125;\&quot; -Wall&quot;,</span><br><span class="line">    &quot;file_regex&quot;: &quot;^(..[^:]*):([0-9]+):?([0-9]+)?:? (.*)$&quot;,</span><br><span class="line">    &quot;working_dir&quot;: &quot;$&#123;file_path&#125;&quot;,</span><br><span class="line">    &quot;selector&quot;: &quot;source.c, source.c++&quot;,</span><br><span class="line">    &quot;variants&quot;:</span><br><span class="line">    [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;name&quot;: &quot;compile&quot;,</span><br><span class="line">            &quot;shell_cmd&quot;: &quot;g++ \&quot;$&#123;file&#125;\&quot; -o \&quot;/tmp/$&#123;file_base_name&#125;\&quot; -Wall -O2 &amp;&amp; echo &apos;Compile finished.&apos;&quot;</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;name&quot;: &quot;run&quot;,</span><br><span class="line">            &quot;shell_cmd&quot;: &quot;&apos;/tmp/$&#123;file_base_name&#125;&apos; &amp;&amp; echo &apos;=============\nRun finished.&apos;&quot;</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;name&quot;: &quot;compile &amp; run&quot;,</span><br><span class="line">            &quot;shell_cmd&quot;: &quot;g++ \&quot;$&#123;file&#125;\&quot; -o \&quot;/tmp/$&#123;file_base_name&#125;\&quot; -Wall -O2 &amp;&amp; /tmp/$&#123;file_base_name&#125; &amp;&amp; echo &apos;=============\nComplie &amp; run finished.&apos;&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="配置编译运行快捷键"><a href="#配置编译运行快捷键" class="headerlink" title="配置编译运行快捷键"></a>配置编译运行快捷键</h1><p>把以下代码粘贴到你的快捷键配置文件中，表示 <code>F9</code> 编译， <code>F10</code> 运行， <code>F11</code> 编译并运行。</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	&quot;keys&quot;: [&quot;f9&quot;], &quot;command&quot;: &quot;build&quot;,</span><br><span class="line">	&quot;args&quot;: &#123;</span><br><span class="line">		&quot;variant&quot;: &quot;compile&quot;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;,</span><br><span class="line">	&#123;</span><br><span class="line">		&quot;keys&quot;: [&quot;f10&quot;], &quot;command&quot;: &quot;build&quot;,</span><br><span class="line">		&quot;args&quot;: &#123;</span><br><span class="line">			&quot;variant&quot;: &quot;run&quot;</span><br><span class="line">		&#125;</span><br><span class="line">&#125;,</span><br><span class="line">	&#123;</span><br><span class="line">		&quot;keys&quot;: [&quot;f11&quot;], &quot;command&quot;: &quot;build&quot;,</span><br><span class="line">		&quot;args&quot;: &#123;</span><br><span class="line">			&quot;variant&quot;: &quot;compile &amp; run&quot;</span><br><span class="line">		&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="其他注意事项"><a href="#其他注意事项" class="headerlink" title="其他注意事项"></a>其他注意事项</h1><p>Mac OS 下默认用 Clang 编译 G++ 代码。因此不支持使用万能头文件（<code>bits/stdc++.h</code>），解决方案：</p>
+<ol>
+<li><p>手动复制 <code>bits/stdc++.h</code> 文件到对应目录中</p>
+</li>
+<li><p>手动安装 <code>g++4.9</code> 并把上面编译命令中的 <code>g++</code> 替换为 <code>g++-4.9</code></p>
+</li>
+</ol>
+
         </div>
         
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/algorithm-动态DP/#more">阅读更多</a>
-                </div>
-            </div>
-        </div>
         
         
     </div>
@@ -360,14 +467,14 @@ var _hmt = _hmt || [];
         <div class="my-title ">
             <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
                 
-                    <a class="has-link-black-ter" href="/solution-luogu-5106/">洛谷5106 - dkw的lcm</a>
+                    <a class="has-link-black-ter" href="/solution-luogu-4949/">洛谷4949 - 最短距离</a>
                 
             </h1>
             <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
                 <div class="level-left">
                     <i class="far fa-clock"></i>
-                    <time class="level-item has-text-grey" datetime="2018-12-19T01:22:05.000Z">
-                        2018-12-19
+                    <time class="level-item has-text-grey" datetime="2018-10-26T08:00:00.000Z">
+                        2018-10-26
                     </time>
                     <i class="far fa-folder"></i>
                     
@@ -378,7 +485,7 @@ var _hmt = _hmt || [];
                     <i class="far fa-edit"></i>
                     
                         <span class="level-item has-text-grey">
-                            598 Words
+                            742 Words
                         </span>
                     
                 </div>
@@ -386,22 +493,247 @@ var _hmt = _hmt || [];
         </div>
         
         <div class="content">
-            <p>积性函数的定义： 如果 $(a,b) = 1$ ，那么 $f(ab) = f(a) \times f(b)$ 。 显然欧拉函数是积性函数。</p>
-<p>设 $lcm(i_1, i_2, …, i_k) = x$ ，我们把 $x$ 表示成 $x = \prod {p_i ^ {a_i}}$ 的形式。对每个 $p_i ^ { a_i }$ 分开考虑，枚举每个质数与幂次，用简单容斥统计出每个 $\varphi({p_i ^ {a_i}})$ 在答案中出现的次数，通过欧拉定理 + 快速幂计算答案。</p>
-<p>假设我们当前枚举的质数为 $p^k$ ，我们把 $[1..n]$ 的数分成三个集合 $A, B, C$</p>
-<ul>
-<li>对于每个 $x \in A$ ，当且仅当 $p^k \not\mid x$；</li>
-<li>对于每个 $x \in B$ ，当且仅当 $p^k \mid x$ 且 $p^{k + 1} \not\mid x$ ；</li>
-<li>对于每个 $x \in C$ ，当且仅当 $p^{k+1} \mid x$。</li>
-</ul>
-<p>则答案中 $\varphi({p^k})$ 的幂次相当于给 $k$ 个空位，只能放集合 $A$ 和 $B$ 中的元素且集合 $B$ 中的元素至少放一次的方案数，即 $(|A| + |B|)^k - |A|^k$，此处的值可能会超过 int 的存储范围，因而根据欧拉定理，对 $\varphi(10^9+7) $ （即 $ 10^9+6$ ）取模。</p>
+            <p>本题大概是一个基环树上带修改边权的最短距离。可以把他看做一棵树，把多的那条边拎出来，树剖维护距离，分类讨论即可。大概是你谷蓝题难度吧。</p>
+<p>由于树剖只需要查询 dfs 序上区间最小值，可以考虑树状数组维护常熟较小。目前不卡常的情况下你谷效率 rk1 。</p>
         </div>
         
         
         <div class="level is-mobile">
             <div class="level-start">
                 <div class="level-item">
-                <a class="button is-size-7 is-light" href="/solution-luogu-5106/#more">阅读更多</a>
+                <a class="button is-size-7 is-light" href="/solution-luogu-4949/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article
+         
+    ">
+        
+        <div class="my-title ">
+            <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+                
+                    <a class="has-link-black-ter" href="/solution-luogu-3620/">洛谷3620 - [APIO/CTSC 2007] 数据备份</a>
+                
+            </h1>
+            <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
+                <div class="level-left">
+                    <i class="far fa-clock"></i>
+                    <time class="level-item has-text-grey" datetime="2018-10-17T12:52:00.000Z">
+                        2018-10-17
+                    </time>
+                    <i class="far fa-folder"></i>
+                    
+                        <div class="level-item">
+                            <a class="has-link-grey -link" href="/categories/Solution/">Solution</a>
+                        </div>
+                    
+                    <i class="far fa-edit"></i>
+                    
+                        <span class="level-item has-text-grey">
+                            504 Words
+                        </span>
+                    
+                </div>
+            </div>
+        </div>
+        
+        <div class="content">
+            <p>首先我们把原来的距离数组 $p$ 差分为数组 $a$。原题可以等同为在 $a$ 数组中选择 $k$ 个不相邻的数使得总和最小。</p>
+<p>假设我们已经选择了 $a_i$ ，那么 $a_{i-1}$ 和 $a_{i+1}$ 要么同时选择，要么同时没有被选择。同时，如果我们同时选择，需要的花费即 $V_{a_{i+1}} + V_{a_{i-1}} - V_{a_i}$ 。我们维护一个堆和双向链表，每次从小根堆选择堆顶，把 $a_i$、 $a_{i-1}$ 和 $a_{i+1}$ 同时删除，再新建一个价值为 $V_{a_{i+1}} + V_{a_{i-1}} - V_{a_i}$ 的节点，扔到堆里，重复 $k$ 次就能得到答案。 </p>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/solution-luogu-3620/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article
+         
+    ">
+        
+        <div class="my-title ">
+            <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+                
+                    <a class="has-link-black-ter" href="/geek-devc高分屏/">Dev C++ 资瓷 Hi DPI 方法</a>
+                
+            </h1>
+            <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
+                <div class="level-left">
+                    <i class="far fa-clock"></i>
+                    <time class="level-item has-text-grey" datetime="2018-10-11T04:35:39.000Z">
+                        2018-10-11
+                    </time>
+                    <i class="far fa-folder"></i>
+                    
+                        <div class="level-item">
+                            <a class="has-link-grey -link" href="/categories/Geek/">Geek</a>
+                        </div>
+                    
+                    <i class="far fa-edit"></i>
+                    
+                        <span class="level-item has-text-grey">
+                            136 Words
+                        </span>
+                    
+                </div>
+            </div>
+        </div>
+        
+        <div class="content">
+            <p>前提条件，新版 Windows 10 （在有高分屏的机子上装 Win 10 不苛刻吧）。</p>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/geek-devc高分屏/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article
+         
+    ">
+        
+        <div class="my-title ">
+            <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+                
+                    <a class="has-link-black-ter" href="/geek-git生成ssh公钥/">Git 生成 SSH 公钥</a>
+                
+            </h1>
+            <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
+                <div class="level-left">
+                    <i class="far fa-clock"></i>
+                    <time class="level-item has-text-grey" datetime="2018-10-10T12:20:32.000Z">
+                        2018-10-10
+                    </time>
+                    <i class="far fa-folder"></i>
+                    
+                        <div class="level-item">
+                            <a class="has-link-grey -link" href="/categories/Geek/">Geek</a>
+                        </div>
+                    
+                    <i class="far fa-edit"></i>
+                    
+                        <span class="level-item has-text-grey">
+                            229 Words
+                        </span>
+                    
+                </div>
+            </div>
+        </div>
+        
+        <div class="content">
+            <blockquote>
+<p>由于最近经常折腾虚拟机和新电脑， git 也经常要重新安装 / 配置，因此记录一下 git 添加 SSH 公钥的方式。</p>
+</blockquote>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/geek-git生成ssh公钥/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article
+         
+    ">
+        
+        <div class="my-title ">
+            <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+                
+                    <a class="has-link-black-ter" href="/solution-codeforces-1059d/">CF1059D - Nature Reserve</a>
+                
+            </h1>
+            <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
+                <div class="level-left">
+                    <i class="far fa-clock"></i>
+                    <time class="level-item has-text-grey" datetime="2018-10-07T04:19:20.000Z">
+                        2018-10-07
+                    </time>
+                    <i class="far fa-folder"></i>
+                    
+                        <div class="level-item">
+                            <a class="has-link-grey -link" href="/categories/Solution/">Solution</a>
+                        </div>
+                    
+                    <i class="far fa-edit"></i>
+                    
+                        <span class="level-item has-text-grey">
+                            544 Words
+                        </span>
+                    
+                </div>
+            </div>
+        </div>
+        
+        <div class="content">
+            <blockquote>
+<p>该死的精度问题让我调了一个小时还没有调出来（事实说明我还是太菜了。）</p>
+</blockquote>
+<p>大概意思就是说平面上给了你一些点然后你要构造一个与 x 轴相切的圆把这些圆都包裹进去。</p>
+<p>考虑二分圆的半径，这样就知道了圆心的 y 坐标，根据点在圆内的充要条件——点到圆心的距离小于等于半径计算出圆心的 x 坐标的范围。如果存在两个范围不相交，说明无法构造出一个符合条件的圆心。</p>
+<p>需要注意浮点数运算的精度问题，比如计算 x 坐标的范围时这么写：</p>
+<figure class="highlight cpp hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dis = r * r - (r - y) * (r - y);</span><br></pre></td></tr></table></figure>
+<p>就容易被卡，而：</p>
+<figure class="highlight cpp hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dis = <span class="hljs-number">2</span> * r * y - y * y;</span><br></pre></td></tr></table></figure>
+<p>就不容易。</p>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/solution-codeforces-1059d/#more">阅读更多</a>
                 </div>
             </div>
         </div>
@@ -438,7 +770,7 @@ var _hmt = _hmt || [];
             
             <li><span class="pagination-ellipsis has-text-black-ter">&hellip;</span></li>
             
-            <li><a class="pagination-link has-text-black-ter" href="/page/19/">19</a></li>
+            <li><a class="pagination-link has-text-black-ter" href="/page/10/">10</a></li>
             
         </ul>
     </nav>

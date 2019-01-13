@@ -136,266 +136,13 @@ var _hmt = _hmt || [];
         <div class="my-title ">
             <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
                 
-                    <a class="has-link-black-ter" href="/solution-luogu-4385/">洛谷4385 - [COCI2009]Dvapravca</a>
+                    <a class="has-link-black-ter" href="/solution-loj-6515/">LOJ - 6515 「雅礼集训 2018 Day10」贪玩蓝月</a>
                 
             </h1>
             <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
                 <div class="level-left">
                     <i class="far fa-clock"></i>
-                    <time class="level-item has-text-grey" datetime="2019-01-07T10:18:47.000Z">
-                        2019-01-07
-                    </time>
-                    <i class="far fa-folder"></i>
-                    
-                        <div class="level-item">
-                            <a class="has-link-grey -link" href="/categories/Solution/">Solution</a>
-                        </div>
-                    
-                    <i class="far fa-edit"></i>
-                    
-                        <span class="level-item has-text-grey">
-                            498 Words
-                        </span>
-                    
-                </div>
-            </div>
-        </div>
-        
-        <div class="content">
-            <p>今天模拟赛的第三题<del>（又达成了原题考试的成就）</del>。考场的时候由于 T2 调太久这题暴力都没写… 现在依然不会正解于是写了个随机化算法 AC 。</p>
-<p>每次随机两个点，然后计算出他们的连线的斜率，每次 $O(n)$ 判断一下选取与这条直线平行的两条直接的答案，随机个次几万次w就过了…</p>
-<p>这里可能有个细节问题，也就是说我们每次选出的两个点中可能有不合法的点，实际上影响不大，因为我们可以通过略倾斜直线来取到另一个合法的点。</p>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/solution-luogu-4385/#more">阅读更多</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
-    <div class="card">
-    
-    <div class="card-content article
-         
-    ">
-        
-        <div class="my-title ">
-            <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-                
-                    <a class="has-link-black-ter" href="/solution-bzoj-4179/">BZOJ4179 - B</a>
-                
-            </h1>
-            <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
-                <div class="level-left">
-                    <i class="far fa-clock"></i>
-                    <time class="level-item has-text-grey" datetime="2019-01-07T10:12:19.000Z">
-                        2019-01-07
-                    </time>
-                    <i class="far fa-folder"></i>
-                    
-                        <div class="level-item">
-                            <a class="has-link-grey -link" href="/categories/Solution/">Solution</a>
-                        </div>
-                    
-                    <i class="far fa-edit"></i>
-                    
-                        <span class="level-item has-text-grey">
-                            671 Words
-                        </span>
-                    
-                </div>
-            </div>
-        </div>
-        
-        <div class="content">
-            <p>今天模拟赛的第二题，还是大水题，但是由于 SPFA 打错调了好久，还有这个 SB 出题人怎么说都不说一句读入的 $L$ 是 long long 范围的啊，<del>你™咋不上高精</del>？</p>
-<p>好了，回归正常的题解。本题可以理解为 POI2000 病毒 的加强版<del>（连样例都一样）</del>，于是按照惯例，我们只需要建造一棵 AC 自动机。如果能够找到环，那么一定能够产生无限长度的答案串，直接输出 Yes 即可。否则就是一棵 DAG ，跑一下 SPFA <del>（或 BFS）</del>求出最长的答案串，和要求的 $L$ 比较一下就好。 </p>
-<p><del>我不会说我写了个 SPFA  还写挂调了两个小时的…</del></p>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/solution-bzoj-4179/#more">阅读更多</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
-    <div class="card">
-    
-    <div class="card-content article
-         
-    ">
-        
-        <div class="my-title ">
-            <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-                
-                    <a class="has-link-black-ter" href="/solution-bzoj-4178/">BZOJ4178 - A</a>
-                
-            </h1>
-            <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
-                <div class="level-left">
-                    <i class="far fa-clock"></i>
-                    <time class="level-item has-text-grey" datetime="2019-01-07T10:08:13.000Z">
-                        2019-01-07
-                    </time>
-                    <i class="far fa-folder"></i>
-                    
-                        <div class="level-item">
-                            <a class="has-link-grey -link" href="/categories/Solution/">Solution</a>
-                        </div>
-                    
-                    <i class="far fa-edit"></i>
-                    
-                        <span class="level-item has-text-grey">
-                            512 Words
-                        </span>
-                    
-                </div>
-            </div>
-        </div>
-        
-        <div class="content">
-            <p>今天模拟赛的第一题， NTT 作多项式乘法，把后面的转移快速幂一下就过了。需要注意的是 950009857 的原根是 7 而不是 3 。</p>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/solution-bzoj-4178/#more">阅读更多</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
-    <div class="card">
-    
-    <div class="card-content article
-         
-    ">
-        
-        <div class="my-title ">
-            <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-                
-                    <a class="has-link-black-ter" href="/solution-bzoj-2410/">BZOJ2410 - Nim游戏</a>
-                
-            </h1>
-            <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
-                <div class="level-left">
-                    <i class="far fa-clock"></i>
-                    <time class="level-item has-text-grey" datetime="2019-01-04T04:02:18.000Z">
-                        2019-01-04
-                    </time>
-                    <i class="far fa-folder"></i>
-                    
-                        <div class="level-item">
-                            <a class="has-link-grey -link" href="/categories/Solution/">Solution</a>
-                        </div>
-                    
-                    <i class="far fa-edit"></i>
-                    
-                        <span class="level-item has-text-grey">
-                            1477 Words
-                        </span>
-                    
-                </div>
-            </div>
-        </div>
-        
-        <div class="content">
-            <p>@GNAQ 给的博弈劲爆题，让人无言以对 233.</p>
-<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><h4 id="k-gt-2"><a href="#k-gt-2" class="headerlink" title="k &gt; 2"></a>k &gt; 2</h4><p>对于这种情况，我们可以发现任何时候一定可以给空白格子染色。所以我们只需要判断剩余空白格子的奇偶性即可</p>
-<h4 id="k-1"><a href="#k-1" class="headerlink" title="k = 1"></a>k = 1</h4><p>显然被已经染色的格子分隔出的连续空白格子是不会相互影响的，所以我们可以把他看做一个组合 Nim 游戏，最后判断求一下每个游戏的 SG 函数异或和。</p>
-<p>首先你要知道 mex 函数是什么，这里不再赘述，以下的打表程序中用到的实现是：</p>
-<figure class="highlight cpp hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">mex</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">set</span> &lt;<span class="hljs-keyword">int</span>&gt; &amp;<span class="hljs-built_in">set</span>)</span> </span>&#123;</span><br><span class="line">	<span class="hljs-keyword">if</span> (!<span class="hljs-built_in">set</span>.size() || *<span class="hljs-built_in">set</span>.begin()) <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;</span><br><span class="line">	<span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> i = <span class="hljs-built_in">set</span>.begin(), j = ++<span class="hljs-built_in">set</span>.begin(); j != <span class="hljs-built_in">set</span>.end(); i = j, j++)</span><br><span class="line">		<span class="hljs-keyword">if</span> ((*i) + <span class="hljs-number">1</span> != (*j)) <span class="hljs-keyword">return</span> (*i) + <span class="hljs-number">1</span>;</span><br><span class="line">	<span class="hljs-keyword">return</span> (*--<span class="hljs-built_in">set</span>.end()) + <span class="hljs-number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>此时题目可以转换为每次染色的格子必须与已经染色的格子不相邻。设 $ sg1 ( x ) $ 为有连续 $x$ 个空白格子可以放的 SG 值，则可以推出式子（注意边界情况）：</p>
-<p>$$ sg1(i) = mex ( sg1 ( j ) \oplus sg1 ( i - j - 3) ( 1 \leq j \leq i - 4), sg1(i - 2), sg(i - 3)) $$</p>
-<p>写个程序打表：</p>
-<figure class="highlight cpp hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sg[<span class="hljs-number">0</span>] = <span class="hljs-number">0</span>, sg[<span class="hljs-number">1</span>] = <span class="hljs-number">1</span>, sg[<span class="hljs-number">2</span>] = <span class="hljs-number">1</span>, sg[<span class="hljs-number">3</span>] = <span class="hljs-number">2</span>;</span><br><span class="line"><span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">4</span>; i &lt;= n; i++) &#123;</span><br><span class="line">    <span class="hljs-built_in">set</span>.clear(), <span class="hljs-built_in">set</span>.insert(sg[i - <span class="hljs-number">2</span>]), <span class="hljs-built_in">set</span>.insert(sg[i - <span class="hljs-number">3</span>]);</span><br><span class="line">    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">1</span>; i - j - <span class="hljs-number">3</span> &gt;= <span class="hljs-number">1</span>; j++)</span><br><span class="line">        <span class="hljs-built_in">set</span>.insert(sg[j] ^ sg[i - j - <span class="hljs-number">3</span>]);</span><br><span class="line">    sg[i] = mex(<span class="hljs-built_in">set</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>跑出来以后，你可能会大叫这是什么 ** 玩意儿，下面是表：</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1 1 2 0 3 1 1 0 3 3 2 2 4 0 5 2 2 3 3 0 1 1 3 0 2 1 1 0 4 5 2 7 4 0</span><br><span class="line">1 1 2 0 3 1 1 0 3 3 2 2 4 4 5 5 2 3 3 0 1 1 3 0 2 1 1 0 4 5 3 7 4 8</span><br><span class="line">1 1 2 0 3 1 1 0 3 3 2 2 4 4 5 5 9 3 3 0 1 1 3 0 2 1 1 0 4 5 3 7 4 8</span><br><span class="line">1 1 2 0 3 1 1 0 3 3 2 2 4 4 5 5 9 3 3 0 1 1 3 0 2 1 1 0 4 5 3 7 4 8</span><br><span class="line">1 1 2 0 3 1 1 0 3 3 2 2 4 4 5 5 9 3 3 0 1 1 3 0 2 1 1 0 4 5 3 7 4 8</span><br></pre></td></tr></table></figure>
-<p>可以发现每 34 位一循环，除了第一行和第二行有些特例（我才不会告诉你我是因为当初没仔细看后几位的差别才找到这个循环节的…）</p>
-<h4 id="k-2"><a href="#k-2" class="headerlink" title="k = 2"></a>k = 2</h4><p>同理，我们可以这样假设 SG 函数（请注意这里的定义与 $k = 1$ 有略微的差别）：</p>
-<ul>
-<li>$sg2(x, 0)$ 表示连续 $x$ 个空白格子且两端格子相同</li>
-<li>$sg2(x, 1)$ 表示连续 $x$ 个空白格子且两端格子不同</li>
-<li>$sg2(x, 2)$ 表示连续 $x$ 个空白格子且一端是已经染色的格子，另一端是边缘</li>
-<li>$sg2(x, 3)$ 表示连续 $x$ 个空白格子且两端都是边缘</li>
-</ul>
-<p>虽然最后一种情况，但是数据里并没有，你不判断也没什么关系。</p>
-<p>然后推一波式子（懒得写 $\LaTeX$ 了，直接看下面的打表程序）</p>
-<figure class="highlight cpp hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">sg[<span class="hljs-number">0</span>][<span class="hljs-number">0</span>] = sg[<span class="hljs-number">0</span>][<span class="hljs-number">1</span>] = sg[<span class="hljs-number">0</span>][<span class="hljs-number">2</span>] = sg[<span class="hljs-number">0</span>][<span class="hljs-number">3</span>] = sg[<span class="hljs-number">1</span>][<span class="hljs-number">1</span>] = <span class="hljs-number">0</span>;</span><br><span class="line">sg[<span class="hljs-number">1</span>][<span class="hljs-number">0</span>] = sg[<span class="hljs-number">1</span>][<span class="hljs-number">2</span>] = sg[<span class="hljs-number">1</span>][<span class="hljs-number">3</span>] = <span class="hljs-number">1</span>;</span><br><span class="line"><span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">2</span>; i &lt;= n; i++) &#123;</span><br><span class="line">    <span class="hljs-built_in">set</span>.clear(), <span class="hljs-built_in">set</span>.insert(sg[i - <span class="hljs-number">1</span>][<span class="hljs-number">1</span>]);</span><br><span class="line">    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">1</span>; i - j - <span class="hljs-number">1</span> &gt;= <span class="hljs-number">1</span>; j++) &#123;</span><br><span class="line">        <span class="hljs-built_in">set</span>.insert(sg[j][<span class="hljs-number">0</span>] ^ sg[i - j - <span class="hljs-number">1</span>][<span class="hljs-number">0</span>]);</span><br><span class="line">        <span class="hljs-built_in">set</span>.insert(sg[j][<span class="hljs-number">1</span>] ^ sg[i - j - <span class="hljs-number">1</span>][<span class="hljs-number">1</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">    sg[i][<span class="hljs-number">0</span>] = mex(<span class="hljs-built_in">set</span>);</span><br><span class="line"></span><br><span class="line">    <span class="hljs-built_in">set</span>.clear(), <span class="hljs-built_in">set</span>.insert(sg[i - <span class="hljs-number">1</span>][<span class="hljs-number">0</span>]);</span><br><span class="line">    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">1</span>; i - j - <span class="hljs-number">1</span> &gt;= <span class="hljs-number">1</span>; j++)</span><br><span class="line">        <span class="hljs-built_in">set</span>.insert(sg[j][<span class="hljs-number">0</span>] ^ sg[i - j - <span class="hljs-number">1</span>][<span class="hljs-number">1</span>]);</span><br><span class="line">    sg[i][<span class="hljs-number">1</span>] = mex(<span class="hljs-built_in">set</span>);</span><br><span class="line"></span><br><span class="line">    <span class="hljs-built_in">set</span>.clear(), <span class="hljs-built_in">set</span>.insert(sg[i - <span class="hljs-number">1</span>][<span class="hljs-number">2</span>]), <span class="hljs-built_in">set</span>.insert(sg[i - <span class="hljs-number">1</span>][<span class="hljs-number">0</span>]), <span class="hljs-built_in">set</span>.insert(s[i - <span class="hljs-number">1</span>][<span class="hljs-number">1</span>]);</span><br><span class="line">    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">1</span>; i - j - <span class="hljs-number">1</span> &gt;= <span class="hljs-number">1</span>; j++) &#123;</span><br><span class="line">        <span class="hljs-built_in">set</span>.insert(sg[j][<span class="hljs-number">0</span>] ^ sg[i - j - <span class="hljs-number">1</span>][<span class="hljs-number">2</span>]);</span><br><span class="line">        <span class="hljs-built_in">set</span>.insert(sg[j][<span class="hljs-number">1</span>] ^ sg[i - j - <span class="hljs-number">1</span>][<span class="hljs-number">2</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">    sg[i][<span class="hljs-number">2</span>] = mex(<span class="hljs-built_in">set</span>);</span><br><span class="line"></span><br><span class="line">    <span class="hljs-built_in">set</span>.clear(), <span class="hljs-built_in">set</span>.insert(sg[i - <span class="hljs-number">1</span>][<span class="hljs-number">2</span>]);</span><br><span class="line">    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">1</span>; i - j - <span class="hljs-number">1</span> &gt;= <span class="hljs-number">1</span>; j++)</span><br><span class="line">        <span class="hljs-built_in">set</span>.insert(sg[j][<span class="hljs-number">2</span>] ^ sg[i - j - <span class="hljs-number">1</span>][<span class="hljs-number">2</span>]);</span><br><span class="line">    sg[i][<span class="hljs-number">3</span>] = mex(<span class="hljs-built_in">set</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>可以发现：</p>
-<ul>
-<li>$sg2(x, 0) = 1$</li>
-<li>$sg2(x, 1) = 0$</li>
-<li>$sg2(x, 2) = x$</li>
-<li>$sg2(x, 3) = x \mod 2$</li>
-</ul>
-<p>综上所述即可写出程序。</p>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/solution-bzoj-2410/#more">阅读更多</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
-    <div class="card">
-    
-    <div class="card-content article
-         
-    ">
-        
-        <div class="my-title ">
-            <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-                
-                    <a class="has-link-black-ter" href="/solution-loj-6514/">LOJ6514 - 「雅礼集训 2018 Day10」文明</a>
-                
-            </h1>
-            <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
-                <div class="level-left">
-                    <i class="far fa-clock"></i>
-                    <time class="level-item has-text-grey" datetime="2019-01-03T06:49:35.000Z">
+                    <time class="level-item has-text-grey" datetime="2019-01-03T06:20:04.000Z">
                         2019-01-03
                     </time>
                     <i class="far fa-folder"></i>
@@ -407,7 +154,7 @@ var _hmt = _hmt || [];
                     <i class="far fa-edit"></i>
                     
                         <span class="level-item has-text-grey">
-                            780 Words
+                            1020 Words
                         </span>
                     
                 </div>
@@ -415,17 +162,547 @@ var _hmt = _hmt || [];
         </div>
         
         <div class="content">
-            <p>本题有虚树做法，基本思想差不多，但个人感觉还是换根树剖清真一点 233。</p>
-<p>定义一组询问的根节点为这组询问的一号节点。</p>
-<p>一个点会对答案产生贡献，当且仅当这个点到这组节点的其他节点的距离大于等于这个节点到这组询问的根节点的距离。</p>
-<p>假设当前我们做到根节点为 $ root $ ，当前节点为 $ u $ 的情况，找出这条路径的中点为 $ mid $ ，那么肯定不会对答案产生贡献的点即整颗树 $ root $ 为根节点时 $ mid $ 这个节点的整颗子树。就是一个简单的换根树剖，乱搞一下即可。</p>
+            <p>考虑离线做法，每个物品存在的时间一定是一段连续的区间。建一棵线段树按时间分治，乱搞一下。</p>
+<p>考虑在线做法：有一个部分分是只会在一端进行插入删除操作，那么我们开个栈，插入元素就加进去，删除就弹出。复杂度 $ O ( n m ) $ ；既然我们需要在两端操作，那么我们只要维护两个这样的栈即可，查询时把两边的 dp 数组合并。暴力合并是 $ O ( m ^ 2 ) $ 的，会 TLE ，所以我们把一个数组放在线段树上，枚举另一个数组的每一个数，做一下区间查询即可。同时有个问题即有可能在前端删除从后端插入的元素，这种时候我们暴力重构两个栈，各放一半的元素，就能保证复杂度。最后总时间复杂度 $ O (n \log n \times m \log m) $ ，可以通过此题。</p>
+<p>由于笔者在做题时把合并的 $ O (m ^ 2) $ 算成了 $ O ( m ) $ 所以去写了在线做法，还好想出了线段树才捡回一条命 233。</p>
         </div>
         
         
         <div class="level is-mobile">
             <div class="level-start">
                 <div class="level-item">
-                <a class="button is-size-7 is-light" href="/solution-loj-6514/#more">阅读更多</a>
+                <a class="button is-size-7 is-light" href="/solution-loj-6515/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article
+         
+    ">
+        
+        <div class="my-title ">
+            <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+                
+                    <a class="has-link-black-ter" href="/diary-2018感谢有你/">2018 感谢有你</a>
+                
+            </h1>
+            <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
+                <div class="level-left">
+                    <i class="far fa-clock"></i>
+                    <time class="level-item has-text-grey" datetime="2018-12-31T10:03:39.000Z">
+                        2018-12-31
+                    </time>
+                    <i class="far fa-folder"></i>
+                    
+                        <div class="level-item">
+                            <a class="has-link-grey -link" href="/categories/Diary/">Diary</a>
+                        </div>
+                    
+                    <i class="far fa-edit"></i>
+                    
+                        <span class="level-item has-text-grey">
+                            893 Words
+                        </span>
+                    
+                </div>
+            </div>
+        </div>
+        
+        <div class="content">
+            <p><img src="https://i.loli.net/2018/12/31/5c2a39135babe.png" alt=""></p>
+<p>2018，感谢有你。</p>
+<p>第一次写总结。由于 memset0 的语文一直处于垫底水平 + 停课半年没写过东西，请原谅一下我糟糕的表述，谢谢 qwq.</p>
+<h2 id="文化课"><a href="#文化课" class="headerlink" title="文化课"></a>文化课</h2><p>1 ~ 6 月在搞文化课。文化课的日子也不是很累吧，每天能和同学聊天什么的，作业做完也可以干一些自己喜欢的事情（比如整理整理笔记、纠错什么的）。</p>
+<p>每天都能看到她，晚自习能跟她讨论题目的真的超级开心 qwq…</p>
+<h2 id="信奥"><a href="#信奥" class="headerlink" title="信奥"></a>信奥</h2><p>7 ~ 12 月滚去搞信奥。几乎每天一次模拟赛充分享受了垫底的日子。至今仍记得当初连个树上求 LCA 的暴力都不会写，到慢慢学了倍增，到学了树剖 &amp; LCT ，到学了仙人掌、动态 DP 啥的 qwq 。可以说是在 hy（Isonan）、mwh（memset1 / _QAQ）、sk（Sooke）、wxw（LJC00118）的一步步碾压中逐渐成长吧。</p>
+<p>集训的时候也看到某些“神仙”利用各种“奇技淫巧” AK ，曾也学过那么一次。后来在学长的指导下也醒悟了这样做真的没什么意思（看到了 supy 叶老师曾经的博文 + xxx学长：我们去年也是这样的）。现在回头看，当初抄袭最多的人，要么初赛没过，要么一等都没，也算是因果报应吧。</p>
+<h2 id="关于刷题"><a href="#关于刷题" class="headerlink" title="关于刷题"></a>关于刷题</h2><p>一般做题都上洛谷、Libre OJ、BZOJ 什么的 qwq 。校内 OJ 一般用来订正题目。<del>有一段时间和同学每天晚上跑到 FLOJ 看首页的视频。。。</del></p>
+<p>洛谷的刷题量也从 100 到了 800+ ，BZOJ 也从没有到了 200+ 。虽然和正在看这篇文章的您来说没法比，但也是对我努力刷题半年的一个反馈了 qwq。</p>
+<h2 id="关于工程"><a href="#关于工程" class="headerlink" title="关于工程"></a>关于工程</h2><p>从去年（2017）年底开始就搞过博客，今年上半年尝试在买了个服务器，但最终还是换回了 Hexo 。期间也魔改了很多主题略微了解了一点 CSS qwq。</p>
+<p>还花了写时间自学了 Python ，写过一个洛谷通过题目的难度爬虫，还有一个洛谷冬日画板的脚本。虽然都是很简单的东西，但还是收获了（对我来说）很多的 Star ，也认识了很多的朋友，学了很多新的东西。谢谢你们 qwq！</p>
+<h2 id="关于（线下）朋友"><a href="#关于（线下）朋友" class="headerlink" title="关于（线下）朋友"></a>关于（线下）朋友</h2><p>现在和 Isonan 关系最好，其他不方便透露 qwq。</p>
+<p>其实心底一直有一个喜欢的人（逃），只不过现在信奥集训见不到她了（哭）. 有些半夜刷题的时候也难免想起她 qwq。</p>
+<h2 id="新年目标"><a href="#新年目标" class="headerlink" title="新年目标"></a>新年目标</h2><p>能和她一起考进杭二。</p>
+<p>PKUWC 2019 争取签掉 qwq（争取不翻车）。</p>
+<p>NOIP 2019 争取能考到 WC 2020 的分数线。</p>
+<p>立 Flag 再不颓废 qwq…</p>
+<h2 id="感谢"><a href="#感谢" class="headerlink" title="感谢"></a>感谢</h2><p>感谢我的家长和老师。</p>
+<p>感谢她对我的支持与鼓励。</p>
+<p>感谢同机房同学的陪伴（@Sooke @LJC00118 @Isnoan @xay @_QAQ @Dilute @假装老船长 @Shallowy 等等）</p>
+<p>感谢网上认识的大佬的指导 &amp; 陪伴（@Menci @小可爱三岁七 @OwenOwl @ranwen @GNAQ @Himself65 @Anguei 等等）</p>
+<p>p.s. 洛谷画板上 @OwenOwl 的操作实在太秀了，无尽膜拜…</p>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article
+         
+    ">
+        
+        <div class="my-title ">
+            <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+                
+                    <a class="has-link-black-ter" href="/solution-loj-6496/">LOJ6496 - 「雅礼集训 2018 Day1」仙人掌</a>
+                
+            </h1>
+            <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
+                <div class="level-left">
+                    <i class="far fa-clock"></i>
+                    <time class="level-item has-text-grey" datetime="2018-12-26T23:52:26.000Z">
+                        2018-12-27
+                    </time>
+                    <i class="far fa-folder"></i>
+                    
+                        <div class="level-item">
+                            <a class="has-link-grey -link" href="/categories/Solution/">Solution</a>
+                        </div>
+                    
+                    <i class="far fa-edit"></i>
+                    
+                        <span class="level-item has-text-grey">
+                            887 Words
+                        </span>
+                    
+                </div>
+            </div>
+        </div>
+        
+        <div class="content">
+            <p>分治套 NTT 优化仙人掌 DP 题目。往这个方向想其实不是很难推，于是就懒得写题解直接贴代码了 qwq。</p>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/solution-loj-6496/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article
+         
+    ">
+        
+        <div class="my-title ">
+            <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+                
+                    <a class="has-link-black-ter" href="/solution-loj-6499/">LOJ6499 - 「雅礼集训 2018 Day2」颜色</a>
+                
+            </h1>
+            <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
+                <div class="level-left">
+                    <i class="far fa-clock"></i>
+                    <time class="level-item has-text-grey" datetime="2018-12-26T15:23:39.000Z">
+                        2018-12-26
+                    </time>
+                    <i class="far fa-folder"></i>
+                    
+                        <div class="level-item">
+                            <a class="has-link-grey -link" href="/categories/Solution/">Solution</a>
+                        </div>
+                    
+                    <i class="far fa-edit"></i>
+                    
+                        <span class="level-item has-text-grey">
+                            912 Words
+                        </span>
+                    
+                </div>
+            </div>
+        </div>
+        
+        <div class="content">
+            <p>并不会正解，此处讲一个可以过此题<del>（而且跑的飞快）</del>的做法。</p>
+<p>考虑直接分块，如果对每个块开个 bitset ，这样合并（如果觉得解释的不是很清楚可以点击阅读全文看完整代码 qwq：</p>
+<figure class="highlight cpp hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">solve</span><span class="hljs-params">(<span class="hljs-keyword">int</span> l, <span class="hljs-keyword">int</span> r)</span> </span>&#123;</span><br><span class="line">	<span class="hljs-keyword">if</span> (bln[l] == bln[r]) &#123;</span><br><span class="line">		<span class="hljs-keyword">for</span> (<span class="hljs-keyword">register</span> <span class="hljs-keyword">int</span> i = l; i &lt;= r; i++)</span><br><span class="line">			ans.<span class="hljs-built_in">set</span>(a[i]);</span><br><span class="line">	&#125; <span class="hljs-keyword">else</span> &#123;</span><br><span class="line">		<span class="hljs-keyword">for</span> (<span class="hljs-keyword">register</span> <span class="hljs-keyword">int</span> i = l; i &lt; fst[bln[l] + <span class="hljs-number">1</span>]; i++)</span><br><span class="line">			ans.<span class="hljs-built_in">set</span>(a[i]);</span><br><span class="line">		<span class="hljs-keyword">for</span> (<span class="hljs-keyword">register</span> <span class="hljs-keyword">int</span> i = fst[bln[r]]; i &lt;= r; i++)</span><br><span class="line">			ans.<span class="hljs-built_in">set</span>(a[i]);</span><br><span class="line">		<span class="hljs-keyword">for</span> (<span class="hljs-keyword">register</span> <span class="hljs-keyword">int</span> i = bln[l] + <span class="hljs-number">1</span>; i &lt;= bln[r] - <span class="hljs-number">1</span>; i++)</span><br><span class="line">			ans |= f[i];</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如果块大小为 $\sqrt n$ ，那么实际上的复杂度是 $\frac {n ^ 2 \sqrt n}{64} $，复杂度其实和暴力差不多。</p>
+<p><del>Dilute: 我™写了个（假）正解分还和暴力一样。</del></p>
+<p>在不会正解的情况下，显然只能考虑在优化分块上做文章。同学基本都是调整块大小为 $7000$ 左右 + 奇技淫巧的卡常通过，此处讲一个不太一样的做法：</p>
+<p>考虑使我们的复杂度变的不正确的部分：</p>
+<figure class="highlight cpp hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">for</span> (<span class="hljs-keyword">register</span> <span class="hljs-keyword">int</span> i = bln[l] + <span class="hljs-number">1</span>; i &lt;= bln[r] - <span class="hljs-number">1</span>; i++)</span><br><span class="line">	ans |= f[i];</span><br></pre></td></tr></table></figure>
+<p>由于最多会访问到 $\sqrt n$ 个块，复杂度就不能保证。考虑处理出一个 $pre[i][j]$ 数组，表示<code>std::bitset &lt;N&gt; f[i]</code>  到  <code>std::bitset &lt;N&gt; f[i + j - 1]</code> 的异或和。由于空间限制只有 8MB ，我们只能开约 $480$ 个 <code>std::bitset &lt;N&gt;</code> ，就分成 80 个块，预处理的 $j$ 从 $1$ 到 $8$ 即可。</p>
+<p>我们的 txc 哥哥还给了一个非常优秀的常数优化：如果一个数在整个序列里只出现了一次，那么他只要在区间内，对答案的贡献肯定为 $1$（不会因为出现和自己值相同的数而减少）。前缀和处理即可，理论可以少掉一半的常数，Orz.</p>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/solution-loj-6499/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article
+         
+    ">
+        
+        <div class="my-title ">
+            <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+                
+                    <a class="has-link-black-ter" href="/solution-loj-6498/">LOJ6498 - 「雅礼集训 2018 Day2」农民</a>
+                
+            </h1>
+            <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
+                <div class="level-left">
+                    <i class="far fa-clock"></i>
+                    <time class="level-item has-text-grey" datetime="2018-12-26T15:23:36.000Z">
+                        2018-12-26
+                    </time>
+                    <i class="far fa-folder"></i>
+                    
+                        <div class="level-item">
+                            <a class="has-link-grey -link" href="/categories/Solution/">Solution</a>
+                        </div>
+                    
+                    <i class="far fa-edit"></i>
+                    
+                        <span class="level-item has-text-grey">
+                            971 Words
+                        </span>
+                    
+                </div>
+            </div>
+        </div>
+        
+        <div class="content">
+            <p>按题意可知，考虑每个节点会给左孩子带来一个 $(-\infty, a_i )$ 的限制，会给右孩子带来一个 $(a_i, +\infty)$ 的限制。 定义限制 $(-\infty, a_i)$ 的限制取反为 $(a_i, +\infty)$ ，反之亦然。 </p>
+<p>考虑把原树进行树链剖分。每个节点存放自己给重儿子带来的限制，用支持单点修改、区间取反、区间查询的线段树维护区间限制的并集。由于每个节点往上跳只会经过 $\log n$ 条重链，重链内部直接从线段树上查询，两条重链之间的转移把转折点对重儿子的限制取反即可。总复杂度为 $O(n \log ^ 2 n)$，可以通过此题。</p>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/solution-loj-6498/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article
+         
+    ">
+        
+        <div class="my-title ">
+            <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+                
+                    <a class="has-link-black-ter" href="/solution-loj-6495/">LOJ6495 - 「雅礼集训 2018 Day1」树</a>
+                
+            </h1>
+            <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
+                <div class="level-left">
+                    <i class="far fa-clock"></i>
+                    <time class="level-item has-text-grey" datetime="2018-12-25T10:16:54.000Z">
+                        2018-12-25
+                    </time>
+                    <i class="far fa-folder"></i>
+                    
+                        <div class="level-item">
+                            <a class="has-link-grey -link" href="/categories/Solution/">Solution</a>
+                        </div>
+                    
+                    <i class="far fa-edit"></i>
+                    
+                        <span class="level-item has-text-grey">
+                            546 Words
+                        </span>
+                    
+                </div>
+            </div>
+        </div>
+        
+        <div class="content">
+            <p>非常妙的一道状压题。</p>
+<p>考虑依次加入每一个点，状态之间的转移和对答案的贡献只与每个深度的节点个数，因此我们可以这样定义状态：把这棵树的节点按深度排序，显然相邻两个的深度最多相差一，如果差等于一，状压出的对应位就是 1 ，否则就是 0 。利用这个即可进行 $O(2^n \times n ^ 2)$ 的转移。</p>
+<p>还有一种 $O(n ^ 3)$ 的天顶星写法，但是我暂时不会，只能等以后补锅。</p>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/solution-loj-6495/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article
+         
+    ">
+        
+        <div class="my-title ">
+            <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+                
+                    <a class="has-link-black-ter" href="/solution-luogu-4606/">洛谷4606 - [SDOI2018]战略游戏</a>
+                
+            </h1>
+            <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
+                <div class="level-left">
+                    <i class="far fa-clock"></i>
+                    <time class="level-item has-text-grey" datetime="2018-12-25T09:17:54.000Z">
+                        2018-12-25
+                    </time>
+                    <i class="far fa-folder"></i>
+                    
+                        <div class="level-item">
+                            <a class="has-link-grey -link" href="/categories/Solution/">Solution</a>
+                        </div>
+                    
+                    <i class="far fa-edit"></i>
+                    
+                        <span class="level-item has-text-grey">
+                            857 Words
+                        </span>
+                    
+                </div>
+            </div>
+        </div>
+        
+        <div class="content">
+            <p>先考虑 $|S| = 2$ 的情况：把原图缩成一棵圆方树，查询两点路径上的圆点个数（除去这两个点本身）。我们可以很方便的把这个性质拓展到 $|S|$ 为任意值的的情况，只要先差分出圆方树上每个点到根节点的圆点个数，然后把每次查询的点建出虚树，进行简单的树上差分即可。需要注意的是多组数据间的变量初始化，以及圆方树的节点个数是原来的两倍。</p>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/solution-luogu-4606/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article
+         
+    ">
+        
+        <div class="my-title ">
+            <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+                
+                    <a class="has-link-black-ter" href="/algorithm-虚树/">虚树学习笔记</a>
+                
+            </h1>
+            <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
+                <div class="level-left">
+                    <i class="far fa-clock"></i>
+                    <time class="level-item has-text-grey" datetime="2018-12-20T02:35:31.000Z">
+                        2018-12-20
+                    </time>
+                    <i class="far fa-folder"></i>
+                    
+                        <div class="level-item">
+                            <a class="has-link-grey -link" href="/categories/Algorithm/">Algorithm</a>
+                        </div>
+                    
+                    <i class="far fa-edit"></i>
+                    
+                        <span class="level-item has-text-grey">
+                            748 Words
+                        </span>
+                    
+                </div>
+            </div>
+        </div>
+        
+        <div class="content">
+            <p>题目先给定一棵树，然后每次询问和其中的一部分点有关的信息，且只考虑这些点和他们的 LCA 对答案没有影响，则可以考虑虚树。先求出所有点的欧拉序，把每次询问给出的点按照欧拉序排序，依次插入栈中，维护栈内元素使得形成一条在已插入的点中最右端的链。</p>
+<p>其实没什么新知识，可以说是一种思想，所以代码也很好写，就是需要注意细节。</p>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/algorithm-虚树/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article
+         
+    ">
+        
+        <div class="my-title ">
+            <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+                
+                    <a class="has-link-black-ter" href="/algorithm-动态DP/">动态 DP 学习笔记</a>
+                
+            </h1>
+            <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
+                <div class="level-left">
+                    <i class="far fa-clock"></i>
+                    <time class="level-item has-text-grey" datetime="2018-12-20T01:47:57.000Z">
+                        2018-12-20
+                    </time>
+                    <i class="far fa-folder"></i>
+                    
+                        <div class="level-item">
+                            <a class="has-link-grey -link" href="/categories/Algorithm/">Algorithm</a>
+                        </div>
+                    
+                    <i class="far fa-edit"></i>
+                    
+                        <span class="level-item has-text-grey">
+                            1764 Words
+                        </span>
+                    
+                </div>
+            </div>
+        </div>
+        
+        <div class="content">
+            <p>（好懒不想写博客）</p>
+<p>把每个点的 dp 转移分成 重儿子 和 自己+轻儿子 两个部分。重儿子的转移把矩阵放树上维护，利用矩阵乘法的性质；轻儿子的转移的每次修改时暴力维护，利用 dp 的性质。详情参考 <a href="https://cmxrynp.github.io/2018/11/03/%E5%9F%BA%E4%BA%8E%E5%8F%98%E6%8D%A2%E5%90%88%E5%B9%B6%E7%9A%84%E6%A0%91%E4%B8%8A%E5%8A%A8%E6%80%81DP%E7%9A%84%E9%93%BE%E5%88%86%E6%B2%BB%E7%AE%97%E6%B3%95%E5%92%8C%E5%85%A8%E5%B1%80%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" target="_blank" rel="noopener"> txc 哥哥的博客</a>。</p>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/algorithm-动态DP/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article
+         
+    ">
+        
+        <div class="my-title ">
+            <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+                
+                    <a class="has-link-black-ter" href="/solution-luogu-5106/">洛谷5106 - dkw的lcm</a>
+                
+            </h1>
+            <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
+                <div class="level-left">
+                    <i class="far fa-clock"></i>
+                    <time class="level-item has-text-grey" datetime="2018-12-19T01:22:05.000Z">
+                        2018-12-19
+                    </time>
+                    <i class="far fa-folder"></i>
+                    
+                        <div class="level-item">
+                            <a class="has-link-grey -link" href="/categories/Solution/">Solution</a>
+                        </div>
+                    
+                    <i class="far fa-edit"></i>
+                    
+                        <span class="level-item has-text-grey">
+                            598 Words
+                        </span>
+                    
+                </div>
+            </div>
+        </div>
+        
+        <div class="content">
+            <p>积性函数的定义： 如果 $(a,b) = 1$ ，那么 $f(ab) = f(a) \times f(b)$ 。 显然欧拉函数是积性函数。</p>
+<p>设 $lcm(i_1, i_2, …, i_k) = x$ ，我们把 $x$ 表示成 $x = \prod {p_i ^ {a_i}}$ 的形式。对每个 $p_i ^ { a_i }$ 分开考虑，枚举每个质数与幂次，用简单容斥统计出每个 $\varphi({p_i ^ {a_i}})$ 在答案中出现的次数，通过欧拉定理 + 快速幂计算答案。</p>
+<p>假设我们当前枚举的质数为 $p^k$ ，我们把 $[1..n]$ 的数分成三个集合 $A, B, C$</p>
+<ul>
+<li>对于每个 $x \in A$ ，当且仅当 $p^k \not\mid x$；</li>
+<li>对于每个 $x \in B$ ，当且仅当 $p^k \mid x$ 且 $p^{k + 1} \not\mid x$ ；</li>
+<li>对于每个 $x \in C$ ，当且仅当 $p^{k+1} \mid x$。</li>
+</ul>
+<p>则答案中 $\varphi({p^k})$ 的幂次相当于给 $k$ 个空位，只能放集合 $A$ 和 $B$ 中的元素且集合 $B$ 中的元素至少放一次的方案数，即 $(|A| + |B|)^k - |A|^k$，此处的值可能会超过 int 的存储范围，因而根据欧拉定理，对 $\varphi(10^9+7) $ （即 $ 10^9+6$ ）取模。</p>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/solution-luogu-5106/#more">阅读更多</a>
                 </div>
             </div>
         </div>
@@ -458,7 +735,7 @@ var _hmt = _hmt || [];
             
             <li><span class="pagination-ellipsis has-text-black-ter">&hellip;</span></li>
             
-            <li><a class="pagination-link has-text-black-ter" href="/page/19/">19</a></li>
+            <li><a class="pagination-link has-text-black-ter" href="/page/10/">10</a></li>
             
         </ul>
     </nav>

@@ -136,14 +136,14 @@ var _hmt = _hmt || [];
         <div class="my-title ">
             <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
                 
-                    <a class="has-link-black-ter" href="/solution-luogu-5105/">洛谷5105 - 不强制在线的动态快速排序</a>
+                    <a class="has-link-black-ter" href="/solution-codeforces-1059e/">CF1059E - Split the Tree</a>
                 
             </h1>
             <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
                 <div class="level-left">
                     <i class="far fa-clock"></i>
-                    <time class="level-item has-text-grey" datetime="2018-12-19T01:21:20.000Z">
-                        2018-12-19
+                    <time class="level-item has-text-grey" datetime="2018-10-07T03:57:20.000Z">
+                        2018-10-07
                     </time>
                     <i class="far fa-folder"></i>
                     
@@ -154,7 +154,7 @@ var _hmt = _hmt || [];
                     <i class="far fa-edit"></i>
                     
                         <span class="level-item has-text-grey">
-                            597 Words
+                            586 Words
                         </span>
                     
                 </div>
@@ -162,21 +162,20 @@ var _hmt = _hmt || [];
         </div>
         
         <div class="content">
-            <p>考虑最后的集合是否为可重集对答案没有影响，我们可以把相邻或重合的区间合并</p>
-<ul>
-<li><p>对于一个连续区间的异或和，其实就是连续奇数的异或和，对于每一个二进制位进行分析，发现他是有循环节的，故对于每一个二进制位进行分析，以 $O(\log \ \texttt{值域})$ 的复杂度计算出答案。</p>
-</li>
-<li><p>对于相邻的两个区间，我们可以 $O(1)$ 直接计算</p>
-</li>
-</ul>
-<p>故把这些区间放到 std::set / std::vector / 平衡树 / 线段树上。每次暴力合并区间。由于每个区间最多被删一次，也最多被加一次，总复杂度为 $O(n \log n)$ 。</p>
+            <blockquote>
+<p>一个永远只能在考完后调出 Codeforces 的题的菜鸡厚颜无耻得跑来写题解了。。。</p>
+</blockquote>
+<p>本题要求把树分成的链必须是垂直路径，也就是说不能同时跨越一颗子树的两个根。也就是说每次选中的路径都是到根节点的一串。</p>
+<p>所以我们可以通过树上倍增预处理出每个节点 $u$ 如果被选中那么最多可以向上形成长度为 $dp[u]$ 的链。接着跑一遍树上 DP 即可。</p>
+<p>预处理时间复杂度 $O(n \log n)$ ，树上 DP 时间复杂度 $O(n)$ 。</p>
+<p>貌似因为 D 题比较难调试，做这题的人比较少？反正我这种菜鸡就算考场有时间写了估计也调不出来吧。</p>
         </div>
         
         
         <div class="level is-mobile">
             <div class="level-start">
                 <div class="level-item">
-                <a class="button is-size-7 is-light" href="/solution-luogu-5105/#more">阅读更多</a>
+                <a class="button is-size-7 is-light" href="/solution-codeforces-1059e/#more">阅读更多</a>
                 </div>
             </div>
         </div>
@@ -198,14 +197,14 @@ var _hmt = _hmt || [];
         <div class="my-title ">
             <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
                 
-                    <a class="has-link-black-ter" href="/solution-luogu-5104/">洛谷5104 - 红包发红包</a>
+                    <a class="has-link-black-ter" href="/solution-bzoj-3551/">BZOJ3551 - [ONTAK2010]Peaks加强版</a>
                 
             </h1>
             <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
                 <div class="level-left">
                     <i class="far fa-clock"></i>
-                    <time class="level-item has-text-grey" datetime="2018-12-19T01:21:17.000Z">
-                        2018-12-19
+                    <time class="level-item has-text-grey" datetime="2018-09-28T11:53:00.000Z">
+                        2018-09-28
                     </time>
                     <i class="far fa-folder"></i>
                     
@@ -216,7 +215,7 @@ var _hmt = _hmt || [];
                     <i class="far fa-edit"></i>
                     
                         <span class="level-item has-text-grey">
-                            266 Words
+                            937 Words
                         </span>
                     
                 </div>
@@ -224,15 +223,23 @@ var _hmt = _hmt || [];
         </div>
         
         <div class="content">
-            <p>在 $[0,w]$ 中等概率取出的值的期望是 $\frac{1}{2} w$ ，简单观察可以发现，答案就是 $\frac{1}{2} ^ k$ ，快速幂一下就好了。</p>
-<p>需要注意的是，根据欧拉定理，若 $p$ 是质数：<br>$$a^b \equiv a ^ {b \mod \varphi(p)} (\mod p)$$<br>所以这题如果你直接给 $k$ 模下 $p$ 就会挂啦 233.</p>
+            <blockquote>
+<p>这题洛谷的数据太…水，克鲁斯卡尔重构树不连通都可水过。</p>
+</blockquote>
+<ul>
+<li>3545: [ONTAK2010]Peaks</li>
+<li>3551: [ONTAK2010]Peaks加强版</li>
+</ul>
+<p>在线算法：克鲁斯卡尔重构树套主席树。</p>
+<p>在克鲁斯卡尔重构树上维护 DFS 序（或树链剖分）再套上主席树，维护第 $k$ 大。</p>
+<p>当然非加强版由于你是重构树<del>（被针对了）</del>可能要大力卡常。比如加个 fread 以及离散化一下什么的。</p>
         </div>
         
         
         <div class="level is-mobile">
             <div class="level-start">
                 <div class="level-item">
-                <a class="button is-size-7 is-light" href="/solution-luogu-5104/#more">阅读更多</a>
+                <a class="button is-size-7 is-light" href="/solution-bzoj-3551/#more">阅读更多</a>
                 </div>
             </div>
         </div>
@@ -254,25 +261,25 @@ var _hmt = _hmt || [];
         <div class="my-title ">
             <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
                 
-                    <a class="has-link-black-ter" href="/algorithm-圆方树/">圆方树学习笔记</a>
+                    <a class="has-link-black-ter" href="/solution-bzoj-1002/">BZOJ1002 - [FJOI2007]轮状病毒</a>
                 
             </h1>
             <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
                 <div class="level-left">
                     <i class="far fa-clock"></i>
-                    <time class="level-item has-text-grey" datetime="2018-12-13T12:29:44.000Z">
-                        2018-12-13
+                    <time class="level-item has-text-grey" datetime="2018-09-28T11:36:00.000Z">
+                        2018-09-28
                     </time>
                     <i class="far fa-folder"></i>
                     
                         <div class="level-item">
-                            <a class="has-link-grey -link" href="/categories/Algorithm/">Algorithm</a>
+                            <a class="has-link-grey -link" href="/categories/Solution/">Solution</a>
                         </div>
                     
                     <i class="far fa-edit"></i>
                     
                         <span class="level-item has-text-grey">
-                            1226 Words
+                            318 Words
                         </span>
                     
                 </div>
@@ -280,25 +287,16 @@ var _hmt = _hmt || [];
         </div>
         
         <div class="content">
-            <p>圆方树可以解决仙人掌或一类无向图问题。</p>
-<h1 id="建树"><a href="#建树" class="headerlink" title="建树"></a>建树</h1><p>通过 tarjan 缩点双为方点，原来的点为圆点。每个圆点连边到自己所属的点双方点，跨点双的圆点连边转换为圆方点之间的连边。</p>
-<p>参考代码：</p>
-<figure class="highlight cpp hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">edge</span> &#123;</span></span><br><span class="line">    <span class="hljs-keyword">int</span> tot, flag, hed[N], nxt[M], to[M];</span><br><span class="line">    edge () &#123; tot = <span class="hljs-number">2</span>; &#125;</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">link</span><span class="hljs-params">(<span class="hljs-keyword">int</span> u, <span class="hljs-keyword">int</span> v)</span> </span>&#123;</span><br><span class="line">        nxt[tot] = hed[u], to[tot] = v, hed[u] = tot++;</span><br><span class="line">        nxt[tot] = hed[v], to[tot] = u, hed[v] = tot++;</span><br><span class="line">    &#125;</span><br><span class="line">&#125; G1, G2;</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">tarjan</span><span class="hljs-params">(<span class="hljs-keyword">int</span> u, <span class="hljs-keyword">int</span> father)</span> </span>&#123;</span><br><span class="line">    ++base, dfn[u] = low[u] = ++tim, ins[u] = <span class="hljs-number">1</span>, stk[++top] = u;</span><br><span class="line">    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = G1.hed[u], v = G1.to[i]; i; i = G1.nxt[i], v = G1.to[i])</span><br><span class="line">        <span class="hljs-keyword">if</span> (v != father) &#123;</span><br><span class="line">            <span class="hljs-keyword">if</span> (!dfn[v]) &#123;</span><br><span class="line">                tarjan(v, u), low[u] = <span class="hljs-built_in">std</span>::min(low[u], low[v]);</span><br><span class="line">                <span class="hljs-keyword">if</span> (low[v] &gt;= dfn[u]) &#123;</span><br><span class="line">                    G2.link(u, ++tot), ++val[tot]; <span class="hljs-keyword">int</span> x;</span><br><span class="line">                    <span class="hljs-keyword">do</span> &#123;</span><br><span class="line">                        x = stk[top--], ins[x] = <span class="hljs-number">0</span>;</span><br><span class="line">                        G2.link(x, tot), ++val[tot];</span><br><span class="line">                    &#125; <span class="hljs-keyword">while</span> (x != v);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (ins[v]) low[u] = <span class="hljs-built_in">std</span>::min(low[u], dfn[v]);</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>需要注意的是，根节点所在的点双的方点并不会创建，在大多数情况下，这并不会有影响，可根据题目的需要取舍。</li>
-</ul>
-<h1 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h1><p>由此我们可以发现一些有趣的性质：</p>
-<ul>
-<li>现在总点数与原来的点数同阶，现在的总边数与原来的总边数同阶</li>
-<li>所有边都是圆点和方点之间的连边，即不存在圆圆边或方方边</li>
-</ul>
+            <p>这题的规律是很好找的，难的就是需要用高精度进行计算。</p>
+<p>于是我…厚颜无耻地逃避了高精度，用 Python 打了个表：</p>
+<figure class="highlight py hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">locate</span><span class="hljs-params">(x)</span>:</span></span><br><span class="line">    a = [<span class="hljs-number">1</span>, <span class="hljs-number">3</span>]</span><br><span class="line">    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">2</span>, x):</span><br><span class="line">        a.append(a[<span class="hljs-number">-1</span>] + a[<span class="hljs-number">-2</span>])</span><br><span class="line">    <span class="hljs-comment"># print(a)</span></span><br><span class="line">    <span class="hljs-keyword">return</span> a[x - <span class="hljs-number">1</span>]</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">solve</span><span class="hljs-params">(x)</span>:</span></span><br><span class="line">    t = locate(x)</span><br><span class="line">    <span class="hljs-keyword">if</span> x % <span class="hljs-number">2</span> == <span class="hljs-number">1</span>:</span><br><span class="line">        <span class="hljs-keyword">return</span> t ** <span class="hljs-number">2</span></span><br><span class="line">    <span class="hljs-keyword">else</span>:</span><br><span class="line">        <span class="hljs-keyword">return</span> t ** <span class="hljs-number">2</span> - <span class="hljs-number">4</span></span><br><span class="line"></span><br><span class="line">n = int(input())</span><br><span class="line">print(solve(n))</span><br></pre></td></tr></table></figure>
         </div>
         
         
         <div class="level is-mobile">
             <div class="level-start">
                 <div class="level-item">
-                <a class="button is-size-7 is-light" href="/algorithm-圆方树/#more">阅读更多</a>
+                <a class="button is-size-7 is-light" href="/solution-bzoj-1002/#more">阅读更多</a>
                 </div>
             </div>
         </div>
@@ -320,25 +318,25 @@ var _hmt = _hmt || [];
         <div class="my-title ">
             <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
                 
-                    <a class="has-link-black-ter" href="/contest-20181211/">20181211 - NOI模拟赛</a>
+                    <a class="has-link-black-ter" href="/solution-bzoj-2956/">BZOJ2956 - 模积和</a>
                 
             </h1>
             <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
                 <div class="level-left">
                     <i class="far fa-clock"></i>
-                    <time class="level-item has-text-grey" datetime="2018-12-12T02:10:56.000Z">
-                        2018-12-12
+                    <time class="level-item has-text-grey" datetime="2018-09-27T03:18:00.000Z">
+                        2018-09-27
                     </time>
                     <i class="far fa-folder"></i>
                     
                         <div class="level-item">
-                            <a class="has-link-grey -link" href="/categories/Contest/">Contest</a>
+                            <a class="has-link-grey -link" href="/categories/Solution/">Solution</a>
                         </div>
                     
                     <i class="far fa-edit"></i>
                     
                         <span class="level-item has-text-grey">
-                            416 Words
+                            622 Words
                         </span>
                     
                 </div>
@@ -346,13 +344,24 @@ var _hmt = _hmt || [];
         </div>
         
         <div class="content">
-            <p>T1、T3 的思路基本都成型但是由于自己傻逼最后一个都没调出来。</p>
-<h2 id="LCM"><a href="#LCM" class="headerlink" title="LCM"></a>LCM</h2><p>考虑一个数最多被分解为一个大于 $\sqrt {\max a_i}$ 的质数和一些小于 $\sqrt {\max a_i} $ 的质数的乘积。考虑小于的部分，最多有 4320 种状态，我们可以用一种简单背包的方法统计出每一种值的个数。对于大于的部分，相当于我们给上一步统计的个数的时候给个数加上一个权值。通过一些简单的处理避免超过 $\sqrt { \max a_i }$ 的质数被重复计算。理论复杂度 $O(n \times 4320 \times (\log n + \log 4320))$ 。</p>
-<h2 id="Xor"><a href="#Xor" class="headerlink" title="Xor"></a>Xor</h2><p>不知道为什么出题人要把题意搞的这么迷。我们直接把边权异或到两个端点上，计算割的价值就是一边的点的权值的异或和。考虑贪心，把点按照权值从大到小排序，利用线性基维护会不会产生 $0$ ，不会就加上价值，否则减掉即可。</p>
-<h2 id="Lis"><a href="#Lis" class="headerlink" title="Lis"></a>Lis</h2><p>考虑把从左到右的最长上升子序列转变为从右到左的最长下降子序列，这样每次操作最多影响十棵树。树套树（树状数组套权值线段树）维护一个后缀高度大于指定值的 dp 值的最大值，每次暴力重算那十棵树即可。复杂度 $O(n \log^2 n \times 10)$ 。需要注意的是需要动态开的节点个数可能会很多，一定要开够。</p>
-
+            <p>$$\sum_{i=1}^{n} \sum_{j=1}^{m} (n \% i) \times (m \% j) \ \ \ (i \not= j)$$</p>
+<p>$$= (\sum_{i=1}^{n} n \% i) \times (\sum_{j=1}^{m} m \% j) - \sum_{i=1}^{\min(n, m)} (n \% i) \times (m \% j)$$</p>
+<p>可以转化成 $A \times B - C$ 的形式，分别来求。</p>
+<p>其中求 $A$ 和 $B$ 的方式是一样的，可以数论分块，也可以直接打表找规律。鉴于这部分不难，笔者写了后者，而描述起来而笔者又非常懒因此忽略求 $A$ 、 $B$ 直接讲求 $C$ 。当然你也可以通过推 $C$ 的方式自己推一下 $A$ 、 $B$ 。</p>
+<p>$$C = \sum_{i=1}^{\min(n, m)} (n \% i) \times (m \% i)$$</p>
+<p>$$= \sum_{i=1} ^ {\min(n, m)} (n - i \times \lfloor \frac {n} {i} \rfloor) \times (m - i \times \lfloor \frac {m} {i} \rfloor )$$</p>
+<p>$$= \sum_{i=1} ^ {\min(n, m)} n \times m - m \times  i \times \lfloor \frac {n} {i} \rfloor - n \times i \times \lfloor \frac {m} {i} \rfloor + i ^ 2 \times \lfloor \frac {m} {i} \rfloor \lfloor \frac {m} {i} \rfloor $$</p>
+<p>数论分块即可。</p>
         </div>
         
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/solution-bzoj-2956/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
         
         
     </div>
@@ -371,25 +380,25 @@ var _hmt = _hmt || [];
         <div class="my-title ">
             <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
                 
-                    <a class="has-link-black-ter" href="/contest-20181210/">20181210 - NOI模拟赛</a>
+                    <a class="has-link-black-ter" href="/solution-bzoj-2588/">BZOJ2588 - Count on a tree</a>
                 
             </h1>
             <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
                 <div class="level-left">
                     <i class="far fa-clock"></i>
-                    <time class="level-item has-text-grey" datetime="2018-12-11T09:35:19.000Z">
-                        2018-12-11
+                    <time class="level-item has-text-grey" datetime="2018-09-27T03:14:00.000Z">
+                        2018-09-27
                     </time>
                     <i class="far fa-folder"></i>
                     
                         <div class="level-item">
-                            <a class="has-link-grey -link" href="/categories/Contest/">Contest</a>
+                            <a class="has-link-grey -link" href="/categories/Solution/">Solution</a>
                         </div>
                     
                     <i class="far fa-edit"></i>
                     
                         <span class="level-item has-text-grey">
-                            150 Words
+                            632 Words
                         </span>
                     
                 </div>
@@ -397,13 +406,317 @@ var _hmt = _hmt || [];
         </div>
         
         <div class="content">
-            <p>T3 难度并不大，但是由于时间分配问题 + 出题人数据有锅必须输出行末空格否则 WA 导致本来会做的 T3 没有 AC 。</p>
-<h2 id="迷路"><a href="#迷路" class="headerlink" title="迷路"></a>迷路</h2><p>对于每一个点，建出最短路树，对于每一条非树边，如果他的两个节点在根节点的不同子树内，那么可以对答案产生贡献。</p>
-<h2 id="宝藏"><a href="#宝藏" class="headerlink" title="宝藏"></a>宝藏</h2><p>类欧优化的数学题，不会。</p>
-<h2 id="蛋糕"><a href="#蛋糕" class="headerlink" title="蛋糕"></a>蛋糕</h2><p>THUPC 原题的强化版，由 $4$ 维变成 $n$ 维。每一维变成一个多项式分治 NTT 即可。</p>
-
+            <p>询问树上路径第 $k$ 大：二分答案 + 树上查询。查询时用主席树差分：</p>
+<p>$$tree[now] = tree[u] + tree[v] - tree[lca(u,v)] - tree[father(lca(u,v))]$$</p>
+<p>时间复杂度 $O(n \log ^2 n)$ 。</p>
         </div>
         
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/solution-bzoj-2588/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article
+         
+    ">
+        
+        <div class="my-title ">
+            <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+                
+                    <a class="has-link-black-ter" href="/solution-codeforces-776d/">CF776D - The Door Problem</a>
+                
+            </h1>
+            <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
+                <div class="level-left">
+                    <i class="far fa-clock"></i>
+                    <time class="level-item has-text-grey" datetime="2018-09-26T00:49:00.000Z">
+                        2018-09-26
+                    </time>
+                    <i class="far fa-folder"></i>
+                    
+                        <div class="level-item">
+                            <a class="has-link-grey -link" href="/categories/Solution/">Solution</a>
+                        </div>
+                    
+                    <i class="far fa-edit"></i>
+                    
+                        <span class="level-item has-text-grey">
+                            491 Words
+                        </span>
+                    
+                </div>
+            </div>
+        </div>
+        
+        <div class="content">
+            <p>由于每个门只会被两个钥匙控制，那么两个钥匙的选或不选就能建立起一种对应关系。即如果门本来是开着的，那么用了一把必须用另一把，不用一把必须不用另一把；如果们本来是开着的，那么不用一把必须用另一把，用了一把必须不用另一把。</p>
+<p>Tarjan 跑 2-SAT 随手切，注意 $n$ 和 $m$ 不要搞反。</p>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/solution-codeforces-776d/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article
+         
+    ">
+        
+        <div class="my-title ">
+            <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+                
+                    <a class="has-link-black-ter" href="/solution-bzoj-1070/">BZOJ1070 - [SCOI2007]修车</a>
+                
+            </h1>
+            <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
+                <div class="level-left">
+                    <i class="far fa-clock"></i>
+                    <time class="level-item has-text-grey" datetime="2018-09-25T02:13:00.000Z">
+                        2018-09-25
+                    </time>
+                    <i class="far fa-folder"></i>
+                    
+                        <div class="level-item">
+                            <a class="has-link-grey -link" href="/categories/Solution/">Solution</a>
+                        </div>
+                    
+                    <i class="far fa-edit"></i>
+                    
+                        <span class="level-item has-text-grey">
+                            611 Words
+                        </span>
+                    
+                </div>
+            </div>
+        </div>
+        
+        <div class="content">
+            <p>最小费用最大流。由于一个工人在给一个顾客服务后还能再给一个顾客服务， 所以把每个顾客和每个工人建点显然不能完成任务。</p>
+<p>那么我们考虑把第 $i$ 个工人建成 $n$ 个点，表示为 $P(i,j)  (i \in [1, m], j \in [1, n])$。把第 $i$ 个顾客表示为 $T(k)$。</p>
+<p>把 $T(k)$ 依次向 $P(i,j)$ 连边，流量为 $1$ ，费用为 $w(k,i) \times j$ 。表示第 $k$ 个顾客被第 $i$ 个工人倒数第 $j$ 个服务对答案产生的贡献（即包括在它之后的人的等待时间，而不是这个人自己的花费）。</p>
+<p>最后从源点向每个顾客连流量 $1$ ，费用 $0$ 的边，$n \times m$ 个工人向汇点连流量 $1$ ，费用为 $0$ 的边，跑最小费用最大流即可。</p>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/solution-bzoj-1070/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article
+         
+    ">
+        
+        <div class="my-title ">
+            <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+                
+                    <a class="has-link-black-ter" href="/solution-luogu-1251/">洛谷1251 - 餐巾计划问题</a>
+                
+            </h1>
+            <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
+                <div class="level-left">
+                    <i class="far fa-clock"></i>
+                    <time class="level-item has-text-grey" datetime="2018-09-24T14:58:00.000Z">
+                        2018-09-24
+                    </time>
+                    <i class="far fa-folder"></i>
+                    
+                        <div class="level-item">
+                            <a class="has-link-grey -link" href="/categories/Solution/">Solution</a>
+                        </div>
+                    
+                    <i class="far fa-edit"></i>
+                    
+                        <span class="level-item has-text-grey">
+                            707 Words
+                        </span>
+                    
+                </div>
+            </div>
+        </div>
+        
+        <div class="content">
+            <blockquote>
+<p>到这题为止网络流 24 题也快刷完了呢，还剩下几道码量特大的等着以后有空去浪费时间（逃</p>
+</blockquote>
+<p>这题一眼最小费用最大流，一开始我想了个类似于 <a href="http://localhost:4000/solution/luogu3980/" target="_blank" rel="noopener">NOI2008 志愿者招募</a> 之类的利用满流的方法，但是一直没有调出来。后来怂了，直接连边，最后因为有个 <code>- 1</code> 没有删干净还是调了老半天。orz ，我还是太菜了。</p>
+<p>把每一天分成两个节点，一个接受干净的毛巾，一个输出用过的毛巾。直接在这两个点之间连边显然不现实，我们可以分别把这两个点和源点、汇点连边。然后再按照题目条件一一连上对应边。这样最大流肯定能够跑满，求最小费用的话就是这图的最小费用最大流了。</p>
+<p>这告诉我们对于不清楚的知识点不要瞎用。</p>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/solution-luogu-1251/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article
+         
+    ">
+        
+        <div class="my-title ">
+            <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+                
+                    <a class="has-link-black-ter" href="/solution-bzoj-1001/">BZOJ1001 - [BJOI2006]狼抓兔子</a>
+                
+            </h1>
+            <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
+                <div class="level-left">
+                    <i class="far fa-clock"></i>
+                    <time class="level-item has-text-grey" datetime="2018-09-24T09:02:00.000Z">
+                        2018-09-24
+                    </time>
+                    <i class="far fa-folder"></i>
+                    
+                        <div class="level-item">
+                            <a class="has-link-grey -link" href="/categories/Solution/">Solution</a>
+                        </div>
+                    
+                    <i class="far fa-edit"></i>
+                    
+                        <span class="level-item has-text-grey">
+                            805 Words
+                        </span>
+                    
+                </div>
+            </div>
+        </div>
+        
+        <div class="content">
+            <p>最大流最小割模板题。</p>
+<blockquote>
+<p>想当年第一次打开 BZOJ 做完 A + B 之后看得一脸懵逼的就是这道题，没想到现如今看起来这么简单</p>
+<p>不过还是没有秒切，双向边没看到调了好久 QAQ</p>
+</blockquote>
+<p>好了，关于那个连边。这是本人单向边网络流连边：</p>
+<figure class="highlight cpp hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-keyword">void</span> <span class="hljs-title">add_edge</span><span class="hljs-params">(<span class="hljs-keyword">int</span> u, <span class="hljs-keyword">int</span> v, <span class="hljs-keyword">int</span> w)</span> </span>&#123;</span><br><span class="line">	nxt[tot] = hed[u], to[tot] = v, val[tot] = w, hed[u] = tot++;</span><br><span class="line">	nxt[tot] = hed[v], to[tot] = u, val[tot] = <span class="hljs-number">0</span>, hed[v] = tot++;</span><br><span class="line">	<span class="hljs-keyword">return</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这是本人的双向网络流连边（连两遍也是一样的）：</p>
+<figure class="highlight cpp hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-keyword">void</span> <span class="hljs-title">add_edge</span><span class="hljs-params">(<span class="hljs-keyword">int</span> u, <span class="hljs-keyword">int</span> v, <span class="hljs-keyword">int</span> w)</span> </span>&#123;</span><br><span class="line">	nxt[tot] = hed[u], to[tot] = v, val[tot] = w, hed[u] = tot++;</span><br><span class="line">	nxt[tot] = hed[v], to[tot] = u, val[tot] = w, hed[v] = tot++;</span><br><span class="line">	<span class="hljs-keyword">return</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>另外 $最大流 = 最小割$ 不必多说了吧，贴个直观的证明（来自：<a href="https://jecvay.com/2014/11/what-is-min-cut.html" target="_blank" rel="noopener">https://jecvay.com/2014/11/what-is-min-cut.html</a>）：</p>
+<blockquote>
+<p>1.最大流不可能大于最小割, 因为最大流所有的水流都一定经过最小割那些割边, 流过的水流怎么可能比水管容量还大呢? </p>
+<p>2.最大流不可能小于最小割, 如果小, 那么说明水管容量没有物尽其用, 可以继续加大水流.</p>
+</blockquote>
+<p>那么 SAP + 当前弧优化 + 断层优化 + 反向 BFS 一遍轻松跑过。</p>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/solution-bzoj-1001/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article
+         
+    ">
+        
+        <div class="my-title ">
+            <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+                
+                    <a class="has-link-black-ter" href="/geek-函数传递二维数组/">C++ 函数传递二维数组</a>
+                
+            </h1>
+            <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
+                <div class="level-left">
+                    <i class="far fa-clock"></i>
+                    <time class="level-item has-text-grey" datetime="2018-09-23T04:47:00.000Z">
+                        2018-09-23
+                    </time>
+                    <i class="far fa-folder"></i>
+                    
+                        <div class="level-item">
+                            <a class="has-link-grey -link" href="/categories/Geek/">Geek</a>
+                        </div>
+                    
+                    <i class="far fa-edit"></i>
+                    
+                        <span class="level-item has-text-grey">
+                            119 Words
+                        </span>
+                    
+                </div>
+            </div>
+        </div>
+        
+        <div class="content">
+            <p>QAQ 写树套树的时候忽然用到。。。</p>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/geek-函数传递二维数组/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
         
         
     </div>
@@ -437,7 +750,7 @@ var _hmt = _hmt || [];
             
             <li><span class="pagination-ellipsis has-text-black-ter">&hellip;</span></li>
             
-            <li><a class="pagination-link has-text-black-ter" href="/page/19/">19</a></li>
+            <li><a class="pagination-link has-text-black-ter" href="/page/10/">10</a></li>
             
         </ul>
     </nav>
