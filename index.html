@@ -154,7 +154,7 @@ var _hmt = _hmt || [];
                     <i class="far fa-edit"></i>
                     
                         <span class="level-item has-text-grey">
-                            519 Words
+                            520 Words
                         </span>
                     
                 </div>
@@ -164,7 +164,7 @@ var _hmt = _hmt || [];
         <div class="content">
             <p>考虑 Min-Max 容斥，$\min(S)$ 表示至少一个从 $s$ 走到至少一个属于集合 $S$ 的点的期望时间。</p>
 <p>用 $f(i, S)$ 表示集合 $S$ 下 $i$ 到任意 $u \in S$ 的期望时间，则 $\min(S) = f(s, S)$。</p>
-<p>$$<br>f(i, S) =<br>\begin{cases}<br>0 &amp;(i \in S) \\<br>\frac{\sum_{i-&gt;j} f(j, S)}{d_i} + 1 &amp;(i \notin S)<br>\end{cases}<br>$$</p>
+<p>$$<br>f(i, S) =<br>\begin{cases}<br>0 &amp;(i \in S) \\<br>\frac{\sum_{i \to j} f(j, S)}{d_i} + 1 &amp;(i \notin S)<br>\end{cases}<br>$$</p>
 <p>可通过高斯消元求出，但复杂度过大不能接受。<br>考虑把原式化为 $f(i) = k_i \times f(father_i) + b_i$ 的形式，推导过程略。<br>对于每个查询状压处理 $\max(S)$ 不现实，需要处理出子集卷积即可 AC 。</p>
         </div>
         
