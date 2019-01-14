@@ -136,6 +136,71 @@ var _hmt = _hmt || [];
         <div class="my-title ">
             <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
                 
+                    <a class="has-link-black-ter" href="/algorithm-割点/">Tarjan求割点（洛谷3388）</a>
+                
+            </h1>
+            <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
+                <div class="level-left">
+                    <i class="far fa-clock"></i>
+                    <time class="level-item has-text-grey" datetime="2018-08-19T07:23:54.000Z">
+                        2018-08-19
+                    </time>
+                    <i class="far fa-folder"></i>
+                    
+                        <div class="level-item">
+                            <a class="has-link-grey -link" href="/categories/Algorithm/">Algorithm</a>
+                        </div>
+                    
+                    <i class="far fa-edit"></i>
+                    
+                        <span class="level-item has-text-grey">
+                            339 Words
+                        </span>
+                    
+                </div>
+            </div>
+        </div>
+        
+        <div class="content">
+            <p>用 tarjan 遍历整个图，如果某个点是割点，当且仅当以下两种情况</p>
+<ol>
+<li>当前点是根节点，且当前节点出发独立的联通分量至少有两个</li>
+<li>当前点不是根节点，且当前节点出发的独立分量能回溯到的最早的点在当前节点之后</li>
+</ol>
+<p>转换过来就是下面两个条件</p>
+<ol>
+<li><code>u == root &amp;&amp; child &gt;= 2</code></li>
+<li><code>u != root &amp;&amp; low[v] &gt;= dfn[u]</code></li>
+</ol>
+<p>其他与 tarjan 算法无异。</p>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/algorithm-割点/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article
+         
+    ">
+        
+        <div class="my-title ">
+            <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+                
                     <a class="has-link-black-ter" href="/geek-windows10美化/">Windown10美化计划</a>
                 
             </h1>
@@ -657,63 +722,6 @@ var _hmt = _hmt || [];
 
 
 
-    <div class="card">
-    
-    <div class="card-content article
-         
-    ">
-        
-        <div class="my-title ">
-            <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-                
-                    <a class="has-link-black-ter" href="/solution-luogu-3411/">洛谷3411 - 序列变换</a>
-                
-            </h1>
-            <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
-                <div class="level-left">
-                    <i class="far fa-clock"></i>
-                    <time class="level-item has-text-grey" datetime="2018-08-07T08:05:00.000Z">
-                        2018-08-07
-                    </time>
-                    <i class="far fa-folder"></i>
-                    
-                        <div class="level-item">
-                            <a class="has-link-grey -link" href="/categories/Solution/">Solution</a>
-                        </div>
-                    
-                    <i class="far fa-edit"></i>
-                    
-                        <span class="level-item has-text-grey">
-                            695 Words
-                        </span>
-                    
-                </div>
-            </div>
-        </div>
-        
-        <div class="content">
-            <h1 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h1><p>给定一个长度为N的数列Ai。<br>你可以对数列进行若干次操作，每次操作可以从数列中任选一个数，把它移动到数列的开头或者结尾。<br>求最少经过多少次操作，可以把数列变成单调不减的。“单调不减”意味着数列中的任意一个数都不大于排在它后边的数。</p>
-<h1 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h1><p>你可以把题意转化为：找到一个不降子序列，使得未选中的数必须不处于子序列的最小值和最大值之间（理由：小于等于最小值的可以移到前面去，大于等于最大值的可以移到后面去）<br>即找到一个值的区间[L, R]，在其中选择一个不降子序列，使得其包含了区间(L, R)中的所有值。<br>（<code>[L, R]</code>表示闭区间，<code>(L, R)</code>表示开区间！）</p>
-<p>那么你只要维护一个答案队列，使得其满足题意。每次考虑扩展右区间，同时检查可行性，更新最优解。<br>需要注意的是，新增的节点值相同时可能会互相产生干扰，我们应当考虑倒序检查，之后顺序入队。</p>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/solution-luogu-3411/#more">阅读更多</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
 
     
 <div class="card card-transparent">
@@ -735,6 +743,8 @@ var _hmt = _hmt || [];
             <li><a class="pagination-link is-current" href="/page/10/">10</a></li>
             
             <li><a class="pagination-link has-text-black-ter" href="/page/11/">11</a></li>
+            
+            <li><a class="pagination-link has-text-black-ter" href="/page/12/">12</a></li>
             
         </ul>
     </nav>
@@ -777,7 +787,7 @@ var _hmt = _hmt || [];
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        110
+                        111
                     </p>
                 </div>
             </div>
@@ -797,7 +807,7 @@ var _hmt = _hmt || [];
                         标签
                     </p>
                     <p class="title has-text-weight-normal">
-                        125
+                        126
                     </p>
                 </div>
             </div>
@@ -884,7 +894,7 @@ var _hmt = _hmt || [];
                 <span class="level-item">Solution</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">72</span>
+                <span class="level-item tag">73</span>
             </span>
         </a></li>
             </ul>
@@ -920,7 +930,7 @@ var _hmt = _hmt || [];
                 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
                 <p class="is-size-7">
                     <span>
-                        <span>81.2k</span> Words
+                        <span>81.8k</span> Words
                     </span>
                     <span id="busuanzi_container_site_pv" style="display:none">
                     <span class="division">|</span>
