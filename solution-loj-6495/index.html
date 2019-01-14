@@ -8,7 +8,7 @@
 
 
     <meta name="description" content="非常妙的一道状压题。 考虑依次加入每一个点，状态之间的转移和对答案的贡献只与每个深度的节点个数，因此我们可以这样定义状态：把这棵树的节点按深度排序，显然相邻两个的深度最多相差一，如果差等于一，状压出的对应位就是 1 ，否则就是 0 。利用这个即可进行 $O(2^n \times n ^ 2)$ 的转移。 还有一种 $O(n ^ 3)$ 的天顶星写法，但是我暂时不会，只能等以后补锅。">
-<meta name="keywords" content="DP,状态压缩,概率,期望">
+<meta name="keywords" content="DP,期望,状态压缩,概率">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LOJ6495 - 「雅礼集训 2018 Day1」树">
 <meta property="og:url" content="https://memset0.cn/solution-loj-6495/index.html">
