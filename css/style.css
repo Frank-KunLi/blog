@@ -512,19 +512,6 @@ code {
 * {
   cursor: url("/cur/default.cur"), default !important;
 }
-p,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-pre,
-code,
-input,
-textarea {
-  cursor: url("/cur/text.cur"), text !important;
-}
 a:hover,
 button {
   cursor: url("/cur/pointer.cur"), pointer !important;
