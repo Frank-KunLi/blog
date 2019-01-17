@@ -499,10 +499,11 @@ code {
   margin-top: 30px;
   margin-bottom: 30px;
   font-size: 26px !important;
-  transition: 0.5s;
+  transition: 0.5s 0.1s;
 }
 .card-content .my-post-title h1:hover {
   letter-spacing: 3px;
+  color: #3273dc;
 }
 /* 修改阴影和圆角 */
 .card {
