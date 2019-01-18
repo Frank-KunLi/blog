@@ -523,7 +523,7 @@ button {
   cursor: url("/cur/pointer.cur"), pointer !important;
 }
 /* 为自己的博文中对歌词的引用而特殊准备的 */
-.song {
+.lyrics {
   color: #888;
   margin-bottom: 40px;
   width: 100% !important;
@@ -531,7 +531,7 @@ button {
   text-align: center !important;
   transition: 0.5s 0.1s ease-out;
 }
-.song:hover {
+.lyrics:hover {
   color: #222;
   letter-spacing: 6px;
 }
