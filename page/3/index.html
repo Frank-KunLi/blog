@@ -138,6 +138,64 @@ var _hmt = _hmt || [];
         <div class="my-title ">
             <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
                 
+                    <a class="has-link-black-ter" href="/solution-codeforces-1093g/">CF1093G - Multidimensional Queries</a>
+                
+            </h1>
+            <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
+                <div class="level-left">
+                    <i class="far fa-clock"></i>
+                    <time class="level-item has-text-grey" datetime="2019-01-07T10:45:28.000Z">
+                        2019-01-07
+                    </time>
+                    <i class="far fa-folder"></i>
+                    
+                        <div class="level-item">
+                            <a class="has-link-grey -link" href="/categories/Solution/">Solution</a>
+                        </div>
+                    
+                    <i class="far fa-edit"></i>
+                    
+                        <span class="level-item has-text-grey">
+                            531 Words
+                        </span>
+                    
+                </div>
+            </div>
+        </div>
+        
+        <div class="content">
+            <p>这题需要用到一个惯用的套路。</p>
+<p>$$a - b \leq |a - b|$$</p>
+<p>显然如果是 $a - b$ 非负的，直接取等号；如果 $ a - b $ 负数，那么绝对值就是正数，负数一定小于正数。</p>
+<p>考虑到 $ 2 ^ 5 ​$ 并不是很大，我们可以暴力枚举每个数的符号(用状态压缩的方式)。然后维护一棵线段树进行修改和查询即可。</p>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/solution-codeforces-1093g/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article
+         
+    ">
+        
+        <div class="my-title ">
+            <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+                
                     <a class="has-link-black-ter" href="/solution-luogu-4385/">洛谷4385 - [COCI2009]Dvapravca</a>
                 
             </h1>
@@ -673,62 +731,6 @@ var _hmt = _hmt || [];
 
 
 
-    <div class="card">
-    
-    <div class="card-content article
-         
-    ">
-        
-        <div class="my-title ">
-            <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-                
-                    <a class="has-link-black-ter" href="/solution-loj-6498/">LOJ6498 - 「雅礼集训 2018 Day2」农民</a>
-                
-            </h1>
-            <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
-                <div class="level-left">
-                    <i class="far fa-clock"></i>
-                    <time class="level-item has-text-grey" datetime="2018-12-26T15:23:36.000Z">
-                        2018-12-26
-                    </time>
-                    <i class="far fa-folder"></i>
-                    
-                        <div class="level-item">
-                            <a class="has-link-grey -link" href="/categories/Solution/">Solution</a>
-                        </div>
-                    
-                    <i class="far fa-edit"></i>
-                    
-                        <span class="level-item has-text-grey">
-                            971 Words
-                        </span>
-                    
-                </div>
-            </div>
-        </div>
-        
-        <div class="content">
-            <p>按题意可知，考虑每个节点会给左孩子带来一个 $(-\infty, a_i )$ 的限制，会给右孩子带来一个 $(a_i, +\infty)$ 的限制。 定义限制 $(-\infty, a_i)$ 的限制取反为 $(a_i, +\infty)$ ，反之亦然。 </p>
-<p>考虑把原树进行树链剖分。每个节点存放自己给重儿子带来的限制，用支持单点修改、区间取反、区间查询的线段树维护区间限制的并集。由于每个节点往上跳只会经过 $\log n$ 条重链，重链内部直接从线段树上查询，两条重链之间的转移把转折点对重儿子的限制取反即可。总复杂度为 $O(n \log ^ 2 n)$，可以通过此题。</p>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/solution-loj-6498/#more">阅读更多</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
 
     
 <div class="card card-transparent">
@@ -794,7 +796,7 @@ var _hmt = _hmt || [];
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        114
+                        115
                     </p>
                 </div>
             </div>
@@ -937,7 +939,7 @@ var _hmt = _hmt || [];
                 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
                 <p class="is-size-7">
                     <span>
-                        <span>84.1k</span> Words
+                        <span>84.2k</span> Words
                     </span>
                     <span id="busuanzi_container_site_pv" style="display:none">
                     <span class="division">|</span>
