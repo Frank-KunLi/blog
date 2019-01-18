@@ -138,6 +138,73 @@ var _hmt = _hmt || [];
         <div class="my-title ">
             <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
                 
+                    <a class="has-link-black-ter" href="/solution-bzoj-2839/">BZOJ2839 - 集合计数</a>
+                
+            </h1>
+            <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
+                <div class="level-left">
+                    <i class="far fa-clock"></i>
+                    <time class="level-item has-text-grey" datetime="2019-01-13T12:44:19.000Z">
+                        2019-01-13
+                    </time>
+                    <i class="far fa-folder"></i>
+                    
+                        <div class="level-item">
+                            <a class="has-link-grey -link" href="/categories/Solution/">Solution</a>
+                        </div>
+                    
+                    <i class="far fa-edit"></i>
+                    
+                        <span class="level-item has-text-grey">
+                            421 Words
+                        </span>
+                    
+                </div>
+            </div>
+        </div>
+        
+        <div class="content">
+            <p>设 $a(i)$ 表示大于等于 $i$ 的方案数，则：</p>
+<p>$$<br>a(i) = {n \choose i} (2^{2^{n-i}}-1)<br>$$</p>
+<p>设 $f(i)$ 表示容斥系数，使得：</p>
+<p>$$<br>ans = \sum\limits_{i=0}^n f(i) \times a(i)<br>$$</p>
+<p>考虑单个集合并为 $x$ 的选取方案对 $ans$ 的贡献，设：</p>
+<p>$$<br>g(x) = [ x = k ]<br>$$</p>
+<p>则：</p>
+<p>$$<br>g(x) = \sum\limits_{i=0}^x {x \choose i} f(i)<br>$$</p>
+<p>二项式反演得：</p>
+<p>$$<br>\begin{aligned}<br>f(x) &amp;= \sum\limits_{i=0}^x {x \choose i} (-1)^{x-i} g(x) \\<br>     &amp;= {x \choose k} (-1)^{x-k} [x \ge k]<br>\end{aligned}<br>$$</p>
+<p>代入得：</p>
+<p>$$<br>\begin{aligned}<br>ans &amp;= \sum\limits_{i=0}^n f(i) \times a(i) \\<br>    &amp;= \sum\limits_{i=0}^n {i \choose k} (-1)^{i-k} [i \ge k]<br>       \times {n \choose i} (2^{2^{n-i}} - 1) \\<br>    &amp;= \sum\limits_{i=k}^n (-1)^{i-k} (2^{2^{n-i}} - 1) {i \choose k} {n \choose i}<br>\end{aligned}<br>$$</p>
+<p>即可 $O(n \log n)$ 求解</p>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/solution-bzoj-2839/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article
+         
+    ">
+        
+        <div class="my-title ">
+            <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+                
                     <a class="has-link-black-ter" href="/diary-100-posts/">100 篇文章纪念</a>
                 
             </h1>
@@ -640,67 +707,6 @@ var _hmt = _hmt || [];
 
 
 
-    <div class="card">
-    
-    <div class="card-content article
-         
-    ">
-        
-        <div class="my-title ">
-            <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-                
-                    <a class="has-link-black-ter" href="/solution-luogu-4131/">洛谷4131 - [WC2005]友好的生物</a>
-                
-            </h1>
-            <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
-                <div class="level-left">
-                    <i class="far fa-clock"></i>
-                    <time class="level-item has-text-grey" datetime="2019-01-07T10:51:15.000Z">
-                        2019-01-07
-                    </time>
-                    <i class="far fa-folder"></i>
-                    
-                        <div class="level-item">
-                            <a class="has-link-grey -link" href="/categories/Solution/">Solution</a>
-                        </div>
-                    
-                    <i class="far fa-edit"></i>
-                    
-                        <span class="level-item has-text-grey">
-                            550 Words
-                        </span>
-                    
-                </div>
-            </div>
-        </div>
-        
-        <div class="content">
-            <p>首先 $c$ 没什么卵用，我们直接把他乘到属性里。</p>
-<p>可以发现这里的 $d$ 是两个属性值减一减的绝对值，所以我们要考虑怎么维护这个绝对值。</p>
-<p>我们先考虑 $K = 1$ 的情况，先把这些生物按照 $d$ 的大小排个序，那么后一个减前一个的值一定就是非负的，也就等于绝对值，直接扫一遍就好了。</p>
-<p>接下来考虑 $K \not = 1$ 的时候的前 $K - 1$ 位，根据幼儿园学过的知识我们可以知道：</p>
-<p>$$a - b \leq |a -b|$$</p>
-<p>由于我们要求绝对值的和的最大值，所以我们只要枚举每个属性的正负把他们一起取最大值即可。</p>
-<p>那么第 $K $ 位怎么办呢？我们可是要加上绝对值的相反数啊。没关系，采用之前  $K = 1$ 的时候的方法，减一减扫过去，就能保证你去到的值非负啦。</p>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/solution-luogu-4131/#more">阅读更多</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
 
     
 <div class="card card-transparent">
@@ -764,7 +770,7 @@ var _hmt = _hmt || [];
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        115
+                        116
                     </p>
                 </div>
             </div>
@@ -847,7 +853,7 @@ var _hmt = _hmt || [];
                 <span class="level-item">Diary</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">5</span>
+                <span class="level-item tag">6</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/Geek/">
@@ -907,7 +913,7 @@ var _hmt = _hmt || [];
                 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
                 <p class="is-size-7">
                     <span>
-                        <span>84.3k</span> Words
+                        <span>84.7k</span> Words
                     </span>
                     <span id="busuanzi_container_site_pv" style="display:none">
                     <span class="division">|</span>
