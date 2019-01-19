@@ -138,6 +138,62 @@ var _hmt = _hmt || [];
         <div class="my-title ">
             <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
                 
+                    <a class="has-link-black-ter" href="/algorithm-高斯消元/">高斯消元学习笔记</a>
+                
+            </h1>
+            <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
+                <div class="level-left">
+                    <i class="far fa-clock"></i>
+                    <time class="level-item has-text-grey" datetime="2018-08-11T00:45:31.000Z">
+                        2018-08-11
+                    </time>
+                    <i class="far fa-folder"></i>
+                    
+                        <div class="level-item">
+                            <a class="has-link-grey -link" href="/categories/Algorithm/">Algorithm</a>
+                        </div>
+                    
+                    <i class="far fa-edit"></i>
+                    
+                        <span class="level-item has-text-grey">
+                            880 Words
+                        </span>
+                    
+                </div>
+            </div>
+        </div>
+        
+        <div class="content">
+            <p>最近的模拟赛出现了一道坑爹的数学题，正解是上一篇博文所讲的数学插值。然而高斯消元还是可以拿到 65 分的成绩，没办法，凭借着我对其原理的依稀记忆我只能考场上手推高斯消元。</p>
+<h1 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h1><p>高斯消元其实是个很简单的东西，无非就小学奥数的难度罢了。按照小学奥数的加减消元和代入消元即可完成。模板题给了你 n 个的 n 元一次多项式求解。我们可以通过加减消元合并为 n - 1 个 n - 1 元的一次多项式（合并相邻两个）；于是，经过 n - 1 次合并我们就可以得到一个一元一次方程，可以很方便的得到解。我们再将解回代，即可解出方程。</p>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/algorithm-高斯消元/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article
+         
+    ">
+        
+        <div class="my-title ">
+            <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+                
                     <a class="has-link-black-ter" href="/algorithm-拉格朗日插值/">拉格朗日插值（洛谷4781）</a>
                 
             </h1>
@@ -649,71 +705,6 @@ var _hmt = _hmt || [];
 
 
 
-    <div class="card">
-    
-    <div class="card-content article
-         
-    ">
-        
-        <div class="my-title ">
-            <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-                
-                    <a class="has-link-black-ter" href="/untitled-1547374113352/">洛谷2996 - 拜访奶牛</a>
-                
-            </h1>
-            <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
-                <div class="level-left">
-                    <i class="far fa-clock"></i>
-                    <time class="level-item has-text-grey" datetime="2018-07-06T05:57:00.000Z">
-                        2018-07-06
-                    </time>
-                    <i class="far fa-folder"></i>
-                    
-                        <div class="level-item">
-                            <a class="has-link-grey -link" href="/categories/Solution/">Solution</a>
-                        </div>
-                    
-                    <i class="far fa-edit"></i>
-                    
-                        <span class="level-item has-text-grey">
-                            368 Words
-                        </span>
-                    
-                </div>
-            </div>
-        </div>
-        
-        <div class="content">
-            <p>首先，这题无法用贪心实现，下面是一个反例：</p>
-<p><img src="https://i.loli.net/2018/07/06/5b3f05cc4bd13.png" alt="贪心反例"></p>
-<p>贪心的话最大值是 $5$，然而可以在中途放弃一个点从而取到最大值 $6$ 。</p>
-<p>我们使用 $f[i][0]$ 来表示到第 $i$ 个点但不取这个点所能获得的最大值，用 $f[i][1]$ 表示到第 $i$ 个点且取这个点所能获得的最大值。</p>
-<p>先将每个点都DFS遍历一遍，在回溯时进行DP（ $u$ 是当前节点，$G[u][i]$ 是孩子节点）：</p>
-<ul>
-<li><p>如果当前节点不选，那么孩子节点选或不选均可<br>$f[u][0] += max(f[G[u][i]][0], f[G[u][i]][1]) $</p>
-</li>
-<li><p>如果当前节点选中，那么孩子节点只能不选<br>$f[u][1] += f[G[u][i]][0] $</p>
-</li>
-</ul>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/untitled-1547374113352/#more">阅读更多</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
 
     
 <div class="card card-transparent">
@@ -777,7 +768,7 @@ var _hmt = _hmt || [];
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        116
+                        117
                     </p>
                 </div>
             </div>
@@ -844,7 +835,7 @@ var _hmt = _hmt || [];
                 <span class="level-item">Diary</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">6</span>
+                <span class="level-item tag">7</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/Geek/">
@@ -904,7 +895,7 @@ var _hmt = _hmt || [];
                 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
                 <p class="is-size-7">
                     <span>
-                        <span>84.7k</span> Words
+                        <span>85k</span> Words
                     </span>
                     <span id="busuanzi_container_site_pv" style="display:none">
                     <span class="division">|</span>

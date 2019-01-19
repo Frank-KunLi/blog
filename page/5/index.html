@@ -138,6 +138,72 @@ var _hmt = _hmt || [];
         <div class="my-title ">
             <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
                 
+                    <a class="has-link-black-ter" href="/algorithm-圆方树/">圆方树学习笔记</a>
+                
+            </h1>
+            <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
+                <div class="level-left">
+                    <i class="far fa-clock"></i>
+                    <time class="level-item has-text-grey" datetime="2018-12-13T12:29:44.000Z">
+                        2018-12-13
+                    </time>
+                    <i class="far fa-folder"></i>
+                    
+                        <div class="level-item">
+                            <a class="has-link-grey -link" href="/categories/Algorithm/">Algorithm</a>
+                        </div>
+                    
+                    <i class="far fa-edit"></i>
+                    
+                        <span class="level-item has-text-grey">
+                            1226 Words
+                        </span>
+                    
+                </div>
+            </div>
+        </div>
+        
+        <div class="content">
+            <p>圆方树可以解决仙人掌或一类无向图问题。</p>
+<h1 id="建树"><a href="#建树" class="headerlink" title="建树"></a>建树</h1><p>通过 tarjan 缩点双为方点，原来的点为圆点。每个圆点连边到自己所属的点双方点，跨点双的圆点连边转换为圆方点之间的连边。</p>
+<p>参考代码：</p>
+<figure class="highlight cpp hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">edge</span> &#123;</span></span><br><span class="line">    <span class="hljs-keyword">int</span> tot, flag, hed[N], nxt[M], to[M];</span><br><span class="line">    edge () &#123; tot = <span class="hljs-number">2</span>; &#125;</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">link</span><span class="hljs-params">(<span class="hljs-keyword">int</span> u, <span class="hljs-keyword">int</span> v)</span> </span>&#123;</span><br><span class="line">        nxt[tot] = hed[u], to[tot] = v, hed[u] = tot++;</span><br><span class="line">        nxt[tot] = hed[v], to[tot] = u, hed[v] = tot++;</span><br><span class="line">    &#125;</span><br><span class="line">&#125; G1, G2;</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">tarjan</span><span class="hljs-params">(<span class="hljs-keyword">int</span> u, <span class="hljs-keyword">int</span> father)</span> </span>&#123;</span><br><span class="line">    ++base, dfn[u] = low[u] = ++tim, ins[u] = <span class="hljs-number">1</span>, stk[++top] = u;</span><br><span class="line">    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = G1.hed[u], v = G1.to[i]; i; i = G1.nxt[i], v = G1.to[i])</span><br><span class="line">        <span class="hljs-keyword">if</span> (v != father) &#123;</span><br><span class="line">            <span class="hljs-keyword">if</span> (!dfn[v]) &#123;</span><br><span class="line">                tarjan(v, u), low[u] = <span class="hljs-built_in">std</span>::min(low[u], low[v]);</span><br><span class="line">                <span class="hljs-keyword">if</span> (low[v] &gt;= dfn[u]) &#123;</span><br><span class="line">                    G2.link(u, ++tot), ++val[tot]; <span class="hljs-keyword">int</span> x;</span><br><span class="line">                    <span class="hljs-keyword">do</span> &#123;</span><br><span class="line">                        x = stk[top--], ins[x] = <span class="hljs-number">0</span>;</span><br><span class="line">                        G2.link(x, tot), ++val[tot];</span><br><span class="line">                    &#125; <span class="hljs-keyword">while</span> (x != v);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (ins[v]) low[u] = <span class="hljs-built_in">std</span>::min(low[u], dfn[v]);</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>需要注意的是，根节点所在的点双的方点并不会创建，在大多数情况下，这并不会有影响，可根据题目的需要取舍。</li>
+</ul>
+<h1 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h1><p>由此我们可以发现一些有趣的性质：</p>
+<ul>
+<li>现在总点数与原来的点数同阶，现在的总边数与原来的总边数同阶</li>
+<li>所有边都是圆点和方点之间的连边，即不存在圆圆边或方方边</li>
+</ul>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/algorithm-圆方树/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article
+         
+    ">
+        
+        <div class="my-title ">
+            <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+                
                     <a class="has-link-black-ter" href="/contest-20181211/">20181211 - NOI模拟赛</a>
                 
             </h1>
@@ -637,65 +703,6 @@ var _hmt = _hmt || [];
 
 
 
-    <div class="card">
-    
-    <div class="card-content article
-         
-    ">
-        
-        <div class="my-title ">
-            <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-                
-                    <a class="has-link-black-ter" href="/solution-bzoj-5017/">BZOJ5017 - [SNOI2017] 炸弹</a>
-                
-            </h1>
-            <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
-                <div class="level-left">
-                    <i class="far fa-clock"></i>
-                    <time class="level-item has-text-grey" datetime="2018-11-12T11:33:40.000Z">
-                        2018-11-12
-                    </time>
-                    <i class="far fa-folder"></i>
-                    
-                        <div class="level-item">
-                            <a class="has-link-grey -link" href="/categories/Solution/">Solution</a>
-                        </div>
-                    
-                    <i class="far fa-edit"></i>
-                    
-                        <span class="level-item has-text-grey">
-                            935 Words
-                        </span>
-                    
-                </div>
-            </div>
-        </div>
-        
-        <div class="content">
-            <p>zhouyuheng2003 学长一天打完 CF 后给我做的一道他说是简单题的题，然而炒鸡难！！！</p>
-<p>考虑暴力，每个炸弹向能引爆炸弹的连边，总数是 $n^2$ 级别的。之后跑 tarjan 缩点，并在 DAG 上统计答案。统计是，考虑合并来的点所对应的情况可能会有重点，因此需要开桶去重。这样的时空复杂度都是 $O(n^2)$ 的。</p>
-<p>考虑优化，通过观察可以发现，能引爆的炸弹一定是连续的一整段区间。可以用线段树优化建边，统计答案时不需要开桶统计，而是统计能够炸掉的最左端的点和最右端的点。时间复杂度 $O(n \log n)$ ，空间复杂度 $O(n \log n)$。</p>
-<p>同时</p>
-<p>当然这并不是最优的，zhouyuheng2003 学长的博客中给出了一种时空复杂度均为 $O(n)$ 的做法。见 <a href="https://blog.csdn.net/zhouyuheng2003/article/details/83278984" target="_blank" rel="noopener">https://blog.csdn.net/zhouyuheng2003/article/details/83278984</a> 。</p>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/solution-bzoj-5017/#more">阅读更多</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
 
     
 <div class="card card-transparent">
@@ -763,7 +770,7 @@ var _hmt = _hmt || [];
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        116
+                        117
                     </p>
                 </div>
             </div>
@@ -830,7 +837,7 @@ var _hmt = _hmt || [];
                 <span class="level-item">Diary</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">6</span>
+                <span class="level-item tag">7</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/Geek/">
@@ -890,7 +897,7 @@ var _hmt = _hmt || [];
                 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
                 <p class="is-size-7">
                     <span>
-                        <span>84.7k</span> Words
+                        <span>85k</span> Words
                     </span>
                     <span id="busuanzi_container_site_pv" style="display:none">
                     <span class="division">|</span>
