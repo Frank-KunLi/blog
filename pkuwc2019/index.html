@@ -2,18 +2,22 @@
 <html lang="zh">
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-<title>标签: 四边形不等式优化 - memset0&#39;s blog</title>
+<title>PKUWC 2019 游记 - memset0&#39;s blog</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-    <meta property="og:type" content="website">
-<meta property="og:title" content="memset0&#39;s blog">
-<meta property="og:url" content="https://memset0.cn/tags/四边形不等式优化/index.html">
+    <meta name="description" content="谨以此文记录我的 OI 生涯的第一次向 PKU 冲刺的机会。 持续更新。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PKUWC 2019 游记">
+<meta property="og:url" content="https://memset0.cn/pkuwc2019/index.html">
 <meta property="og:site_name" content="memset0&#39;s blog">
+<meta property="og:description" content="谨以此文记录我的 OI 生涯的第一次向 PKU 冲刺的机会。 持续更新。">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-01-19T13:28:29.446Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="memset0&#39;s blog">
+<meta name="twitter:title" content="PKUWC 2019 游记">
+<meta name="twitter:description" content="谨以此文记录我的 OI 生涯的第一次向 PKU 冲刺的机会。 持续更新。">
 
 
 
@@ -89,7 +93,7 @@ var _hmt = _hmt || [];
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <!-- <img src="/images/logo.png" alt="memset0&#39;s blog" height="28"> -->
+                <!-- <img src="/images/logo.png" alt="PKUWC 2019 游记" height="28"> -->
                 <span class="navbar-title"> memset0's blog </span>
             
             </a>
@@ -129,44 +133,33 @@ var _hmt = _hmt || [];
         <div class="container">
             <div class="columns">
                 <div class="column my-content is-8-tablet is-8-desktop is-8-widescreen has-order-2 column-main"><div class="card">
-    <div class="card-content">
-        <nav class="breadcrumb" aria-label="breadcrumbs">
-        <ul>
-            <li><a href="/tags">标签</a></li>
-            <li class="is-active"><a href="#" aria-current="page">四边形不等式优化</a></li>
-        </ul>
-        </nav>
-    </div>
-</div>
-
-    <div class="card">
     
     <div class="card-content article
          
     ">
         
-        <div class="my-title ">
+        <div class="my-title  my-post-title ">
             <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
                 
-                    <a class="has-link-black-ter" href="/solution-luogu-4767/">洛谷4767 - [IOI2000]邮局</a>
+                    PKUWC 2019 游记
                 
             </h1>
             <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
                 <div class="level-left">
                     <i class="far fa-clock"></i>
-                    <time class="level-item has-text-grey" datetime="2018-08-26T14:35:55.000Z">
-                        2018-08-26
+                    <time class="level-item has-text-grey" datetime="2019-01-19T13:08:21.000Z">
+                        2019-01-19
                     </time>
                     <i class="far fa-folder"></i>
                     
                         <div class="level-item">
-                            <a class="has-link-grey -link" href="/categories/Solution/">Solution</a>
+                            <a class="has-link-grey -link" href="/categories/Diary/">Diary</a>
                         </div>
                     
                     <i class="far fa-edit"></i>
                     
                         <span class="level-item has-text-grey">
-                            612 Words
+                            506 Words
                         </span>
                     
                 </div>
@@ -174,37 +167,63 @@ var _hmt = _hmt || [];
         </div>
         
         <div class="content">
-            <p>非常简单的四边形不等式优化模板题。</p>
-<h3 id="（一）"><a href="#（一）" class="headerlink" title="（一）"></a>（一）</h3><p>首先考虑 $O(n^2 \times m)$ 的做法，先将 $a$ 数组排序，假设 $f[i][j]$ 表示前 $i$ 个村庄中设立 $j$ 个邮局，可以列出转移方程：</p>
-<p>$$f[i][j] = min(f[i][j], f[k][j - 1] + dis(k + 1, i))$$</p>
-<p>其中 $dis(l, r)$ 表示在 $l$ 到 $r$ 的区间中建立一个邮局所对答案产生的贡献，<strong>利用人类智慧可知把邮局建在中间花费最少</strong>。</p>
-<h3 id="（二）"><a href="#（二）" class="headerlink" title="（二）"></a>（二）</h3><p>在进行四边形不等式优化之前，我们先考虑如何在 $O(1)$ 的时间复杂度内求出 $dis(l, r)$：</p>
-<p>在暴力做法中，我们需要枚举 $l$ 到 $r$ 之间的数，去其与中间的村庄的距离差的绝对值，代码大概如下：</p>
-<figure class="highlight cpp hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = l; i &lt;= r; i++)</span><br><span class="line">    ans += <span class="hljs-built_in">abs</span>(a[i] - a[mid]);</span><br></pre></td></tr></table></figure>
-<p>由于 $a$ 数组是有序的，我们可知在 $mid$ 左面的村庄 $abs(a_i - a_{mid}) = a_{mid} - a_i$，右边的村庄 $abs(a_i - a_{mid}) = a_i - a_{mid}$ 。那么通过前缀和即可在 $O(1)$ 的时间复杂度内求出。</p>
-<h3 id="（三）"><a href="#（三）" class="headerlink" title="（三）"></a>（三）</h3><p>四边形不等式优化必须满足：</p>
-<p>$$f[a][c]+f[b][d]&lt;=f[b][c]+f[a][d]$$</p>
-<p>且决策单调。</p>
-<p>本题可以通过<del>打表</del>等方法证明成立，那么 $f[i][j]$ 的状态只能从 $f[i][j - 1]$ 到 $f[i + 1][j]$ 的决策中选择一个进行转移。</p>
+            <p>谨以此文记录我的 OI 生涯的第一次向 PKU 冲刺的机会。</p>
+<p>持续更新。</p>
+<a id="more"></a>
+<h1 id="Day-1"><a href="#Day-1" class="headerlink" title="Day -1"></a>Day -1</h1><p>逝者如斯。仿佛昨日仍是考挂的 NOIP Day 2 ，考场上自己紧张的脑海如同面前的白纸一般，我用尽全力去寻找那一丝的线索而后又一无所获。正解没想出 + 暴力写挂，让我完美地与 THUWC 擦肩而过，也更不可能去参加 WC 了。</p>
+<p>回顾这两个月的时光。11 月考完后各种浪 + 学习了一系列多项式算法、12 月各种模拟赛 + 巩固知识 <del>+ 搞博客</del> 、 1 月学习一系列字符串算法 + 复习巩固 LCT 。其中也有和 CJ 的联考，认识了 xzz 、 yyb 等大佬；冬日绘板的维护中也认识了 O<span style="red">wenOwl</span> 。</p>
+<p>每次大考前的自己都难免会紧张，现在也不例外，<del>所以来更博客</del>。最近复习巩固的算法不知道考场上考到的话自己能不能写出来，感觉数学题还可以再复习一下，就留作明天的最后冲刺吧。</p>
+<p>昨晚看到一位同学的博客。才 10 月分，我刚熟练掌握树链剖分哪会儿，他就已经会动态 DP 了<del>（woc 我当时怎么没学这玩意儿）</del>。然而，他的博客也永远停留在了 10 月。没有复赛的入场券，意味着他只能回初中准备中考。</p>
+<p>也许，竞赛就是这么残忍的东西吧。实力的竞争让曾经的挚友反目成仇，几分的差距让多少 OIer 的清北梦破碎。有人在抱怨，有人在哭诉，然而这又有什么用呢，不如用自己的能力去争取。</p>
+<p>PKUWC ，第一个给在 NOIP 中失利的我证明自己的机会。</p>
+<p>memset0，</p>
+<p>要对自己说：</p>
+<p>加油！</p>
+
         </div>
         
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/solution-luogu-4767/#more">阅读更多</a>
-                </div>
-            </div>
-        </div>
         
         
     </div>
 </div>
 
 
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/ping-lun-sao-rao/">
+                <span class="level-item">关于这个博客最近收到的评论骚扰</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
 
 
 
+<div class="card">
+    <div class="card-content">
+        <!-- <h3 class="title is-5 has-text-weight-normal">评论</h3> -->
+        
+<div id="valine-thread"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/volantis@1/js/volantis.min.js"></script>
+<script>
+    new Valine({
+        el: '#valine-thread' ,
+        notify: false,
+        verify: false,
+        app_id: 'rHgVqrBsv0EYGFSxzDDIDapm-9Nh9j0Va',
+        app_key: 'X7Dp3hEvRWPbqHBYkOTBXzPm',
+        placeholder: '留下你的脚印~'
+    });
+</script>
+
+    </div>
+</div>
 </div>
                 
                 
@@ -279,6 +298,26 @@ var _hmt = _hmt || [];
 </div>
     
         
+<div class="card widget" id="toc">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                目录
+            </h3>
+            <ul class="menu-list"><li>
+        <a class="is-flex" href="#Day-1">
+        <span class="has-mr-6">1</span>
+        <span>Day -1</span>
+        </a></li></ul>
+        </div>
+    </div>
+</div>
+<!-- <script type="text/javascript">
+function myHideElement(name) {
+    document.getElementById(name).style.display = 'none';
+}
+</script> -->
+
     
         	
 <div class="card widget">
@@ -358,7 +397,7 @@ var _hmt = _hmt || [];
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 <!-- 
-                    <img src="/images/logo.png" alt="memset0&#39;s blog" height="28">
+                    <img src="/images/logo.png" alt="PKUWC 2019 游记" height="28">
                     memset0's blog
                  -->
                 </a>
