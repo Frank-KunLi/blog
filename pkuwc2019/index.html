@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="memset0&#39;s blog">
 <meta property="og:description" content="谨以此文记录我的 OI 生涯的第一次向 PKU 冲刺的机会。 持续更新。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-01-20T14:12:08.673Z">
+<meta property="og:updated_time" content="2019-01-21T14:33:54.654Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PKUWC 2019 游记">
 <meta name="twitter:description" content="谨以此文记录我的 OI 生涯的第一次向 PKU 冲刺的机会。 持续更新。">
@@ -159,7 +159,7 @@ var _hmt = _hmt || [];
                     <i class="far fa-edit"></i>
                     
                         <span class="level-item has-text-grey">
-                            721 Words
+                            1151 Words
                         </span>
                     
                 </div>
@@ -182,6 +182,17 @@ var _hmt = _hmt || [];
 <h1 id="Day-0"><a href="#Day-0" class="headerlink" title="Day 0"></a>Day 0</h1><p>今天上午是我自幼儿园（那个时候几乎没什么记忆了…）后第一次坐飞机… 想这种在天上飞的感觉这的好啊。中午 &amp; 下午在坐了好久的车（广州到中山还是挺远的），前半程调板子，后半程和龙天龙天颓象棋（他爆踩窝 Orz）。</p>
 <p>下午试机，当坐在考场里， NOIp 时那种紧张和焦虑感又重新涌上心头。也许这就是考试的紧张吧，希望明天的我能尽力克服。晚上在调试机题（下午没在写，先回寝室休息了）。</p>
 <p>明天是正式的 Day 1 了，现在再看会儿板子，等到了考场还是专心考试吧，争取不要紧张，PKUWC2019 rp++！</p>
+<h1 id="Day-1-1"><a href="#Day-1-1" class="headerlink" title="Day 1"></a>Day 1</h1><p>今天彻底凉透了。</p>
+<p>上午开幕式领导讲话，北大老师：“清华北门朝东，东门朝南，你看一个学校连门都开不好，想必…”。</p>
+<p>然后就是机试：</p>
+<p>开局先写 T1 暴力，写着写着就会正解了，然后大概一刻钟写了个暴力，再一刻钟写了个正解 AC 。</p>
+<p>一看时间还多，又看了眼 T2 和 T3 。T2 看错题，还以为此题的虚树和其他大融合里的那种虚树是一样的，即总点数是 $O(n)$ 于是一直往那边想（滚粗 flag $\times$ 1），显然 GG 。忽然感觉链的情况很好写，赶快码码码。然后发现这么一个东西不会处理：</p>
+<p>$$<br>ans_i = \sum\limits_{j=1}^n {a_j \choose i}<br>$$</p>
+<p>码了个暴力交上去爆零（然而有人卡卡常就过了，滚粗 flag $\times$ 2），写了个 NTT 不知是写挂了还是式子推错了，暂时放着没管（滚粗 flag $\times$ 3）</p>
+<p>于是开始看 T3 ，一看时间还多，写个 13 分还是没问题的，一写就是 2h （滚粗 flag $\times$ 4），一看时间还有 2h 了，T3 暴力还是 WA ，想想这个时候苟 T2 也没什么用了（滚粗 flag $\times$ 5）赶快重构了一遍，然而还是 WA…</p>
+<p>T2 的 NTT 也没时间调，于是最后 1min 只能瞪着时间默默观察自己爆零 233…</p>
+<p>晚上和同学聊了挺久的吧，毕竟深知自己明天不可能翻盘做好自己就行。</p>
+<p>顺便表白 zx 和 txc 。。。</p>
 
         </div>
         
@@ -315,6 +326,10 @@ var _hmt = _hmt || [];
         <a class="is-flex" href="#Day-0">
         <span class="has-mr-6">2</span>
         <span>Day 0</span>
+        </a></li><li>
+        <a class="is-flex" href="#Day-1-1">
+        <span class="has-mr-6">3</span>
+        <span>Day 1</span>
         </a></li></ul>
         </div>
     </div>
@@ -416,7 +431,7 @@ function myHideElement(name) {
                 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
                 <p class="is-size-7">
                     <span>
-                        <span>85.7k</span> Words
+                        <span>86.1k</span> Words
                     </span>
                     <span id="busuanzi_container_site_pv" style="display:none">
                     <span class="division">|</span>
