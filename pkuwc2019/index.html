@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="memset0&#39;s blog">
 <meta property="og:description" content="谨以此文记录我的 OI 生涯的第一次向 PKU 冲刺的机会。 持续更新。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-01-21T14:33:54.654Z">
+<meta property="og:updated_time" content="2019-01-23T07:09:27.984Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PKUWC 2019 游记">
 <meta name="twitter:description" content="谨以此文记录我的 OI 生涯的第一次向 PKU 冲刺的机会。 持续更新。">
@@ -159,7 +159,7 @@ var _hmt = _hmt || [];
                     <i class="far fa-edit"></i>
                     
                         <span class="level-item has-text-grey">
-                            1151 Words
+                            2129 Words
                         </span>
                     
                 </div>
@@ -187,12 +187,32 @@ var _hmt = _hmt || [];
 <p>然后就是机试：</p>
 <p>开局先写 T1 暴力，写着写着就会正解了，然后大概一刻钟写了个暴力，再一刻钟写了个正解 AC 。</p>
 <p>一看时间还多，又看了眼 T2 和 T3 。T2 看错题，还以为此题的虚树和其他大融合里的那种虚树是一样的，即总点数是 $O(n)$ 于是一直往那边想（滚粗 flag $\times$ 1），显然 GG 。忽然感觉链的情况很好写，赶快码码码。然后发现这么一个东西不会处理：</p>
-<p>$$<br>ans_i = \sum\limits_{j=1}^n {a_j \choose i}<br>$$</p>
+<p>$$<br>ans_i = \sum\limits_{j=1}^n b_j {a_j \choose i}<br>$$</p>
 <p>码了个暴力交上去爆零（然而有人卡卡常就过了，滚粗 flag $\times$ 2），写了个 NTT 不知是写挂了还是式子推错了，暂时放着没管（滚粗 flag $\times$ 3）</p>
 <p>于是开始看 T3 ，一看时间还多，写个 13 分还是没问题的，一写就是 2h （滚粗 flag $\times$ 4），一看时间还有 2h 了，T3 暴力还是 WA ，想想这个时候苟 T2 也没什么用了（滚粗 flag $\times$ 5）赶快重构了一遍，然而还是 WA…</p>
 <p>T2 的 NTT 也没时间调，于是最后 1min 只能瞪着时间默默观察自己爆零 233…</p>
 <p>晚上和同学聊了挺久的吧，毕竟深知自己明天不可能翻盘做好自己就行。</p>
-<p>顺便表白 zx 和 txc 。。。</p>
+<h1 id="Day-2"><a href="#Day-2" class="headerlink" title="Day 2"></a>Day 2</h1><p>今天考 Day2 ，因为肯定不可能翻盘所以也就不在意了。</p>
+<p>上午考数学，表示有 Python 非常滴吼…几乎全程写的 Python 。就是 IDLE 有点卡，写个 Python 死机死了两次。后来换 Sublime 写就十分舒适…</p>
+<p>下午机试，T1 很快写了个暴力然而不会第二档部分分。然后就自闭了。出于 Day1 的经历不敢不开 T2 ，于是直接想了一下，可以把以简单环为点转换为以边为点。接着开了一下 T3 ，准备先写个随机撒点。调出来了以后想到了一个 47 分做法——由于一个环覆盖另一个环一定是一个连续的区间，打算先写 T2 再开。</p>
+<p>T2 一开始的思路是假的，我枚举两条有公共点的单向边 $e \to u$ 和 $u \to s$ 会对答案产生贡献当且仅当 $\exists$ 从 $s$ 到 $e$ 的路径。于是写了个暴力拍出了这样一组 Hack 数据：</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">3 4</span><br><span class="line">1 2</span><br><span class="line">2 1</span><br><span class="line">1 3</span><br><span class="line">3 1</span><br></pre></td></tr></table></figure>
+<p>这个数据告诉我们必须 $\exists$ 一条从 $s$ 到 $e$ 的路径还不能经过 $u$ 。于是我的思维大概就定格在如何枚举两条边并且 Check $u$ 是不是 $s$ 到 $e$ 的割点。大概想到了 Tarjan 的方向，但是由于 T3 的 36 分还没写，所以赶快去写 T3 。</p>
+<p>不幸的是，我 T3 照样没有调出来。由于坐标的值域可以到 $10^9$ ，所以如果直接全部用 double 存平方一下就炸精度了 233… 我虽然想到了这个但是已经没有时间改 long long 了。由于 Day 1 爆炸 Day 2 本来就没抱多大希望，所以也不是很难过吧(话说这个 Day 1 和 2 换一下我可能会考的比较好吧…)</p>
+<p>晚上和 lty 下象棋，然后颓了会儿知乎就睡了</p>
+<h1 id="Day-3"><a href="#Day-3" class="headerlink" title="Day 3"></a>Day 3</h1><p>今天是面试日，由于肯定不会有什么一本约所以就根本没准备了。</p>
+<p>名字如期出现在了列表里，要面试三次，大概总结一下吧：</p>
+<ol>
+<li><p>第一个老师是先让我作 1 min 的自我介绍，然而因为我没准备就说了个名字和学校就编不下去了。然后她问我未来的方向，我说机器学习。接着问会的语言：说了 Python 、PHP、还有一些前端语言，除 OI 外主要写 Python （这是真事儿）。然后就让我走了？？？面试好快啊…</p>
+</li>
+<li><p>第二个老师问了我一些有关文化课的问题，比如学习成绩怎么样之类的。还问了我初三停课的话文化课打算怎么办… 我就如实回答了，也没吹牛逼。</p>
+</li>
+<li><p>第三个老师是我们监考老师，考场电脑两次死机所以这位老师也记住我了 Orz。开头讨论了大概半分钟为啥我的电脑死机了(他认为我 Chrome 窗口开太多了，我认为我在 IDLE 里跑了个 Python 那电脑就咕咕咕了 233)，不过这不是重点。然后就问了一些非常正常的问题吧。我也如实说了我这次考试爆炸什么的。他让我稳住心态 QAQ ，然后就正常的结束了…</p>
+</li>
+</ol>
+<p>考完出来竟然没有一种如释重负的感觉。可能是因为 Day 1 的时候就知道这一切已经结束了吧，毕竟人贵有自知之明，这点分数我也不奢求有什么结果了。</p>
+<p>下午一个人把纪中校园走了个遍，感觉是真的大啊。会宾馆后可能会补上拍的照片和游记吧。</p>
+<p>差不多没了。</p>
 
         </div>
         
@@ -330,6 +350,14 @@ var _hmt = _hmt || [];
         <a class="is-flex" href="#Day-1-1">
         <span class="has-mr-6">3</span>
         <span>Day 1</span>
+        </a></li><li>
+        <a class="is-flex" href="#Day-2">
+        <span class="has-mr-6">4</span>
+        <span>Day 2</span>
+        </a></li><li>
+        <a class="is-flex" href="#Day-3">
+        <span class="has-mr-6">5</span>
+        <span>Day 3</span>
         </a></li></ul>
         </div>
     </div>
@@ -431,7 +459,7 @@ function myHideElement(name) {
                 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
                 <p class="is-size-7">
                     <span>
-                        <span>86.1k</span> Words
+                        <span>87k</span> Words
                     </span>
                     <span id="busuanzi_container_site_pv" style="display:none">
                     <span class="division">|</span>
