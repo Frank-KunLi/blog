@@ -138,6 +138,121 @@ var _hmt = _hmt || [];
         <div class="my-title ">
             <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
                 
+                    <a class="has-link-black-ter" href="/luogu3175/">洛谷3175 - [HAOI2015]按位或</a>
+                
+            </h1>
+            <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
+                <div class="level-left">
+                    <i class="far fa-clock"></i>
+                    <time class="level-item has-text-grey" datetime="2019-01-14T01:28:49.000Z">
+                        2019-01-14
+                    </time>
+                    <i class="far fa-folder"></i>
+                    
+                        <div class="level-item">
+                            <a class="has-link-grey -link" href="/categories/Solution/">Solution</a>
+                        </div>
+                    
+                    <i class="far fa-edit"></i>
+                    
+                        <span class="level-item has-text-grey">
+                            219 Words
+                        </span>
+                    
+                </div>
+            </div>
+        </div>
+        
+        <div class="content">
+            <p>同理可 Min-Max 容斥：</p>
+<p>$$<br>\min(S) = \frac{1}{1 - \sum\limits_{S’ \subseteq S} \sum\limits_{u \in S’} p_u}<br>$$</p>
+<p>FWT 一波即可。</p>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/luogu3175/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article
+         
+    ">
+        
+        <div class="my-title ">
+            <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+                
+                    <a class="has-link-black-ter" href="/hdu4336/">HDU4336 - Card Collector</a>
+                
+            </h1>
+            <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
+                <div class="level-left">
+                    <i class="far fa-clock"></i>
+                    <time class="level-item has-text-grey" datetime="2019-01-13T23:50:52.000Z">
+                        2019-01-14
+                    </time>
+                    <i class="far fa-folder"></i>
+                    
+                        <div class="level-item">
+                            <a class="has-link-grey -link" href="/categories/Solution/">Solution</a>
+                        </div>
+                    
+                    <i class="far fa-edit"></i>
+                    
+                        <span class="level-item has-text-grey">
+                            238 Words
+                        </span>
+                    
+                </div>
+            </div>
+        </div>
+        
+        <div class="content">
+            <p>考虑 Min-Max 容斥。用 $\min(S)$ 表示 $S$ 中出现至少一个元素的期望时间，用 $\max(S)$ 表示 $S$ 中每一个元素都出现的期望时间。</p>
+<p>则：</p>
+<p>$$<br>\begin{aligned}<br>\min(S) &amp;= \frac{1}{\sum\limits_{i \in S} p_i} \\<br>\max(S) &amp;= \sum\limits_{S’ \subseteq S} \min(S’) (-1)^{|S’| - 1}<br>\end{aligned}<br>$$</p>
+<p>答案显然是让我们求 $\max(\texttt{全集})$ ，故状压一下即可。</p>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/hdu4336/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article
+         
+    ">
+        
+        <div class="my-title ">
+            <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+                
                     <a class="has-link-black-ter" href="/min-max/">Min-Max 容斥学习笔记</a>
                 
             </h1>
@@ -591,120 +706,6 @@ var _hmt = _hmt || [];
 
 
 
-    <div class="card">
-    
-    <div class="card-content article
-         
-    ">
-        
-        <div class="my-title ">
-            <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-                
-                    <a class="has-link-black-ter" href="/blog-with-hexo-hey/">使用 Hexo Hey 进行 Hexo 下的写作</a>
-                
-            </h1>
-            <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
-                <div class="level-left">
-                    <i class="far fa-clock"></i>
-                    <time class="level-item has-text-grey" datetime="2019-01-13T04:02:50.000Z">
-                        2019-01-13
-                    </time>
-                    <i class="far fa-folder"></i>
-                    
-                        <div class="level-item">
-                            <a class="has-link-grey -link" href="/categories/Geek/">Geek</a>
-                        </div>
-                    
-                    <i class="far fa-edit"></i>
-                    
-                        <span class="level-item has-text-grey">
-                            569 Words
-                        </span>
-                    
-                </div>
-            </div>
-        </div>
-        
-        <div class="content">
-            <p>之前特别喜欢那种动态博客，因为它能够提供一种更加简洁直观的编辑页面，而不是像 Hexo 一样，要从一堆 .md 文件中找出自己需要编辑的那个。</p>
-<p>当然， Hexo 下这个问题也不是无解，所以这篇文章就来简单的介绍下在 Hexo 的文章管理插件。</p>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/blog-with-hexo-hey/#more">阅读更多</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
-    <div class="card">
-    
-    <div class="card-content article
-         
-    ">
-        
-        <div class="my-title ">
-            <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-                
-                    <a class="has-link-black-ter" href="/solution-bzoj-5404/">BZOJ5404 - party</a>
-                
-            </h1>
-            <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
-                <div class="level-left">
-                    <i class="far fa-clock"></i>
-                    <time class="level-item has-text-grey" datetime="2019-01-10T09:16:10.000Z">
-                        2019-01-10
-                    </time>
-                    <i class="far fa-folder"></i>
-                    
-                        <div class="level-item">
-                            <a class="has-link-grey -link" href="/categories/Solution/">Solution</a>
-                        </div>
-                    
-                    <i class="far fa-edit"></i>
-                    
-                        <span class="level-item has-text-grey">
-                            618 Words
-                        </span>
-                    
-                </div>
-            </div>
-        </div>
-        
-        <div class="content">
-            <p>和其他题解不太一样，这里没有用线段树……</p>
-<p>首先肯定会在 LCA 处集合，通过树剖 + bitset 维护出可选的集合。然后利用 Hall 定理进行完美匹配统计答案。可以发现直接树剖 + 暴力跳是 $O(n ^ 2)$ 的，所以限制树链的长度至多为 $S$ ，则复杂度为：$O(n + qcS\times\frac{m}{32} + qc \times \frac{n}{S} + q \times 2^c \times \frac{m}{32})$ ，取 $S = \sqrt n$ 。</p>
-<p>然后跑的飞快 233333.</p>
-<p><img src="https://ws2.sinaimg.cn/large/006tNc79ly1fz1mb68s1ej319m02u0tr.jpg" alt=""></p>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/solution-bzoj-5404/#more">阅读更多</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
 
     
 <div class="card card-transparent">
@@ -768,7 +769,7 @@ var _hmt = _hmt || [];
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        118
+                        120
                     </p>
                 </div>
             </div>
@@ -788,7 +789,7 @@ var _hmt = _hmt || [];
                         标签
                     </p>
                     <p class="title has-text-weight-normal">
-                        131
+                        134
                     </p>
                 </div>
             </div>
@@ -859,7 +860,7 @@ var _hmt = _hmt || [];
                 <span class="level-item">Solution</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">76</span>
+                <span class="level-item tag">78</span>
             </span>
         </a></li>
             </ul>
@@ -895,7 +896,7 @@ var _hmt = _hmt || [];
                 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
                 <p class="is-size-7">
                     <span>
-                        <span>87k</span> Words
+                        <span>87.9k</span> Words
                     </span>
                     <span id="busuanzi_container_site_pv" style="display:none">
                     <span class="division">|</span>

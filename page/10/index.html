@@ -138,6 +138,122 @@ var _hmt = _hmt || [];
         <div class="my-title ">
             <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
                 
+                    <a class="has-link-black-ter" href="/solution-luogu-2387/">洛谷2387 - [NOI2014]魔法森林</a>
+                
+            </h1>
+            <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
+                <div class="level-left">
+                    <i class="far fa-clock"></i>
+                    <time class="level-item has-text-grey" datetime="2018-08-30T10:04:24.000Z">
+                        2018-08-30
+                    </time>
+                    <i class="far fa-folder"></i>
+                    
+                        <div class="level-item">
+                            <a class="has-link-grey -link" href="/categories/Solution/">Solution</a>
+                        </div>
+                    
+                    <i class="far fa-edit"></i>
+                    
+                        <span class="level-item has-text-grey">
+                            797 Words
+                        </span>
+                    
+                </div>
+            </div>
+        </div>
+        
+        <div class="content">
+            <p>题意可以理解为找到一条 $1$ 到 $n$ 的路径，使得其中 $a$ 的最大值和 $b$ 的最大值之和最小。</p>
+<p>我们可以先按照 $a$ 的值排序，然后使用 LCT 维护关于 $b$ 的最小生成树；算法的正确性很容易证明：对于每一个 $a$ 的最大值我们都取到了 $b$ 的最大值的最小值。</p>
+<p>维护动态最小生成树：对于新加的边 $(u, v)$ ，如果已经连接，则需要断掉其中最大的一条（当前的 $b$ 值比最大的 $b$ 值还大就不用加了），否则无脑 link 。所以我们的 LCT 还要存储下最大的边以及对应的编号。</p>
+<p>由于 LCT 只能维护点不能维护边，我们可以考虑化边为点，总共有 $n$ 个 LCT 中的点表示实际意义的点，以及 $m$ 的 LCT 中的点表示实际意义的边。这样子瞎搞即可。</p>
+<p>注意一定要当 $1$ 和 $n$ 已经联通时才能用当前的状态尝试更新答案哦！</p>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/solution-luogu-2387/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article
+         
+    ">
+        
+        <div class="my-title ">
+            <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+                
+                    <a class="has-link-black-ter" href="/solution-luogu-3285/">洛谷3285 - [SCOI2014]方伯伯的OJ</a>
+                
+            </h1>
+            <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
+                <div class="level-left">
+                    <i class="far fa-clock"></i>
+                    <time class="level-item has-text-grey" datetime="2018-08-30T09:56:45.000Z">
+                        2018-08-30
+                    </time>
+                    <i class="far fa-folder"></i>
+                    
+                        <div class="level-item">
+                            <a class="has-link-grey -link" href="/categories/Solution/">Solution</a>
+                        </div>
+                    
+                    <i class="far fa-edit"></i>
+                    
+                        <span class="level-item has-text-grey">
+                            714 Words
+                        </span>
+                    
+                </div>
+            </div>
+        </div>
+        
+        <div class="content">
+            <p>本题的 $n$ 特别大，如果直接开那么大的空间，想必会直接超时。所以我们可以先把所有“用户”合并成一个点，需要访问到哪个就进行分裂。这样的话 $m$ 次操作每次都只会分裂一次，时间复杂度就能保证在 $O(m\log m)$ ，空间也不会炸。</p>
+<p>另外本题只有提到最前面和提到最后面两种操作，使用平衡树的必要不大，用动态开点线段树就好了。</p>
+<p>p.s. 感觉 Leafy Tree 和这个好像啊 (=’w’​=)</p>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/solution-luogu-3285/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article
+         
+    ">
+        
+        <div class="my-title ">
+            <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+                
                     <a class="has-link-black-ter" href="/solution-luogu-4767/">洛谷4767 - [IOI2000]邮局</a>
                 
             </h1>
@@ -615,123 +731,6 @@ var _hmt = _hmt || [];
 
 
 
-    <div class="card">
-    
-    <div class="card-content article
-         
-    ">
-        
-        <div class="my-title ">
-            <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-                
-                    <a class="has-link-black-ter" href="/geek-windows10美化/">Windown10美化计划</a>
-                
-            </h1>
-            <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
-                <div class="level-left">
-                    <i class="far fa-clock"></i>
-                    <time class="level-item has-text-grey" datetime="2018-08-15T08:05:17.000Z">
-                        2018-08-15
-                    </time>
-                    <i class="far fa-folder"></i>
-                    
-                        <div class="level-item">
-                            <a class="has-link-grey -link" href="/categories/Geek/">Geek</a>
-                        </div>
-                    
-                    <i class="far fa-edit"></i>
-                    
-                        <span class="level-item has-text-grey">
-                            786 Words
-                        </span>
-                    
-                </div>
-            </div>
-        </div>
-        
-        <div class="content">
-            <p><strong>本文不定时持续更新！</strong></p>
-<p><strong>所有用到的资源可到 <a href="https://cloud.memset0.cn/%E5%88%86%E4%BA%AB/Windows10%20%E7%BE%8E%E5%8C%96%E8%AE%A1%E5%88%92/" target="_blank" rel="noopener">cloud.memset0.cn/分享/Windows10美化计划</a> 中下载</strong></p>
-<p><img src="https://i.loli.net/2018/08/15/5b73df69642f8.png" alt="成品效果"></p>
-<p>成品效果如上</p>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/geek-windows10美化/#more">阅读更多</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
-    <div class="card">
-    
-    <div class="card-content article
-         
-    ">
-        
-        <div class="my-title ">
-            <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-                
-                    <a class="has-link-black-ter" href="/algorithm-线性基/">线性基（洛谷3812）</a>
-                
-            </h1>
-            <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
-                <div class="level-left">
-                    <i class="far fa-clock"></i>
-                    <time class="level-item has-text-grey" datetime="2018-08-14T13:55:36.000Z">
-                        2018-08-14
-                    </time>
-                    <i class="far fa-folder"></i>
-                    
-                        <div class="level-item">
-                            <a class="has-link-grey -link" href="/categories/Algorithm/">Algorithm</a>
-                        </div>
-                    
-                    <i class="far fa-edit"></i>
-                    
-                        <span class="level-item has-text-grey">
-                            619 Words
-                        </span>
-                    
-                </div>
-            </div>
-        </div>
-        
-        <div class="content">
-            <p>线性基是一种解决异或相关问题的算法。</p>
-<p>感谢 mwh 与我分享关于线性基的理解，让我了解线性基。</p>
-<h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><p>线性基理论上来说是一种贪心的思路。一般情况下，我们需要从（二进制）高位到低位贪心，然而这样可能会产生其他影响（例如当前数的选择与否会影响到之前已选择的数）。线性基就巧妙的解决了这个问题。</p>
-<p>假设我们已经有了一个集合 $S$ ，集合中有一数为 $P$ ，现在我们需要插入 $X$ ，则插入 $X$ 和插入 $ X xor P $ 是等价的，理性证明：</p>
-<p>假设集合 $S$ 中任意个数其中包含 $P$ 的异或和的集合为 $S1$ ，不包含 $P$ 的为 $S2$ 。则插入 $X$ 后的 $S$ 中任意数的异或和集合 $S’ = X xor S1 + X xor S2$ ；插入 $X xor P$ 后 $S$ 中任意数的异或集合 $S’’ = (X xor P) xor S1 + (X xor P) xor S2 = X xor (P xor S1) + X xor (P xor S2) = X xor S2 + X xor S1$ 。所以 $S’ = S’’$ 插入 $X$ 和插入 $X xor P$ 等价，证毕。</p>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/algorithm-线性基/#more">阅读更多</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
 
     
 <div class="card card-transparent">
@@ -797,7 +796,7 @@ var _hmt = _hmt || [];
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        118
+                        120
                     </p>
                 </div>
             </div>
@@ -817,7 +816,7 @@ var _hmt = _hmt || [];
                         标签
                     </p>
                     <p class="title has-text-weight-normal">
-                        131
+                        134
                     </p>
                 </div>
             </div>
@@ -888,7 +887,7 @@ var _hmt = _hmt || [];
                 <span class="level-item">Solution</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">76</span>
+                <span class="level-item tag">78</span>
             </span>
         </a></li>
             </ul>
@@ -924,7 +923,7 @@ var _hmt = _hmt || [];
                 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
                 <p class="is-size-7">
                     <span>
-                        <span>87k</span> Words
+                        <span>87.9k</span> Words
                     </span>
                     <span id="busuanzi_container_site_pv" style="display:none">
                     <span class="division">|</span>
