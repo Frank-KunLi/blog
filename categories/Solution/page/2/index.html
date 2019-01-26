@@ -149,6 +149,63 @@ var _hmt = _hmt || [];
         <div class="my-title ">
             <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
                 
+                    <a class="has-link-black-ter" href="/solution-luogu-4385/">洛谷4385 - [COCI2009]Dvapravca</a>
+                
+            </h1>
+            <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
+                <div class="level-left">
+                    <i class="far fa-clock"></i>
+                    <time class="level-item has-text-grey" datetime="2019-01-07T10:18:47.000Z">
+                        2019-01-07
+                    </time>
+                    <i class="far fa-folder"></i>
+                    
+                        <div class="level-item">
+                            <a class="has-link-grey -link" href="/categories/Solution/">Solution</a>
+                        </div>
+                    
+                    <i class="far fa-edit"></i>
+                    
+                        <span class="level-item has-text-grey">
+                            498 Words
+                        </span>
+                    
+                </div>
+            </div>
+        </div>
+        
+        <div class="content">
+            <p>今天模拟赛的第三题<del>（又达成了原题考试的成就）</del>。考场的时候由于 T2 调太久这题暴力都没写… 现在依然不会正解于是写了个随机化算法 AC 。</p>
+<p>每次随机两个点，然后计算出他们的连线的斜率，每次 $O(n)$ 判断一下选取与这条直线平行的两条直接的答案，随机个次几万次w就过了…</p>
+<p>这里可能有个细节问题，也就是说我们每次选出的两个点中可能有不合法的点，实际上影响不大，因为我们可以通过略倾斜直线来取到另一个合法的点。</p>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/solution-luogu-4385/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article
+         
+    ">
+        
+        <div class="my-title ">
+            <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+                
                     <a class="has-link-black-ter" href="/solution-bzoj-4179/">BZOJ4179 - B</a>
                 
             </h1>
@@ -1276,62 +1333,6 @@ var _hmt = _hmt || [];
 
 
 
-    <div class="card">
-    
-    <div class="card-content article
-         
-    ">
-        
-        <div class="my-title ">
-            <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-                
-                    <a class="has-link-black-ter" href="/solution-luogu-3620/">洛谷3620 - [APIO/CTSC 2007] 数据备份</a>
-                
-            </h1>
-            <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
-                <div class="level-left">
-                    <i class="far fa-clock"></i>
-                    <time class="level-item has-text-grey" datetime="2018-10-17T12:52:00.000Z">
-                        2018-10-17
-                    </time>
-                    <i class="far fa-folder"></i>
-                    
-                        <div class="level-item">
-                            <a class="has-link-grey -link" href="/categories/Solution/">Solution</a>
-                        </div>
-                    
-                    <i class="far fa-edit"></i>
-                    
-                        <span class="level-item has-text-grey">
-                            504 Words
-                        </span>
-                    
-                </div>
-            </div>
-        </div>
-        
-        <div class="content">
-            <p>首先我们把原来的距离数组 $p$ 差分为数组 $a$。原题可以等同为在 $a$ 数组中选择 $k$ 个不相邻的数使得总和最小。</p>
-<p>假设我们已经选择了 $a_i$ ，那么 $a_{i-1}$ 和 $a_{i+1}$ 要么同时选择，要么同时没有被选择。同时，如果我们同时选择，需要的花费即 $V_{a_{i+1}} + V_{a_{i-1}} - V_{a_i}$ 。我们维护一个堆和双向链表，每次从小根堆选择堆顶，把 $a_i$、 $a_{i-1}$ 和 $a_{i+1}$ 同时删除，再新建一个价值为 $V_{a_{i+1}} + V_{a_{i-1}} - V_{a_i}$ 的节点，扔到堆里，重复 $k$ 次就能得到答案。 </p>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/solution-luogu-3620/#more">阅读更多</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
 
     
 <div class="card card-transparent">
@@ -1351,6 +1352,8 @@ var _hmt = _hmt || [];
             <li><a class="pagination-link has-text-black-ter" href="/categories/Solution/page/3/">3</a></li>
             
             <li><a class="pagination-link has-text-black-ter" href="/categories/Solution/page/4/">4</a></li>
+            
+            <li><a class="pagination-link has-text-black-ter" href="/categories/Solution/page/5/">5</a></li>
             
         </ul>
     </nav>
@@ -1393,7 +1396,7 @@ var _hmt = _hmt || [];
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        122
+                        123
                     </p>
                 </div>
             </div>
@@ -1413,7 +1416,7 @@ var _hmt = _hmt || [];
                         标签
                     </p>
                     <p class="title has-text-weight-normal">
-                        134
+                        137
                     </p>
                 </div>
             </div>
@@ -1484,7 +1487,7 @@ var _hmt = _hmt || [];
                 <span class="level-item">Solution</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">80</span>
+                <span class="level-item tag">81</span>
             </span>
         </a></li>
             </ul>
@@ -1520,7 +1523,7 @@ var _hmt = _hmt || [];
                 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
                 <p class="is-size-7">
                     <span>
-                        <span>89.7k</span> Words
+                        <span>90.2k</span> Words
                     </span>
                     <span id="busuanzi_container_site_pv" style="display:none">
                     <span class="division">|</span>
