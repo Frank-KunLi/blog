@@ -148,6 +148,65 @@ var _hmt = _hmt || [];
         <div class="my-title ">
             <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
                 
+                    <a class="has-link-black-ter" href="/luogu5162/">洛谷5162 - WD与积木</a>
+                
+            </h1>
+            <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
+                <div class="level-left">
+                    <i class="far fa-clock"></i>
+                    <time class="level-item has-text-grey" datetime="2019-01-27T15:09:39.000Z">
+                        2019-01-27
+                    </time>
+                    <i class="far fa-folder"></i>
+                    
+                        <div class="level-item">
+                            <a class="has-link-grey -link" href="/categories/Solution/">Solution</a>
+                        </div>
+                    
+                    <i class="far fa-edit"></i>
+                    
+                        <span class="level-item has-text-grey">
+                            704 Words
+                        </span>
+                    
+                </div>
+            </div>
+        </div>
+        
+        <div class="content">
+            <p>用 $f_i$ 表示 $i$ 个时的高度之和， $g_i$ 表示 $i$ 个时的方案数，显然：</p>
+<p>$$<br>\begin{align}<br>g_n &amp;= \sum\limits_{i=1}^n {n \choose i} g_{n-i} \\<br>f_n &amp;= g_n + \sum\limits_{i=1}^n {n \choose i} f_{n-i} \\<br>ans_n &amp;= f_n \times g_n^{-1}<br>\end{align}<br>$$</p>
+<p>其实到这里可以直接分治 NTT ，不过我们考虑多项式求逆的做法。<br>首先把 ${n \choose i}$ 拆开，然后设 $F_n = f_n  / n!$ ， $G_n = g_n / n!$ ， $H_n = 1 / n!$ 则</p>
+<p>$$<br>\begin{align}<br>G &amp;= (2 - H)^{-1} \\<br>F &amp;= (G - 1) (2 - H)^{-1} \\<br>ans_n &amp;= F_n G_n^{-1}<br>\end{align}<br>$$</p>
+<p>（推导时需要注意常数项系数，$f_0 = 0，g_0 = h_0 = 1$。）</p>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/luogu5162/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article
+         
+    ">
+        
+        <div class="my-title ">
+            <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+                
                     <a class="has-link-black-ter" href="/fen-zhi-ntt/">分治 NTT 学习笔记</a>
                 
             </h1>
@@ -473,7 +532,7 @@ var _hmt = _hmt || [];
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        126
+                        127
                     </p>
                 </div>
             </div>
@@ -564,7 +623,7 @@ var _hmt = _hmt || [];
                 <span class="level-item">Solution</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">83</span>
+                <span class="level-item tag">84</span>
             </span>
         </a></li>
             </ul>
@@ -600,7 +659,7 @@ var _hmt = _hmt || [];
                 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
                 <p class="is-size-7">
                     <span>
-                        <span>92.4k</span> Words
+                        <span>93.3k</span> Words
                     </span>
                     <span id="busuanzi_container_site_pv" style="display:none">
                     <span class="division">|</span>

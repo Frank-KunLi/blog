@@ -138,6 +138,66 @@ var _hmt = _hmt || [];
         <div class="my-title ">
             <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
                 
+                    <a class="has-link-black-ter" href="/solution-bzoj-5403/">BZOJ5403 - marshland</a>
+                
+            </h1>
+            <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
+                <div class="level-left">
+                    <i class="far fa-clock"></i>
+                    <time class="level-item has-text-grey" datetime="2019-01-10T05:41:38.000Z">
+                        2019-01-10
+                    </time>
+                    <i class="far fa-folder"></i>
+                    
+                        <div class="level-item">
+                            <a class="has-link-grey -link" href="/categories/Solution/">Solution</a>
+                        </div>
+                    
+                    <i class="far fa-edit"></i>
+                    
+                        <span class="level-item has-text-grey">
+                            858 Words
+                        </span>
+                    
+                </div>
+            </div>
+        </div>
+        
+        <div class="content">
+            <p>这个数据范围容易让人想到网络流，问题在于这个网络流怎么流？</p>
+<p>首先可以发现，如果我们要放石头，一定只会放在 $x + y$ 为奇数的格子，否则放了不如不放。所以把这些点拆点，连一条费用为 $a[x][y]$ ，流量为 $1$  的边。</p>
+<p>接下来，我们可以构造一种对 $x + y$ 为偶数的格子的黑白染色方案，使得一个 L 型石头的两个 $x + y$ 为偶数的格子异色。容易发现，我们只需要对所有 $x$ 和 $y$ 都是奇数的格子染黑， $x$ 和 $y$ 都是偶数的格子染白。同理，拆成两个点，中间连一条费用为 $0$ ，流量为 $1$ 的边。</p>
+<p>同时，为了使得总放置的石头数为 $m$ ，我们还需要再建一个点 $P$ 。</p>
+<p>于是源点 $S$ 向 $P$ 连边， $P$ 向黑点连边，黑点向 $x + y$ 为奇数的点连边， $x + y$ 为奇数的点向白点连边，白点向汇点 $E$ 连边即可。</p>
+<p>需要注意的是，我们跑最大费用最大流，但是我们只需要费用最大，而不是流量。由于我们采用增广路算法，每次新增的流量的花费一定递减，所以当花费是负数时直接跳出即可。</p>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/solution-bzoj-5403/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article
+         
+    ">
+        
+        <div class="my-title ">
+            <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+                
                     <a class="has-link-black-ter" href="/solution-luogu-4131/">洛谷4131 - [WC2005]友好的生物</a>
                 
             </h1>
@@ -673,61 +733,6 @@ var _hmt = _hmt || [];
 
 
 
-    <div class="card">
-    
-    <div class="card-content article
-         
-    ">
-        
-        <div class="my-title ">
-            <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-                
-                    <a class="has-link-black-ter" href="/solution-loj-6496/">LOJ6496 - 「雅礼集训 2018 Day1」仙人掌</a>
-                
-            </h1>
-            <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
-                <div class="level-left">
-                    <i class="far fa-clock"></i>
-                    <time class="level-item has-text-grey" datetime="2018-12-26T23:52:26.000Z">
-                        2018-12-27
-                    </time>
-                    <i class="far fa-folder"></i>
-                    
-                        <div class="level-item">
-                            <a class="has-link-grey -link" href="/categories/Solution/">Solution</a>
-                        </div>
-                    
-                    <i class="far fa-edit"></i>
-                    
-                        <span class="level-item has-text-grey">
-                            887 Words
-                        </span>
-                    
-                </div>
-            </div>
-        </div>
-        
-        <div class="content">
-            <p>分治套 NTT 优化仙人掌 DP 题目。往这个方向想其实不是很难推，于是就懒得写题解直接贴代码了 qwq。</p>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/solution-loj-6496/#more">阅读更多</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
 
     
 <div class="card card-transparent">
@@ -795,7 +800,7 @@ var _hmt = _hmt || [];
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        126
+                        127
                     </p>
                 </div>
             </div>
@@ -886,7 +891,7 @@ var _hmt = _hmt || [];
                 <span class="level-item">Solution</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">83</span>
+                <span class="level-item tag">84</span>
             </span>
         </a></li>
             </ul>
@@ -922,7 +927,7 @@ var _hmt = _hmt || [];
                 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
                 <p class="is-size-7">
                     <span>
-                        <span>92.4k</span> Words
+                        <span>93.3k</span> Words
                     </span>
                     <span id="busuanzi_container_site_pv" style="display:none">
                     <span class="division">|</span>
