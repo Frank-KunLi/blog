@@ -138,6 +138,65 @@ var _hmt = _hmt || [];
         <div class="my-title ">
             <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
                 
+                    <a class="has-link-black-ter" href="/solution-spoj-2666/">SPOJ2666 - QTREE4 - Query on a tree IV</a>
+                
+            </h1>
+            <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
+                <div class="level-left">
+                    <i class="far fa-clock"></i>
+                    <time class="level-item has-text-grey" datetime="2018-09-11T09:31:23.000Z">
+                        2018-09-11
+                    </time>
+                    <i class="far fa-folder"></i>
+                    
+                        <div class="level-item">
+                            <a class="has-link-grey -link" href="/categories/Solution/">Solution</a>
+                        </div>
+                    
+                    <i class="far fa-edit"></i>
+                    
+                        <span class="level-item has-text-grey">
+                            910 Words
+                        </span>
+                    
+                </div>
+            </div>
+        </div>
+        
+        <div class="content">
+            <p>我在学习点分治时，一直卡在这道题，今天我一鼓作气想尽办法终于把她 AC 了。</p>
+<p>将要讲述的方法是动态点分治，有另一种链分治的方法个人感觉较为麻烦且不自然就不在此赘述。</p>
+<p>首先静态点分治一遍建立点分树，并算出初始答案，存储每个节点作为重心时到上一个节点的边。当动态修改时从底层向上逐层修改直到抵达根节点。</p>
+<p>对于每个节点，我们存储每个子树中距离最远的点（用 <code>son</code> 维护）和距离当前节点距离最远的点（用 <code>hep</code> 维护），最后再维护一个答案堆 <code>ans</code> 供查询。这个堆要资瓷添加和删除操作，可以用经典的建两个堆的方法，一个插入，一个删除即可。</p>
+<p>其他当前子树中没有白色时应该返回 $-inf$ ，否则与当前子树的根节点是白色节点时等价的 qwq。</p>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/solution-spoj-2666/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article
+         
+    ">
+        
+        <div class="my-title ">
+            <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+                
                     <a class="has-link-black-ter" href="/solution-luogu-4826/">洛谷4826 - [USACO15FEB]Superbull 超级牛</a>
                 
             </h1>
@@ -654,61 +713,6 @@ var _hmt = _hmt || [];
 
 
 
-    <div class="card">
-    
-    <div class="card-content article
-         
-    ">
-        
-        <div class="my-title ">
-            <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-                
-                    <a class="has-link-black-ter" href="/solution-luogu-4514/">洛谷4514 - 上帝造题的七分钟</a>
-                
-            </h1>
-            <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
-                <div class="level-left">
-                    <i class="far fa-clock"></i>
-                    <time class="level-item has-text-grey" datetime="2018-08-20T12:12:36.000Z">
-                        2018-08-20
-                    </time>
-                    <i class="far fa-folder"></i>
-                    
-                        <div class="level-item">
-                            <a class="has-link-grey -link" href="/categories/Solution/">Solution</a>
-                        </div>
-                    
-                    <i class="far fa-edit"></i>
-                    
-                        <span class="level-item has-text-grey">
-                            268 Words
-                        </span>
-                    
-                </div>
-            </div>
-        </div>
-        
-        <div class="content">
-            <p>丢一发友链就跑 <a href="https://www.cnblogs.com/xuanyi/p/9010816.html" target="_blank" rel="noopener">https://www.cnblogs.com/xuanyi/p/9010816.html</a> qaq。</p>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/solution-luogu-4514/#more">阅读更多</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
 
     
 <div class="card card-transparent">
@@ -776,7 +780,7 @@ var _hmt = _hmt || [];
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        124
+                        125
                     </p>
                 </div>
             </div>
@@ -796,7 +800,7 @@ var _hmt = _hmt || [];
                         标签
                     </p>
                     <p class="title has-text-weight-normal">
-                        138
+                        139
                     </p>
                 </div>
             </div>
@@ -867,7 +871,7 @@ var _hmt = _hmt || [];
                 <span class="level-item">Solution</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">81</span>
+                <span class="level-item tag">82</span>
             </span>
         </a></li>
             </ul>
@@ -903,7 +907,7 @@ var _hmt = _hmt || [];
                 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
                 <p class="is-size-7">
                     <span>
-                        <span>90.8k</span> Words
+                        <span>91.2k</span> Words
                     </span>
                     <span id="busuanzi_container_site_pv" style="display:none">
                     <span class="division">|</span>

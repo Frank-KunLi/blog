@@ -138,6 +138,64 @@ var _hmt = _hmt || [];
         <div class="my-title ">
             <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
                 
+                    <a class="has-link-black-ter" href="/algorithm-fhqtreap-普通平衡树/">非旋 Treap 模板（普通平衡树）</a>
+                
+            </h1>
+            <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
+                <div class="level-left">
+                    <i class="far fa-clock"></i>
+                    <time class="level-item has-text-grey" datetime="2018-08-09T13:12:00.000Z">
+                        2018-08-09
+                    </time>
+                    <i class="far fa-folder"></i>
+                    
+                        <div class="level-item">
+                            <a class="has-link-grey -link" href="/categories/Algorithm/">Algorithm</a>
+                        </div>
+                    
+                    <i class="far fa-edit"></i>
+                    
+                        <span class="level-item has-text-grey">
+                            1119 Words
+                        </span>
+                    
+                </div>
+            </div>
+        </div>
+        
+        <div class="content">
+            <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>和 Splay 一样，非旋 Treap （又名 fhq-treap）也是平衡树的一种。由于其不需要进行旋转操作，故可利用其进行可持久化。</p>
+<p>写一颗非旋 Treap，我们只需要合并、分离操作，其他的只要有颗脑子就会了啦！</p>
+<h1 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h1><p>我们定义类<code>FhqTreap</code>为非旋 Treap 主体，结构体<code>node</code>为其节点。</p>
+<figure class="highlight cpp hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">FhqTheap</span> &#123;</span></span><br><span class="line">    </span><br><span class="line"><span class="hljs-keyword">private</span>:</span><br><span class="line">    </span><br><span class="line">    <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">node</span> &#123;</span></span><br><span class="line">        <span class="hljs-keyword">int</span> val, rnd;      <span class="hljs-comment">// val =&gt; 该点存储的值，rnd =&gt; 该点键值，随机产生</span></span><br><span class="line">        <span class="hljs-keyword">int</span> siz, ch[<span class="hljs-number">2</span>];    <span class="hljs-comment">// siz =&gt; 该点包括其子树的节点大小，ch[2] =&gt; 指向左/右儿子</span></span><br><span class="line">    &#125; e[maxn];</span><br><span class="line">    <span class="hljs-keyword">int</span> tot, root;         <span class="hljs-comment">// tot =&gt; 节点总数，root =&gt; 根节点</span></span><br><span class="line">    <span class="hljs-keyword">int</span> x, y, z;           <span class="hljs-comment">// 操作过程中的临时变量</span></span><br><span class="line">    </span><br><span class="line">    <span class="hljs-comment">// Your Code Goes Here...</span></span><br><span class="line">    </span><br><span class="line"><span class="hljs-keyword">public</span>:</span><br><span class="line">    </span><br><span class="line">    <span class="hljs-comment">// Your Code Goes Here...</span></span><br><span class="line">    </span><br><span class="line">&#125; s;</span><br></pre></td></tr></table></figure>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/algorithm-fhqtreap-普通平衡树/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article
+         
+    ">
+        
+        <div class="my-title ">
+            <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+                
                     <a class="has-link-black-ter" href="/algorithm-Splay-普通平衡树/">Splay 非指针模板（普通平衡树）</a>
                 
             </h1>
@@ -659,62 +717,6 @@ var _hmt = _hmt || [];
 
 
 
-    <div class="card">
-    
-    <div class="card-content article
-         
-    ">
-        
-        <div class="my-title ">
-            <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-                
-                    <a class="has-link-black-ter" href="/geek-lnmp-install-fileinfo/">LNMP 一键安装包补充安装 fileinfo 拓展</a>
-                
-            </h1>
-            <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
-                <div class="level-left">
-                    <i class="far fa-clock"></i>
-                    <time class="level-item has-text-grey" datetime="2018-06-22T11:19:00.000Z">
-                        2018-06-22
-                    </time>
-                    <i class="far fa-folder"></i>
-                    
-                        <div class="level-item">
-                            <a class="has-link-grey -link" href="/categories/Geek/">Geek</a>
-                        </div>
-                    
-                    <i class="far fa-edit"></i>
-                    
-                        <span class="level-item has-text-grey">
-                            410 Words
-                        </span>
-                    
-                </div>
-            </div>
-        </div>
-        
-        <div class="content">
-            <p>理论上来说这个拓展是可以被很方便地开启的，但是到了我的VPS这里不知为何各种鬼畜，只能自己找了个办法装一装。<strong>请忽略文章中的详略不当</strong>。</p>
-<p>进入lnmp源码包目录，我的是 <code>/root/lnmp1.5</code><br><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd /root/lnmp1.5</span><br></pre></td></tr></table></figure></p>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/geek-lnmp-install-fileinfo/#more">阅读更多</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
 
     
 <div class="card card-transparent">
@@ -778,7 +780,7 @@ var _hmt = _hmt || [];
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        124
+                        125
                     </p>
                 </div>
             </div>
@@ -798,7 +800,7 @@ var _hmt = _hmt || [];
                         标签
                     </p>
                     <p class="title has-text-weight-normal">
-                        138
+                        139
                     </p>
                 </div>
             </div>
@@ -869,7 +871,7 @@ var _hmt = _hmt || [];
                 <span class="level-item">Solution</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">81</span>
+                <span class="level-item tag">82</span>
             </span>
         </a></li>
             </ul>
@@ -905,7 +907,7 @@ var _hmt = _hmt || [];
                 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
                 <p class="is-size-7">
                     <span>
-                        <span>90.8k</span> Words
+                        <span>91.2k</span> Words
                     </span>
                     <span id="busuanzi_container_site_pv" style="display:none">
                     <span class="division">|</span>
