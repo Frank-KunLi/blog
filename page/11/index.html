@@ -138,6 +138,65 @@ var _hmt = _hmt || [];
         <div class="my-title ">
             <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
                 
+                    <a class="has-link-black-ter" href="/solution-luogu-2387/">洛谷2387 - [NOI2014]魔法森林</a>
+                
+            </h1>
+            <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
+                <div class="level-left">
+                    <i class="far fa-clock"></i>
+                    <time class="level-item has-text-grey" datetime="2018-08-30T10:04:24.000Z">
+                        2018-08-30
+                    </time>
+                    <i class="far fa-folder"></i>
+                    
+                        <div class="level-item">
+                            <a class="has-link-grey -link" href="/categories/Solution/">Solution</a>
+                        </div>
+                    
+                    <i class="far fa-edit"></i>
+                    
+                        <span class="level-item has-text-grey">
+                            797 Words
+                        </span>
+                    
+                </div>
+            </div>
+        </div>
+        
+        <div class="content">
+            <p>题意可以理解为找到一条 $1$ 到 $n$ 的路径，使得其中 $a$ 的最大值和 $b$ 的最大值之和最小。</p>
+<p>我们可以先按照 $a$ 的值排序，然后使用 LCT 维护关于 $b$ 的最小生成树；算法的正确性很容易证明：对于每一个 $a$ 的最大值我们都取到了 $b$ 的最大值的最小值。</p>
+<p>维护动态最小生成树：对于新加的边 $(u, v)$ ，如果已经连接，则需要断掉其中最大的一条（当前的 $b$ 值比最大的 $b$ 值还大就不用加了），否则无脑 link 。所以我们的 LCT 还要存储下最大的边以及对应的编号。</p>
+<p>由于 LCT 只能维护点不能维护边，我们可以考虑化边为点，总共有 $n$ 个 LCT 中的点表示实际意义的点，以及 $m$ 的 LCT 中的点表示实际意义的边。这样子瞎搞即可。</p>
+<p>注意一定要当 $1$ 和 $n$ 已经联通时才能用当前的状态尝试更新答案哦！</p>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/solution-luogu-2387/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article
+         
+    ">
+        
+        <div class="my-title ">
+            <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+                
                     <a class="has-link-black-ter" href="/solution-luogu-3285/">洛谷3285 - [SCOI2014]方伯伯的OJ</a>
                 
             </h1>
@@ -672,64 +731,6 @@ var _hmt = _hmt || [];
 
 
 
-    <div class="card">
-    
-    <div class="card-content article
-         
-    ">
-        
-        <div class="my-title ">
-            <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-                
-                    <a class="has-link-black-ter" href="/geek-windows10美化/">Windown10美化计划</a>
-                
-            </h1>
-            <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
-                <div class="level-left">
-                    <i class="far fa-clock"></i>
-                    <time class="level-item has-text-grey" datetime="2018-08-15T08:05:17.000Z">
-                        2018-08-15
-                    </time>
-                    <i class="far fa-folder"></i>
-                    
-                        <div class="level-item">
-                            <a class="has-link-grey -link" href="/categories/Geek/">Geek</a>
-                        </div>
-                    
-                    <i class="far fa-edit"></i>
-                    
-                        <span class="level-item has-text-grey">
-                            786 Words
-                        </span>
-                    
-                </div>
-            </div>
-        </div>
-        
-        <div class="content">
-            <p><strong>本文不定时持续更新！</strong></p>
-<p><strong>所有用到的资源可到 <a href="https://cloud.memset0.cn/%E5%88%86%E4%BA%AB/Windows10%20%E7%BE%8E%E5%8C%96%E8%AE%A1%E5%88%92/" target="_blank" rel="noopener">cloud.memset0.cn/分享/Windows10美化计划</a> 中下载</strong></p>
-<p><img src="https://i.loli.net/2018/08/15/5b73df69642f8.png" alt="成品效果"></p>
-<p>成品效果如上</p>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/geek-windows10美化/#more">阅读更多</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
 
     
 <div class="card card-transparent">
@@ -795,7 +796,7 @@ var _hmt = _hmt || [];
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        129
+                        130
                     </p>
                 </div>
             </div>
@@ -886,7 +887,7 @@ var _hmt = _hmt || [];
                 <span class="level-item">Solution</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">85</span>
+                <span class="level-item tag">86</span>
             </span>
         </a></li>
             </ul>
@@ -922,7 +923,7 @@ var _hmt = _hmt || [];
                 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
                 <p class="is-size-7">
                     <span>
-                        <span>94.8k</span> Words
+                        <span>95.7k</span> Words
                     </span>
                     <span id="busuanzi_container_site_pv" style="display:none">
                     <span class="division">|</span>

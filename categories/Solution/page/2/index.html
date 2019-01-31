@@ -149,6 +149,64 @@ var _hmt = _hmt || [];
         <div class="my-title ">
             <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
                 
+                    <a class="has-link-black-ter" href="/solution-bzoj-5404/">BZOJ5404 - party</a>
+                
+            </h1>
+            <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
+                <div class="level-left">
+                    <i class="far fa-clock"></i>
+                    <time class="level-item has-text-grey" datetime="2019-01-10T09:16:10.000Z">
+                        2019-01-10
+                    </time>
+                    <i class="far fa-folder"></i>
+                    
+                        <div class="level-item">
+                            <a class="has-link-grey -link" href="/categories/Solution/">Solution</a>
+                        </div>
+                    
+                    <i class="far fa-edit"></i>
+                    
+                        <span class="level-item has-text-grey">
+                            618 Words
+                        </span>
+                    
+                </div>
+            </div>
+        </div>
+        
+        <div class="content">
+            <p>和其他题解不太一样，这里没有用线段树……</p>
+<p>首先肯定会在 LCA 处集合，通过树剖 + bitset 维护出可选的集合。然后利用 Hall 定理进行完美匹配统计答案。可以发现直接树剖 + 暴力跳是 $O(n ^ 2)$ 的，所以限制树链的长度至多为 $S$ ，则复杂度为：$O(n + qcS\times\frac{m}{32} + qc \times \frac{n}{S} + q \times 2^c \times \frac{m}{32})$ ，取 $S = \sqrt n$ 。</p>
+<p>然后跑的飞快 233333.</p>
+<p><img src="https://ws2.sinaimg.cn/large/006tNc79ly1fz1mb68s1ej319m02u0tr.jpg" alt=""></p>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/solution-bzoj-5404/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article
+         
+    ">
+        
+        <div class="my-title ">
+            <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+                
                     <a class="has-link-black-ter" href="/solution-bzoj-5405/">BZOJ5405 - platform</a>
                 
             </h1>
@@ -1270,64 +1328,6 @@ var _hmt = _hmt || [];
 
 
 
-    <div class="card">
-    
-    <div class="card-content article
-         
-    ">
-        
-        <div class="my-title ">
-            <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-                
-                    <a class="has-link-black-ter" href="/solution-luogu-2606/">洛谷2606 - [ZJOI2010] 排列计数</a>
-                
-            </h1>
-            <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
-                <div class="level-left">
-                    <i class="far fa-clock"></i>
-                    <time class="level-item has-text-grey" datetime="2018-12-09T02:39:31.000Z">
-                        2018-12-09
-                    </time>
-                    <i class="far fa-folder"></i>
-                    
-                        <div class="level-item">
-                            <a class="has-link-grey -link" href="/categories/Solution/">Solution</a>
-                        </div>
-                    
-                    <i class="far fa-edit"></i>
-                    
-                        <span class="level-item has-text-grey">
-                            467 Words
-                        </span>
-                    
-                </div>
-            </div>
-        </div>
-        
-        <div class="content">
-            <p>原问题等价于询问节点个数为 $ n $ 的完全二叉树形态的二叉堆的个数。</p>
-<p>考虑递推，用 $ f(i) $ 表示 $ i $ 个节点时的答案。考虑除去此时的根节点外，根的左右子树大小分别为 $ l $ 和 $ r $ （可由完全二叉树这一性质计算得出）。此时根节点的编号肯定为 $ 1 $ ，而 $ f(l) $ 和 $ f(r) $ 分别是子树中的根节点编号为 $ 1 $ 的情况，若把编号分配，相当于求两个有序数列并成一个的方案数，即 $ C _ { l + r} ^ l $。得出：</p>
-<p>$$ f(i) = f(l) \times f(r) \times C _ { l + r } ^ l $$</p>
-<p>预处理阶乘递推即可。若 $ n &gt; q $ 则需要卢卡斯定理简单处理。</p>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/solution-luogu-2606/#more">阅读更多</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
 
     
 <div class="card card-transparent">
@@ -1391,7 +1391,7 @@ var _hmt = _hmt || [];
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        129
+                        130
                     </p>
                 </div>
             </div>
@@ -1482,7 +1482,7 @@ var _hmt = _hmt || [];
                 <span class="level-item">Solution</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">85</span>
+                <span class="level-item tag">86</span>
             </span>
         </a></li>
             </ul>
@@ -1518,7 +1518,7 @@ var _hmt = _hmt || [];
                 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
                 <p class="is-size-7">
                     <span>
-                        <span>94.8k</span> Words
+                        <span>95.7k</span> Words
                     </span>
                     <span id="busuanzi_container_site_pv" style="display:none">
                     <span class="division">|</span>
