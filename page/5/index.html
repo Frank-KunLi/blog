@@ -138,6 +138,145 @@ var _hmt = _hmt || [];
         <div class="my-title ">
             <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
                 
+                    <a class="has-link-black-ter" href="/solution-bzoj-4178/">BZOJ4178 - A</a>
+                
+            </h1>
+            <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
+                <div class="level-left">
+                    <i class="far fa-clock"></i>
+                    <time class="level-item has-text-grey" datetime="2019-01-07T10:08:13.000Z">
+                        2019-01-07
+                    </time>
+                    <i class="far fa-folder"></i>
+                    
+                        <div class="level-item">
+                            <a class="has-link-grey -link" href="/categories/Solution/">Solution</a>
+                        </div>
+                    
+                    <i class="far fa-edit"></i>
+                    
+                        <span class="level-item has-text-grey">
+                            512 Words
+                        </span>
+                    
+                </div>
+            </div>
+        </div>
+        
+        <div class="content">
+            <p>今天模拟赛的第一题， NTT 作多项式乘法，把后面的转移快速幂一下就过了。需要注意的是 950009857 的原根是 7 而不是 3 。</p>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/solution-bzoj-4178/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article
+         
+    ">
+        
+        <div class="my-title ">
+            <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+                
+                    <a class="has-link-black-ter" href="/solution-bzoj-2410/">BZOJ2410 - Nim游戏</a>
+                
+            </h1>
+            <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
+                <div class="level-left">
+                    <i class="far fa-clock"></i>
+                    <time class="level-item has-text-grey" datetime="2019-01-04T04:02:18.000Z">
+                        2019-01-04
+                    </time>
+                    <i class="far fa-folder"></i>
+                    
+                        <div class="level-item">
+                            <a class="has-link-grey -link" href="/categories/Solution/">Solution</a>
+                        </div>
+                    
+                    <i class="far fa-edit"></i>
+                    
+                        <span class="level-item has-text-grey">
+                            1477 Words
+                        </span>
+                    
+                </div>
+            </div>
+        </div>
+        
+        <div class="content">
+            <p>@GNAQ 给的博弈劲爆题，让人无言以对 233.</p>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><h4 id="k-gt-2"><a href="#k-gt-2" class="headerlink" title="k &gt; 2"></a>k &gt; 2</h4><p>对于这种情况，我们可以发现任何时候一定可以给空白格子染色。所以我们只需要判断剩余空白格子的奇偶性即可</p>
+<h4 id="k-1"><a href="#k-1" class="headerlink" title="k = 1"></a>k = 1</h4><p>显然被已经染色的格子分隔出的连续空白格子是不会相互影响的，所以我们可以把他看做一个组合 Nim 游戏，最后判断求一下每个游戏的 SG 函数异或和。</p>
+<p>首先你要知道 mex 函数是什么，这里不再赘述，以下的打表程序中用到的实现是：</p>
+<figure class="highlight cpp hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">mex</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">set</span> &lt;<span class="hljs-keyword">int</span>&gt; &amp;<span class="hljs-built_in">set</span>)</span> </span>&#123;</span><br><span class="line">	<span class="hljs-keyword">if</span> (!<span class="hljs-built_in">set</span>.size() || *<span class="hljs-built_in">set</span>.begin()) <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;</span><br><span class="line">	<span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> i = <span class="hljs-built_in">set</span>.begin(), j = ++<span class="hljs-built_in">set</span>.begin(); j != <span class="hljs-built_in">set</span>.end(); i = j, j++)</span><br><span class="line">		<span class="hljs-keyword">if</span> ((*i) + <span class="hljs-number">1</span> != (*j)) <span class="hljs-keyword">return</span> (*i) + <span class="hljs-number">1</span>;</span><br><span class="line">	<span class="hljs-keyword">return</span> (*--<span class="hljs-built_in">set</span>.end()) + <span class="hljs-number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>此时题目可以转换为每次染色的格子必须与已经染色的格子不相邻。设 $ sg1 ( x ) $ 为有连续 $x$ 个空白格子可以放的 SG 值，则可以推出式子（注意边界情况）：</p>
+<p>$$ sg1(i) = mex ( sg1 ( j ) \oplus sg1 ( i - j - 3) ( 1 \leq j \leq i - 4), sg1(i - 2), sg(i - 3)) $$</p>
+<p>写个程序打表：</p>
+<figure class="highlight cpp hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sg[<span class="hljs-number">0</span>] = <span class="hljs-number">0</span>, sg[<span class="hljs-number">1</span>] = <span class="hljs-number">1</span>, sg[<span class="hljs-number">2</span>] = <span class="hljs-number">1</span>, sg[<span class="hljs-number">3</span>] = <span class="hljs-number">2</span>;</span><br><span class="line"><span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">4</span>; i &lt;= n; i++) &#123;</span><br><span class="line">    <span class="hljs-built_in">set</span>.clear(), <span class="hljs-built_in">set</span>.insert(sg[i - <span class="hljs-number">2</span>]), <span class="hljs-built_in">set</span>.insert(sg[i - <span class="hljs-number">3</span>]);</span><br><span class="line">    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">1</span>; i - j - <span class="hljs-number">3</span> &gt;= <span class="hljs-number">1</span>; j++)</span><br><span class="line">        <span class="hljs-built_in">set</span>.insert(sg[j] ^ sg[i - j - <span class="hljs-number">3</span>]);</span><br><span class="line">    sg[i] = mex(<span class="hljs-built_in">set</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>跑出来以后，你可能会大叫这是什么 ** 玩意儿，下面是表：</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1 1 2 0 3 1 1 0 3 3 2 2 4 0 5 2 2 3 3 0 1 1 3 0 2 1 1 0 4 5 2 7 4 0</span><br><span class="line">1 1 2 0 3 1 1 0 3 3 2 2 4 4 5 5 2 3 3 0 1 1 3 0 2 1 1 0 4 5 3 7 4 8</span><br><span class="line">1 1 2 0 3 1 1 0 3 3 2 2 4 4 5 5 9 3 3 0 1 1 3 0 2 1 1 0 4 5 3 7 4 8</span><br><span class="line">1 1 2 0 3 1 1 0 3 3 2 2 4 4 5 5 9 3 3 0 1 1 3 0 2 1 1 0 4 5 3 7 4 8</span><br><span class="line">1 1 2 0 3 1 1 0 3 3 2 2 4 4 5 5 9 3 3 0 1 1 3 0 2 1 1 0 4 5 3 7 4 8</span><br></pre></td></tr></table></figure>
+<p>可以发现每 34 位一循环，除了第一行和第二行有些特例（我才不会告诉你我是因为当初没仔细看后几位的差别才找到这个循环节的…）</p>
+<h4 id="k-2"><a href="#k-2" class="headerlink" title="k = 2"></a>k = 2</h4><p>同理，我们可以这样假设 SG 函数（请注意这里的定义与 $k = 1$ 有略微的差别）：</p>
+<ul>
+<li>$sg2(x, 0)$ 表示连续 $x$ 个空白格子且两端格子相同</li>
+<li>$sg2(x, 1)$ 表示连续 $x$ 个空白格子且两端格子不同</li>
+<li>$sg2(x, 2)$ 表示连续 $x$ 个空白格子且一端是已经染色的格子，另一端是边缘</li>
+<li>$sg2(x, 3)$ 表示连续 $x$ 个空白格子且两端都是边缘</li>
+</ul>
+<p>虽然最后一种情况，但是数据里并没有，你不判断也没什么关系。</p>
+<p>然后推一波式子（懒得写 $\LaTeX$ 了，直接看下面的打表程序）</p>
+<figure class="highlight cpp hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">sg[<span class="hljs-number">0</span>][<span class="hljs-number">0</span>] = sg[<span class="hljs-number">0</span>][<span class="hljs-number">1</span>] = sg[<span class="hljs-number">0</span>][<span class="hljs-number">2</span>] = sg[<span class="hljs-number">0</span>][<span class="hljs-number">3</span>] = sg[<span class="hljs-number">1</span>][<span class="hljs-number">1</span>] = <span class="hljs-number">0</span>;</span><br><span class="line">sg[<span class="hljs-number">1</span>][<span class="hljs-number">0</span>] = sg[<span class="hljs-number">1</span>][<span class="hljs-number">2</span>] = sg[<span class="hljs-number">1</span>][<span class="hljs-number">3</span>] = <span class="hljs-number">1</span>;</span><br><span class="line"><span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">2</span>; i &lt;= n; i++) &#123;</span><br><span class="line">    <span class="hljs-built_in">set</span>.clear(), <span class="hljs-built_in">set</span>.insert(sg[i - <span class="hljs-number">1</span>][<span class="hljs-number">1</span>]);</span><br><span class="line">    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">1</span>; i - j - <span class="hljs-number">1</span> &gt;= <span class="hljs-number">1</span>; j++) &#123;</span><br><span class="line">        <span class="hljs-built_in">set</span>.insert(sg[j][<span class="hljs-number">0</span>] ^ sg[i - j - <span class="hljs-number">1</span>][<span class="hljs-number">0</span>]);</span><br><span class="line">        <span class="hljs-built_in">set</span>.insert(sg[j][<span class="hljs-number">1</span>] ^ sg[i - j - <span class="hljs-number">1</span>][<span class="hljs-number">1</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">    sg[i][<span class="hljs-number">0</span>] = mex(<span class="hljs-built_in">set</span>);</span><br><span class="line"></span><br><span class="line">    <span class="hljs-built_in">set</span>.clear(), <span class="hljs-built_in">set</span>.insert(sg[i - <span class="hljs-number">1</span>][<span class="hljs-number">0</span>]);</span><br><span class="line">    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">1</span>; i - j - <span class="hljs-number">1</span> &gt;= <span class="hljs-number">1</span>; j++)</span><br><span class="line">        <span class="hljs-built_in">set</span>.insert(sg[j][<span class="hljs-number">0</span>] ^ sg[i - j - <span class="hljs-number">1</span>][<span class="hljs-number">1</span>]);</span><br><span class="line">    sg[i][<span class="hljs-number">1</span>] = mex(<span class="hljs-built_in">set</span>);</span><br><span class="line"></span><br><span class="line">    <span class="hljs-built_in">set</span>.clear(), <span class="hljs-built_in">set</span>.insert(sg[i - <span class="hljs-number">1</span>][<span class="hljs-number">2</span>]), <span class="hljs-built_in">set</span>.insert(sg[i - <span class="hljs-number">1</span>][<span class="hljs-number">0</span>]), <span class="hljs-built_in">set</span>.insert(s[i - <span class="hljs-number">1</span>][<span class="hljs-number">1</span>]);</span><br><span class="line">    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">1</span>; i - j - <span class="hljs-number">1</span> &gt;= <span class="hljs-number">1</span>; j++) &#123;</span><br><span class="line">        <span class="hljs-built_in">set</span>.insert(sg[j][<span class="hljs-number">0</span>] ^ sg[i - j - <span class="hljs-number">1</span>][<span class="hljs-number">2</span>]);</span><br><span class="line">        <span class="hljs-built_in">set</span>.insert(sg[j][<span class="hljs-number">1</span>] ^ sg[i - j - <span class="hljs-number">1</span>][<span class="hljs-number">2</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">    sg[i][<span class="hljs-number">2</span>] = mex(<span class="hljs-built_in">set</span>);</span><br><span class="line"></span><br><span class="line">    <span class="hljs-built_in">set</span>.clear(), <span class="hljs-built_in">set</span>.insert(sg[i - <span class="hljs-number">1</span>][<span class="hljs-number">2</span>]);</span><br><span class="line">    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">1</span>; i - j - <span class="hljs-number">1</span> &gt;= <span class="hljs-number">1</span>; j++)</span><br><span class="line">        <span class="hljs-built_in">set</span>.insert(sg[j][<span class="hljs-number">2</span>] ^ sg[i - j - <span class="hljs-number">1</span>][<span class="hljs-number">2</span>]);</span><br><span class="line">    sg[i][<span class="hljs-number">3</span>] = mex(<span class="hljs-built_in">set</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>可以发现：</p>
+<ul>
+<li>$sg2(x, 0) = 1$</li>
+<li>$sg2(x, 1) = 0$</li>
+<li>$sg2(x, 2) = x$</li>
+<li>$sg2(x, 3) = x \mod 2$</li>
+</ul>
+<p>综上所述即可写出程序。</p>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/solution-bzoj-2410/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article
+         
+    ">
+        
+        <div class="my-title ">
+            <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+                
                     <a class="has-link-black-ter" href="/solution-loj-6514/">LOJ6514 - 「雅礼集训 2018 Day10」文明</a>
                 
             </h1>
@@ -588,118 +727,6 @@ var _hmt = _hmt || [];
 
 
 
-    <div class="card">
-    
-    <div class="card-content article
-         
-    ">
-        
-        <div class="my-title ">
-            <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-                
-                    <a class="has-link-black-ter" href="/algorithm-虚树/">虚树学习笔记</a>
-                
-            </h1>
-            <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
-                <div class="level-left">
-                    <i class="far fa-clock"></i>
-                    <time class="level-item has-text-grey" datetime="2018-12-20T02:35:31.000Z">
-                        2018-12-20
-                    </time>
-                    <i class="far fa-folder"></i>
-                    
-                        <div class="level-item">
-                            <a class="has-link-grey -link" href="/categories/Algorithm/">Algorithm</a>
-                        </div>
-                    
-                    <i class="far fa-edit"></i>
-                    
-                        <span class="level-item has-text-grey">
-                            748 Words
-                        </span>
-                    
-                </div>
-            </div>
-        </div>
-        
-        <div class="content">
-            <p>题目先给定一棵树，然后每次询问和其中的一部分点有关的信息，且只考虑这些点和他们的 LCA 对答案没有影响，则可以考虑虚树。先求出所有点的欧拉序，把每次询问给出的点按照欧拉序排序，依次插入栈中，维护栈内元素使得形成一条在已插入的点中最右端的链。</p>
-<p>其实没什么新知识，可以说是一种思想，所以代码也很好写，就是需要注意细节。</p>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/algorithm-虚树/#more">阅读更多</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
-    <div class="card">
-    
-    <div class="card-content article
-         
-    ">
-        
-        <div class="my-title ">
-            <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-                
-                    <a class="has-link-black-ter" href="/algorithm-动态DP/">动态 DP 学习笔记</a>
-                
-            </h1>
-            <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
-                <div class="level-left">
-                    <i class="far fa-clock"></i>
-                    <time class="level-item has-text-grey" datetime="2018-12-20T01:47:57.000Z">
-                        2018-12-20
-                    </time>
-                    <i class="far fa-folder"></i>
-                    
-                        <div class="level-item">
-                            <a class="has-link-grey -link" href="/categories/Algorithm/">Algorithm</a>
-                        </div>
-                    
-                    <i class="far fa-edit"></i>
-                    
-                        <span class="level-item has-text-grey">
-                            1764 Words
-                        </span>
-                    
-                </div>
-            </div>
-        </div>
-        
-        <div class="content">
-            <p>（好懒不想写博客）</p>
-<p>把每个点的 dp 转移分成 重儿子 和 自己+轻儿子 两个部分。重儿子的转移把矩阵放树上维护，利用矩阵乘法的性质；轻儿子的转移的每次修改时暴力维护，利用 dp 的性质。详情参考 <a href="https://cmxrynp.github.io/2018/11/03/%E5%9F%BA%E4%BA%8E%E5%8F%98%E6%8D%A2%E5%90%88%E5%B9%B6%E7%9A%84%E6%A0%91%E4%B8%8A%E5%8A%A8%E6%80%81DP%E7%9A%84%E9%93%BE%E5%88%86%E6%B2%BB%E7%AE%97%E6%B3%95%E5%92%8C%E5%85%A8%E5%B1%80%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" target="_blank" rel="noopener"> txc 哥哥的博客</a>。</p>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/algorithm-动态DP/#more">阅读更多</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
 
     
 <div class="card card-transparent">
@@ -724,7 +751,7 @@ var _hmt = _hmt || [];
             
             <li><span class="pagination-ellipsis has-text-black-ter">&hellip;</span></li>
             
-            <li><a class="pagination-link has-text-black-ter" href="/page/13/">13</a></li>
+            <li><a class="pagination-link has-text-black-ter" href="/page/14/">14</a></li>
             
         </ul>
     </nav>
@@ -767,7 +794,7 @@ var _hmt = _hmt || [];
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        130
+                        132
                     </p>
                 </div>
             </div>
@@ -787,7 +814,7 @@ var _hmt = _hmt || [];
                         标签
                     </p>
                     <p class="title has-text-weight-normal">
-                        141
+                        142
                     </p>
                 </div>
             </div>
@@ -858,7 +885,7 @@ var _hmt = _hmt || [];
                 <span class="level-item">Solution</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">86</span>
+                <span class="level-item tag">88</span>
             </span>
         </a></li>
             </ul>
@@ -894,7 +921,7 @@ var _hmt = _hmt || [];
                 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
                 <p class="is-size-7">
                     <span>
-                        <span>95.7k</span> Words
+                        <span>96.6k</span> Words
                     </span>
                     <span id="busuanzi_container_site_pv" style="display:none">
                     <span class="division">|</span>
