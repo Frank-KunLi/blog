@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+<title>洛谷3411 - 序列变换 - memset0&#39;s blog</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+    <meta name="description" content="题意给定一个长度为N的数列Ai。你可以对数列进行若干次操作，每次操作可以从数列中任选一个数，把它移动到数列的开头或者结尾。求最少经过多少次操作，可以把数列变成单调不减的。“单调不减”意味着数列中的任意一个数都不大于排在它后边的数。 分析你可以把题意转化为：找到一个不降子序列，使得未选中的数必须不处于子序列的最小值和最大值之间（理由：小于等于最小值的可以移到前面去，大于等于最大值的可以移到后面去）即">
+<meta name="keywords" content="队列">
+<meta property="og:type" content="article">
+<meta property="og:title" content="洛谷3411 - 序列变换">
+<meta property="og:url" content="https://memset0.cn/luogu3411/index.html">
+<meta property="og:site_name" content="memset0&#39;s blog">
+<meta property="og:description" content="题意给定一个长度为N的数列Ai。你可以对数列进行若干次操作，每次操作可以从数列中任选一个数，把它移动到数列的开头或者结尾。求最少经过多少次操作，可以把数列变成单调不减的。“单调不减”意味着数列中的任意一个数都不大于排在它后边的数。 分析你可以把题意转化为：找到一个不降子序列，使得未选中的数必须不处于子序列的最小值和最大值之间（理由：小于等于最小值的可以移到前面去，大于等于最大值的可以移到后面去）即">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-01-13T10:06:48.706Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="洛谷3411 - 序列变换">
+<meta name="twitter:description" content="题意给定一个长度为N的数列Ai。你可以对数列进行若干次操作，每次操作可以从数列中任选一个数，把它移动到数列的开头或者结尾。求最少经过多少次操作，可以把数列变成单调不减的。“单调不减”意味着数列中的任意一个数都不大于排在它后边的数。 分析你可以把题意转化为：找到一个不降子序列，使得未选中的数必须不处于子序列的最小值和最大值之间（理由：小于等于最小值的可以移到前面去，大于等于最大值的可以移到后面去）即">
+
+
+
+
+
+<link rel="icon" href="/favicon.ico">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
+
+
+    
+    
+    
+    <style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+    
+
+    
+    
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+    
+
+    
+    
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+
+    
+    
+    
+    
+
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+
+    
+    
+
+    
+    
+<script>
+var _hmt = _hmt || [];
+(function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?d8c0a4185322e94013582201484f9131";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+    
+    
+
+    
+    
+<link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+    
+
+
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="is-2-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <!-- <img src="/images/logo.png" alt="洛谷3411 - 序列变换" height="28"> -->
+                <span class="navbar-title"> memset0's blog </span>
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item" href="/categories/Solution/">题解</a>
+                
+                <a class="navbar-item" href="/categories/Algorithm/">算法</a>
+                
+                <a class="navbar-item" href="/archives">归档</a>
+                
+                <a class="navbar-item" href="/tags">标签</a>
+                
+                <a class="navbar-item" href="/friends">友链</a>
+                
+                <a class="navbar-item" href="/about">关于</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                
+                
+                <a class="navbar-item search" title="搜索" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column my-content is-8-tablet is-8-desktop is-8-widescreen has-order-2 column-main"><div class="card">
+    
+    <div class="card-content article
+         
+    ">
+        
+        <div class="my-title  my-post-title ">
+            <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+                
+                    洛谷3411 - 序列变换
+                
+            </h1>
+            <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
+                <div class="level-left">
+                    <i class="far fa-clock"></i>
+                    <time class="level-item has-text-grey" datetime="2018-08-07T08:05:00.000Z">
+                        2018-08-07
+                    </time>
+                    <i class="far fa-folder"></i>
+                    
+                        <div class="level-item">
+                            <a class="has-link-grey -link" href="/categories/Solution/">Solution</a>
+                        </div>
+                    
+                    <i class="far fa-edit"></i>
+                    
+                        <span class="level-item has-text-grey">
+                            695 Words
+                        </span>
+                    
+                </div>
+            </div>
+        </div>
+        
+        <div class="content">
+            <h1 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h1><p>给定一个长度为N的数列Ai。<br>你可以对数列进行若干次操作，每次操作可以从数列中任选一个数，把它移动到数列的开头或者结尾。<br>求最少经过多少次操作，可以把数列变成单调不减的。“单调不减”意味着数列中的任意一个数都不大于排在它后边的数。</p>
+<h1 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h1><p>你可以把题意转化为：找到一个不降子序列，使得未选中的数必须不处于子序列的最小值和最大值之间（理由：小于等于最小值的可以移到前面去，大于等于最大值的可以移到后面去）<br>即找到一个值的区间[L, R]，在其中选择一个不降子序列，使得其包含了区间(L, R)中的所有值。<br>（<code>[L, R]</code>表示闭区间，<code>(L, R)</code>表示开区间！）</p>
+<p>那么你只要维护一个答案队列，使得其满足题意。每次考虑扩展右区间，同时检查可行性，更新最优解。<br>需要注意的是，新增的节点值相同时可能会互相产生干扰，我们应当考虑倒序检查，之后顺序入队。</p>
+<a id="more"></a>
+<h1 id="代码-amp-注释"><a href="#代码-amp-注释" class="headerlink" title="代码 &amp; 注释"></a>代码 &amp; 注释</h1><p>（使用了<code>C++11</code>新语法，请加上<code>--std=c++11</code>编译）</p>
+<figure class="highlight cpp hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">// ==============================</span></span><br><span class="line"><span class="hljs-comment">//  author: memset0</span></span><br><span class="line"><span class="hljs-comment">//  website: https://memset0.cn</span></span><br><span class="line"><span class="hljs-comment">//  date: 2018.08.07 14:22:32</span></span><br><span class="line"><span class="hljs-comment">// ==============================</span></span><br><span class="line"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">read</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">    <span class="hljs-keyword">int</span> x = <span class="hljs-number">0</span>; <span class="hljs-keyword">char</span> c = getchar(); <span class="hljs-keyword">bool</span> m = <span class="hljs-number">0</span>;</span><br><span class="line">    <span class="hljs-keyword">while</span> (!<span class="hljs-built_in">isdigit</span>(c) &amp;&amp; c != <span class="hljs-string">'-'</span>) c = getchar();</span><br><span class="line">    <span class="hljs-keyword">if</span> (c == <span class="hljs-string">'-'</span>) c = getchar(), m = <span class="hljs-number">1</span>;</span><br><span class="line">    <span class="hljs-keyword">while</span> (<span class="hljs-built_in">isdigit</span>(c)) x = x * <span class="hljs-number">10</span> + c - <span class="hljs-string">'0'</span>, c = getchar();</span><br><span class="line">    <span class="hljs-keyword">if</span> (m) <span class="hljs-keyword">return</span> -x; <span class="hljs-keyword">else</span> <span class="hljs-keyword">return</span> x;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> maxn = <span class="hljs-number">1e6</span> + <span class="hljs-number">10</span>;</span><br><span class="line"><span class="hljs-keyword">int</span> n, m, l, r, cnt, ans, a[maxn], q[maxn];</span><br><span class="line"><span class="hljs-built_in">vector</span> &lt; <span class="hljs-keyword">int</span> &gt; b[maxn];</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">    n = read();</span><br><span class="line">    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">        a[i] = read();</span><br><span class="line">        b[a[i]].push_back(i);</span><br><span class="line">        m = max(m, a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    l = <span class="hljs-number">1</span>, r = <span class="hljs-number">0</span>;</span><br><span class="line">    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt;= m; i++) </span><br><span class="line">        <span class="hljs-keyword">if</span> (b[i].size()) &#123;</span><br><span class="line">            cnt = <span class="hljs-number">0</span>;</span><br><span class="line">            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> it = b[i].rbegin(); it != b[i].rend(); it++) &#123;</span><br><span class="line">                <span class="hljs-comment">// 反向更新，避免值相同的数产生影响</span></span><br><span class="line">                <span class="hljs-keyword">int</span> i = *it;</span><br><span class="line">                <span class="hljs-keyword">while</span> (l &lt;= r &amp;&amp; q[r] &gt; i) &#123;</span><br><span class="line">                    <span class="hljs-comment">// 进入while循环说明发现当前节点不能直接加入到答案队列中</span></span><br><span class="line">                    <span class="hljs-comment">// 但由前面可知要使答案有效所去的数必须连续</span></span><br><span class="line">                    <span class="hljs-comment">// 那么删除答案队列的末尾使得当前节点可以被加入</span></span><br><span class="line">                    <span class="hljs-keyword">while</span> (l &lt;= r &amp;&amp; a[q[l]] &lt; a[q[r]])</span><br><span class="line">                        l++; <span class="hljs-comment">// 如果删除当前的R可能导致答案队列不能使得值域连续</span></span><br><span class="line">                             <span class="hljs-comment">// 这样的话只能删除答案队列里之前的值</span></span><br><span class="line">                    r--; <span class="hljs-comment">// 删除答案队列里的末尾值</span></span><br><span class="line">                &#125;</span><br><span class="line">                cnt++;</span><br><span class="line">                ans = max(ans, r - l + <span class="hljs-number">1</span> + cnt);</span><br><span class="line">                <span class="hljs-comment">// 请不要写 ans=max(ans,r-l+1+(++cnt))，否则 WA 40 分等着你！</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> it = b[i].begin(); it != b[i].end(); it++)</span><br><span class="line">                q[++r] = *it; <span class="hljs-comment">// 加入到答案队列中</span></span><br><span class="line">        &#125;</span><br><span class="line">    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"%d\n"</span>, n - ans);</span><br><span class="line">    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        </div>
+        
+        <div class="level is-size-7 is-uppercase my-post-tags">
+            <div class="level-start">
+                <div class="level-item">
+                    <!-- <span class="is-size-6 has-text-grey has-mr-7">#</span> -->
+                    <a class="my-post-tag has-link-grey -link" href="/tags/队列/">队列</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/geek-devc更改主题/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">Dev C++ 更改主题</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/lis/">
+                <span class="level-item">十行求解 $O(n \log n)$ 求最长上升子序列</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <!-- <h3 class="title is-5 has-text-weight-normal">评论</h3> -->
+        
+<div id="valine-thread"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/volantis@1/js/volantis.min.js"></script>
+<script>
+    new Valine({
+        el: '#valine-thread' ,
+        notify: false,
+        verify: true,
+        app_id: 'rHgVqrBsv0EYGFSxzDDIDapm-9Nh9j0Va',
+        app_key: 'X7Dp3hEvRWPbqHBYkOTBXzPm',
+        placeholder: '留下你的脚印~'
+    });
+</script>
+
+    </div>
+</div>
+</div>
+                
+                
+
+
+
+
+<div class="column my-sidebar is-4-tablet is-4-desktop is-4-widescreen  has-order-3 column-right is-sticky">
+    
+        
+<div class="card widget" id="my-id-sidebar-profile">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered">
+                <div>
+                    <img class="image is-128x128 has-mb-6" src="https://cdn.jsdelivr.net/gh/memset0/blog/images/avatar.png" alt="memset0">
+                    
+                    <p class="is-size-4 is-block">
+                        memset0
+                    </p>
+                    
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>The Cruel World</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        文章
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        131
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        分类
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        6
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        标签
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        142
+                    </p>
+                </div>
+            </div>
+        </nav>
+        <div class="level">
+            <a class="level-item button is-link is-rounded" href="http://github.com/memset0">
+                关注我
+            </a>
+        </div>
+        
+        
+    </div>
+</div>
+    
+        
+<div class="card widget" id="toc">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                目录
+            </h3>
+            <ul class="menu-list"><li>
+        <a class="is-flex" href="#题意">
+        <span class="has-mr-6">1</span>
+        <span>题意</span>
+        </a></li><li>
+        <a class="is-flex" href="#分析">
+        <span class="has-mr-6">2</span>
+        <span>分析</span>
+        </a></li><li>
+        <a class="is-flex" href="#代码-amp-注释">
+        <span class="has-mr-6">3</span>
+        <span>代码 &amp; 注释</span>
+        </a></li></ul>
+        </div>
+    </div>
+</div>
+<!-- <script type="text/javascript">
+function myHideElement(name) {
+    document.getElementById(name).style.display = 'none';
+}
+</script> -->
+
+    
+        	
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                分类
+            </h3>
+            <ul class="menu-list">
+            <li>
+        <a class="level is-marginless" href="/categories/Algorithm/">
+            <span class="level-start">
+                <span class="level-item">Algorithm</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">21</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Contest/">
+            <span class="level-start">
+                <span class="level-item">Contest</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">3</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Diary/">
+            <span class="level-start">
+                <span class="level-item">Diary</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">7</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Geek/">
+            <span class="level-start">
+                <span class="level-item">Geek</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">10</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Plan/">
+            <span class="level-start">
+                <span class="level-item">Plan</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Solution/">
+            <span class="level-start">
+                <span class="level-item">Solution</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">88</span>
+            </span>
+        </a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+    
+</div>
+
+            </div>
+        </div>
+    </section>
+    <!-- <script type="text/javascript">
+        myHideElement('my-id-sidebar-profile');
+        myHideElement('my-id-sidebar-category');
+    </script> -->
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                <!-- 
+                    <img src="/images/logo.png" alt="洛谷3411 - 序列变换" height="28">
+                    memset0's blog
+                 -->
+                </a>
+                <p class="is-size-7">
+                    &copy; 2017 - 2019
+                    <i class="fa fa-heart"></i>
+                    memset0
+                </p>
+                <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+                <p class="is-size-7">
+                    <span>
+                        <span>95.8k</span> Words
+                    </span>
+                    <span id="busuanzi_container_site_pv" style="display:none">
+                    <span class="division">|</span>
+                    <span id="busuanzi_value_site_pv"></span> Views
+                    </span>
+                    <span id="busuanzi_container_site_uv" style="display:none">
+                    <span class="division">|</span>
+                    <span id="busuanzi_value_site_uv"></span> Visitors
+                    </span>
+                </p>
+                <p class="is-size-7">
+                    Powered by Hexo & Icarus & Coding Pages & Love
+                </p>
+                <p class="is-size-7">
+                    第 <span id="hitokoto-id"></span> 条一言：「<span id="hitokoto"></span>」
+                </p>
+                <script>
+                    var xhr = new XMLHttpRequest();
+                    xhr.open('get', 'https://v1.hitokoto.cn/?c=d');
+                    xhr.onreadystatechange = function () {
+                        if (xhr.readyState === 4) {
+                            var data = JSON.parse(xhr.responseText);
+                            document.getElementById('hitokoto').innerText = data.hitokoto;
+                            document.getElementById('hitokoto-id').innerText = data.id;
+                        }
+                    }
+                    xhr.send();
+                </script>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Creative Commons" href="https://creativecommons.org/">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="NonCommercial" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+                        
+                        <i class="fab fa-creative-commons-nc"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="NoDerivatives" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+                        
+                        <i class="fab fa-creative-commons-nd"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("zh-CN");</script>
+
+
+    
+    
+    
+    <script src="/js/animation.js"></script>
+    
+
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+    <script src="/js/gallery.js" defer></script>
+    
+
+    
+    
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+
+    
+    
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+    
+    
+
+<a id="back-to-top" title="回到顶端" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="想要查找什么...">
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+</body>
+</html>

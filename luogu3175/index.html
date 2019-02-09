@@ -8,7 +8,7 @@
 
 
     <meta name="description" content="同理可 Min-Max 容斥： $$\min(S) = \frac{1}{1 - \sum\limits_{S’ \subseteq S} \sum\limits_{u \in S’} p_u}$$ FWT 一波即可。">
-<meta name="keywords" content="数学，数论,组合数学,容斥,Min-Max 容斥,期望,FWT">
+<meta name="keywords" content="数学，数论,组合数学,容斥,期望,Min-Max 容斥,FWT">
 <meta property="og:type" content="article">
 <meta property="og:title" content="洛谷3175 - [HAOI2015]按位或">
 <meta property="og:url" content="https://memset0.cn/luogu3175/index.html">
@@ -272,7 +272,7 @@ var _hmt = _hmt || [];
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        133
+                        131
                     </p>
                 </div>
             </div>
@@ -345,7 +345,7 @@ var _hmt = _hmt || [];
                 <span class="level-item">Diary</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">8</span>
+                <span class="level-item tag">7</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/Geek/">
@@ -353,7 +353,7 @@ var _hmt = _hmt || [];
                 <span class="level-item">Geek</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">11</span>
+                <span class="level-item tag">10</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/Plan/">
@@ -405,7 +405,7 @@ var _hmt = _hmt || [];
                 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
                 <p class="is-size-7">
                     <span>
-                        <span>97k</span> Words
+                        <span>95.8k</span> Words
                     </span>
                     <span id="busuanzi_container_site_pv" style="display:none">
                     <span class="division">|</span>
@@ -419,6 +419,21 @@ var _hmt = _hmt || [];
                 <p class="is-size-7">
                     Powered by Hexo & Icarus & Coding Pages & Love
                 </p>
+                <p class="is-size-7">
+                    第 <span id="hitokoto-id"></span> 条一言：「<span id="hitokoto"></span>」
+                </p>
+                <script>
+                    var xhr = new XMLHttpRequest();
+                    xhr.open('get', 'https://v1.hitokoto.cn/?c=d');
+                    xhr.onreadystatechange = function () {
+                        if (xhr.readyState === 4) {
+                            var data = JSON.parse(xhr.responseText);
+                            document.getElementById('hitokoto').innerText = data.hitokoto;
+                            document.getElementById('hitokoto-id').innerText = data.id;
+                        }
+                    }
+                    xhr.send();
+                </script>
             </div>
             <div class="level-end">
             

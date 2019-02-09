@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+<title>BZOJ4945 - [NOI2017] 游戏 - memset0&#39;s blog</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+    <meta name="description" content="洛谷 SPJ 坏了，一个月了没修好。怎么回事啊？ UPD: QQ 群里 @ 了一下 chen_zhe 竟然很快修好了  回到正题：本题是 2-SAT 裸题，做之前可以参考一下洛谷的模板题，下面假装你已经看过并 AC 了那道题。 对于 $a$ 、 $b$ 、 $c$ 三种地图，都是不允许一辆车，而允许另外两辆。对于 $x$ 地图，显然不能交给 2-SAT 算法解决，暴力枚举他是 $a$ 地图还是">
+<meta name="keywords" content="2-SAT,暴力枚举">
+<meta property="og:type" content="article">
+<meta property="og:title" content="BZOJ4945 - [NOI2017] 游戏">
+<meta property="og:url" content="https://memset0.cn/bzoj4945/index.html">
+<meta property="og:site_name" content="memset0&#39;s blog">
+<meta property="og:description" content="洛谷 SPJ 坏了，一个月了没修好。怎么回事啊？ UPD: QQ 群里 @ 了一下 chen_zhe 竟然很快修好了  回到正题：本题是 2-SAT 裸题，做之前可以参考一下洛谷的模板题，下面假装你已经看过并 AC 了那道题。 对于 $a$ 、 $b$ 、 $c$ 三种地图，都是不允许一辆车，而允许另外两辆。对于 $x$ 地图，显然不能交给 2-SAT 算法解决，暴力枚举他是 $a$ 地图还是">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-12-09T02:10:22.586Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="BZOJ4945 - [NOI2017] 游戏">
+<meta name="twitter:description" content="洛谷 SPJ 坏了，一个月了没修好。怎么回事啊？ UPD: QQ 群里 @ 了一下 chen_zhe 竟然很快修好了  回到正题：本题是 2-SAT 裸题，做之前可以参考一下洛谷的模板题，下面假装你已经看过并 AC 了那道题。 对于 $a$ 、 $b$ 、 $c$ 三种地图，都是不允许一辆车，而允许另外两辆。对于 $x$ 地图，显然不能交给 2-SAT 算法解决，暴力枚举他是 $a$ 地图还是">
+
+
+
+
+
+<link rel="icon" href="/favicon.ico">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
+
+
+    
+    
+    
+    <style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+    
+
+    
+    
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+    
+
+    
+    
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+
+    
+    
+    
+    
+
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+
+    
+    
+
+    
+    
+<script>
+var _hmt = _hmt || [];
+(function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?d8c0a4185322e94013582201484f9131";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+    
+    
+
+    
+    
+<link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+    
+
+
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="is-2-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <!-- <img src="/images/logo.png" alt="BZOJ4945 - [NOI2017] 游戏" height="28"> -->
+                <span class="navbar-title"> memset0's blog </span>
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item" href="/categories/Solution/">题解</a>
+                
+                <a class="navbar-item" href="/categories/Algorithm/">算法</a>
+                
+                <a class="navbar-item" href="/archives">归档</a>
+                
+                <a class="navbar-item" href="/tags">标签</a>
+                
+                <a class="navbar-item" href="/friends">友链</a>
+                
+                <a class="navbar-item" href="/about">关于</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                
+                
+                <a class="navbar-item search" title="搜索" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column my-content is-8-tablet is-8-desktop is-8-widescreen has-order-2 column-main"><div class="card">
+    
+    <div class="card-content article
+         
+    ">
+        
+        <div class="my-title  my-post-title ">
+            <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+                
+                    BZOJ4945 - [NOI2017] 游戏
+                
+            </h1>
+            <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
+                <div class="level-left">
+                    <i class="far fa-clock"></i>
+                    <time class="level-item has-text-grey" datetime="2018-09-18T05:29:00.000Z">
+                        2018-09-18
+                    </time>
+                    <i class="far fa-folder"></i>
+                    
+                        <div class="level-item">
+                            <a class="has-link-grey -link" href="/categories/Solution/">Solution</a>
+                        </div>
+                    
+                    <i class="far fa-edit"></i>
+                    
+                        <span class="level-item has-text-grey">
+                            871 Words
+                        </span>
+                    
+                </div>
+            </div>
+        </div>
+        
+        <div class="content">
+            <blockquote>
+<p>洛谷 SPJ 坏了，一个月了没修好。怎么回事啊？</p>
+<p>UPD: QQ 群里 @ 了一下 chen_zhe 竟然很快修好了</p>
+</blockquote>
+<p>回到正题：本题是 2-SAT 裸题，做之前可以参考一下洛谷的模板题，下面假装你已经看过并 AC 了那道题。</p>
+<p>对于 $a$ 、 $b$ 、 $c$ 三种地图，都是不允许一辆车，而允许另外两辆。对于 $x$ 地图，显然不能交给 2-SAT 算法解决，暴力枚举他是 $a$ 地图还是 $b$ 地图（如果 $a$ 和 $b$ 都不行那么 $c$ 也不行）。</p>
+<p>关于连边，用 $u$ 表示第 $i$ 场游戏使用赛车 $h_i$ 所对应的点，$v$ 表示 第 $j$ 场游戏赛车 $h_j$ 所对应的点，$u’$ 和 $v’$ 则表示对应地图可以使用的另一辆赛车所对应的点。</p>
+<p>如果 $h_i$ 不符合第 $i$ 张地图的限制条件，那么这种约束肯定不会遇到，跳过即可。</p>
+<p>如果 $h_j$ 不符合第 $j$ 张地图的限制条件，那么说明 $i$ 的这种情况肯定不能取到，就从 $u$ 向 $u’$ 连一条边。</p>
+<p>否则说明如果取了 $h_i$ 就一定要取 $h_j$ ，连接边 $u$ 到 $v$ 和 $u’$ 到 $v’$ 即可。</p>
+<p>另外，由于 2-SAT 要跑很多遍，所以请注意清空数组（我不会告诉你我没有清空 dfn 拿到了 $90$ 分的好成绩）。</p>
+<a id="more"></a>
+<p>照例上代码啦：</p>
+<figure class="highlight cpp hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">// ==============================</span></span><br><span class="line"><span class="hljs-comment">//  author: memset0</span></span><br><span class="line"><span class="hljs-comment">//  website: https://memset0.cn</span></span><br><span class="line"><span class="hljs-comment">// ==============================</span></span><br><span class="line"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">read</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">    <span class="hljs-keyword">int</span> x = <span class="hljs-number">0</span>; <span class="hljs-keyword">bool</span> m = <span class="hljs-number">0</span>; <span class="hljs-keyword">char</span> c = getchar();</span><br><span class="line">    <span class="hljs-keyword">while</span> (!<span class="hljs-built_in">isdigit</span>(c) &amp;&amp; c != <span class="hljs-string">'-'</span>) c = getchar();</span><br><span class="line">    <span class="hljs-keyword">if</span> (c == <span class="hljs-string">'-'</span>) m = <span class="hljs-number">1</span>, c = getchar();</span><br><span class="line">    <span class="hljs-keyword">while</span> (<span class="hljs-built_in">isdigit</span>(c)) x = x * <span class="hljs-number">10</span> + c - <span class="hljs-string">'0'</span>, c = getchar();</span><br><span class="line">    <span class="hljs-keyword">if</span> (m) <span class="hljs-keyword">return</span> -x; <span class="hljs-keyword">else</span> <span class="hljs-keyword">return</span> x;</span><br><span class="line">&#125;</span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">char</span> <span class="hljs-title">readc</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">    <span class="hljs-keyword">char</span> c = getchar();</span><br><span class="line">    <span class="hljs-keyword">while</span> (c != <span class="hljs-string">'A'</span> &amp;&amp; c != <span class="hljs-string">'B'</span> &amp;&amp; c != <span class="hljs-string">'C'</span>) c = getchar();</span><br><span class="line">    <span class="hljs-keyword">return</span> c;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> maxn = <span class="hljs-number">50010</span>, maxm = <span class="hljs-number">200010</span>;</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">int</span> n, m, l, u, v, w, w1, w2, tim, top, pos;</span><br><span class="line"><span class="hljs-keyword">int</span> a[maxm], b[maxm], c[maxm], d[maxm];</span><br><span class="line"><span class="hljs-keyword">int</span> low[maxn &lt;&lt; <span class="hljs-number">1</span>], dfn[maxn &lt;&lt; <span class="hljs-number">1</span>], stk[maxn &lt;&lt; <span class="hljs-number">1</span>], col[maxn &lt;&lt; <span class="hljs-number">1</span>], t[<span class="hljs-number">10</span>];</span><br><span class="line"><span class="hljs-keyword">char</span> s[maxn];</span><br><span class="line"><span class="hljs-keyword">bool</span> ins[maxn &lt;&lt; <span class="hljs-number">1</span>];</span><br><span class="line"><span class="hljs-keyword">int</span> tot = <span class="hljs-number">2</span>, hed[maxn &lt;&lt; <span class="hljs-number">1</span>], to[maxm &lt;&lt; <span class="hljs-number">1</span>], nxt[maxm &lt;&lt; <span class="hljs-number">1</span>];</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">add_edge</span><span class="hljs-params">(<span class="hljs-keyword">int</span> u, <span class="hljs-keyword">int</span> v)</span> </span>&#123;</span><br><span class="line">    nxt[tot] = hed[u], to[tot] = v;</span><br><span class="line">    hed[u] = tot++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">tarjan</span><span class="hljs-params">(<span class="hljs-keyword">int</span> u)</span> </span>&#123;</span><br><span class="line">    dfn[u] = low[u] = ++tim;</span><br><span class="line">    ins[u] = <span class="hljs-number">1</span>, stk[++top] = u;</span><br><span class="line">    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = hed[u], v = to[i]; i; i = nxt[i], v = to[i]) &#123;</span><br><span class="line">        <span class="hljs-keyword">if</span> (!dfn[v]) &#123;</span><br><span class="line">            tarjan(v);</span><br><span class="line">            low[u] = min(low[u], low[v]);</span><br><span class="line">        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (ins[v]) &#123;</span><br><span class="line">            low[u] = min(low[u], dfn[v]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-keyword">if</span> (low[u] == dfn[u]) &#123;</span><br><span class="line">        ++pos;</span><br><span class="line">        <span class="hljs-keyword">while</span> (top) &#123;</span><br><span class="line">            <span class="hljs-keyword">int</span> v = stk[top--];</span><br><span class="line">            ins[v] = <span class="hljs-number">0</span>;</span><br><span class="line">            col[v] = pos;</span><br><span class="line">            <span class="hljs-keyword">if</span> (u == v) <span class="hljs-keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">solve</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">    tot = <span class="hljs-number">2</span>;</span><br><span class="line">    <span class="hljs-built_in">memset</span>(hed, <span class="hljs-number">0</span>, <span class="hljs-keyword">sizeof</span>(hed));</span><br><span class="line">    <span class="hljs-built_in">memset</span>(dfn, <span class="hljs-number">0</span>, <span class="hljs-keyword">sizeof</span>(dfn));</span><br><span class="line">    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt;= m; i++) &#123;</span><br><span class="line">        u = a[i], w1 = c[i], v = b[i], w2 = d[i];</span><br><span class="line">        <span class="hljs-keyword">if</span> (w1 == s[u] || (u == v &amp;&amp; w1 == w2)) <span class="hljs-keyword">continue</span>;</span><br><span class="line">        <span class="hljs-keyword">if</span> (w2 == s[v] || (u == v &amp;&amp; w1 != w2)) &#123;</span><br><span class="line">            <span class="hljs-keyword">switch</span> (s[u]) &#123;</span><br><span class="line">                <span class="hljs-keyword">case</span> <span class="hljs-string">'a'</span>: w1 = w1 == <span class="hljs-string">'b'</span> ? <span class="hljs-number">0</span> : <span class="hljs-number">1</span>; <span class="hljs-keyword">break</span>;</span><br><span class="line">                <span class="hljs-keyword">case</span> <span class="hljs-string">'b'</span>: w1 = w1 == <span class="hljs-string">'a'</span> ? <span class="hljs-number">0</span> : <span class="hljs-number">1</span>; <span class="hljs-keyword">break</span>;</span><br><span class="line">                <span class="hljs-keyword">case</span> <span class="hljs-string">'c'</span>: w1 = w1 == <span class="hljs-string">'a'</span> ? <span class="hljs-number">0</span> : <span class="hljs-number">1</span>; <span class="hljs-keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            add_edge(w1 ? u + n : u, w1 ? u : u + n);</span><br><span class="line">            <span class="hljs-keyword">continue</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-keyword">switch</span> (s[u]) &#123;</span><br><span class="line">            <span class="hljs-keyword">case</span> <span class="hljs-string">'a'</span>: w1 = w1 == <span class="hljs-string">'b'</span> ? <span class="hljs-number">0</span> : <span class="hljs-number">1</span>; <span class="hljs-keyword">break</span>;</span><br><span class="line">            <span class="hljs-keyword">case</span> <span class="hljs-string">'b'</span>: w1 = w1 == <span class="hljs-string">'a'</span> ? <span class="hljs-number">0</span> : <span class="hljs-number">1</span>; <span class="hljs-keyword">break</span>;</span><br><span class="line">            <span class="hljs-keyword">case</span> <span class="hljs-string">'c'</span>: w1 = w1 == <span class="hljs-string">'a'</span> ? <span class="hljs-number">0</span> : <span class="hljs-number">1</span>; <span class="hljs-keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-keyword">switch</span> (s[v]) &#123;</span><br><span class="line">            <span class="hljs-keyword">case</span> <span class="hljs-string">'a'</span>: w2 = w2 == <span class="hljs-string">'b'</span> ? <span class="hljs-number">0</span> : <span class="hljs-number">1</span>; <span class="hljs-keyword">break</span>;</span><br><span class="line">            <span class="hljs-keyword">case</span> <span class="hljs-string">'b'</span>: w2 = w2 == <span class="hljs-string">'a'</span> ? <span class="hljs-number">0</span> : <span class="hljs-number">1</span>; <span class="hljs-keyword">break</span>;</span><br><span class="line">            <span class="hljs-keyword">case</span> <span class="hljs-string">'c'</span>: w2 = w2 == <span class="hljs-string">'a'</span> ? <span class="hljs-number">0</span> : <span class="hljs-number">1</span>; <span class="hljs-keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        add_edge(w1 ? u + n : u, w2 ? v + n : v);</span><br><span class="line">        add_edge(w2 ? v : v + n, w1 ? u : u + n);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt;= (n &lt;&lt; <span class="hljs-number">1</span>); i++)</span><br><span class="line">        <span class="hljs-keyword">if</span> (!dfn[i])</span><br><span class="line">            tarjan(i);</span><br><span class="line">    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++)</span><br><span class="line">        <span class="hljs-keyword">if</span> (col[i] == col[i + n])</span><br><span class="line">            <span class="hljs-keyword">return</span>;</span><br><span class="line">    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">        w = col[i] &lt; col[i + n];</span><br><span class="line">        <span class="hljs-keyword">switch</span> (s[i]) &#123;</span><br><span class="line">            <span class="hljs-keyword">case</span> <span class="hljs-string">'a'</span>: <span class="hljs-built_in">putchar</span>(w ? <span class="hljs-string">'B'</span> : <span class="hljs-string">'C'</span>); <span class="hljs-keyword">break</span>;</span><br><span class="line">            <span class="hljs-keyword">case</span> <span class="hljs-string">'b'</span>: <span class="hljs-built_in">putchar</span>(w ? <span class="hljs-string">'A'</span> : <span class="hljs-string">'C'</span>); <span class="hljs-keyword">break</span>;</span><br><span class="line">            <span class="hljs-keyword">case</span> <span class="hljs-string">'c'</span>: <span class="hljs-built_in">putchar</span>(w ? <span class="hljs-string">'A'</span> : <span class="hljs-string">'B'</span>); <span class="hljs-keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-built_in">putchar</span>(<span class="hljs-string">'\n'</span>);</span><br><span class="line">    <span class="hljs-built_in">exit</span>(<span class="hljs-number">0</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">dfs</span><span class="hljs-params">(<span class="hljs-keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">    <span class="hljs-keyword">if</span> (k &gt; l) &#123;</span><br><span class="line">        solve();</span><br><span class="line">        <span class="hljs-keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    s[t[k]] = <span class="hljs-string">'a'</span>, dfs(k + <span class="hljs-number">1</span>);</span><br><span class="line">    s[t[k]] = <span class="hljs-string">'b'</span>, dfs(k + <span class="hljs-number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">    n = read(), l = read(), <span class="hljs-built_in">scanf</span>(<span class="hljs-string">"%s"</span>, s + <span class="hljs-number">1</span>), m = read();</span><br><span class="line">    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt;= m; i++) &#123;</span><br><span class="line">        a[i] = read(), c[i] = readc() - <span class="hljs-string">'A'</span> + <span class="hljs-string">'a'</span>;</span><br><span class="line">        b[i] = read(), d[i] = readc() - <span class="hljs-string">'A'</span> + <span class="hljs-string">'a'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++)</span><br><span class="line">        <span class="hljs-keyword">if</span> (s[i] == <span class="hljs-string">'x'</span>)</span><br><span class="line">            t[++t[<span class="hljs-number">0</span>]] = i;</span><br><span class="line">    dfs(<span class="hljs-number">1</span>);</span><br><span class="line">    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"-1\n"</span>);</span><br><span class="line">    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        </div>
+        
+        <div class="level is-size-7 is-uppercase my-post-tags">
+            <div class="level-start">
+                <div class="level-item">
+                    <!-- <span class="is-size-6 has-text-grey has-mr-7">#</span> -->
+                    <a class="my-post-tag has-link-grey -link" href="/tags/2-SAT/">2-SAT</a>, <a class="my-post-tag has-link-grey -link" href="/tags/暴力枚举/">暴力枚举</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/luogu4768/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">洛谷4768 -  [NOI2018]归程</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/luogu1979/">
+                <span class="level-item">洛谷1979 - 华容道</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <!-- <h3 class="title is-5 has-text-weight-normal">评论</h3> -->
+        
+<div id="valine-thread"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/volantis@1/js/volantis.min.js"></script>
+<script>
+    new Valine({
+        el: '#valine-thread' ,
+        notify: false,
+        verify: true,
+        app_id: 'rHgVqrBsv0EYGFSxzDDIDapm-9Nh9j0Va',
+        app_key: 'X7Dp3hEvRWPbqHBYkOTBXzPm',
+        placeholder: '留下你的脚印~'
+    });
+</script>
+
+    </div>
+</div>
+</div>
+                
+                
+
+
+
+
+<div class="column my-sidebar is-4-tablet is-4-desktop is-4-widescreen  has-order-3 column-right is-sticky">
+    
+        
+<div class="card widget" id="my-id-sidebar-profile">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered">
+                <div>
+                    <img class="image is-128x128 has-mb-6" src="https://cdn.jsdelivr.net/gh/memset0/blog/images/avatar.png" alt="memset0">
+                    
+                    <p class="is-size-4 is-block">
+                        memset0
+                    </p>
+                    
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>The Cruel World</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        文章
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        131
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        分类
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        6
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        标签
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        142
+                    </p>
+                </div>
+            </div>
+        </nav>
+        <div class="level">
+            <a class="level-item button is-link is-rounded" href="http://github.com/memset0">
+                关注我
+            </a>
+        </div>
+        
+        
+    </div>
+</div>
+    
+        
+<!-- <script type="text/javascript">
+    function myHideElement(name) {
+        return;
+    }
+</script> -->
+
+    
+        	
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                分类
+            </h3>
+            <ul class="menu-list">
+            <li>
+        <a class="level is-marginless" href="/categories/Algorithm/">
+            <span class="level-start">
+                <span class="level-item">Algorithm</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">21</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Contest/">
+            <span class="level-start">
+                <span class="level-item">Contest</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">3</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Diary/">
+            <span class="level-start">
+                <span class="level-item">Diary</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">7</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Geek/">
+            <span class="level-start">
+                <span class="level-item">Geek</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">10</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Plan/">
+            <span class="level-start">
+                <span class="level-item">Plan</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Solution/">
+            <span class="level-start">
+                <span class="level-item">Solution</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">88</span>
+            </span>
+        </a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+    
+</div>
+
+            </div>
+        </div>
+    </section>
+    <!-- <script type="text/javascript">
+        myHideElement('my-id-sidebar-profile');
+        myHideElement('my-id-sidebar-category');
+    </script> -->
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                <!-- 
+                    <img src="/images/logo.png" alt="BZOJ4945 - [NOI2017] 游戏" height="28">
+                    memset0's blog
+                 -->
+                </a>
+                <p class="is-size-7">
+                    &copy; 2017 - 2019
+                    <i class="fa fa-heart"></i>
+                    memset0
+                </p>
+                <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+                <p class="is-size-7">
+                    <span>
+                        <span>95.8k</span> Words
+                    </span>
+                    <span id="busuanzi_container_site_pv" style="display:none">
+                    <span class="division">|</span>
+                    <span id="busuanzi_value_site_pv"></span> Views
+                    </span>
+                    <span id="busuanzi_container_site_uv" style="display:none">
+                    <span class="division">|</span>
+                    <span id="busuanzi_value_site_uv"></span> Visitors
+                    </span>
+                </p>
+                <p class="is-size-7">
+                    Powered by Hexo & Icarus & Coding Pages & Love
+                </p>
+                <p class="is-size-7">
+                    第 <span id="hitokoto-id"></span> 条一言：「<span id="hitokoto"></span>」
+                </p>
+                <script>
+                    var xhr = new XMLHttpRequest();
+                    xhr.open('get', 'https://v1.hitokoto.cn/?c=d');
+                    xhr.onreadystatechange = function () {
+                        if (xhr.readyState === 4) {
+                            var data = JSON.parse(xhr.responseText);
+                            document.getElementById('hitokoto').innerText = data.hitokoto;
+                            document.getElementById('hitokoto-id').innerText = data.id;
+                        }
+                    }
+                    xhr.send();
+                </script>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Creative Commons" href="https://creativecommons.org/">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="NonCommercial" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+                        
+                        <i class="fab fa-creative-commons-nc"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="NoDerivatives" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+                        
+                        <i class="fab fa-creative-commons-nd"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("zh-CN");</script>
+
+
+    
+    
+    
+    <script src="/js/animation.js"></script>
+    
+
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+    <script src="/js/gallery.js" defer></script>
+    
+
+    
+    
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+
+    
+    
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+    
+    
+
+<a id="back-to-top" title="回到顶端" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="想要查找什么...">
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+</body>
+</html>

@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+<title>洛谷4767 - [IOI2000]邮局 - memset0&#39;s blog</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+    <meta name="description" content="非常简单的四边形不等式优化模板题。 （一）首先考虑 $O(n^2 \times m)$ 的做法，先将 $a$ 数组排序，假设 $f[i][j]$ 表示前 $i$ 个村庄中设立 $j$ 个邮局，可以列出转移方程： $$f[i][j] = min(f[i][j], f[k][j - 1] + dis(k + 1, i))$$ 其中 $dis(l, r)$ 表示在 $l$ 到 $r$ 的区间中建立一个邮">
+<meta name="keywords" content="DP,四边形不等式优化">
+<meta property="og:type" content="article">
+<meta property="og:title" content="洛谷4767 - [IOI2000]邮局">
+<meta property="og:url" content="https://memset0.cn/luogu4767/index.html">
+<meta property="og:site_name" content="memset0&#39;s blog">
+<meta property="og:description" content="非常简单的四边形不等式优化模板题。 （一）首先考虑 $O(n^2 \times m)$ 的做法，先将 $a$ 数组排序，假设 $f[i][j]$ 表示前 $i$ 个村庄中设立 $j$ 个邮局，可以列出转移方程： $$f[i][j] = min(f[i][j], f[k][j - 1] + dis(k + 1, i))$$ 其中 $dis(l, r)$ 表示在 $l$ 到 $r$ 的区间中建立一个邮">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-10-10T12:14:53.321Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="洛谷4767 - [IOI2000]邮局">
+<meta name="twitter:description" content="非常简单的四边形不等式优化模板题。 （一）首先考虑 $O(n^2 \times m)$ 的做法，先将 $a$ 数组排序，假设 $f[i][j]$ 表示前 $i$ 个村庄中设立 $j$ 个邮局，可以列出转移方程： $$f[i][j] = min(f[i][j], f[k][j - 1] + dis(k + 1, i))$$ 其中 $dis(l, r)$ 表示在 $l$ 到 $r$ 的区间中建立一个邮">
+
+
+
+
+
+<link rel="icon" href="/favicon.ico">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
+
+
+    
+    
+    
+    <style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+    
+
+    
+    
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+    
+
+    
+    
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+
+    
+    
+    
+    
+
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+
+    
+    
+
+    
+    
+<script>
+var _hmt = _hmt || [];
+(function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?d8c0a4185322e94013582201484f9131";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+    
+    
+
+    
+    
+<link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+    
+
+
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="is-2-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <!-- <img src="/images/logo.png" alt="洛谷4767 - [IOI2000]邮局" height="28"> -->
+                <span class="navbar-title"> memset0's blog </span>
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item" href="/categories/Solution/">题解</a>
+                
+                <a class="navbar-item" href="/categories/Algorithm/">算法</a>
+                
+                <a class="navbar-item" href="/archives">归档</a>
+                
+                <a class="navbar-item" href="/tags">标签</a>
+                
+                <a class="navbar-item" href="/friends">友链</a>
+                
+                <a class="navbar-item" href="/about">关于</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                
+                
+                <a class="navbar-item search" title="搜索" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column my-content is-8-tablet is-8-desktop is-8-widescreen has-order-2 column-main"><div class="card">
+    
+    <div class="card-content article
+         
+    ">
+        
+        <div class="my-title  my-post-title ">
+            <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+                
+                    洛谷4767 - [IOI2000]邮局
+                
+            </h1>
+            <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
+                <div class="level-left">
+                    <i class="far fa-clock"></i>
+                    <time class="level-item has-text-grey" datetime="2018-08-26T14:35:55.000Z">
+                        2018-08-26
+                    </time>
+                    <i class="far fa-folder"></i>
+                    
+                        <div class="level-item">
+                            <a class="has-link-grey -link" href="/categories/Solution/">Solution</a>
+                        </div>
+                    
+                    <i class="far fa-edit"></i>
+                    
+                        <span class="level-item has-text-grey">
+                            612 Words
+                        </span>
+                    
+                </div>
+            </div>
+        </div>
+        
+        <div class="content">
+            <p>非常简单的四边形不等式优化模板题。</p>
+<h3 id="（一）"><a href="#（一）" class="headerlink" title="（一）"></a>（一）</h3><p>首先考虑 $O(n^2 \times m)$ 的做法，先将 $a$ 数组排序，假设 $f[i][j]$ 表示前 $i$ 个村庄中设立 $j$ 个邮局，可以列出转移方程：</p>
+<p>$$f[i][j] = min(f[i][j], f[k][j - 1] + dis(k + 1, i))$$</p>
+<p>其中 $dis(l, r)$ 表示在 $l$ 到 $r$ 的区间中建立一个邮局所对答案产生的贡献，<strong>利用人类智慧可知把邮局建在中间花费最少</strong>。</p>
+<h3 id="（二）"><a href="#（二）" class="headerlink" title="（二）"></a>（二）</h3><p>在进行四边形不等式优化之前，我们先考虑如何在 $O(1)$ 的时间复杂度内求出 $dis(l, r)$：</p>
+<p>在暴力做法中，我们需要枚举 $l$ 到 $r$ 之间的数，去其与中间的村庄的距离差的绝对值，代码大概如下：</p>
+<figure class="highlight cpp hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = l; i &lt;= r; i++)</span><br><span class="line">    ans += <span class="hljs-built_in">abs</span>(a[i] - a[mid]);</span><br></pre></td></tr></table></figure>
+<p>由于 $a$ 数组是有序的，我们可知在 $mid$ 左面的村庄 $abs(a_i - a_{mid}) = a_{mid} - a_i$，右边的村庄 $abs(a_i - a_{mid}) = a_i - a_{mid}$ 。那么通过前缀和即可在 $O(1)$ 的时间复杂度内求出。</p>
+<h3 id="（三）"><a href="#（三）" class="headerlink" title="（三）"></a>（三）</h3><p>四边形不等式优化必须满足：</p>
+<p>$$f[a][c]+f[b][d]&lt;=f[b][c]+f[a][d]$$</p>
+<p>且决策单调。</p>
+<p>本题可以通过<del>打表</del>等方法证明成立，那么 $f[i][j]$ 的状态只能从 $f[i][j - 1]$ 到 $f[i + 1][j]$ 的决策中选择一个进行转移。</p>
+<a id="more"></a>
+<h3 id="（四）"><a href="#（四）" class="headerlink" title="（四）"></a>（四）</h3><p>代码：</p>
+<figure class="highlight cpp hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">// ==============================</span></span><br><span class="line"><span class="hljs-comment">//  author: memset0</span></span><br><span class="line"><span class="hljs-comment">//  website: https://memset0.cn</span></span><br><span class="line"><span class="hljs-comment">// ==============================</span></span><br><span class="line"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">read</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">    <span class="hljs-keyword">int</span> x = <span class="hljs-number">0</span>; <span class="hljs-keyword">bool</span> m = <span class="hljs-number">0</span>; <span class="hljs-keyword">char</span> c = getchar();</span><br><span class="line">    <span class="hljs-keyword">while</span> (!<span class="hljs-built_in">isdigit</span>(c) &amp;&amp; c != <span class="hljs-string">'-'</span>) c = getchar();</span><br><span class="line">    <span class="hljs-keyword">if</span> (c == <span class="hljs-string">'-'</span>) m = <span class="hljs-number">1</span>, c = getchar();</span><br><span class="line">    <span class="hljs-keyword">while</span> (<span class="hljs-built_in">isdigit</span>(c)) x = x * <span class="hljs-number">10</span> + c - <span class="hljs-string">'0'</span>, c = getchar();</span><br><span class="line">    <span class="hljs-keyword">if</span> (m) <span class="hljs-keyword">return</span> -x; <span class="hljs-keyword">else</span> <span class="hljs-keyword">return</span> x;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> maxn = <span class="hljs-number">3010</span>, maxm = <span class="hljs-number">310</span>;</span><br><span class="line"><span class="hljs-keyword">int</span> n, m;</span><br><span class="line"><span class="hljs-keyword">int</span> a[maxn];</span><br><span class="line"><span class="hljs-keyword">int</span> s[maxn][maxn];</span><br><span class="line"><span class="hljs-keyword">int</span> f[maxn][maxn];</span><br><span class="line"><span class="hljs-keyword">int</span> dis[maxn][maxn];</span><br><span class="line"><span class="hljs-keyword">int</span> tran[maxn][maxn];</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">	<span class="hljs-built_in">memset</span>(f, <span class="hljs-number">0x3f</span>, <span class="hljs-keyword">sizeof</span>(f));</span><br><span class="line"></span><br><span class="line">	n = read(), m = read();</span><br><span class="line">	<span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++)</span><br><span class="line">		a[i] = read();</span><br><span class="line">	sort(a + <span class="hljs-number">1</span>, a + n + <span class="hljs-number">1</span>);</span><br><span class="line">	</span><br><span class="line">	<span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++)</span><br><span class="line">		<span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = i; j &lt;= n; j++)</span><br><span class="line">			s[i][j] = s[i][j - <span class="hljs-number">1</span>] + a[j];</span><br><span class="line"></span><br><span class="line">	<span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> l = <span class="hljs-number">1</span>; l &lt;= n; l++)</span><br><span class="line">		<span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> r = l; r &lt;= n; r++) &#123;</span><br><span class="line">			<span class="hljs-keyword">int</span> mid = (l + r) &gt;&gt; <span class="hljs-number">1</span>;</span><br><span class="line">			dis[l][r] += (mid - l) * a[mid] - s[l][mid - <span class="hljs-number">1</span>];</span><br><span class="line">			dis[l][r] += s[mid + <span class="hljs-number">1</span>][r] - (r - mid) * a[mid];</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	<span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++)</span><br><span class="line">		f[i][<span class="hljs-number">1</span>] = dis[<span class="hljs-number">1</span>][i];</span><br><span class="line">	<span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">2</span>; j &lt;= m; j++) &#123;</span><br><span class="line">		tran[n + <span class="hljs-number">1</span>][j] = n;</span><br><span class="line">		<span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = n; i &gt;= <span class="hljs-number">1</span>; i--) &#123;</span><br><span class="line">			<span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> k = tran[i][j - <span class="hljs-number">1</span>]; k &lt;= tran[i + <span class="hljs-number">1</span>][j]; k++)</span><br><span class="line">				<span class="hljs-keyword">if</span> (f[k][j - <span class="hljs-number">1</span>] + dis[k + <span class="hljs-number">1</span>][i] &lt; f[i][j]) &#123;</span><br><span class="line">					f[i][j] = f[k][j - <span class="hljs-number">1</span>] + dis[k + <span class="hljs-number">1</span>][i];</span><br><span class="line">					tran[i][j] = k;</span><br><span class="line">				&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="hljs-built_in">printf</span>(<span class="hljs-string">"%d\n"</span>, f[n][m]);</span><br><span class="line"></span><br><span class="line">	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        </div>
+        
+        <div class="level is-size-7 is-uppercase my-post-tags">
+            <div class="level-start">
+                <div class="level-item">
+                    <!-- <span class="is-size-6 has-text-grey has-mr-7">#</span> -->
+                    <a class="my-post-tag has-link-grey -link" href="/tags/DP/">DP</a>, <a class="my-post-tag has-link-grey -link" href="/tags/四边形不等式优化/">四边形不等式优化</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/luogu3285/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">洛谷3285 - [SCOI2014]方伯伯的OJ</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/luogu2600/">
+                <span class="level-item">洛谷2600 - [ZJOI2008]瞭望塔</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <!-- <h3 class="title is-5 has-text-weight-normal">评论</h3> -->
+        
+<div id="valine-thread"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/volantis@1/js/volantis.min.js"></script>
+<script>
+    new Valine({
+        el: '#valine-thread' ,
+        notify: false,
+        verify: true,
+        app_id: 'rHgVqrBsv0EYGFSxzDDIDapm-9Nh9j0Va',
+        app_key: 'X7Dp3hEvRWPbqHBYkOTBXzPm',
+        placeholder: '留下你的脚印~'
+    });
+</script>
+
+    </div>
+</div>
+</div>
+                
+                
+
+
+
+
+<div class="column my-sidebar is-4-tablet is-4-desktop is-4-widescreen  has-order-3 column-right is-sticky">
+    
+        
+<div class="card widget" id="my-id-sidebar-profile">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered">
+                <div>
+                    <img class="image is-128x128 has-mb-6" src="https://cdn.jsdelivr.net/gh/memset0/blog/images/avatar.png" alt="memset0">
+                    
+                    <p class="is-size-4 is-block">
+                        memset0
+                    </p>
+                    
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>The Cruel World</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        文章
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        131
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        分类
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        6
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        标签
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        142
+                    </p>
+                </div>
+            </div>
+        </nav>
+        <div class="level">
+            <a class="level-item button is-link is-rounded" href="http://github.com/memset0">
+                关注我
+            </a>
+        </div>
+        
+        
+    </div>
+</div>
+    
+        
+<div class="card widget" id="toc">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                目录
+            </h3>
+            <ul class="menu-list"><li>
+        <a class="is-flex" href="#（一）">
+        <span class="has-mr-6">1</span>
+        <span>（一）</span>
+        </a></li><li>
+        <a class="is-flex" href="#（二）">
+        <span class="has-mr-6">2</span>
+        <span>（二）</span>
+        </a></li><li>
+        <a class="is-flex" href="#（三）">
+        <span class="has-mr-6">3</span>
+        <span>（三）</span>
+        </a></li><li>
+        <a class="is-flex" href="#（四）">
+        <span class="has-mr-6">4</span>
+        <span>（四）</span>
+        </a></li></ul>
+        </div>
+    </div>
+</div>
+<!-- <script type="text/javascript">
+function myHideElement(name) {
+    document.getElementById(name).style.display = 'none';
+}
+</script> -->
+
+    
+        	
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                分类
+            </h3>
+            <ul class="menu-list">
+            <li>
+        <a class="level is-marginless" href="/categories/Algorithm/">
+            <span class="level-start">
+                <span class="level-item">Algorithm</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">21</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Contest/">
+            <span class="level-start">
+                <span class="level-item">Contest</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">3</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Diary/">
+            <span class="level-start">
+                <span class="level-item">Diary</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">7</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Geek/">
+            <span class="level-start">
+                <span class="level-item">Geek</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">10</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Plan/">
+            <span class="level-start">
+                <span class="level-item">Plan</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Solution/">
+            <span class="level-start">
+                <span class="level-item">Solution</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">88</span>
+            </span>
+        </a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+    
+</div>
+
+            </div>
+        </div>
+    </section>
+    <!-- <script type="text/javascript">
+        myHideElement('my-id-sidebar-profile');
+        myHideElement('my-id-sidebar-category');
+    </script> -->
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                <!-- 
+                    <img src="/images/logo.png" alt="洛谷4767 - [IOI2000]邮局" height="28">
+                    memset0's blog
+                 -->
+                </a>
+                <p class="is-size-7">
+                    &copy; 2017 - 2019
+                    <i class="fa fa-heart"></i>
+                    memset0
+                </p>
+                <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+                <p class="is-size-7">
+                    <span>
+                        <span>95.8k</span> Words
+                    </span>
+                    <span id="busuanzi_container_site_pv" style="display:none">
+                    <span class="division">|</span>
+                    <span id="busuanzi_value_site_pv"></span> Views
+                    </span>
+                    <span id="busuanzi_container_site_uv" style="display:none">
+                    <span class="division">|</span>
+                    <span id="busuanzi_value_site_uv"></span> Visitors
+                    </span>
+                </p>
+                <p class="is-size-7">
+                    Powered by Hexo & Icarus & Coding Pages & Love
+                </p>
+                <p class="is-size-7">
+                    第 <span id="hitokoto-id"></span> 条一言：「<span id="hitokoto"></span>」
+                </p>
+                <script>
+                    var xhr = new XMLHttpRequest();
+                    xhr.open('get', 'https://v1.hitokoto.cn/?c=d');
+                    xhr.onreadystatechange = function () {
+                        if (xhr.readyState === 4) {
+                            var data = JSON.parse(xhr.responseText);
+                            document.getElementById('hitokoto').innerText = data.hitokoto;
+                            document.getElementById('hitokoto-id').innerText = data.id;
+                        }
+                    }
+                    xhr.send();
+                </script>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Creative Commons" href="https://creativecommons.org/">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="NonCommercial" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+                        
+                        <i class="fab fa-creative-commons-nc"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="NoDerivatives" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+                        
+                        <i class="fab fa-creative-commons-nd"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("zh-CN");</script>
+
+
+    
+    
+    
+    <script src="/js/animation.js"></script>
+    
+
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+    <script src="/js/gallery.js" defer></script>
+    
+
+    
+    
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+
+    
+    
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+    
+    
+
+<a id="back-to-top" title="回到顶端" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="想要查找什么...">
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+</body>
+</html>

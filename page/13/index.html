@@ -138,127 +138,7 @@ var _hmt = _hmt || [];
         <div class="my-title ">
             <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
                 
-                    <a class="has-link-black-ter" href="/algorithm-Splay-文艺平衡树/">Splay 实现区间翻转（文艺平衡树）</a>
-                
-            </h1>
-            <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
-                <div class="level-left">
-                    <i class="far fa-clock"></i>
-                    <time class="level-item has-text-grey" datetime="2018-08-09T04:33:46.000Z">
-                        2018-08-09
-                    </time>
-                    <i class="far fa-folder"></i>
-                    
-                        <div class="level-item">
-                            <a class="has-link-grey -link" href="/categories/Algorithm/">Algorithm</a>
-                        </div>
-                    
-                    <i class="far fa-edit"></i>
-                    
-                        <span class="level-item has-text-grey">
-                            1338 Words
-                        </span>
-                    
-                </div>
-            </div>
-        </div>
-        
-        <div class="content">
-            <h1 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h1><p>之前我们讲到了用 Splay 写普通平衡树，这次我们将用 Splay 来完成区间操作。</p>
-<p>之前的 Splay 是按照权值排序，而这里的 Splay 则是要按照编号排序。</p>
-<p>不难想到，整棵树的编号第 k 大点即数列中的第 k 个，整棵树的中序遍历即被维护的数列。</p>
-<p><br></p>
-<p>假设我们要翻转区间<code>[l, r]</code>，那么我们先把<code>l - 1</code>旋转到根节点，再把<code>r + 1</code>旋转到根节点的右孩子。那么<code>r + 1</code>的左子树即区间<code>[l, r]</code>。翻转该区间只需要把该区间内的每个节点的左右子树交换即可。</p>
-<p>参考线段树的 lazytag，我们也使用一个类似于懒标记的方法，保证复杂度为<code>O(log n)</code>。</p>
-<p><img src="https://i.loli.net/2018/08/08/5b6b07758f2d3.png" alt="1.png"></p>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/algorithm-Splay-文艺平衡树/#more">阅读更多</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
-    <div class="card">
-    
-    <div class="card-content article
-         
-    ">
-        
-        <div class="my-title ">
-            <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-                
-                    <a class="has-link-black-ter" href="/geek-devc更改主题/">Dev C++ 更改主题</a>
-                
-            </h1>
-            <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
-                <div class="level-left">
-                    <i class="far fa-clock"></i>
-                    <time class="level-item has-text-grey" datetime="2018-08-08T09:27:53.000Z">
-                        2018-08-08
-                    </time>
-                    <i class="far fa-folder"></i>
-                    
-                        <div class="level-item">
-                            <a class="has-link-grey -link" href="/categories/Geek/">Geek</a>
-                        </div>
-                    
-                    <i class="far fa-edit"></i>
-                    
-                        <span class="level-item has-text-grey">
-                            436 Words
-                        </span>
-                    
-                </div>
-            </div>
-        </div>
-        
-        <div class="content">
-            <p>Dev C++ 是目前OIer使用最多的IDE，然而原始界面却<del>丑的一逼</del>。所以让我们来美化它233。</p>
-<h1 id="Before-using"><a href="#Before-using" class="headerlink" title="Before using"></a>Before using</h1><p>Dev C++ 的主题默认存储在<code>C:/Users/&lt;your name&gt;/AppData/Roaming/Dev-Cpp</code>目录下，在该目录新建<code>&lt;文件名&gt;.syntax</code>添加配色。</p>
-<p>在 Dev C++ 的菜单栏中选择<code>工具[T]</code>&gt;<code>编辑器属性</code>&gt;<code>语法</code>&gt;<code>预设</code>应用配色（可在选项中找到你之前新建的配色）；同时也可直接在 Dev C++ 中方便的调色（点击右侧自动跳转到对应内容）并保存（如果文件名与已存在的相同则默认替换）。</p>
-<p>修改完后，务必在<code>工具[T]</code>&gt;<code>编辑器属性</code>&gt;<code>基本</code>中更改<code>高亮显示当前行</code>的颜色，以符合背景。</p>
-<p>另外，推荐在使用暗色主题时关闭 Dev C++ 自带的各种工具栏！</p>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/geek-devc更改主题/#more">阅读更多</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
-    <div class="card">
-    
-    <div class="card-content article
-         
-    ">
-        
-        <div class="my-title ">
-            <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-                
-                    <a class="has-link-black-ter" href="/solution-luogu-3411/">洛谷3411 - 序列变换</a>
+                    <a class="has-link-black-ter" href="/luogu3411/">洛谷3411 - 序列变换</a>
                 
             </h1>
             <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
@@ -293,7 +173,7 @@ var _hmt = _hmt || [];
         <div class="level is-mobile">
             <div class="level-start">
                 <div class="level-item">
-                <a class="button is-size-7 is-light" href="/solution-luogu-3411/#more">阅读更多</a>
+                <a class="button is-size-7 is-light" href="/luogu3411/#more">阅读更多</a>
                 </div>
             </div>
         </div>
@@ -315,7 +195,7 @@ var _hmt = _hmt || [];
         <div class="my-title ">
             <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
                 
-                    <a class="has-link-black-ter" href="/algorithm-最长上升子序列/">十行求解 $O(n \log n)$ 求最长上升子序列</a>
+                    <a class="has-link-black-ter" href="/lis/">十行求解 $O(n \log n)$ 求最长上升子序列</a>
                 
             </h1>
             <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
@@ -363,7 +243,7 @@ var _hmt = _hmt || [];
         <div class="my-title ">
             <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
                 
-                    <a class="has-link-black-ter" href="/solution-luogu-2962/">洛谷2962 - 灯</a>
+                    <a class="has-link-black-ter" href="/luogu2962/">洛谷2962 - 灯</a>
                 
             </h1>
             <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
@@ -398,7 +278,7 @@ var _hmt = _hmt || [];
         <div class="level is-mobile">
             <div class="level-start">
                 <div class="level-item">
-                <a class="button is-size-7 is-light" href="/solution-luogu-2962/#more">阅读更多</a>
+                <a class="button is-size-7 is-light" href="/luogu2962/#more">阅读更多</a>
                 </div>
             </div>
         </div>
@@ -420,7 +300,7 @@ var _hmt = _hmt || [];
         <div class="my-title ">
             <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
                 
-                    <a class="has-link-black-ter" href="/solution-ljoj-1244/">LJOJ1244 - 埃及分数</a>
+                    <a class="has-link-black-ter" href="/ljoj1244/">LJOJ1244 - 埃及分数</a>
                 
             </h1>
             <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
@@ -460,7 +340,7 @@ var _hmt = _hmt || [];
         <div class="level is-mobile">
             <div class="level-start">
                 <div class="level-item">
-                <a class="button is-size-7 is-light" href="/solution-ljoj-1244/#more">阅读更多</a>
+                <a class="button is-size-7 is-light" href="/ljoj1244/#more">阅读更多</a>
                 </div>
             </div>
         </div>
@@ -482,7 +362,7 @@ var _hmt = _hmt || [];
         <div class="my-title ">
             <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
                 
-                    <a class="has-link-black-ter" href="/untitled-1547374113352/">洛谷2996 - 拜访奶牛</a>
+                    <a class="has-link-black-ter" href="/luogu2996/">洛谷2996 - 拜访奶牛</a>
                 
             </h1>
             <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
@@ -525,7 +405,7 @@ var _hmt = _hmt || [];
         <div class="level is-mobile">
             <div class="level-start">
                 <div class="level-item">
-                <a class="button is-size-7 is-light" href="/untitled-1547374113352/#more">阅读更多</a>
+                <a class="button is-size-7 is-light" href="/luogu2996/#more">阅读更多</a>
                 </div>
             </div>
         </div>
@@ -547,7 +427,7 @@ var _hmt = _hmt || [];
         <div class="my-title ">
             <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
                 
-                    <a class="has-link-black-ter" href="/solution-luogu-2921/">洛谷2921 - 在农场万圣节</a>
+                    <a class="has-link-black-ter" href="/luogu2921/">洛谷2921 - 在农场万圣节</a>
                 
             </h1>
             <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
@@ -586,7 +466,7 @@ var _hmt = _hmt || [];
         <div class="level is-mobile">
             <div class="level-start">
                 <div class="level-item">
-                <a class="button is-size-7 is-light" href="/solution-luogu-2921/#more">阅读更多</a>
+                <a class="button is-size-7 is-light" href="/luogu2921/#more">阅读更多</a>
                 </div>
             </div>
         </div>
@@ -707,6 +587,127 @@ var _hmt = _hmt || [];
 
 
 
+    <div class="card">
+    
+    <div class="card-content article
+         
+    ">
+        
+        <div class="my-title ">
+            <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+                
+                    <a class="has-link-black-ter" href="/geek-python登录hostoj/">Python 模拟登陆 Hust OJ</a>
+                
+            </h1>
+            <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
+                <div class="level-left">
+                    <i class="far fa-clock"></i>
+                    <time class="level-item has-text-grey" datetime="2018-05-25T14:14:00.000Z">
+                        2018-05-25
+                    </time>
+                    <i class="far fa-folder"></i>
+                    
+                        <div class="level-item">
+                            <a class="has-link-grey -link" href="/categories/Geek/">Geek</a>
+                        </div>
+                    
+                    <i class="far fa-edit"></i>
+                    
+                        <span class="level-item has-text-grey">
+                            1368 Words
+                        </span>
+                    
+                </div>
+            </div>
+        </div>
+        
+        <div class="content">
+            <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>最近闲着无聊准备写写<code>Python</code>爬虫，爬一下我们学校的oj用来横向比对做题量。但由于我校OJ对没有登录的账号有浏览限制，因此想要获取数据，就必须要登录账号。以前我一直手动生成<code>Cookie</code>，然后到浏览器里用该<code>Cookie</code>登录，这样的话没过一会儿又要重来比较麻烦。于是我就学习了一下用<code>Python</code>来<strong><code>POST</code>数据</strong>的方式实现登录功能。</p>
+<h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><ol start="0">
+<li>感谢hiuseues大佬对我的指导！</li>
+<li>此处以我校OJ为例</li>
+<li>请不要使用此测试账号（账号来自某外校团队）来浏览我校题目或交题，否则我将把密码改掉</li>
+<li>我习惯于使用<code>Python2</code>写爬虫，主要因为我校电脑和我的VPS预装的都是这个版本。可能会和hiuseues大佬产生代沟，不要在意。当然，这个脚本的核心部分在<code>Python3</code>中完全可以运行，希望这样的话代沟可以小一点。</li>
+</ol>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/geek-python登录hostoj/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article
+         
+    ">
+        
+        <div class="my-title ">
+            <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+                
+                    <a class="has-link-black-ter" href="/diary-2018浙大校赛游记/">2018浙大校赛&amp;图森未来杯(4.7) 游记</a>
+                
+            </h1>
+            <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
+                <div class="level-left">
+                    <i class="far fa-clock"></i>
+                    <time class="level-item has-text-grey" datetime="2018-04-30T08:04:00.000Z">
+                        2018-04-30
+                    </time>
+                    <i class="far fa-folder"></i>
+                    
+                        <div class="level-item">
+                            <a class="has-link-grey -link" href="/categories/Diary/">Diary</a>
+                        </div>
+                    
+                    <i class="far fa-edit"></i>
+                    
+                        <span class="level-item has-text-grey">
+                            1726 Words
+                        </span>
+                    
+                </div>
+            </div>
+        </div>
+        
+        <div class="content">
+            <blockquote>
+<p>这其实是一个比赛啊啊啊啊啊！</p>
+<p>反正考得超级辣鸡的！</p>
+</blockquote>
+<p>这是我第一次参加ACM类的比赛，估计也是我的第一次写游记吧。<br>这次参加浙大校赛的，不光有他们大学生，还有各路中学生；同时，我也在队伍里面发现了小学生的踪影（就差幼儿园的了）。<br>整体的氛围还是比较愉快的，可能是因为三个人一起做题的关系吧，没有OI那么压抑。</p>
+<p>这次比赛给了我们一点经验，也让我们看到了很多不足的地方（同时我现场领悟了如何数组模拟链表，thanks to fjk）<br></p>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/diary-2018浙大校赛游记/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
 
     
 <div class="card card-transparent">
@@ -770,7 +771,7 @@ var _hmt = _hmt || [];
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        133
+                        131
                     </p>
                 </div>
             </div>
@@ -837,7 +838,7 @@ var _hmt = _hmt || [];
                 <span class="level-item">Diary</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">8</span>
+                <span class="level-item tag">7</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/Geek/">
@@ -845,7 +846,7 @@ var _hmt = _hmt || [];
                 <span class="level-item">Geek</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">11</span>
+                <span class="level-item tag">10</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/Plan/">
@@ -897,7 +898,7 @@ var _hmt = _hmt || [];
                 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
                 <p class="is-size-7">
                     <span>
-                        <span>97k</span> Words
+                        <span>95.8k</span> Words
                     </span>
                     <span id="busuanzi_container_site_pv" style="display:none">
                     <span class="division">|</span>
@@ -911,6 +912,21 @@ var _hmt = _hmt || [];
                 <p class="is-size-7">
                     Powered by Hexo & Icarus & Coding Pages & Love
                 </p>
+                <p class="is-size-7">
+                    第 <span id="hitokoto-id"></span> 条一言：「<span id="hitokoto"></span>」
+                </p>
+                <script>
+                    var xhr = new XMLHttpRequest();
+                    xhr.open('get', 'https://v1.hitokoto.cn/?c=d');
+                    xhr.onreadystatechange = function () {
+                        if (xhr.readyState === 4) {
+                            var data = JSON.parse(xhr.responseText);
+                            document.getElementById('hitokoto').innerText = data.hitokoto;
+                            document.getElementById('hitokoto-id').innerText = data.id;
+                        }
+                    }
+                    xhr.send();
+                </script>
             </div>
             <div class="level-end">
             

@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+<title>BZOJ5403 - marshland - memset0&#39;s blog</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+    <meta name="description" content="这个数据范围容易让人想到网络流，问题在于这个网络流怎么流？ 首先可以发现，如果我们要放石头，一定只会放在 $x + y$ 为奇数的格子，否则放了不如不放。所以把这些点拆点，连一条费用为 $a[x][y]$ ，流量为 $1$  的边。 接下来，我们可以构造一种对 $x + y$ 为偶数的格子的黑白染色方案，使得一个 L 型石头的两个 $x + y$ 为偶数的格子异色。容易发现，我们只需要对所有 $x">
+<meta name="keywords" content="网络流,费用流,拆点">
+<meta property="og:type" content="article">
+<meta property="og:title" content="BZOJ5403 - marshland">
+<meta property="og:url" content="https://memset0.cn/bzoj5403/index.html">
+<meta property="og:site_name" content="memset0&#39;s blog">
+<meta property="og:description" content="这个数据范围容易让人想到网络流，问题在于这个网络流怎么流？ 首先可以发现，如果我们要放石头，一定只会放在 $x + y$ 为奇数的格子，否则放了不如不放。所以把这些点拆点，连一条费用为 $a[x][y]$ ，流量为 $1$  的边。 接下来，我们可以构造一种对 $x + y$ 为偶数的格子的黑白染色方案，使得一个 L 型石头的两个 $x + y$ 为偶数的格子异色。容易发现，我们只需要对所有 $x">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-01-10T05:52:59.302Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="BZOJ5403 - marshland">
+<meta name="twitter:description" content="这个数据范围容易让人想到网络流，问题在于这个网络流怎么流？ 首先可以发现，如果我们要放石头，一定只会放在 $x + y$ 为奇数的格子，否则放了不如不放。所以把这些点拆点，连一条费用为 $a[x][y]$ ，流量为 $1$  的边。 接下来，我们可以构造一种对 $x + y$ 为偶数的格子的黑白染色方案，使得一个 L 型石头的两个 $x + y$ 为偶数的格子异色。容易发现，我们只需要对所有 $x">
+
+
+
+
+
+<link rel="icon" href="/favicon.ico">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
+
+
+    
+    
+    
+    <style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+    
+
+    
+    
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+    
+
+    
+    
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+
+    
+    
+    
+    
+
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+
+    
+    
+
+    
+    
+<script>
+var _hmt = _hmt || [];
+(function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?d8c0a4185322e94013582201484f9131";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+    
+    
+
+    
+    
+<link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+    
+
+
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="is-2-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <!-- <img src="/images/logo.png" alt="BZOJ5403 - marshland" height="28"> -->
+                <span class="navbar-title"> memset0's blog </span>
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item" href="/categories/Solution/">题解</a>
+                
+                <a class="navbar-item" href="/categories/Algorithm/">算法</a>
+                
+                <a class="navbar-item" href="/archives">归档</a>
+                
+                <a class="navbar-item" href="/tags">标签</a>
+                
+                <a class="navbar-item" href="/friends">友链</a>
+                
+                <a class="navbar-item" href="/about">关于</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                
+                
+                <a class="navbar-item search" title="搜索" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column my-content is-8-tablet is-8-desktop is-8-widescreen has-order-2 column-main"><div class="card">
+    
+    <div class="card-content article
+         
+    ">
+        
+        <div class="my-title  my-post-title ">
+            <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+                
+                    BZOJ5403 - marshland
+                
+            </h1>
+            <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
+                <div class="level-left">
+                    <i class="far fa-clock"></i>
+                    <time class="level-item has-text-grey" datetime="2019-01-10T05:41:38.000Z">
+                        2019-01-10
+                    </time>
+                    <i class="far fa-folder"></i>
+                    
+                        <div class="level-item">
+                            <a class="has-link-grey -link" href="/categories/Solution/">Solution</a>
+                        </div>
+                    
+                    <i class="far fa-edit"></i>
+                    
+                        <span class="level-item has-text-grey">
+                            858 Words
+                        </span>
+                    
+                </div>
+            </div>
+        </div>
+        
+        <div class="content">
+            <p>这个数据范围容易让人想到网络流，问题在于这个网络流怎么流？</p>
+<p>首先可以发现，如果我们要放石头，一定只会放在 $x + y$ 为奇数的格子，否则放了不如不放。所以把这些点拆点，连一条费用为 $a[x][y]$ ，流量为 $1$  的边。</p>
+<p>接下来，我们可以构造一种对 $x + y$ 为偶数的格子的黑白染色方案，使得一个 L 型石头的两个 $x + y$ 为偶数的格子异色。容易发现，我们只需要对所有 $x$ 和 $y$ 都是奇数的格子染黑， $x$ 和 $y$ 都是偶数的格子染白。同理，拆成两个点，中间连一条费用为 $0$ ，流量为 $1$ 的边。</p>
+<p>同时，为了使得总放置的石头数为 $m$ ，我们还需要再建一个点 $P$ 。</p>
+<p>于是源点 $S$ 向 $P$ 连边， $P$ 向黑点连边，黑点向 $x + y$ 为奇数的点连边， $x + y$ 为奇数的点向白点连边，白点向汇点 $E$ 连边即可。</p>
+<p>需要注意的是，我们跑最大费用最大流，但是我们只需要费用最大，而不是流量。由于我们采用增广路算法，每次新增的流量的花费一定递减，所以当花费是负数时直接跳出即可。</p>
+<a id="more"></a>
+<figure class="highlight cpp hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">// =================================</span></span><br><span class="line"><span class="hljs-comment">//   author: memset0</span></span><br><span class="line"><span class="hljs-comment">//   date: 2019.01.10 08:14:13</span></span><br><span class="line"><span class="hljs-comment">//   website: https://memset0.cn/</span></span><br><span class="line"><span class="hljs-comment">// =================================</span></span><br><span class="line"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="hljs-keyword">namespace</span> ringo &#123;</span><br><span class="line"><span class="hljs-keyword">template</span> &lt;<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">T</span>&gt; <span class="hljs-title">inline</span> <span class="hljs-title">void</span> <span class="hljs-title">read</span>(<span class="hljs-title">T</span> &amp;<span class="hljs-title">x</span>) &#123;</span></span><br><span class="line">	x = <span class="hljs-number">0</span>; <span class="hljs-keyword">register</span> <span class="hljs-keyword">char</span> c = getchar(); <span class="hljs-keyword">register</span> <span class="hljs-keyword">bool</span> f = <span class="hljs-number">0</span>;</span><br><span class="line">	<span class="hljs-keyword">while</span> (!<span class="hljs-built_in">isdigit</span>(c)) f ^= c == <span class="hljs-string">'-'</span>, c = getchar();</span><br><span class="line">	<span class="hljs-keyword">while</span> (<span class="hljs-built_in">isdigit</span>(c)) x = x * <span class="hljs-number">10</span> + c - <span class="hljs-string">'0'</span>, c = getchar();</span><br><span class="line">	<span class="hljs-keyword">if</span> (f) x = -x;</span><br><span class="line">&#125;</span><br><span class="line"><span class="hljs-keyword">template</span> &lt;<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">T</span>&gt; <span class="hljs-title">inline</span> <span class="hljs-title">void</span> <span class="hljs-title">print</span>(<span class="hljs-title">T</span> <span class="hljs-title">x</span>) &#123;</span></span><br><span class="line">	<span class="hljs-keyword">if</span> (x &lt; <span class="hljs-number">0</span>) <span class="hljs-built_in">putchar</span>(<span class="hljs-string">'-'</span>), x = -x;</span><br><span class="line">	<span class="hljs-keyword">if</span> (x &gt; <span class="hljs-number">9</span>) print(x / <span class="hljs-number">10</span>);</span><br><span class="line">	<span class="hljs-built_in">putchar</span>(<span class="hljs-string">'0'</span> + x % <span class="hljs-number">10</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="hljs-keyword">template</span> &lt;<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">T</span>&gt; <span class="hljs-title">inline</span> <span class="hljs-title">void</span> <span class="hljs-title">print</span>(<span class="hljs-title">T</span> <span class="hljs-title">x</span>, <span class="hljs-title">char</span> <span class="hljs-title">c</span>) &#123;</span> print(x), <span class="hljs-built_in">putchar</span>(c); &#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> N = <span class="hljs-number">55</span>, Nd = <span class="hljs-number">5010</span>, Ed = <span class="hljs-number">1000010</span>;</span><br><span class="line"><span class="hljs-keyword">int</span> n, m, k, l, r, u, s, e, ts, nod, flow, cost;</span><br><span class="line"><span class="hljs-keyword">int</span> a[N][N], id[N][N], id2[N][N], pre[Nd], dis[Nd], q[Nd];</span><br><span class="line"><span class="hljs-keyword">int</span> tot = <span class="hljs-number">2</span>, hed[Nd], nxt[Ed], to[Ed], val[Ed], cst[Ed];</span><br><span class="line"><span class="hljs-keyword">bool</span> b[N][N], inq[Nd];</span><br><span class="line">ll ans;</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-keyword">void</span> <span class="hljs-title">add_edge</span><span class="hljs-params">(<span class="hljs-keyword">int</span> u, <span class="hljs-keyword">int</span> v, <span class="hljs-keyword">int</span> w, <span class="hljs-keyword">int</span> c)</span> </span>&#123;</span><br><span class="line">	nxt[tot] = hed[u], to[tot] = v, val[tot] = w, cst[tot] = c, hed[u] = tot++;</span><br><span class="line">	nxt[tot] = hed[v], to[tot] = u, val[tot] = <span class="hljs-number">0</span>, cst[tot] =-c, hed[v] = tot++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">spfa</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">	<span class="hljs-built_in">memset</span>(pre, <span class="hljs-number">0</span>, <span class="hljs-keyword">sizeof</span>(pre));</span><br><span class="line">	<span class="hljs-built_in">memset</span>(dis, <span class="hljs-number">-63</span>, <span class="hljs-keyword">sizeof</span>(dis));</span><br><span class="line">	q[l = r = <span class="hljs-number">0</span>] = s, dis[s] = <span class="hljs-number">0</span>, inq[s] = <span class="hljs-number">1</span>;</span><br><span class="line">	<span class="hljs-keyword">while</span> (l &lt;= r) &#123;</span><br><span class="line">		u = q[(l++) % Nd], inq[u] = <span class="hljs-number">0</span>;</span><br><span class="line">		<span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = hed[u], v = to[i]; i; i = nxt[i], v = to[i])</span><br><span class="line">			<span class="hljs-keyword">if</span> (val[i] &amp;&amp; dis[u] + cst[i] &gt; dis[v]) &#123;</span><br><span class="line">				dis[v] = dis[u] + cst[i], pre[v] = i;</span><br><span class="line">				<span class="hljs-keyword">if</span> (!inq[v]) inq[q[(++r) % Nd] = v] = <span class="hljs-number">1</span>;</span><br><span class="line">			&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="hljs-keyword">return</span> pre[e];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">	read(n), read(m), read(k);</span><br><span class="line">	<span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++) <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">1</span>; j &lt;= n; j++) read(a[i][j]), ans += a[i][j];</span><br><span class="line">	<span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>, x, y; i &lt;= k; i++) read(x), read(y), b[x][y] = <span class="hljs-number">1</span>;</span><br><span class="line">	s = ++nod, e = ++nod, ts = ++nod;</span><br><span class="line">	add_edge(s, ts, m, <span class="hljs-number">0</span>);</span><br><span class="line">	<span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++) <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">1</span>; j &lt;= n; j++) id[i][j] = ++nod, id2[i][j] = ++nod;</span><br><span class="line">	<span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++)</span><br><span class="line">		<span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">1</span>; j &lt;= n; j++) &#123;</span><br><span class="line">			<span class="hljs-keyword">static</span> <span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> nxt[<span class="hljs-number">4</span>][<span class="hljs-number">2</span>] = &#123;&#123;<span class="hljs-number">0</span>, <span class="hljs-number">1</span>&#125;, &#123;<span class="hljs-number">1</span>, <span class="hljs-number">0</span>&#125;, &#123;<span class="hljs-number">0</span>, <span class="hljs-number">-1</span>&#125;, &#123;<span class="hljs-number">-1</span>, <span class="hljs-number">0</span>&#125;&#125;;</span><br><span class="line">			<span class="hljs-keyword">if</span> (b[i][j]) <span class="hljs-keyword">continue</span>;</span><br><span class="line">			<span class="hljs-keyword">if</span> ((i + j) &amp; <span class="hljs-number">1</span>) &#123;</span><br><span class="line">				add_edge(id[i][j], id2[i][j], <span class="hljs-number">1</span>, a[i][j]);</span><br><span class="line">				<span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> t = <span class="hljs-number">0</span>, x, y; t &lt; <span class="hljs-number">4</span>; t++) &#123;</span><br><span class="line">					x = i + nxt[t][<span class="hljs-number">0</span>], y = j + nxt[t][<span class="hljs-number">1</span>];</span><br><span class="line">					<span class="hljs-keyword">if</span> (b[x][y] || x &lt; <span class="hljs-number">1</span> || y &lt; <span class="hljs-number">1</span> || x &gt; n || y &gt; n) <span class="hljs-keyword">continue</span>;</span><br><span class="line">					<span class="hljs-keyword">if</span> (x &amp; <span class="hljs-number">1</span>) add_edge(id2[x][y], id[i][j], <span class="hljs-number">1</span>, <span class="hljs-number">0</span>);</span><br><span class="line">					<span class="hljs-keyword">else</span> add_edge(id2[i][j], id[x][y], <span class="hljs-number">1</span>, <span class="hljs-number">0</span>);</span><br><span class="line">				&#125;</span><br><span class="line">			&#125; <span class="hljs-keyword">else</span> &#123;</span><br><span class="line">				add_edge(id[i][j], id2[i][j], <span class="hljs-number">1</span>, <span class="hljs-number">0</span>);</span><br><span class="line">				<span class="hljs-keyword">if</span> (i &amp; <span class="hljs-number">1</span>) add_edge(ts, id[i][j], <span class="hljs-number">1</span>, <span class="hljs-number">0</span>);</span><br><span class="line">				<span class="hljs-keyword">else</span> add_edge(id2[i][j], e, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	<span class="hljs-keyword">while</span> (spfa()) &#123;</span><br><span class="line">		flow = <span class="hljs-number">1e9</span>, cost = <span class="hljs-number">0</span>;</span><br><span class="line">		<span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = pre[e]; i; i = pre[to[i ^ <span class="hljs-number">1</span>]]) flow = <span class="hljs-built_in">std</span>::min(flow, val[i]);</span><br><span class="line">		<span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = pre[e]; i; i = pre[to[i ^ <span class="hljs-number">1</span>]]) val[i] -= flow, val[i ^ <span class="hljs-number">1</span>] += flow;</span><br><span class="line">		<span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = pre[e]; i; i = pre[to[i ^ <span class="hljs-number">1</span>]]) cost += flow * cst[i];</span><br><span class="line">		<span class="hljs-keyword">if</span> (cost &lt;= <span class="hljs-number">0</span>) <span class="hljs-keyword">break</span>;</span><br><span class="line">		ans -= cost;</span><br><span class="line">	&#125;</span><br><span class="line">	print(ans, <span class="hljs-string">'\n'</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125; <span class="hljs-function"><span class="hljs-keyword">signed</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123; <span class="hljs-keyword">return</span> ringo::main(), <span class="hljs-number">0</span>; &#125;</span><br></pre></td></tr></table></figure>
+        </div>
+        
+        <div class="level is-size-7 is-uppercase my-post-tags">
+            <div class="level-start">
+                <div class="level-item">
+                    <!-- <span class="is-size-6 has-text-grey has-mr-7">#</span> -->
+                    <a class="my-post-tag has-link-grey -link" href="/tags/拆点/">拆点</a>, <a class="my-post-tag has-link-grey -link" href="/tags/网络流/">网络流</a>, <a class="my-post-tag has-link-grey -link" href="/tags/费用流/">费用流</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/bzoj5405/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">BZOJ5405 - platform</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/luogu4131/">
+                <span class="level-item">洛谷4131 - [WC2005]友好的生物</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <!-- <h3 class="title is-5 has-text-weight-normal">评论</h3> -->
+        
+<div id="valine-thread"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/volantis@1/js/volantis.min.js"></script>
+<script>
+    new Valine({
+        el: '#valine-thread' ,
+        notify: false,
+        verify: true,
+        app_id: 'rHgVqrBsv0EYGFSxzDDIDapm-9Nh9j0Va',
+        app_key: 'X7Dp3hEvRWPbqHBYkOTBXzPm',
+        placeholder: '留下你的脚印~'
+    });
+</script>
+
+    </div>
+</div>
+</div>
+                
+                
+
+
+
+
+<div class="column my-sidebar is-4-tablet is-4-desktop is-4-widescreen  has-order-3 column-right is-sticky">
+    
+        
+<div class="card widget" id="my-id-sidebar-profile">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered">
+                <div>
+                    <img class="image is-128x128 has-mb-6" src="https://cdn.jsdelivr.net/gh/memset0/blog/images/avatar.png" alt="memset0">
+                    
+                    <p class="is-size-4 is-block">
+                        memset0
+                    </p>
+                    
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>The Cruel World</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        文章
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        131
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        分类
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        6
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        标签
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        142
+                    </p>
+                </div>
+            </div>
+        </nav>
+        <div class="level">
+            <a class="level-item button is-link is-rounded" href="http://github.com/memset0">
+                关注我
+            </a>
+        </div>
+        
+        
+    </div>
+</div>
+    
+        
+<!-- <script type="text/javascript">
+    function myHideElement(name) {
+        return;
+    }
+</script> -->
+
+    
+        	
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                分类
+            </h3>
+            <ul class="menu-list">
+            <li>
+        <a class="level is-marginless" href="/categories/Algorithm/">
+            <span class="level-start">
+                <span class="level-item">Algorithm</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">21</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Contest/">
+            <span class="level-start">
+                <span class="level-item">Contest</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">3</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Diary/">
+            <span class="level-start">
+                <span class="level-item">Diary</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">7</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Geek/">
+            <span class="level-start">
+                <span class="level-item">Geek</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">10</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Plan/">
+            <span class="level-start">
+                <span class="level-item">Plan</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Solution/">
+            <span class="level-start">
+                <span class="level-item">Solution</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">88</span>
+            </span>
+        </a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+    
+</div>
+
+            </div>
+        </div>
+    </section>
+    <!-- <script type="text/javascript">
+        myHideElement('my-id-sidebar-profile');
+        myHideElement('my-id-sidebar-category');
+    </script> -->
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                <!-- 
+                    <img src="/images/logo.png" alt="BZOJ5403 - marshland" height="28">
+                    memset0's blog
+                 -->
+                </a>
+                <p class="is-size-7">
+                    &copy; 2017 - 2019
+                    <i class="fa fa-heart"></i>
+                    memset0
+                </p>
+                <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+                <p class="is-size-7">
+                    <span>
+                        <span>95.8k</span> Words
+                    </span>
+                    <span id="busuanzi_container_site_pv" style="display:none">
+                    <span class="division">|</span>
+                    <span id="busuanzi_value_site_pv"></span> Views
+                    </span>
+                    <span id="busuanzi_container_site_uv" style="display:none">
+                    <span class="division">|</span>
+                    <span id="busuanzi_value_site_uv"></span> Visitors
+                    </span>
+                </p>
+                <p class="is-size-7">
+                    Powered by Hexo & Icarus & Coding Pages & Love
+                </p>
+                <p class="is-size-7">
+                    第 <span id="hitokoto-id"></span> 条一言：「<span id="hitokoto"></span>」
+                </p>
+                <script>
+                    var xhr = new XMLHttpRequest();
+                    xhr.open('get', 'https://v1.hitokoto.cn/?c=d');
+                    xhr.onreadystatechange = function () {
+                        if (xhr.readyState === 4) {
+                            var data = JSON.parse(xhr.responseText);
+                            document.getElementById('hitokoto').innerText = data.hitokoto;
+                            document.getElementById('hitokoto-id').innerText = data.id;
+                        }
+                    }
+                    xhr.send();
+                </script>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Creative Commons" href="https://creativecommons.org/">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="NonCommercial" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+                        
+                        <i class="fab fa-creative-commons-nc"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="NoDerivatives" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+                        
+                        <i class="fab fa-creative-commons-nd"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("zh-CN");</script>
+
+
+    
+    
+    
+    <script src="/js/animation.js"></script>
+    
+
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+    <script src="/js/gallery.js" defer></script>
+    
+
+    
+    
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+
+    
+    
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+    
+    
+
+<a id="back-to-top" title="回到顶端" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="想要查找什么...">
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+</body>
+</html>
