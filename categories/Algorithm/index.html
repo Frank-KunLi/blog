@@ -150,6 +150,58 @@ var _hmt = _hmt || [];
         <div class="my-title ">
             <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
                 
+                    <a class="has-link-black-ter" href="/polya/">Polya 定理学习笔记</a>
+                
+            </h1>
+            <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
+                <div class="level-left">
+                    <i class="far fa-clock"></i>
+                    <time class="level-item has-text-grey" datetime="2019-02-11T14:27:36.000Z">
+                        2019-02-11
+                    </time>
+                    <i class="far fa-folder"></i>
+                    
+                        <div class="level-item">
+                            <a class="has-link-grey -link" href="/categories/Algorithm/">Algorithm</a>
+                        </div>
+                    
+                    <i class="far fa-edit"></i>
+                    
+                        <span class="level-item has-text-grey">
+                            153 Words
+                        </span>
+                    
+                </div>
+            </div>
+        </div>
+        
+        <div class="content">
+            <p>这个东西其实之前一直想学但是咕咕咕了 233.</p>
+<h2 id="Burnside-引理"><a href="#Burnside-引理" class="headerlink" title="Burnside 引理"></a>Burnside 引理</h2><p>$ans = { 1 \over |G| } \sum_{f \in G} C(f)$ ，其中 $C(f)$ 表示置换 $f$ 中不动点的个数</p>
+<h2 id="Polya-定理"><a href="#Polya-定理" class="headerlink" title="Polya 定理"></a>Polya 定理</h2><p>定义 $L(f)$ 为置换 $f$ 的循环节数，可以理解为对于任意一种状态至多经过 $L(f)$ 次置换 $f$ 可以变回原样。</p>
+<p>易证置换 $f$ 的不动点一定满足其自身的循环节为 $L(f)$ ，即 $C(f) = k^{L(f)}$ ，其中 $k$ 表示颜色种数。</p>
+<p>Polya 定理的公式即 $ans = { 1 \over |G| } \sum_{f \in G} k^{L(f)} $ 。</p>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article
+         
+    ">
+        
+        <div class="my-title ">
+            <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+                
                     <a class="has-link-black-ter" href="/fen-zhi-ntt/">分治 NTT 学习笔记</a>
                 
             </h1>
@@ -1255,58 +1307,6 @@ var _hmt = _hmt || [];
 
 
 
-    <div class="card">
-    
-    <div class="card-content article
-         
-    ">
-        
-        <div class="my-title ">
-            <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-                
-                    <a class="has-link-black-ter" href="/geek-c++中gcd函数/">C++ 中的 __gcd() 函数探源</a>
-                
-            </h1>
-            <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
-                <div class="level-left">
-                    <i class="far fa-clock"></i>
-                    <time class="level-item has-text-grey" datetime="2018-05-25T14:21:00.000Z">
-                        2018-05-25
-                    </time>
-                    <i class="far fa-folder"></i>
-                    
-                        <div class="level-item">
-                            <a class="has-link-grey -link" href="/categories/Algorithm/">Algorithm</a>
-                        </div>
-                    
-                    <i class="far fa-edit"></i>
-                    
-                        <span class="level-item has-text-grey">
-                            191 Words
-                        </span>
-                    
-                </div>
-            </div>
-        </div>
-        
-        <div class="content">
-            <p>最近在做一道需要用到 gcd 的题，正当我急于回忆 gcd 怎么写时，忽然听说有个叫<code>__gcd()</code>的内置函数。</p>
-<p><a href="https://www.zhihu.com/question/30605743" target="_blank" rel="noopener">知乎</a> 上说这是个<code>built-in</code>函数（也许可以简单地理解为内置函数）。</p>
-<p>但我对它的时间复杂度一直很担忧，想看看它到底是怎么实现的，便在C++内置库<code>bits/stl_algo.h</code>的 1512 - 1527 行找到可能的实现：</p>
-<figure class="highlight cpp hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"> <span class="hljs-comment">/**</span></span><br><span class="line"><span class="hljs-comment">  *  This is a helper function for the rotate algorithm specialized on RAIs.</span></span><br><span class="line"><span class="hljs-comment">  *  It returns the greatest common divisor of two integer values.</span></span><br><span class="line"><span class="hljs-comment"> */</span></span><br><span class="line"> <span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">typename</span> _EuclideanRingElement&gt;</span><br><span class="line">   _EuclideanRingElement</span><br><span class="line">   __gcd(_EuclideanRingElement __m, _EuclideanRingElement __n)</span><br><span class="line">   &#123;</span><br><span class="line">     <span class="hljs-keyword">while</span> (__n != <span class="hljs-number">0</span>)</span><br><span class="line">&#123;</span><br><span class="line">  _EuclideanRingElement <span class="hljs-keyword">__t</span> = __m % __n;</span><br><span class="line">  __m = __n;</span><br><span class="line">  __n = <span class="hljs-keyword">__t</span>;</span><br><span class="line">&#125;</span><br><span class="line">     <span class="hljs-keyword">return</span> __m;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-<p><code>bits/stl_algo.h</code>是C++的一个内置库，你引用<code>algorithm</code>库时就会引入这个库</p>
-
-        </div>
-        
-        
-        
-    </div>
-</div>
-
-
-
-
-
 
     
 <div class="card card-transparent">
@@ -1364,7 +1364,7 @@ var _hmt = _hmt || [];
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        131
+                        134
                     </p>
                 </div>
             </div>
@@ -1384,7 +1384,7 @@ var _hmt = _hmt || [];
                         标签
                     </p>
                     <p class="title has-text-weight-normal">
-                        142
+                        144
                     </p>
                 </div>
             </div>
@@ -1415,7 +1415,7 @@ var _hmt = _hmt || [];
                 <span class="level-item">Algorithm</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">21</span>
+                <span class="level-item tag">22</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/Contest/">
@@ -1431,7 +1431,7 @@ var _hmt = _hmt || [];
                 <span class="level-item">Diary</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">7</span>
+                <span class="level-item tag">8</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/Geek/">
@@ -1455,7 +1455,7 @@ var _hmt = _hmt || [];
                 <span class="level-item">Solution</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">88</span>
+                <span class="level-item tag">89</span>
             </span>
         </a></li>
             </ul>
@@ -1491,7 +1491,7 @@ var _hmt = _hmt || [];
                 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
                 <p class="is-size-7">
                     <span>
-                        <span>95.8k</span> Words
+                        <span>96.4k</span> Words
                     </span>
                     <span id="busuanzi_container_site_pv" style="display:none">
                     <span class="division">|</span>
