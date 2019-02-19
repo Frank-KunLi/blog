@@ -8,7 +8,7 @@
 
 
     <meta name="description" content="和其他题解不太一样，这里没有用线段树…… 首先肯定会在 LCA 处集合，通过树剖 + bitset 维护出可选的集合。然后利用 Hall 定理进行完美匹配统计答案。可以发现直接树剖 + 暴力跳是 $O(n ^ 2)$ 的，所以限制树链的长度至多为 $S$ ，则复杂度为：$O(n + qcS\times\frac{m}{32} + qc \times \frac{n}{S} + q \times 2">
-<meta name="keywords" content="巧妙的思路,bitset,树链剖分,Hall 定理,二分图匹配,分块">
+<meta name="keywords" content="巧妙的思路,树链剖分,bitset,Hall 定理,二分图匹配,分块">
 <meta property="og:type" content="article">
 <meta property="og:title" content="BZOJ5404 - party">
 <meta property="og:url" content="https://memset0.cn/bzoj5404/index.html">
